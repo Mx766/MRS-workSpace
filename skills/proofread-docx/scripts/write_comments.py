@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Phase 6: 批注写入（v4 — pi=0 文档级问题 + 段落高亮）
+Phase 6: 批注写入（v5 — pi=0 不再丢弃，全部作为文档级批注）
 
 关键修复:
   - commentReference 放在高亮 run 的 rPr 内部（紧挨 w:shd + w:highlight）
@@ -9,8 +9,8 @@ Phase 6: 批注写入（v4 — pi=0 文档级问题 + 段落高亮）
   - lxml 仅用于构建 comments.xml / rels / CT（ZIP 层注入）
   - 跨 run 匹配：target_quote 跨多段 run 时，通过全文拼接定位起始 run
   - 多长度 key 匹配: [15, 10, 8, 5] 递降
-  - v4: paragraph_index=0 的文档级问题（如跨格式全文匹配）不再丢弃，
-    作为裸引用插入第一段，批注带 [全文匹配，仅供参考] 前缀
+  - v5: pi=0 的全部问题（机械检查 + 语义审查无定位）均作为文档级裸引用插入第一段，
+    段落级 comment_id 优先分配，批注带 [全文匹配，仅供参考] 前缀
 """
 
 import argparse, json, shutil, zipfile, io, os, re, sys, tempfile
@@ -50,19 +50,17 @@ def write_word_comments(filepath: str, issues: list[dict],
     os.makedirs(os.path.dirname(output) or '.', exist_ok=True)
 
     # ─── 按段落分组、排序 ───
-    # v5: pi=0 机械检查问题（有 type 字段）跳过不写批注
-    #     仅保留有真实段落位置的语义审查问题
+    # v5: pi=0 的全部走文档级路径（机械检查 + 语义审查无定位的均在此）
+    #     段落级问题先分配 comment_id，文档级问题后分配
     issues_by_para = {}
     doc_level_issues = []
-    skipped_mech = 0
+    mech_count = 0
     for issue in issues:
         pi = issue.get('paragraph_index', 0)
-        is_mech = bool(issue.get('type')) and pi < 1
-        if is_mech:
-            skipped_mech += 1
-            continue
         if pi < 1:
             doc_level_issues.append(issue)
+            if issue.get('type'):
+                mech_count += 1
         else:
             issues_by_para.setdefault(pi, []).append(issue)
 
@@ -75,33 +73,8 @@ def write_word_comments(filepath: str, issues: list[dict],
     para_comments = {}
     total_matched = 0
 
-    # ── 1a: Document-level issues (pi=0) ──
-    # Insert bare refs at paragraph 1 (first content paragraph)
-    doc_level_count = 0
-    if doc_level_issues and len(doc.paragraphs) > 0:
-        para_comments[0] = []  # special key for doc-level
-        p1 = doc.paragraphs[0]
-        p_elem = p1._p
-        pPr = p_elem.find(qn('w:pPr'))
-        insert_pos = (list(p_elem).index(pPr) + 1) if pPr is not None else 0
-
-        for issue in doc_level_issues:
-            sev = issue.get('severity', 'medium')
-            para_comments[0].append((comment_id, sev, issue))
-
-            # Bare ref (no highlight — can't locate exact run)
-            ref_run = OxmlElement('w:r')
-            ref_rPr = OxmlElement('w:rPr')
-            cr = OxmlElement('w:commentReference')
-            cr.set(qn('w:id'), str(comment_id))
-            ref_rPr.append(cr)
-            ref_run.append(ref_rPr)
-            p_elem.insert(insert_pos, ref_run)
-
-            comment_id += 1
-            doc_level_count += 1
-
-    # ── 1b: Paragraph-level issues (pi >= 1) ──
+    # ── 1a: Paragraph-level issues (pi >= 1) ──
+    # Process first so they get lower comment_ids
     for para_idx in sorted(issues_by_para.keys()):
         if para_idx > len(doc.paragraphs):
             continue
@@ -196,6 +169,33 @@ def write_word_comments(filepath: str, issues: list[dict],
 
             comment_id += 1
 
+    # ── 1b: Document-level issues (pi=0) ──
+    # Insert bare refs at paragraph 1 AFTER paragraph-level issues
+    # (so paragraph-level get lower comment_ids)
+    doc_level_count = 0
+    if doc_level_issues and len(doc.paragraphs) > 0:
+        para_comments[0] = []  # special key for doc-level
+        p1 = doc.paragraphs[0]
+        p_elem = p1._p
+        pPr = p_elem.find(qn('w:pPr'))
+        insert_pos = (list(p_elem).index(pPr) + 1) if pPr is not None else 0
+
+        for issue in doc_level_issues:
+            sev = issue.get('severity', 'medium')
+            para_comments[0].append((comment_id, sev, issue))
+
+            # Bare ref (no highlight — can't locate exact run for pi=0)
+            ref_run = OxmlElement('w:r')
+            ref_rPr = OxmlElement('w:rPr')
+            cr = OxmlElement('w:commentReference')
+            cr.set(qn('w:id'), str(comment_id))
+            ref_rPr.append(cr)
+            ref_run.append(ref_rPr)
+            p_elem.insert(insert_pos, ref_run)
+
+            comment_id += 1
+            doc_level_count += 1
+
     total_issues = comment_id
 
     # Save via python-docx → highlights + comment refs preserved
@@ -205,10 +205,10 @@ def write_word_comments(filepath: str, issues: list[dict],
 
     if verbose:
         print(f'STEP 1: highlights + {comment_id} comment refs written via python-docx')
-        if skipped_mech > 0:
-            print(f'  Skipped mechanical (pi=0): {skipped_mech} issues')
+        if mech_count > 0:
+            print(f'  Mechanical (pi=0, doc-level): {mech_count} issues')
         if doc_level_count > 0:
-            print(f'  Document-level (pi=0): {doc_level_count} bare refs at paragraph 1')
+            print(f'  Document-level total (pi=0): {doc_level_count} bare refs at paragraph 1')
 
     # ══════════════════════════════════════════════════
     # STEP 2: ZIP layer — build comments.xml,

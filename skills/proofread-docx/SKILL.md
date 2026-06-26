@@ -188,6 +188,20 @@ python ${SKILL_ROOT}/scripts/check_mechanical.py \
 
 **Agent 行动**：记录 `summary.total_issues` 和 `range_consistency_warning`。将此输出留存，Phase 4 每章加载时引用对应段的疑点。
 
+### 3.1 机械检查数据契约（重要）
+
+Phase 3 输出与 Phase 4 输出**字段名不同**，Phase 6/7 消费端已做归一化处理，但新增脚本时需注意：
+
+| 字段用途 | Phase 3 字段名 | Phase 4 字段名 |
+|----------|---------------|---------------|
+| 问题类型 | `type` (如 `number_missing`) | `check_item` (如 `1.4 错译`) |
+| 原文引用 | `source_value` / `source_term` | `source_quote` |
+| 译文引用 | `expected_target` | `target_quote` |
+| 问题描述 | `check` (描述+建议合一) | `issue` (仅描述) + `suggestion` |
+| 段落定位 | `paragraph_index` | `paragraph_index` + `chapter` |
+
+> ⚠️ **pi=0 问题**：Phase 3 跨格式（PDF→DOCX）全文匹配产生的 `paragraph_index=0` 问题无法定位到具体段落，均为"全文匹配仅供参考"，不应等量列入报告/批注。`write_report.py` 自动将其归入汇总统计，`write_comments.py` 自动跳过。
+
 ---
 
 ## Phase 4: 逐章校对（Agent 核心）
@@ -524,6 +538,8 @@ python ${SKILL_ROOT}/scripts/write_report.py \
 | check_mechanical | 原文/译文格式不一致 | ⚠️ 报告警告，Agent 仍然继续但仅做能做的检查 |
 | write_comments | 输出文件被占用 | ⚠️ 提示用户关闭文件后重试 |
 | write_report | 同上 | ⚠️ 同上 |
+| write_report / write_comments | Phase 3/4 字段名不一致导致批注/报告内容为空 | ✅ 已内置 `_normalize_issues()` 归一化，新脚本需遵循数据契约 |
+| check_mechanical | pi=0 跨格式问题充斥报告 | ✅ 报告自动汇总为"机械检查参考"，批注自动跳过 pi=0 问题 |
 | search_term | 网络不通/API不可用 | ⚠️ 标记为"无法查证，建议人工确认"，不阻塞流程 |
 
 ---
@@ -555,7 +571,8 @@ python ${SKILL_ROOT}/scripts/write_report.py \
 | 报告用 Markdown 输出 | 跑 Phase 7 脚本生成 .docx |
 
 ## 版本
-- v2.3 (2026-06-26): 新增 4.1.2 精度铁律：target_quote 逐字复制铁律 + 一检查项一 issue 铁律，修复批注匹配率 49% 和审查密度不足问题
+- v2.4 (2026-06-26): 新增 3.1 数据契约（Phase 3 vs Phase 4 字段名对照 + pi=0 处理规则）；脚本失败处理表新增字段名不一致条目
+- v2.3 (2026-06-26): 新增 4.1.2 精度铁律：target_quote 逐字复制铁律 + 一检查项一 issue 铁律，修复批注匹配率 49% 和审查密度不足问题：target_quote 逐字复制铁律 + 一检查项一 issue 铁律，修复批注匹配率 49% 和审查密度不足问题
 - v2.2 (2026-06-26): 新增 2.E 机器翻译残留检测（4 项）；2.6 新增领域自适应近义词（来自人工校对训练数据）；4.1 新增无术语库时的文档类型自适应检查；表达规范从 22→26 项
 - v2.1 (2026-06-25): Phase 4 表达规范从 6 项扩展到 22 项（新增翻译腔模式库 7 项、用词准确性 8 项、句法流畅度 4 项）；术语合规增加段内/跨段统一检查；新增逐段两轮检查执行规范
 - v2.0 (2026-06-25): 重构为结构化检查清单，修复 auto-scan bug，加前置条件检查，severity 统一为 critical/medium/low

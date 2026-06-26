@@ -33,6 +33,7 @@ def load_excel_glossary(filepath: str) -> list[dict]:
     tgt_col = _find_column(header, ['中文译法', '中文术语', 'target', 'zh', 'chinese', '译文', 'target_term', 'synonym', 'translation'])
     domain_col = _find_column(header, ['领域', 'domain', 'field', 'category', '分类'])
     action_col = _find_column(header, ['处理方式', 'action', 'type'])
+    added_at_col = _find_column(header, ['入库时间', 'added_at', 'add_date', '创建时间'])
 
     if src_col is None or tgt_col is None:
         # 尝试前两列作为默认
@@ -46,13 +47,14 @@ def load_excel_glossary(filepath: str) -> list[dict]:
         tgt = str(row[tgt_col]).strip() if tgt_col < len(row) and row[tgt_col] else ''
         domain = str(row[domain_col]).strip() if domain_col is not None and domain_col < len(row) and row[domain_col] else '通用'
         action = str(row[action_col]).strip() if action_col is not None and action_col < len(row) and row[action_col] else ''
+        added_at = str(row[added_at_col]).strip() if added_at_col is not None and added_at_col < len(row) and row[added_at_col] else ''
 
         # Skip keep-as-is terms (品牌名/人名等不翻译的术语)
         if action in ('保留原文', 'keep', 'keep original', 'retain'):
             continue
 
         if src and tgt:
-            terms.append({'source': src, 'target': tgt, 'domain': domain})
+            terms.append({'source': src, 'target': tgt, 'domain': domain, 'added_at': added_at})
 
     wb.close()
     return terms
@@ -88,7 +90,7 @@ def _load_csv_fallback(filepath: str) -> list[dict]:
         tgt = row[tgt_col].strip()
         domain = row[domain_col].strip() if domain_col and domain_col < len(row) else '通用'
         if src and tgt:
-            terms.append({'source': src, 'target': tgt, 'domain': domain})
+            terms.append({'source': src, 'target': tgt, 'domain': domain, 'added_at': ''})
     return terms
 
 
@@ -115,7 +117,7 @@ def load_sqlite_glossary(filepath: str) -> list[dict]:
                 tgt = str(row[1]).strip()
                 domain = str(row[2]).strip() if len(row) > 2 and row[2] else '通用'
                 if src and tgt:
-                    terms.append({'source': src, 'target': tgt, 'domain': domain})
+                    terms.append({'source': src, 'target': tgt, 'domain': domain, 'added_at': ''})
         except Exception:
             continue
     conn.close()
@@ -166,20 +168,22 @@ def merge_glossaries(all_terms: list[dict], priorities: list[int]) -> dict:
                             'source': t['source'],
                             'target': t['target'],
                             'domain': t['domain'],
-                            'from_file': t['from_file'],
-                            'priority': priority
+                            'from_file': t.get('from_file', ''),
+                            'priority': priority,
+                            'added_at': t.get('added_at', '')
                         }
             else:
                 merged[key] = {
                     'source': t['source'],
                     'target': t['target'],
                     'domain': t['domain'],
-                    'from_file': t['from_file'],
-                    'priority': priority
+                    'from_file': t.get('from_file', ''),
+                    'priority': priority,
+                    'added_at': t.get('added_at', '')
                 }
 
     return {
-        'terms': {k: {'source': v['source'], 'target': v['target'], 'domain': v['domain']} for k, v in merged.items()},
+        'terms': {k: {'source': v['source'], 'target': v['target'], 'domain': v['domain'], 'added_at': v.get('added_at', '')} for k, v in merged.items()},
         'conflicts': conflicts,
         'stats': {
             'total_terms': len(merged),
