@@ -64,6 +64,63 @@ def write_word_comments(filepath: str, issues: list[dict],
         else:
             issues_by_para.setdefault(pi, []).append(issue)
 
+    # ─── 合并 pi=0 机械问题：按 type 归为综合批注 ───
+    # 96 条散落在第一段太乱，按数字缺失/小数位/术语违规三类各合并为一条
+    type_label_cn = {
+        'number_missing': '数字缺失', 'decimal_mismatch': '小数位不匹配',
+        'glossary_violation': '术语库违规',
+    }
+    mech_groups = {}  # type → list of issues
+    other_doc = []    # non-mechanical pi=0 issues
+    for issue in doc_level_issues:
+        typ = issue.get('type', '')
+        if typ and typ in type_label_cn:
+            mech_groups.setdefault(typ, []).append(issue)
+        else:
+            other_doc.append(issue)
+
+    # Build consolidated mechanical issues
+    consolidated_mech = []
+    for typ, group in mech_groups.items():
+        label = type_label_cn.get(typ, typ)
+        svals = []
+        for iss in group:
+            sv = iss.get('source_value') or iss.get('source_term', '')
+            if sv:
+                svals.append(sv)
+        sev = group[0].get('severity', 'medium')
+        dim = group[0].get('dimension', '')
+        total = len(group)
+
+        # Build rich text body
+        body_lines = [
+            f'以下 {total} 处{label}在原文中存在但译文中未找到对应项',
+            f'（跨格式 PDF→DOCX 全文匹配，仅供参考，建议人工逐条复核）：',
+            '',
+        ]
+        # Wrap values in groups of 10 per line
+        for i in range(0, len(svals), 10):
+            chunk = svals[i:i+10]
+            body_lines.append('、'.join(chunk))
+
+        consolidated_mech.append({
+            'paragraph_index': 0,
+            'type': typ,
+            '_consolidated': True,
+            '_count': total,
+            '_values': svals,
+            '_body': '\n'.join(body_lines),
+            'severity': sev,
+            'dimension': dim,
+            'source_value': f'{label}（{total}处）',
+            'check': '\n'.join(body_lines),
+        })
+
+    # Replace doc_level_issues: other (non-mech) + consolidated mech
+    doc_level_issues = other_doc + consolidated_mech
+    if verbose and consolidated_mech:
+        print(f'  Consolidated {mech_count} mechanical issues into {len(consolidated_mech)} comments')
+
     # ══════════════════════════════════════════════════
     # STEP 1: python-docx does ALL document.xml work
     #         (highlights + commentReference in rPr)
@@ -170,19 +227,18 @@ def write_word_comments(filepath: str, issues: list[dict],
             comment_id += 1
 
     # ── 1b: Document-level issues (pi=0) ──
-    # Insert bare refs at paragraph 1 AFTER paragraph-level issues
-    # (so paragraph-level get lower comment_ids)
+    # Insert bare refs at LAST paragraph (appendix-style, not polluting the beginning)
     doc_level_count = 0
     if doc_level_issues and len(doc.paragraphs) > 0:
-        para_comments[0] = []  # special key for doc-level
-        p1 = doc.paragraphs[0]
-        p_elem = p1._p
-        pPr = p_elem.find(qn('w:pPr'))
-        insert_pos = (list(p_elem).index(pPr) + 1) if pPr is not None else 0
+        para_comments[-1] = []  # special key -1 for doc-level (appendix)
+        plast = doc.paragraphs[-1]
+        pelem = plast._p
+        pPr = pelem.find(qn('w:pPr'))
+        insert_pos = (list(pelem).index(pPr) + 1) if pPr is not None else 0
 
         for issue in doc_level_issues:
             sev = issue.get('severity', 'medium')
-            para_comments[0].append((comment_id, sev, issue))
+            para_comments[-1].append((comment_id, sev, issue))
 
             # Bare ref (no highlight — can't locate exact run for pi=0)
             ref_run = OxmlElement('w:r')
@@ -191,7 +247,7 @@ def write_word_comments(filepath: str, issues: list[dict],
             cr.set(qn('w:id'), str(comment_id))
             ref_rPr.append(cr)
             ref_run.append(ref_rPr)
-            p_elem.insert(insert_pos, ref_run)
+            pelem.insert(insert_pos, ref_run)
 
             comment_id += 1
             doc_level_count += 1
@@ -208,7 +264,7 @@ def write_word_comments(filepath: str, issues: list[dict],
         if mech_count > 0:
             print(f'  Mechanical (pi=0, doc-level): {mech_count} issues')
         if doc_level_count > 0:
-            print(f'  Document-level total (pi=0): {doc_level_count} bare refs at paragraph 1')
+            print(f'  Document-level (pi=0): {doc_level_count} comments at last paragraph')
 
     # ══════════════════════════════════════════════════
     # STEP 2: ZIP layer — build comments.xml,
@@ -227,7 +283,8 @@ def write_word_comments(filepath: str, issues: list[dict],
 
     for para_idx in sorted(para_comments.keys()):
         for cid, sev, issue in para_comments[para_idx]:
-            is_doc_level = (para_idx == 0)
+            is_doc_level = (para_idx == -1)
+            is_consolidated = issue.get('_consolidated', False)
             date_str = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
             cmt = lxe.SubElement(comments_tree, f'{{{NS_W}}}comment')
             cmt.set(f'{{{NS_W}}}id', str(cid))
@@ -267,13 +324,33 @@ def write_word_comments(filepath: str, issues: list[dict],
             if chk_text in type_map:
                 chk_text = type_map[chk_text]
 
-            lines = [
-                doc_prefix + sev_label,
-                f'【{dim_text} — {chk_text}】', '',
-                f'原文: {src_quote}', '',
-                f'问题: {iss_text}', '',
-                f'建议: {sug_text}',
-            ]
+            if is_consolidated:
+                # Consolidated mechanical issue: header + pre-built body
+                count = issue.get('_count', 0)
+                lines = [
+                    doc_prefix + sev_label,
+                    f'【{dim_text} — {chk_text}（{count}处）】', '',
+                ]
+                for bline in issue.get('_body', '').split('\n'):
+                    lines.append(bline)
+            elif is_doc_level:
+                # Single mechanical issue: check field contains the full description
+                check_desc = sug_text
+                lines = [doc_prefix + sev_label, f'【{dim_text} — {chk_text}】']
+                if src_quote:
+                    lines.extend(['', f'原文: {src_quote}'])
+                lines.extend(['', check_desc])
+            else:
+                # Paragraph-level semantic: build dynamically, skip empty fields
+                lines = [sev_label, f'【{dim_text} — {chk_text}】']
+                if src_quote:
+                    lines.extend(['', f'原文: {src_quote}'])
+                if tgt_quote:
+                    lines.extend(['', f'译文: {tgt_quote}'])
+                if iss_text:
+                    lines.extend(['', f'问题: {iss_text}'])
+                if sug_text:
+                    lines.extend(['', f'建议: {sug_text}'])
             for i, line in enumerate(lines):
                 pe = lxe.SubElement(cmt, f'{{{NS_W}}}p')
                 pp = lxe.SubElement(pe, f'{{{NS_W}}}pPr')
