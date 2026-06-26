@@ -471,90 +471,136 @@ def _formats_match(source_path: str, target_path: str) -> bool:
     return src_sfx == tgt_sfx
 
 
-def _check_fulltext_numbers(full_src: str, full_tgt: str) -> list[dict]:
-    """跨格式模式：全文数字一致性检查"""
+# ── 假阳性过滤模式 ──
+_FP_DOI = re.compile(r'10\.\d{4,}/')
+_FP_DATE = re.compile(
+    r'(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}',
+    re.IGNORECASE)
+_FP_REF_RANGE = re.compile(r'\b\d{2,4}[-–]\d{1,4}\b')
+_FP_REF_SECTION = re.compile(r'(References|REFERENCES|参考文献|Bibliography)', re.IGNORECASE)
+
+
+def _is_false_positive_number(num_str: str, page_text: str) -> tuple[bool, str]:
+    """判断一个数字是否为假阳性。返回 (skip, reason)。"""
+    # Skip large page-number-like numbers (>500)
+    try:
+        if int(num_str) > 500:
+            return (True, '>500')
+    except ValueError:
+        pass
+    # DOI pattern in local context
+    if _FP_DOI.search(page_text):
+        return (True, 'DOI/reference identifier')
+    # Date pattern
+    if _FP_DATE.search(page_text):
+        return (True, 'date component')
+    # Reference page range (e.g. "164–71")
+    try:
+        int_val = int(num_str)
+        if 1 <= int_val <= 2000:
+            for m in _FP_REF_RANGE.finditer(page_text):
+                parts = re.split(r'[-–]', m.group())
+                if len(parts) == 2:
+                    try:
+                        if int_val in (int(parts[0]), int(parts[1])):
+                            return (True, 'reference page number')
+                    except ValueError:
+                        pass
+    except ValueError:
+        pass
+    return (False, '')
+
+
+def _check_perpage_numbers(source_paras: list[dict], full_tgt: str) -> list[dict]:
+    """跨格式模式：逐页数字一致性检查，记录 source_page，过滤假阳性"""
     issues = []
-    src_nums = extract_numbers(full_src)
     tgt_nums = extract_numbers(full_tgt)
-
-    # Check integers
     tgt_ints = set(tgt_nums.get('integer', []))
-    for num in src_nums.get('integer', []):
-        if num not in tgt_ints:
-            # Check if logically close (e.g. "577" from page number shouldn't count)
-            # Skip large page-number-like numbers (>500)
-            try:
-                if int(num) > 500:
-                    continue
-            except ValueError:
-                pass
-            issues.append({
-                'paragraph_index': 0,
-                'type': 'number_missing',
-                'source_value': num,
-                'severity': 'medium',
-                'check': f'数字 "{num}" 在译文中可能缺失（全文匹配模式，仅供参考）',
-            })
-
-    # Check decimals
     tgt_decimals = set(tgt_nums.get('decimal', []))
-    for num in src_nums.get('decimal', []):
-        if num not in tgt_decimals:
-            issues.append({
-                'paragraph_index': 0,
-                'type': 'decimal_mismatch',
-                'source_value': num,
-                'severity': 'medium',
-                'check': f'小数 "{num}" 在译文中可能缺失（全文匹配模式，仅供参考）',
-            })
-
-    # Check percentages
-    src_pct_values = set()
-    for m in src_nums.get('percentage', []):
-        nums = re.findall(r'\d+(?:\.\d+)?', m)
-        if nums:
-            src_pct_values.add(float(nums[0]))
     tgt_pct_values = set()
     for m in tgt_nums.get('percentage', []):
         nums = re.findall(r'\d+(?:\.\d+)?', m)
         if nums:
             tgt_pct_values.add(float(nums[0]))
 
-    for val in src_pct_values:
-        # Allow ±0.1 tolerance
-        found = any(abs(val - tv) < 0.1 for tv in tgt_pct_values)
-        if not found:
-            issues.append({
-                'paragraph_index': 0,
-                'type': 'percentage_mismatch',
-                'source_value': f'{val}%',
-                'severity': 'critical',
-                'check': f'百分比 "{val}%" 在译文中可能缺失（全文匹配模式，仅供参考）',
-            })
+    for page_data in source_paras:
+        page_text = page_data.get('text', '') if isinstance(page_data, dict) else str(page_data)
+        page_num = page_data.get('page', 0) if isinstance(page_data, dict) else 0
+        src_nums = extract_numbers(page_text)
+
+        for num in src_nums.get('integer', []):
+            if num not in tgt_ints:
+                skip, reason = _is_false_positive_number(num, page_text)
+                if skip:
+                    continue
+                issues.append({
+                    'paragraph_index': 0,
+                    'source_page': page_num,
+                    'type': 'number_missing',
+                    'source_value': num,
+                    'severity': 'medium',
+                    'check': f'数字 "{num}" 在译文中可能缺失（跨格式匹配，仅供参考）',
+                })
+
+        for num in src_nums.get('decimal', []):
+            if num not in tgt_decimals:
+                skip, reason = _is_false_positive_number(num, page_text)
+                if skip:
+                    continue
+                issues.append({
+                    'paragraph_index': 0,
+                    'source_page': page_num,
+                    'type': 'decimal_mismatch',
+                    'source_value': num,
+                    'severity': 'medium',
+                    'check': f'小数 "{num}" 在译文中可能缺失（跨格式匹配，仅供参考）',
+                })
+
+        src_pct_values = set()
+        for m in src_nums.get('percentage', []):
+            nums = re.findall(r'\d+(?:\.\d+)?', m)
+            if nums:
+                src_pct_values.add(float(nums[0]))
+        for val in src_pct_values:
+            found = any(abs(val - tv) < 0.1 for tv in tgt_pct_values)
+            if not found:
+                issues.append({
+                    'paragraph_index': 0,
+                    'source_page': page_num,
+                    'type': 'percentage_mismatch',
+                    'source_value': f'{val}%',
+                    'severity': 'medium',
+                    'check': f'百分比 "{val}%" 在译文中可能缺失（跨格式匹配，仅供参考）',
+                })
 
     return issues
 
 
-def _check_fulltext_glossary(full_src: str, full_tgt: str, glossary: dict) -> list[dict]:
-    """跨格式模式：全文术语合规检查"""
+def _check_perpage_glossary(source_paras: list[dict], full_tgt: str, glossary: dict) -> list[dict]:
+    """跨格式模式：逐页术语合规检查，记录 source_page"""
     violations = []
-    source_lower = full_src.lower()
     target_lower = full_tgt.lower()
 
-    for key, term in glossary.items():
-        src = term['source']
-        expected_tgt = term['target'].lower()
-        if src.lower() in source_lower:
-            if expected_tgt not in target_lower:
-                violations.append({
-                    'paragraph_index': 0,
-                    'type': 'glossary_violation',
-                    'source_term': src,
-                    'expected_target': term['target'],
-                    'domain': term.get('domain', ''),
-                    'severity': 'medium',
-                    'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到（全文匹配模式，仅供参考）',
-                })
+    for page_data in source_paras:
+        page_text = page_data.get('text', '') if isinstance(page_data, dict) else str(page_data)
+        page_num = page_data.get('page', 0) if isinstance(page_data, dict) else 0
+        page_lower = page_text.lower()
+
+        for key, term in glossary.items():
+            src = term['source']
+            expected_tgt = term['target'].lower()
+            if src.lower() in page_lower:
+                if expected_tgt not in target_lower:
+                    violations.append({
+                        'paragraph_index': 0,
+                        'source_page': page_num,
+                        'type': 'glossary_violation',
+                        'source_term': src,
+                        'expected_target': term['target'],
+                        'domain': term.get('domain', ''),
+                        'severity': 'medium',
+                        'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到（跨格式匹配，仅供参考）',
+                    })
 
     return violations
 
@@ -615,23 +661,45 @@ def check_all(source_path: str, target_path: str,
         result['range_consistency_warning'] = _check_range_consistency(all_range_stats)
 
     else:
-        # ── 跨格式：全文匹配模式 ──
-        result['alignment_mode'] = 'full_text'
+        # ── 跨格式：逐页匹配模式 ──
+        result['alignment_mode'] = 'cross_format_per_page'
         result['alignment_warning'] = (
             f'注意：原文为 {Path(source_path).suffix} 格式（{len(source_paras)} 个文本块），'
             f'译文为 {Path(target_path).suffix} 格式（{len(target_paras)} 个段落），'
-            f'二者段落不对齐，使用全文匹配模式。此模式下结果仅供参考，可能存在误报。'
+            f'二者段落不对齐，使用逐页匹配模式。此模式下结果仅供参考，可能存在误报。'
         )
 
         full_src = '\n'.join(p.get('text', '') if isinstance(p, dict) else str(p) for p in source_paras)
         full_tgt = '\n'.join(p.get('text', '') if isinstance(p, dict) else str(p) for p in target_paras)
 
-        # 数字检查（全文匹配）
-        result['number_mismatches'].extend(_check_fulltext_numbers(full_src, full_tgt))
+        # 数字检查（逐页匹配 + 假阳性过滤 + 记录 source_page）
+        result['number_mismatches'].extend(_check_perpage_numbers(source_paras, full_tgt))
 
-        # 术语检查（全文匹配）
+        # 术语检查（逐页匹配 + 记录 source_page）
         if glossary:
-            result['glossary_violations'].extend(_check_fulltext_glossary(full_src, full_tgt, glossary))
+            result['glossary_violations'].extend(_check_perpage_glossary(source_paras, full_tgt, glossary))
+
+        # ── 页面→段落映射 ──
+        # 用滑动窗口相似度将 PDF 页码映射到 DOCX 段落
+        if source_path.endswith('.pdf') and target_path.endswith('.docx'):
+            page_map = _build_page_para_map(source_paras, target_paras)
+            # 将 source_page 转为 paragraph_index
+            for issue_list in [result['number_mismatches'], result['glossary_violations']]:
+                for item in issue_list:
+                    sp = item.get('source_page', 0)
+                    if sp and sp in page_map:
+                        paras = page_map[sp]
+                        if paras:
+                            # 轮询分配避免同页问题堆在同一段
+                            key = f'_distrib_{sp}'
+                            if key not in page_map:
+                                page_map[key] = 0
+                            idx = page_map[key] % len(paras)
+                            page_map[key] += 1
+                            item['paragraph_index'] = paras[idx]
+                        else:
+                            item['paragraph_index'] = 0
+            result['page_map'] = {str(k): v for k, v in page_map.items() if isinstance(k, int)}
 
         # 符号检查 → 跨格式跳过（不可靠）
         # 范围表达统计
@@ -669,6 +737,64 @@ def check_all(source_path: str, target_path: str,
     }
 
     return result
+
+
+def _build_page_para_map(source_paras: list[dict], target_paras: list[dict]) -> dict[int, list[int]]:
+    """
+    构建 PDF 页码 → DOCX 段落索引映射。
+    使用滑动窗口相似度匹配每页文本到最佳段落范围。
+    """
+    from difflib import SequenceMatcher
+
+    # Flatten target paragraphs to (1-based index, text)
+    tgt_texts = []
+    for i, p in enumerate(target_paras):
+        text = p.get('text', '') if isinstance(p, dict) else str(p)
+        if text.strip():
+            tgt_texts.append((i + 1, text))
+
+    n_tgt = len(tgt_texts)
+    if n_tgt == 0:
+        return {}
+
+    # Window size: ~paragraphs per page
+    window = max(2, n_tgt // max(1, len(source_paras)))
+    page_map = {}
+
+    for page_idx, page_data in enumerate(source_paras):
+        page_text = page_data.get('text', '') if isinstance(page_data, dict) else str(page_data)
+        page_num = page_data.get('page', page_idx + 1) if isinstance(page_data, dict) else page_idx + 1
+
+        if not page_text.strip():
+            # Inherit previous page's range
+            prev = page_idx - 1
+            while prev >= 0:
+                prev_page_num = source_paras[prev].get('page', prev + 1) if isinstance(source_paras[prev], dict) else prev + 1
+                if prev_page_num in page_map:
+                    page_map[page_num] = page_map[prev_page_num]
+                    break
+                prev -= 1
+            if page_num not in page_map:
+                page_map[page_num] = []
+            continue
+
+        best_score = 0
+        best_start = 0
+        best_end = min(window, n_tgt)
+
+        for start in range(0, n_tgt, max(1, window // 2)):
+            end = min(start + window, n_tgt)
+            combined = ' '.join(tgt_texts[i][1] for i in range(start, end))
+            score = SequenceMatcher(None, page_text, combined).ratio()
+            if score > best_score:
+                best_score = score
+                best_start = start
+                best_end = end
+
+        assigned = [tgt_texts[i][0] for i in range(best_start, best_end)]
+        page_map[page_num] = assigned
+
+    return page_map
 
 
 def _check_range_consistency(stats: Counter) -> str | None:

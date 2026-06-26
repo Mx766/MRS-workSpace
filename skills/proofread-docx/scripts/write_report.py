@@ -141,7 +141,7 @@ def generate_report(pair_info: dict, all_issues: list[dict],
         if counts.get('critical', 0) > 0:
             _set_cell_fill(row.cells[1], 'FFCCCC')
         if counts.get('medium', 0) > 0:
-            _set_cell_fill(row.cells[2], 'FFE0B2')
+            _set_cell_fill(row.cells[2], 'FFF9C4')
 
     next_row = len(stats['by_dimension']) + 1
 
