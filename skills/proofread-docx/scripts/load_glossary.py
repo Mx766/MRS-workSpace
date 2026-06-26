@@ -214,6 +214,8 @@ def main():
                         help='自动扫描 glossaries/ 目录和 glossary.db')
     parser.add_argument('--priorities', '-p', nargs='+', type=int, help='各库优先级（数字越小优先级越高）')
     parser.add_argument('--output', '-o', help='输出 JSON 文件路径（可选，默认 stdout）')
+    parser.add_argument('--domain', help='按领域过滤术语（如 "医美"、"医疗器械"、"MRI"）。留空则加载全部')
+    parser.add_argument('--list-domains', action='store_true', help='列出术语库中所有领域')
     args = parser.parse_args()
 
     # 收集输入文件
@@ -269,6 +271,34 @@ def main():
         result = merge_glossaries(all_terms, valid_priorities)
         result['sources'] = [{'file': Path(f).name, 'count': len(t)} for f, t in zip(input_files, all_terms)]
         result['status'] = 'ok'
+
+        # ── Domain filtering ──
+        domains_in_glossary = sorted(set(
+            v.get('domain', '通用') for v in result['terms'].values()
+        ))
+        result['available_domains'] = domains_in_glossary
+
+        if args.list_domains:
+            print('术语库中的领域：')
+            for d in domains_in_glossary:
+                count = sum(1 for v in result['terms'].values() if v.get('domain', '通用') == d)
+                print(f'  {d}: {count} 条')
+            sys.exit(0)
+
+        if args.domain:
+            before = len(result['terms'])
+            filtered_terms = {
+                k: v for k, v in result['terms'].items()
+                if v.get('domain', '通用') == args.domain or v.get('domain', '通用') == '通用'
+            }
+            result['terms'] = filtered_terms
+            result['stats']['total_terms'] = len(filtered_terms)
+            result['stats']['domain_filter'] = {
+                'requested': args.domain,
+                'before': before,
+                'after': len(filtered_terms),
+                'removed': before - len(filtered_terms),
+            }
 
     output_json = json.dumps(result, ensure_ascii=False, indent=2)
     if args.output:

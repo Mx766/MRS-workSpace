@@ -285,6 +285,7 @@ def write_word_comments(filepath: str, issues: list[dict],
         for cid, sev, issue in para_comments[para_idx]:
             is_doc_level = (para_idx == -1)
             is_consolidated = issue.get('_consolidated', False)
+            is_mechanical = bool(issue.get('type'))  # Phase 3 mechanical issue
             date_str = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
             cmt = lxe.SubElement(comments_tree, f'{{{NS_W}}}comment')
             cmt.set(f'{{{NS_W}}}id', str(cid))
@@ -298,8 +299,8 @@ def write_word_comments(filepath: str, issues: list[dict],
                 'low': '🟢 低（格式优化）',
             }.get(sev, '⚪ 未分级')
 
-            # v4: doc-level issues get a prefix explaining cross-format matching
-            doc_prefix = '⚠️ [全文匹配，仅供参考] ' if is_doc_level else ''
+            # Mechanical issues (Phase 3 cross-format) get a warning prefix
+            doc_prefix = '⚠️ [全文匹配，仅供参考] ' if (is_doc_level or is_mechanical) else ''
 
             # Normalize field access: fall back to mechanical-issue field names
             def _get(issue, *keys):
@@ -333,8 +334,9 @@ def write_word_comments(filepath: str, issues: list[dict],
                 ]
                 for bline in issue.get('_body', '').split('\n'):
                     lines.append(bline)
-            elif is_doc_level:
-                # Single mechanical issue: check field contains the full description
+            elif is_doc_level or is_mechanical:
+                # Single mechanical issue (doc-level or PDF-page-located):
+                # check field contains the full description
                 check_desc = sug_text
                 lines = [doc_prefix + sev_label, f'【{dim_text} — {chk_text}】']
                 if src_quote:
