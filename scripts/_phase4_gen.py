@@ -1,5 +1,31 @@
 #!/usr/bin/env python3
-"""Generate Phase 4 issues JSON from semantic review."""
+"""
+Phase 4 回退模板：当 Agent 工具模型不可用时，主 Agent 自行执行语义审查，
+将发现的问题按此格式写入 cache/issues_phase4_new.json。
+
+使用方法：
+  1. 主 Agent 读入 cache/phase4_input.json 获取全部原文+译文段落
+  2. 逐段对照六维度检查清单（见 SKILL.md 4.2 节）
+  3. 按以下 JSON 格式追加每个问题到 issues 列表
+  4. 运行本脚本写入文件: python scripts/_phase4_gen.py
+
+问题 JSON 格式（所有字段必填）：
+{
+    "chapter": "Ch5",           // 章编号
+    "paragraph_index": 16,      // global_index (整数, 从 phase4_input.json 取)
+    "dimension": "二.表达规范",  // 一~六 之一
+    "check_item": "2.1 错别字/拼写",  // 具体检查项编号+名称
+    "severity": "critical|medium|low",
+    "confidence": "high|medium|low",
+    "source_quote": "<英文原文原句>",
+    "target_quote": "<中文译文原句>",
+    "issue": "<一句话说明问题>",
+    "suggestion": "<具体修改建议>"
+}
+
+注意：当前文件内容为上一轮审查的实际输出，可作为示例参考。
+新审查时应替换 issues 列表内容。
+"""
 
 import json, sys
 

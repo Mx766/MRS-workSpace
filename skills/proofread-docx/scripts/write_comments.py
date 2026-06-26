@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Phase 6: 批注写入（v3 — 修复 Issue #12 高亮渲染 bug）
+Phase 6: 批注写入（v4 — pi=0 文档级问题 + 段落高亮）
 
 关键修复:
   - commentReference 放在高亮 run 的 rPr 内部（紧挨 w:shd + w:highlight）
@@ -9,6 +9,8 @@ Phase 6: 批注写入（v3 — 修复 Issue #12 高亮渲染 bug）
   - lxml 仅用于构建 comments.xml / rels / CT（ZIP 层注入）
   - 跨 run 匹配：target_quote 跨多段 run 时，通过全文拼接定位起始 run
   - 多长度 key 匹配: [15, 10, 8, 5] 递降
+  - v4: paragraph_index=0 的文档级问题（如跨格式全文匹配）不再丢弃，
+    作为裸引用插入第一段，批注带 [全文匹配，仅供参考] 前缀
 """
 
 import argparse, json, shutil, zipfile, io, os, re, sys, tempfile
@@ -48,12 +50,15 @@ def write_word_comments(filepath: str, issues: list[dict],
     os.makedirs(os.path.dirname(output) or '.', exist_ok=True)
 
     # ─── 按段落分组、排序 ───
+    # v4: pi=0 的问题（跨格式全文匹配）不丢弃，作为文档级问题处理
     issues_by_para = {}
+    doc_level_issues = []
     for issue in issues:
         pi = issue.get('paragraph_index', 0)
         if pi < 1:
-            continue
-        issues_by_para.setdefault(pi, []).append(issue)
+            doc_level_issues.append(issue)
+        else:
+            issues_by_para.setdefault(pi, []).append(issue)
 
     # ══════════════════════════════════════════════════
     # STEP 1: python-docx does ALL document.xml work
@@ -64,6 +69,33 @@ def write_word_comments(filepath: str, issues: list[dict],
     para_comments = {}
     total_matched = 0
 
+    # ── 1a: Document-level issues (pi=0) ──
+    # Insert bare refs at paragraph 1 (first content paragraph)
+    doc_level_count = 0
+    if doc_level_issues and len(doc.paragraphs) > 0:
+        para_comments[0] = []  # special key for doc-level
+        p1 = doc.paragraphs[0]
+        p_elem = p1._p
+        pPr = p_elem.find(qn('w:pPr'))
+        insert_pos = (list(p_elem).index(pPr) + 1) if pPr is not None else 0
+
+        for issue in doc_level_issues:
+            sev = issue.get('severity', 'medium')
+            para_comments[0].append((comment_id, sev, issue))
+
+            # Bare ref (no highlight — can't locate exact run)
+            ref_run = OxmlElement('w:r')
+            ref_rPr = OxmlElement('w:rPr')
+            cr = OxmlElement('w:commentReference')
+            cr.set(qn('w:id'), str(comment_id))
+            ref_rPr.append(cr)
+            ref_run.append(ref_rPr)
+            p_elem.insert(insert_pos, ref_run)
+
+            comment_id += 1
+            doc_level_count += 1
+
+    # ── 1b: Paragraph-level issues (pi >= 1) ──
     for para_idx in sorted(issues_by_para.keys()):
         if para_idx > len(doc.paragraphs):
             continue
@@ -167,6 +199,8 @@ def write_word_comments(filepath: str, issues: list[dict],
 
     if verbose:
         print(f'STEP 1: highlights + {comment_id} comment refs written via python-docx')
+        if doc_level_count > 0:
+            print(f'  Document-level (pi=0): {doc_level_count} bare refs at paragraph 1')
 
     # ══════════════════════════════════════════════════
     # STEP 2: ZIP layer — build comments.xml,
@@ -185,6 +219,7 @@ def write_word_comments(filepath: str, issues: list[dict],
 
     for para_idx in sorted(para_comments.keys()):
         for cid, sev, issue in para_comments[para_idx]:
+            is_doc_level = (para_idx == 0)
             date_str = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
             cmt = lxe.SubElement(comments_tree, f'{{{NS_W}}}comment')
             cmt.set(f'{{{NS_W}}}id', str(cid))
@@ -198,8 +233,11 @@ def write_word_comments(filepath: str, issues: list[dict],
                 'low': '🟢 低（格式优化）',
             }.get(sev, '⚪ 未分级')
 
+            # v4: doc-level issues get a prefix explaining cross-format matching
+            doc_prefix = '⚠️ [全文匹配，仅供参考] ' if is_doc_level else ''
+
             lines = [
-                sev_label,
+                doc_prefix + sev_label,
                 f'【{issue.get("dimension", "")} — {issue.get("check_item", "")}】', '',
                 f'原文: {issue.get("source_quote", "")}', '',
                 f'问题: {issue.get("issue", "")}', '',

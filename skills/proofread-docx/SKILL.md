@@ -206,6 +206,18 @@ Step 4.4: 将疑点追加到全局 issues 列表
 Step 4.5: 更新术语索引（source_term → first_seen_translation）
 ```
 
+### 4.1.1 执行方式与回退
+
+Phase 4 首选使用 Agent 工具（model=fable/opus）派发子代理逐章审查。**若 Agent 工具报 model unavailable 错误**，按以下顺序回退：
+
+1. **换模型重试**：依次尝试 `opus` → `sonnet` → 不指定 model
+2. **若全部不可用**：主 Agent 自行执行审查——
+   - 先运行 `python scripts/_prepare_phase4.py` 生成 `cache/phase4_input.json`
+   - 读入该文件全部段落，逐段对照六维度检查清单
+   - 将问题按标准 JSON 格式写入 `cache/issues_phase4_new.json`
+   - 可参考 `scripts/_phase4_gen.py` 模板（含格式说明和示例）
+3. **不阻塞流程**：主 Agent 直审的结果与子代理审查等效，后续 Phase 5-7 照常进行
+
 ### 4.2 六维度检查清单（逐段执行，必须全部覆盖）
 
 对每段原文+译文对，按以下检查项逐条过。**每完成一项打 ✅，发现疑点记录后继续下一项。**

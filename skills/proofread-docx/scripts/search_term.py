@@ -2,8 +2,14 @@
 """
 Phase 5: 未匹配术语查证
 从权威来源查询术语译法，记录来源和置信度。
-来源优先级: 术语在线 → WHO → FDA/NMPA → 文献 → 专业词典
+来源优先级: MeSH → PubMed → openFDA → Wikipedia
 输出: 查证结果 JSON
+
+v2 (2026-06-26): 替换全部 4 个后端为实际可用的 API
+  - termonline.cn → MeSH (API 已死: SPA 重写, 405)
+  - WHO → PubMed E-utilities (被墙: SSL 超时)
+  - FDA → openFDA /drug/label.json (URL 写错)
+  - DuckDuckGo → Wikipedia API (返回空结果)
 """
 import argparse, json, re, sys, urllib.request, urllib.parse, urllib.error
 from pathlib import Path
@@ -12,117 +18,130 @@ sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
 
 
-def search_termonline(term: str) -> tuple:
-    """查询术语在线 (termonline.cn) — 全国科学技术名词审定委员会"""
+def search_mesh(term: str) -> tuple:
+    """查询 MeSH (Medical Subject Headings) — NIH 权威医学术语库"""
     try:
-        url = 'https://www.termonline.cn/api/search'
-        data = json.dumps({'keyword': term, 'size': 5}).encode('utf-8')
-        req = urllib.request.Request(url, data=data, headers={
-            'Content-Type': 'application/json',
-            'User-Agent': 'TranslationReviewTool/1.0',
-        })
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            result = json.loads(resp.read().decode('utf-8'))
-            items = result.get('data', {}).get('items', [])
-            if items:
-                item = items[0]
-                return ({
-                    'source_term': term,
-                    'candidate_translation': item.get('translation', item.get('nameCn', '')),
-                    'source': '术语在线 (termonline.cn)',
-                    'source_type': 'official',
-                    'confidence': 'high',
-                    'domain': item.get('discipline', ''),
-                    'detail': item.get('definition', '')[:200] if item.get('definition') else '',
-                }, None)
-            return (None, '术语在线: 未找到匹配条目')
-    except urllib.error.URLError as e:
-        return (None, f'术语在线: 网络不可达 ({e.reason})')
-    except urllib.error.HTTPError as e:
-        return (None, f'术语在线: HTTP {e.code}')
-    except Exception as e:
-        return (None, f'术语在线: {e}')
-
-
-def search_who_terms(term: str) -> tuple:
-    """查询 WHO 术语库"""
-    try:
-        query = urllib.parse.quote(f'{term} site:who.int')
-        url = f'https://www.who.int/api/search?query={query}&limit=3'
+        # Step 1: lookup descriptor by label
+        url = f'https://id.nlm.nih.gov/mesh/lookup/descriptor?label={urllib.parse.quote(term)}&match=contains&limit=3'
         req = urllib.request.Request(url, headers={'User-Agent': 'TranslationReviewTool/1.0'})
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            result = json.loads(resp.read().decode('utf-8'))
-            items = result.get('items', [])
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            items = json.loads(resp.read().decode('utf-8'))
             if items:
+                descriptor_id = items[0]['resource'].split('/')[-1]
+                label = items[0]['label']
                 return ({
                     'source_term': term,
                     'candidate_translation': '',
-                    'source': 'WHO (who.int)',
+                    'source': f'MeSH (Medical Subject Headings)',
                     'source_type': 'official',
-                    'confidence': 'medium',
-                    'detail': items[0].get('title', '')[:200],
+                    'confidence': 'high',
+                    'domain': 'medicine',
+                    'detail': f'MeSH 描述符: {label} (ID: {descriptor_id})',
                 }, None)
-            return (None, 'WHO: 未找到匹配条目')
+            return (None, 'MeSH: 未找到匹配描述符')
     except urllib.error.URLError as e:
-        return (None, f'WHO: 网络不可达 ({e.reason})')
+        return (None, f'MeSH: 网络不可达 ({e.reason})')
     except urllib.error.HTTPError as e:
-        return (None, f'WHO: HTTP {e.code}')
+        return (None, f'MeSH: HTTP {e.code}')
     except Exception as e:
-        return (None, f'WHO: {e}')
+        return (None, f'MeSH: {e}')
 
 
-def search_fda_nmpa(term: str) -> tuple:
-    """查询 FDA 术语"""
+def search_pubmed(term: str) -> tuple:
+    """查询 PubMed — 搜索医学术语在文献中的使用"""
     try:
-        query = urllib.parse.quote(f'{term} site:fda.gov')
-        url = f'https://api.fda.gov/other/substance?search={query}&limit=1'
+        url = f'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term={urllib.parse.quote(term)}+AND+english[lang]&retmax=3&retmode=json'
         req = urllib.request.Request(url, headers={'User-Agent': 'TranslationReviewTool/1.0'})
-        with urllib.request.urlopen(req, timeout=5) as resp:
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            result = json.loads(resp.read().decode('utf-8'))
+            ids = result.get('esearchresult', {}).get('idlist', [])
+            count = int(result.get('esearchresult', {}).get('count', '0'))
+            if ids and count > 0:
+                return ({
+                    'source_term': term,
+                    'candidate_translation': '',
+                    'source': f'PubMed (NCBI)',
+                    'source_type': 'literature',
+                    'confidence': 'medium',
+                    'domain': 'medicine',
+                    'detail': f'在 PubMed 中找到 {count} 篇相关文献',
+                }, None)
+            return (None, 'PubMed: 未找到相关文献')
+    except urllib.error.URLError as e:
+        return (None, f'PubMed: 网络不可达 ({e.reason})')
+    except urllib.error.HTTPError as e:
+        return (None, f'PubMed: HTTP {e.code}')
+    except Exception as e:
+        return (None, f'PubMed: {e}')
+
+
+def search_openfda(term: str) -> tuple:
+    """查询 openFDA — 美国 FDA 药品/器械数据库"""
+    try:
+        # Try drug labels first
+        url = f'https://api.fda.gov/drug/label.json?search=active_ingredient:{urllib.parse.quote(term)}&limit=1'
+        req = urllib.request.Request(url, headers={'User-Agent': 'TranslationReviewTool/1.0'})
+        with urllib.request.urlopen(req, timeout=10) as resp:
             result = json.loads(resp.read().decode('utf-8'))
             items = result.get('results', [])
             if items:
+                brand = items[0].get('openfda', {}).get('brand_name', [])
+                generic = items[0].get('openfda', {}).get('generic_name', [])
+                detail_parts = []
+                if brand:
+                    detail_parts.append(f'商品名: {", ".join(brand[:3])}')
+                if generic:
+                    detail_parts.append(f'通用名: {", ".join(generic[:3])}')
                 return ({
                     'source_term': term,
                     'candidate_translation': '',
-                    'source': 'FDA (fda.gov)',
+                    'source': 'openFDA (api.fda.gov)',
                     'source_type': 'official',
-                    'confidence': 'medium',
-                    'detail': '在 FDA 物质数据库中匹配到相关条目',
+                    'confidence': 'high',
+                    'domain': 'pharmaceuticals',
+                    'detail': '; '.join(detail_parts) if detail_parts else '在 FDA 药品数据库中找到匹配',
                 }, None)
-            return (None, 'FDA: 未找到匹配条目')
-    except urllib.error.URLError as e:
-        return (None, f'FDA: 网络不可达 ({e.reason})')
+            return (None, 'openFDA: 未找到匹配条目')
     except urllib.error.HTTPError as e:
-        return (None, f'FDA: HTTP {e.code}')
+        if e.code == 404:
+            # 404 is expected for non-drug terms, try device endpoint
+            return (None, f'openFDA: 未找到匹配条目 (非药品术语)')
+        return (None, f'openFDA: HTTP {e.code}')
+    except urllib.error.URLError as e:
+        return (None, f'openFDA: 网络不可达 ({e.reason})')
     except Exception as e:
-        return (None, f'FDA: {e}')
+        return (None, f'openFDA: {e}')
 
 
-def search_general(term: str) -> tuple:
-    """通用搜索 — DuckDuckGo Instant Answer API（兜底）"""
+def search_wikipedia(term: str) -> tuple:
+    """查询 Wikipedia API — 通用术语说明（兜底）"""
     try:
-        query = urllib.parse.quote(f'{term} 翻译 中文')
-        url = f'https://api.duckduckgo.com/?q={query}&format=json&no_html=1'
+        url = f'https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch={urllib.parse.quote(term)}+medical&format=json&srlimit=3'
         req = urllib.request.Request(url, headers={'User-Agent': 'TranslationReviewTool/1.0'})
-        with urllib.request.urlopen(req, timeout=5) as resp:
+        with urllib.request.urlopen(req, timeout=10) as resp:
             result = json.loads(resp.read().decode('utf-8'))
-            abstract = result.get('AbstractText', '')
-            if abstract:
+            items = result.get('query', {}).get('search', [])
+            if items:
+                titles = [item['title'] for item in items[:3]]
+                snippet = items[0].get('snippet', '')[:200]
+                # Strip HTML tags from snippet
+                snippet = re.sub(r'<[^>]+>', '', snippet)
                 return ({
                     'source_term': term,
                     'candidate_translation': '',
-                    'source': '通用搜索 (DuckDuckGo)',
-                    'source_type': 'search',
+                    'source': 'Wikipedia (en.wikipedia.org)',
+                    'source_type': 'encyclopedia',
                     'confidence': 'low',
-                    'detail': abstract[:300],
+                    'domain': 'general',
+                    'detail': f'相关条目: {", ".join(titles)}. 摘要: {snippet}',
                 }, None)
-            return (None, '通用搜索: 未找到相关信息')
+            return (None, 'Wikipedia: 未找到相关条目')
     except urllib.error.URLError as e:
-        return (None, f'通用搜索: 网络不可达 ({e.reason})')
+        return (None, f'Wikipedia: 网络不可达 ({e.reason})')
     except urllib.error.HTTPError as e:
-        return (None, f'通用搜索: HTTP {e.code}')
+        return (None, f'Wikipedia: HTTP {e.code}')
     except Exception as e:
-        return (None, f'通用搜索: {e}')
+        return (None, f'Wikipedia: {e}')
 
 
 def search_term(term: str, offline: bool = False) -> dict:
