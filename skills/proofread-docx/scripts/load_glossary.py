@@ -26,8 +26,8 @@ def load_excel_glossary(filepath: str) -> list[dict]:
 
     # 识别表头列
     header = [str(h).strip().lower() if h else '' for h in rows[0]]
-    src_col = _find_column(header, ['英文术语', 'source', 'en', 'english', '原文', 'source_term'])
-    tgt_col = _find_column(header, ['中文术语', 'target', 'zh', 'chinese', '译文', 'target_term'])
+    src_col = _find_column(header, ['英文术语', 'source', 'en', 'english', '原文', 'source_term', 'term'])
+    tgt_col = _find_column(header, ['中文术语', 'target', 'zh', 'chinese', '译文', 'target_term', 'synonym', 'translation'])
     domain_col = _find_column(header, ['领域', 'domain', 'field', 'category', '分类'])
 
     if src_col is None or tgt_col is None:
