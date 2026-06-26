@@ -1,0 +1,115 @@
+{
+  "total_segments": 701,
+  "glossary_applied": 0,
+  "glossary_violations": 0,
+  "glossary_violation_details": [],
+  "critical_items_total": 385,
+  "critical_violations": 46,
+  "critical_violation_details": [
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "1.5 X 107",
+      "category": "decimal_number",
+      "value": "1.5"
+    },
+    {
+      "text": "1.5 X 107",
+      "category": "decimal_number",
+      "value": "1.5"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    },
+    {
+      "text": "9.1 X 106",
+      "category": "decimal_number",
+      "value": "9.1"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "1.5 X 107",
+      "detail": "\"1.5\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "1.5 X 107",
+      "detail": "\"1.5\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    },
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.1 X 106",
+      "detail": "\"9.1\" 在译文中未找到"
+    }
+  ],
+  "overall_score": 0.928,
+  "glossary_score": 1.0,
+  "critical_score": 0.881
+}

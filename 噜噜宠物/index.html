@@ -1,0 +1,691 @@
+ <!DOCTYPE html>
+ <html lang="zh-CN">
+ <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>噜噜 — 卡皮巴拉数字宠物</title>
+ <style>
+   * { margin: 0; padding: 0; box-sizing: border-box; }
+   body {
+     background: linear-gradient(145deg, #fdf6e3 0%, #f5e6c8 100%);
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+     user-select: none;
+     padding: 16px;
+   }
+   .container {
+     background: #fff8ee;
+     border-radius: 48px;
+     box-shadow: 0 20px 60px rgba(180, 120, 60, 0.18), 0 6px 20px rgba(180, 120, 60, 0.08);
+     padding: 32px 36px 40px;
+     max-width: 500px;
+     width: 100%;
+     position: relative;
+     border: 2px solid #eddcb9;
+   }
+   /* header */
+   .header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 8px;
+   }
+   .header h1 {
+     font-size: 20px;
+     font-weight: 700;
+     color: #8b6a3e;
+     letter-spacing: 1px;
+   }
+   .header h1 span { color: #c4955c; font-weight: 400; }
+   .hp-bar {
+     font-size: 14px;
+     color: #7a5f3a;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+   }
+   .hp-track {
+     width: 90px;
+     height: 10px;
+     background: #eedcc4;
+     border-radius: 8px;
+     overflow: hidden;
+   }
+   .hp-fill {
+     height: 100%;
+     width: 100%;
+     background: linear-gradient(90deg, #f5b87c, #e89354);
+     border-radius: 8px;
+     transition: width 0.5s ease;
+   }
+   /* speech bubble */
+   .speech-wrap {
+     min-height: 60px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-bottom: 6px;
+   }
+   .speech {
+     background: white;
+     border-radius: 20px 20px 20px 6px;
+     padding: 12px 22px;
+     font-size: 16px;
+     color: #5a4a32;
+     box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+     max-width: 340px;
+     text-align: center;
+     line-height: 1.5;
+     position: relative;
+     transition: opacity 0.3s;
+     border: 1px solid #eddcc4;
+   }
+   .speech::after {
+     content: '';
+     position: absolute;
+     left: 24px;
+     bottom: -10px;
+     width: 16px;
+     height: 16px;
+     background: white;
+     border-radius: 0 0 4px 0;
+     border-right: 1px solid #eddcc4;
+     border-bottom: 1px solid #eddcc4;
+     transform: rotate(45deg);
+     clip-path: polygon(0 0, 100% 0, 100% 100%);
+   }
+   /* canvas area */
+   .pet-stage {
+     background: linear-gradient(180deg, #fef7e9 0%, #f7ebd2 100%);
+     border-radius: 80px;
+     padding: 20px 10px 10px;
+     margin: 8px 0 14px;
+     position: relative;
+     border: 1px solid #e6d3b6;
+   }
+   #petCanvas {
+     display: block;
+     width: 100%;
+     height: auto;
+     cursor: pointer;
+     -webkit-tap-highlight-color: transparent;
+   }
+   /* mood / action bar */
+   .action-bar {
+     display: flex;
+     justify-content: center;
+     gap: 8px;
+     margin: 0 0 16px;
+     flex-wrap: wrap;
+   }
+   .action-bar button {
+     background: #faf0df;
+     border: 1.5px solid #dec7a8;
+     border-radius: 40px;
+     padding: 7px 16px;
+     font-size: 13px;
+     color: #6f5535;
+     cursor: pointer;
+     transition: all 0.15s;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     font-family: inherit;
+     font-weight: 500;
+   }
+   .action-bar button:hover {
+     background: #f0e0c8;
+     border-color: #c4955c;
+     transform: translateY(-1px);
+   }
+   .action-bar button:active { transform: scale(0.96); }
+   .action-bar button .emoji { font-size: 16px; }
+   /* stats grid */
+   .stats {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     gap: 6px;
+     margin-top: 6px;
+   }
+   .stat-item {
+     background: #faf3e6;
+     border-radius: 16px;
+     padding: 10px 6px;
+     text-align: center;
+     border: 1px solid #e6d3b6;
+   }
+   .stat-item .label {
+     font-size: 11px;
+     color: #a68866;
+     margin-bottom: 2px;
+   }
+   .stat-item .value {
+     font-size: 18px;
+     font-weight: 700;
+     color: #6f5535;
+   }
+   .stat-item .value .icon { font-size: 16px; }
+   /* footer */
+   .footer {
+     text-align: center;
+     margin-top: 16px;
+     font-size: 12px;
+     color: #bfaa8a;
+     letter-spacing: 0.5px;
+   }
+   /* decorative */
+   .container::before {
+     content: '🍊';
+     position: absolute;
+     top: 16px;
+     right: 28px;
+     font-size: 28px;
+     opacity: 0.3;
+     animation: float 4s ease-in-out infinite;
+   }
+   @keyframes float {
+     0%, 100% { transform: translateY(0) rotate(0deg); }
+     50% { transform: translateY(-6px) rotate(8deg); }
+   }
+   @media (max-width: 440px) {
+     .container { padding: 20px 16px 24px; border-radius: 32px; }
+     .stats { grid-template-columns: 1fr 1fr; }
+     .action-bar button { font-size: 12px; padding: 6px 12px; }
+     .header h1 { font-size: 17px; }
+   }
+ </style>
+ </head>
+ <body>
+ <div class="container">
+   <div class="header">
+     <h1>🫎 噜噜 <span>· 卡皮巴拉</span></h1>
+     <div class="hp-bar">
+       <span>❤️</span>
+       <div class="hp-track"><div class="hp-fill" id="hpFill"></div></div>
+     </div>
+   </div>
+ 
+   <div class="speech-wrap">
+     <div class="speech" id="speech">活着挺好，死了也行 🍃</div>
+   </div>
+ 
+   <div class="pet-stage">
+     <canvas id="petCanvas" width="400" height="300"></canvas>
+   </div>
+ 
+   <div class="action-bar">
+     <button data-action="pet"><span class="emoji">🤚</span> 摸摸</button>
+     <button data-action="feed"><span class="emoji">🍊</span> 喂橘子</button>
+     <button data-action="bath"><span class="emoji">♨️</span> 泡温泉</button>
+     <button data-action="play"><span class="emoji">🌀</span> 光橘爆弹</button>
+     <button data-action="sleep"><span class="emoji">💤</span> 睡觉</button>
+   </div>
+ 
+   <div class="stats">
+     <div class="stat-item"><div class="label">😌 佛系值</div><div class="value" id="statZen"><span class="icon">🙏</span> 95</div></div>
+     <div class="stat-item"><div class="label">🍊 饱饱</div><div class="value" id="statFull"><span class="icon">🍊</span> 70</div></div>
+     <div class="stat-item"><div class="label">♨️ 温泉</div><div class="value" id="statWarm"><span class="icon">♨️</span> 60</div></div>
+     <div class="stat-item"><div class="label">😴 困困</div><div class="value" id="statSleep"><span class="icon">💤</span> 30</div></div>
+   </div>
+   <div class="footer">点击噜噜 &nbsp;·&nbsp; 没事就是呗 ✦</div>
+ </div>
+ 
+ <script>
+ const canvas = document.getElementById('petCanvas');
+ const ctx = canvas.getContext('2d');
+ const speech = document.getElementById('speech');
+ const hpFill = document.getElementById('hpFill');
+ 
+ // ---------- 噜噜的状态 ----------
+ const state = {
+   mood: 'idle',
+   blinkTimer: 0,
+   blinkState: 0,
+   petCount: 0,
+   eatCount: 0,
+   animFrame: 0,
+   tailWag: 0,
+   bathBubbles: [],
+   sparkles: [],
+   zen: 95,
+   full: 70,
+   warm: 60,
+   sleepy: 30,
+   mouthOpen: 0,
+   earWiggle: 0,
+ };
+ 
+ const phrases = {
+   idle: ['活着挺好，死了也行 🍃', '没事就是呗 ✨', '不焦虑，爱自己 🫶', '嗯～舒服～', '泡温泉最棒了 ♨️', '来颗橘子吗？🍊'],
+   pet: ['嘿嘿～舒服～', '再摸摸嘛 🥹', '噜噜很放松', '你手好暖哦', '没事就是呗～'],
+   feed: ['🍊 好甜！', '再来一颗！', '橘子天下第一！', '满足满足～', '啊～好吃～'],
+   bath: ['♨️ 好暖和啊～', '不想起来了……', '这就是幸福', '咕噜咕噜～', '泡到天荒地老'],
+   play: ['💥 光橘爆弹！', '✨ 眩光！', '嘿咻！', '爆闪！', '哈！'],
+   sleep: ['zzz...', '呼呼～', '梦到橘子树了……', 'Zzz...', '好困哦……'],
+ };
+ 
+ function randomPhrase(cat) {
+   const arr = phrases[cat] || phrases.idle;
+   return arr[Math.floor(Math.random() * arr.length)];
+ }
+ 
+ function setSpeech(text, mood) {
+   speech.textContent = text;
+   state.mood = mood || 'idle';
+   state.animFrame = 0;
+ }
+ 
+ function setMood(mood, phrase) {
+   state.mood = mood;
+   const text = phrase || randomPhrase(mood);
+   speech.textContent = text;
+   if (mood === 'bath') {
+     for (let i = 0; i < 12; i++) {
+       state.bathBubbles.push({ x: 120 + Math.random() * 160, y: 220 + Math.random() * 40, r: 2 + Math.random() * 6, vy: -0.3 - Math.random() * 0.6, life: 60 + Math.random() * 40 });
+     }
+   }
+   if (mood === 'play') {
+     for (let i = 0; i < 20; i++) {
+       state.sparkles.push({ x: 200 + (Math.random() - 0.5) * 180, y: 140 + (Math.random() - 0.5) * 120, vx: (Math.random() - 0.5) * 4, vy: -2 - Math.random() * 3, r: 2 + Math.random() * 4, life: 30 + Math.random() * 30, color: `hsl(${30 + Math.random() * 30}, 100%, ${60 + Math.random() * 30}%)` });
+     }
+   }
+   if (mood === 'feed') {
+     state.mouthOpen = 1;
+     setTimeout(() => state.mouthOpen = 0, 800);
+   }
+ }
+ 
+ // ---------- 绘制噜噜 ----------
+ function drawPet() {
+   const W = 400, H = 300;
+   ctx.clearRect(0, 0, W, H);
+ 
+   const t = Date.now() / 1000;
+   const isSleep = state.mood === 'sleep';
+   const isBath = state.mood === 'bath';
+   const isPlay = state.mood === 'play';
+   const isPet = state.mood === 'pet';
+   const isEat = state.mood === 'feed';
+ 
+   // ---- 地面 ----
+   if (isBath) {
+     const grad = ctx.createLinearGradient(0, 200, 0, 290);
+     grad.addColorStop(0, '#b5d8e8');
+     grad.addColorStop(0.6, '#89bdd8');
+     ctx.fillStyle = grad;
+     ctx.beginPath();
+     ctx.ellipse(200, 270, 190, 30, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.fillStyle = '#a0cbdf';
+     ctx.beginPath();
+     ctx.ellipse(200, 270, 180, 20, 0, 0, Math.PI * 2);
+     ctx.fill();
+     for (let i = 0; i < 5; i++) {
+       const sx = 130 + i * 35 + Math.sin(t * 0.8 + i) * 8;
+       const sy = 195 - i * 6 + Math.sin(t * 1.2 + i * 2) * 4;
+       ctx.fillStyle = `rgba(255,255,255,${0.08 + Math.sin(t + i) * 0.04})`;
+       ctx.beginPath();
+       ctx.ellipse(sx, sy, 14 + i * 2, 6, 0, 0, Math.PI * 2);
+       ctx.fill();
+     }
+   } else {
+     const grad = ctx.createLinearGradient(0, 260, 0, 290);
+     grad.addColorStop(0, '#e8dcc8');
+     grad.addColorStop(1, '#dccab0');
+     ctx.fillStyle = grad;
+     ctx.beginPath();
+     ctx.ellipse(200, 275, 170, 18, 0, 0, Math.PI * 2);
+     ctx.fill();
+   }
+ 
+   const breathe = Math.sin(t * 1.2) * 2;
+   const bodyY = isSleep ? 2 : breathe;
+ 
+   // ---- 身体（芒果状！） ----
+   const bodyGrad = ctx.createRadialGradient(170, 130, 10, 200, 150 + bodyY, 70);
+   bodyGrad.addColorStop(0, '#e8b060');
+   bodyGrad.addColorStop(0.4, '#dda048');
+   bodyGrad.addColorStop(0.8, '#c88a30');
+   bodyGrad.addColorStop(1, '#b07520');
+   ctx.fillStyle = bodyGrad;
+   ctx.beginPath();
+   ctx.ellipse(200, 150 + bodyY, 62, 68, 0, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.fillStyle = 'rgba(240,200,130,0.35)';
+   ctx.beginPath();
+   ctx.ellipse(195, 158 + bodyY, 30, 36, -0.1, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   // ---- 小尾巴 ----
+   ctx.fillStyle = '#c48430';
+   ctx.beginPath();
+   ctx.ellipse(258, 170 + bodyY, 8, 6, 0.4, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   // ---- 短短腿 ----
+   ctx.fillStyle = '#c48430';
+   ctx.beginPath();
+   ctx.ellipse(170, 210 + bodyY, 12, 8, 0, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.beginPath();
+   ctx.ellipse(230, 210 + bodyY, 12, 8, 0, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   // ---- 耳朵 ----
+   const ew = state.earWiggle > 0 ? Math.sin(t * 14) * 3 : 0;
+   ctx.fillStyle = '#d69840';
+   ctx.beginPath();
+   ctx.ellipse(160 + ew, 92 + bodyY, 12, 14, -0.15, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.fillStyle = '#e8b060';
+   ctx.beginPath();
+   ctx.ellipse(160 + ew, 93 + bodyY, 8, 9, -0.15, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.fillStyle = '#d69840';
+   ctx.beginPath();
+   ctx.ellipse(240 - ew, 92 + bodyY, 12, 14, 0.15, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.fillStyle = '#e8b060';
+   ctx.beginPath();
+   ctx.ellipse(240 - ew, 93 + bodyY, 8, 9, 0.15, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   // ---- 眼睛 ----
+   const eyeY = 136 + bodyY;
+   let blinkH = 10;
+   if (state.blinkState === 1) blinkH = 10 - state.blinkTimer * 2;
+   else if (state.blinkState === 2) blinkH = 0;
+   else if (state.blinkState === 3) blinkH = state.blinkTimer * 2;
+   if (isSleep) blinkH = 2;
+ 
+   ctx.fillStyle = '#faf8f0';
+   ctx.beginPath();
+   ctx.ellipse(170, eyeY, 14, blinkH, 0, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.beginPath();
+   ctx.ellipse(230, eyeY, 14, blinkH, 0, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   if (blinkH > 1) {
+     const pOff = isSleep ? 0 : (isPet ? 0 : Math.sin(t * 0.3) * 2);
+     ctx.fillStyle = '#2a1a0a';
+     ctx.beginPath();
+     ctx.ellipse(172 + pOff, eyeY + 1, 7, 8, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.beginPath();
+     ctx.ellipse(232 + pOff, eyeY + 1, 7, 8, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.fillStyle = 'white';
+     ctx.beginPath();
+     ctx.ellipse(167, eyeY - 3, 3, 3, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.beginPath();
+     ctx.ellipse(227, eyeY - 3, 3, 3, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.fillStyle = 'rgba(255,255,255,0.4)';
+     ctx.beginPath();
+     ctx.ellipse(175, eyeY + 2, 2, 2, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.beginPath();
+     ctx.ellipse(235, eyeY + 2, 2, 2, 0, 0, Math.PI * 2);
+     ctx.fill();
+   } else {
+     ctx.strokeStyle = '#5a4a32';
+     ctx.lineWidth = 2;
+     ctx.beginPath();
+     ctx.arc(165, eyeY + 2, 12, 0.2, Math.PI - 0.2);
+     ctx.stroke();
+     ctx.beginPath();
+     ctx.arc(235, eyeY + 2, 12, 0.2, Math.PI - 0.2);
+     ctx.stroke();
+   }
+ 
+   // ---- 鼻子 ----
+   ctx.fillStyle = '#6a5030';
+   ctx.beginPath();
+   ctx.ellipse(200, 148 + bodyY, 6, 5, 0, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.fillStyle = '#8a6040';
+   ctx.beginPath();
+   ctx.ellipse(198, 147 + bodyY, 3, 3, 0, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   // ---- 漏齿笑！ ----
+   const mouthH = state.mouthOpen > 0 ? 8 + Math.sin(t * 20) * 3 : 0;
+   ctx.strokeStyle = '#6a5030';
+   ctx.lineWidth = 2;
+   if (isSleep) {
+     ctx.beginPath();
+     ctx.arc(200, 156 + bodyY, 8, 0.1, Math.PI - 0.1);
+     ctx.stroke();
+   } else if (state.mouthOpen > 0) {
+     ctx.fillStyle = '#3a2010';
+     ctx.beginPath();
+     ctx.ellipse(200, 160 + bodyY, 10, mouthH, 0, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.fillStyle = 'white';
+     ctx.fillRect(194, 156 + bodyY, 4, 5);
+     ctx.fillRect(202, 156 + bodyY, 4, 5);
+     ctx.strokeRect(194, 156 + bodyY, 4, 5);
+     ctx.strokeRect(202, 156 + bodyY, 4, 5);
+   } else {
+     ctx.beginPath();
+     ctx.arc(200, 152 + bodyY, 16, 0.15, Math.PI - 0.15);
+     ctx.stroke();
+     ctx.fillStyle = 'white';
+     ctx.fillRect(193, 152 + bodyY, 5, 6);
+     ctx.fillRect(202, 152 + bodyY, 5, 6);
+     ctx.strokeStyle = '#6a5030';
+     ctx.lineWidth = 1;
+     ctx.strokeRect(193, 152 + bodyY, 5, 6);
+     ctx.strokeRect(202, 152 + bodyY, 5, 6);
+   }
+ 
+   // ---- 腮红 ----
+   ctx.fillStyle = 'rgba(235, 120, 80, 0.12)';
+   ctx.beginPath();
+   ctx.ellipse(148, 146 + bodyY, 12, 8, 0, 0, Math.PI * 2);
+   ctx.fill();
+   ctx.beginPath();
+   ctx.ellipse(252, 146 + bodyY, 12, 8, 0, 0, Math.PI * 2);
+   ctx.fill();
+ 
+   // ---- 温泉泡泡 ----
+   for (let i = state.bathBubbles.length - 1; i >= 0; i--) {
+     const b = state.bathBubbles[i];
+     b.y += b.vy;
+     b.life--;
+     ctx.fillStyle = `rgba(255,255,255,${0.2 + Math.sin(t + i) * 0.1})`;
+     ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+     ctx.lineWidth = 1;
+     ctx.beginPath();
+     ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.stroke();
+     if (b.life <= 0) state.bathBubbles.splice(i, 1);
+   }
+ 
+   // ---- 光橘爆弹火花 ----
+   for (let i = state.sparkles.length - 1; i >= 0; i--) {
+     const s = state.sparkles[i];
+     s.x += s.vx;
+     s.y += s.vy;
+     s.vy += 0.06;
+     s.life--;
+     ctx.fillStyle = s.color;
+     ctx.globalAlpha = Math.min(1, s.life / 15);
+     ctx.beginPath();
+     const r = s.r;
+     for (let j = 0; j < 5; j++) {
+       const angle = (j * 4 * Math.PI) / 5 - Math.PI / 2;
+       const px = s.x + Math.cos(angle) * r;
+       const py = s.y + Math.sin(angle) * r;
+       j === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+     }
+     ctx.closePath();
+     ctx.fill();
+     ctx.globalAlpha = 1;
+     if (s.life <= 0) state.sparkles.splice(i, 1);
+   }
+ 
+   // ---- 吃橘子 ----
+   if (isEat && state.mouthOpen > 0) {
+     ctx.fillStyle = '#f09030';
+     ctx.beginPath();
+     ctx.arc(180, 130 + bodyY, 8, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.fillStyle = '#e08020';
+     ctx.beginPath();
+     ctx.arc(180, 130 + bodyY, 6, 0, Math.PI * 2);
+     ctx.fill();
+     ctx.fillStyle = '#6a5030';
+     ctx.beginPath();
+     ctx.arc(180, 126 + bodyY, 2, 0, Math.PI * 2);
+     ctx.fill();
+   }
+ 
+   // ---- Zzz ----
+   if (isSleep) {
+     ctx.fillStyle = 'rgba(100,80,180,0.15)';
+     ctx.font = '16px sans-serif';
+     const zOff = Math.sin(t * 2) * 4;
+     ctx.fillText('💤', 270, 110 + zOff);
+     ctx.font = '12px sans-serif';
+     ctx.fillStyle = 'rgba(100,80,180,0.1)';
+     ctx.fillText('💤', 280, 90 + zOff * 0.5);
+   }
+ }
+ 
+ // ---------- 动画循环 ----------
+ function update() {
+   state.blinkTimer++;
+   if (state.blinkState === 0 && state.blinkTimer > 120 + Math.random() * 80 && state.mood !== 'sleep') {
+     state.blinkState = 1;
+     state.blinkTimer = 0;
+   } else if (state.blinkState === 1 && state.blinkTimer > 5) {
+     state.blinkState = 2;
+     state.blinkTimer = 0;
+   } else if (state.blinkState === 2 && state.blinkTimer > 3) {
+     state.blinkState = 3;
+     state.blinkTimer = 0;
+   } else if (state.blinkState === 3 && state.blinkTimer > 4) {
+     state.blinkState = 0;
+     state.blinkTimer = 0;
+   }
+ 
+   if (state.earWiggle > 0) state.earWiggle -= 0.02;
+ 
+   state.animFrame++;
+   if (state.mood === 'pet' && state.animFrame > 100) {
+     state.mood = 'idle';
+     speech.textContent = randomPhrase('idle');
+   }
+   if (state.mood === 'feed' && state.animFrame > 80) {
+     state.mood = 'idle';
+     speech.textContent = randomPhrase('idle');
+   }
+   if (state.mood === 'play' && state.animFrame > 80) {
+     state.mood = 'idle';
+     state.bathBubbles = [];
+     state.sparkles = [];
+     speech.textContent = randomPhrase('idle');
+   }
+   if (state.mood === 'bath' && state.animFrame > 120) {
+     state.mood = 'idle';
+     state.bathBubbles = [];
+     speech.textContent = randomPhrase('idle');
+   }
+ 
+   drawPet();
+   requestAnimationFrame(update);
+ }
+ 
+ // ---------- 互动 ----------
+ canvas.addEventListener('click', () => {
+   if (state.mood === 'sleep') {
+     setMood('idle', '嗯？我没睡……🍃');
+     state.sleepy = Math.min(100, state.sleepy + 10);
+     updateStats();
+     return;
+   }
+   const r = Math.random();
+   if (r < 0.3) {
+     setMood('pet', randomPhrase('pet'));
+     state.earWiggle = 1;
+   } else {
+     setMood('idle', randomPhrase('idle'));
+   }
+   state.zen = Math.min(100, state.zen + 3);
+   updateStats();
+ });
+ 
+ document.querySelectorAll('[data-action]').forEach(btn => {
+   btn.addEventListener('click', (e) => {
+     const action = e.currentTarget.dataset.action;
+     switch (action) {
+       case 'pet':
+         state.petCount++;
+         setMood('pet', randomPhrase('pet'));
+         state.earWiggle = 2;
+         state.zen = Math.min(100, state.zen + 5);
+         state.sleepy = Math.max(0, state.sleepy - 3);
+         break;
+       case 'feed':
+         state.eatCount++;
+         setMood('feed', randomPhrase('feed'));
+         state.mouthOpen = 1;
+         setTimeout(() => state.mouthOpen = 0, 1200);
+         state.full = Math.min(100, state.full + 12);
+         state.zen = Math.min(100, state.zen + 3);
+         state.sleepy = Math.min(100, state.sleepy + 5);
+         break;
+       case 'bath':
+         setMood('bath', randomPhrase('bath'));
+         state.warm = Math.min(100, state.warm + 15);
+         state.zen = Math.min(100, state.zen + 8);
+         state.sleepy = Math.min(100, state.sleepy + 6);
+         break;
+       case 'play':
+         setMood('play', randomPhrase('play'));
+         state.zen = Math.max(0, state.zen - 5);
+         state.sleepy = Math.min(100, state.sleepy + 8);
+         state.full = Math.max(0, state.full - 5);
+         break;
+       case 'sleep':
+         setMood('sleep', randomPhrase('sleep'));
+         state.sleepy = Math.max(0, state.sleepy - 20);
+         state.zen = Math.min(100, state.zen + 6);
+         break;
+     }
+     updateStats();
+   });
+ });
+ 
+ function updateStats() {
+   document.getElementById('statZen').innerHTML = `<span class="icon">🙏</span> ${Math.round(state.zen)}`;
+   document.getElementById('statFull').innerHTML = `<span class="icon">🍊</span> ${Math.round(state.full)}`;
+   document.getElementById('statWarm').innerHTML = `<span class="icon">♨️</span> ${Math.round(state.warm)}`;
+   document.getElementById('statSleep').innerHTML = `<span class="icon">💤</span> ${Math.round(state.sleepy)}`;
+   const avg = (state.zen + state.full + state.warm + (100 - state.sleepy)) / 4;
+   hpFill.style.width = Math.min(100, Math.round(avg)) + '%';
+ }
+ 
+ setInterval(() => {
+   state.zen = Math.max(0, state.zen - 0.5);
+   state.full = Math.max(0, state.full - 0.4);
+   state.warm = Math.max(0, state.warm - 0.3);
+   state.sleepy = Math.min(100, state.sleepy + 0.3);
+   if (state.mood === 'idle' && Math.random() < 0.02) {
+     speech.textContent = randomPhrase('idle');
+   }
+   updateStats();
+ }, 5000);
+ 
+ updateStats();
+ update();
+ </script>
+ </body>
+ </html>

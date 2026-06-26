@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Guid="1cfcc384-4773-41f0-b91b-516511eaa867" SettingsBundleGuid="b2531618-39f4-4fb7-83e7-324e1cd7e8e2" Version="4.0.0.0" Owner="MX982\21551" ProjectTemplateGuid="10004f3b-4acf-4425-a3e3-38d3b3514276" ReferenceProjectGuid="00000000-0000-0000-0000-000000000000">
+  <LanguageDirections>
+    <LanguageDirection Guid="8dc0554d-596d-44a8-9d47-d11bc5542d48" SettingsBundleGuid="27c21e02-76b9-449b-9a06-a779ac2241eb" TargetLanguageCode="zh-CN" SourceLanguageCode="en-US">
+      <AutoSuggestDictionaries />
+      <CascadeItem OverrideParent="false" StopSearchingWhenResultsFound="false" />
+    </LanguageDirection>
+  </LanguageDirections>
+  <TermbaseConfiguration>
+    <RecognitionOptions>
+      <ShowWithNoAvailableTranslation>false</ShowWithNoAvailableTranslation>
+      <MinimumMatchValue>70</MinimumMatchValue>
+      <SearchDepth>200</SearchDepth>
+      <SearchOrder>Parallel</SearchOrder>
+    </RecognitionOptions>
+  </TermbaseConfiguration>
+  <SettingsBundles>
+    <SettingsBundle Guid="b2531618-39f4-4fb7-83e7-324e1cd7e8e2">
+      <SettingsBundle>
+        <SettingsGroup Id="TerminologyProviderSettings">
+          <Setting Id="TermbasesOrder">
+            <ArrayOfstring xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+            </ArrayOfstring>
+          </Setting>
+          <Setting Id="Termbases">
+            <ArrayOfTermbase xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Sdl.ProjectApi.Implementation.Xml">
+            </ArrayOfTermbase>
+          </Setting>
+        </SettingsGroup>
+        <SettingsGroup Id="Plugin.AnyTM.SourceLanguages">
+          <Setting Id="HasMixedSourceLanguages">False</Setting>
+          <Setting Id="AutoDetectSourceLanguage">True</Setting>
+          <Setting Id="SourceLanguages">en-US</Setting>
+        </SettingsGroup>
+      </SettingsBundle>
+    </SettingsBundle>
+  </SettingsBundles>
+  <InitialTaskTemplate Description="ComplexTask_Prepare_NoProjectTM_Description" Name="ComplexTask_Prepare_NoProjectTM_Name" Id="Sdl.ProjectApi.AutomaticTask.Prepare.NoProjectTM">
+    <SubTaskTemplates>
+      <SubTaskTemplate TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.Conversion" />
+      <SubTaskTemplate TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.Split" />
+      <SubTaskTemplate TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.PerfectMatch" />
+      <SubTaskTemplate TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.Translate" />
+      <SubTaskTemplate TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.Analysis" />
+    </SubTaskTemplates>
+  </InitialTaskTemplate>
+  <AnalysisBands>
+    <AnalysisBand MinimumMatchValue="50" />
+    <AnalysisBand MinimumMatchValue="75" />
+    <AnalysisBand MinimumMatchValue="85" />
+    <AnalysisBand MinimumMatchValue="95" />
+  </AnalysisBands>
+  <ManualTaskTemplates />
+  <Users>
+    <User UserId="MX982\21551" FullName="崔瑞" Description="" Email="2155129643@qq.com" PhoneNumber="" EmailType="Smtp" />
+  </Users>
+  <CascadeItem OverrideParent="false" StopSearchingWhenResultsFound="false" />
+  <GeneralProjectInfo IsInPlace="false" IsImported="false" Name="项目 1" CreatedAt="2026-06-24T10:10:54.9357649Z" StartedAt="2026-06-24T10:12:28.6104742Z" Status="Started" CreatedBy="MX982\21551" />
+  <SourceLanguageCode>en-US</SourceLanguageCode>
+  <ProjectFiles>
+    <ProjectFile Guid="a7e339f5-a1dd-4ac4-a884-6a9e0443039d" Path="" Role="Translatable" Name="CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf" ParentProjectFileGuid="00000000-0000-0000-0000-000000000000" FilterDefinitionId="PDF v 3.0.0.0">
+      <SpecificTargetLanguages />
+      <LanguageFiles>
+        <LanguageFile Guid="a1d85bb8-b2f1-4723-9021-f17cf053c8a9" SettingsBundleGuid="0e4fa500-d03d-44ca-bfea-ccf36f317d1b" LanguageCode="en-US">
+          <FileVersions>
+            <FileVersion Guid="a792ea2b-323f-4635-a0e6-11ca5e109728" VersionNumber="1" Size="44368" FileName="CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf" PhysicalPath="en-US\CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf" CreatedBy="MX982\21551" CreatedAt="2026-06-24T10:12:19.1146503Z" FileTimeStamp="2026-06-23T03:42:10.1921085Z" IsAutoUpload="false" />
+            <FileVersion Guid="63b15e97-5289-4fdc-bb3c-2f105998543e" VersionNumber="2" Size="1502487" FileName="CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf.sdlxliff" PhysicalPath="en-US\CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf.sdlxliff" Comment="" CreatedBy="MX982\21551" CreatedAt="2026-06-24T10:12:34.2157803Z" FileTimeStamp="2026-06-24T10:12:34.2107779Z" IsAutoUpload="false" />
+          </FileVersions>
+          <AnalysisStatistics WordCountStatus="None" AnalysisStatus="None">
+            <Total Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Repetitions Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Perfect Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <InContextExact Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Exact Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Fuzzy>
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            </Fuzzy>
+            <New Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Locked Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+          </AnalysisStatistics>
+          <ChildFiles />
+        </LanguageFile>
+        <LanguageFile Guid="84b269cf-35b4-4250-96ee-7e874c10ed9c" SettingsBundleGuid="7e125d25-c5d1-4a8c-8592-b41088ba1990" LanguageCode="zh-CN">
+          <FileVersions>
+            <FileVersion Guid="472ec974-8365-4b61-9b11-7f87bdeb3cc7" VersionNumber="3" Size="1502487" FileName="CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf.sdlxliff" PhysicalPath="zh-CN\CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf.sdlxliff" CreatedBy="MX982\21551" CreatedAt="2026-06-24T10:12:34.2221401Z" FileTimeStamp="2026-06-24T10:12:34.2107779Z" IsAutoUpload="false" />
+            <FileVersion Guid="86ef98fe-8315-4299-a969-df30b4590ef4" VersionNumber="4" Size="1538509" FileName="CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf.sdlxliff" PhysicalPath="zh-CN\CH2.4.1(4-2) 1. MSDS_Barrel_TOPAS MSDS-EN V8.00_0 (2).pdf.sdlxliff" Comment="Created by '应用 PerfectMatch+预翻译文件+分析文件'" CreatedBy="MX982\21551" CreatedAt="2026-06-24T10:12:38.4161063Z" FileTimeStamp="2026-06-24T10:12:38.408101Z" IsAutoUpload="false" />
+          </FileVersions>
+          <AnalysisStatistics WordCountFileTimeStamp="2026-06-24T10:12:38.408101Z" WordCountStatus="Complete" AnalysisFileTimeStamp="2026-06-24T10:12:38.408101Z" AnalysisStatus="Complete">
+            <Total Words="1755" Characters="11670" Segments="290" Placeables="1899" Tags="1738" />
+            <Repetitions Words="203" Characters="2213" Segments="56" Placeables="480" Tags="423" />
+            <Perfect Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <InContextExact Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Exact Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Fuzzy>
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+              <CountData Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            </Fuzzy>
+            <New Words="1552" Characters="9457" Segments="234" Placeables="1419" Tags="1315" />
+            <Locked Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+          </AnalysisStatistics>
+          <ConfirmationStatistics FileTimeStamp="2026-06-24T10:12:34.2107779Z" Status="Complete">
+            <Unspecified Words="1755" Characters="11670" Segments="290" Placeables="1899" Tags="1738" />
+            <Draft Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <Translated Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <RejectedTranslation Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <ApprovedTranslation Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <RejectedSignOff Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+            <ApprovedSignOff Words="0" Characters="0" Segments="0" Placeables="0" Tags="0" />
+          </ConfirmationStatistics>
+          <ChildFiles />
+        </LanguageFile>
+      </LanguageFiles>
+      <PreviousBilingualFiles />
+    </ProjectFile>
+  </ProjectFiles>
+  <Tasks>
+    <AutomaticTask Guid="2e6ebca5-4e90-42a5-81d6-8ac46c538c5a" PercentComplete="100" Status="Completed" CreatedAt="2026-06-24T10:12:20.7675535Z" PredecessorTaskGuid="00000000-0000-0000-0000-000000000000" CreatedBy="MX982\21551" CompletedAt="2026-06-24T10:12:21.9160918Z" StartedAt="2026-06-24T10:12:21.9060947Z">
+      <TaskTemplateIds>
+        <TaskTemplateId>Sdl.ProjectApi.AutomaticTasks.Scan</TaskTemplateId>
+      </TaskTemplateIds>
+      <Files>
+        <TaskFile Guid="afb08c96-9bdc-4003-8d1b-4adefa694da6" Completed="true" ParentTaskFileGuid="00000000-0000-0000-0000-000000000000" LanguageFileGuid="a1d85bb8-b2f1-4723-9021-f17cf053c8a9" Purpose="WorkFile">
+          <Result Guid="00000000-0000-0000-0000-000000000000" />
+        </TaskFile>
+      </Files>
+      <OutputFiles>
+        <OutputFile LanguageFileGuid="a1d85bb8-b2f1-4723-9021-f17cf053c8a9" Purpose="WorkFile" />
+      </OutputFiles>
+      <Reports />
+      <Parameters />
+      <Result Guid="00000000-0000-0000-0000-000000000000" />
+    </AutomaticTask>
+    <AutomaticTask Guid="25a4013d-483f-41dc-a14e-f6f92b7bd84c" ComplexTaskTemplateId="Sdl.ProjectApi.AutomaticTask.Prepare.NoProjectTM" PercentComplete="100" Status="Completed" CreatedAt="2026-06-24T10:12:28.675932Z" PredecessorTaskGuid="00000000-0000-0000-0000-000000000000" CreatedBy="MX982\21551" CompletedAt="2026-06-24T10:12:34.2157803Z" StartedAt="2026-06-24T10:12:28.8069994Z">
+      <TaskTemplateIds>
+        <TaskTemplateId>Sdl.ProjectApi.AutomaticTasks.Conversion</TaskTemplateId>
+      </TaskTemplateIds>
+      <Files>
+        <TaskFile Guid="fca629a1-3f58-4f2a-aa62-b32b65e3f3fd" Completed="true" ParentTaskFileGuid="00000000-0000-0000-0000-000000000000" LanguageFileGuid="a1d85bb8-b2f1-4723-9021-f17cf053c8a9" Purpose="WorkFile">
+          <Result Guid="00000000-0000-0000-0000-000000000000" />
+        </TaskFile>
+      </Files>
+      <OutputFiles>
+        <OutputFile LanguageFileGuid="a1d85bb8-b2f1-4723-9021-f17cf053c8a9" Purpose="WorkFile" />
+      </OutputFiles>
+      <Reports />
+      <Parameters />
+      <Result Guid="00000000-0000-0000-0000-000000000000" />
+    </AutomaticTask>
+    <AutomaticTask Guid="b4a23c1a-52f4-4cd6-8fc8-f7da02cf5b87" ComplexTaskTemplateId="Sdl.ProjectApi.AutomaticTask.Prepare.NoProjectTM" PercentComplete="100" Status="Completed" CreatedAt="2026-06-24T10:12:28.675932Z" PredecessorTaskGuid="25a4013d-483f-41dc-a14e-f6f92b7bd84c" CreatedBy="MX982\21551" CompletedAt="2026-06-24T10:12:34.2271854Z" StartedAt="2026-06-24T10:12:34.2191334Z">
+      <TaskTemplateIds>
+        <TaskTemplateId>Sdl.ProjectApi.AutomaticTasks.Split</TaskTemplateId>
+      </TaskTemplateIds>
+      <Files>
+        <TaskFile Guid="f9414a8d-cdec-4c6a-baeb-8566fe5a2669" Completed="true" ParentTaskFileGuid="00000000-0000-0000-0000-000000000000" LanguageFileGuid="a1d85bb8-b2f1-4723-9021-f17cf053c8a9" Purpose="WorkFile">
+          <Result Guid="00000000-0000-0000-0000-000000000000" />
+        </TaskFile>
+      </Files>
+      <OutputFiles>
+        <OutputFile LanguageFileGuid="84b269cf-35b4-4250-96ee-7e874c10ed9c" Purpose="WorkFile" />
+      </OutputFiles>
+      <Reports />
+      <Parameters />
+      <Result Guid="00000000-0000-0000-0000-000000000000" />
+    </AutomaticTask>
+    <AutomaticTask Guid="f13e0835-bd24-43ba-8c6c-4323e1098107" ComplexTaskTemplateId="Sdl.ProjectApi.AutomaticTask.Prepare.NoProjectTM" PercentComplete="100" Status="Completed" CreatedAt="2026-06-24T10:12:28.675932Z" PredecessorTaskGuid="b4a23c1a-52f4-4cd6-8fc8-f7da02cf5b87" CreatedBy="MX982\21551" CompletedAt="2026-06-24T10:12:38.4406183Z" StartedAt="2026-06-24T10:12:34.2321809Z">
+      <TaskTemplateIds>
+        <TaskTemplateId>Sdl.ProjectApi.AutomaticTasks.PerfectMatch</TaskTemplateId>
+        <TaskTemplateId>Sdl.ProjectApi.AutomaticTasks.Translate</TaskTemplateId>
+        <TaskTemplateId>Sdl.ProjectApi.AutomaticTasks.Analysis</TaskTemplateId>
+      </TaskTemplateIds>
+      <Files>
+        <TaskFile Guid="d0c1e899-27bc-4192-b452-b4b6f0014a23" Completed="true" ParentTaskFileGuid="00000000-0000-0000-0000-000000000000" LanguageFileGuid="84b269cf-35b4-4250-96ee-7e874c10ed9c" Purpose="WorkFile">
+          <Result Guid="00000000-0000-0000-0000-000000000000" />
+        </TaskFile>
+      </Files>
+      <OutputFiles>
+        <OutputFile LanguageFileGuid="84b269cf-35b4-4250-96ee-7e874c10ed9c" Purpose="WorkFile" />
+      </OutputFiles>
+      <Reports>
+        <Report Guid="6acdde24-2ca6-4c25-a289-5b99cea7df4a" Name="预翻译文件报告" Description="将翻译记忆库应用到文件的结果。" TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.Translate" LanguageDirectionGuid="8dc0554d-596d-44a8-9d47-d11bc5542d48" PhysicalPath="Reports\预翻译文件 en-US_zh-CN.xml" />
+        <Report Guid="a3c504b6-8d8f-4cc4-8aa4-31a61b916401" Name="分析文件报告" Description="显示关于通过应用翻译记忆库获得的预期利用情况的统计数据。" TaskTemplateId="Sdl.ProjectApi.AutomaticTasks.Analysis" LanguageDirectionGuid="8dc0554d-596d-44a8-9d47-d11bc5542d48" PhysicalPath="Reports\分析文件 en-US_zh-CN.xml" />
+      </Reports>
+      <Parameters />
+      <Result Guid="00000000-0000-0000-0000-000000000000">
+        <Messages Level="Warning" Message="找不到翻译记忆库以查找语言对 English (United States)-&gt;Chinese (Simplified, China) 的翻译。" Source="预翻译文件" />
+      </Result>
+    </AutomaticTask>
+  </Tasks>
+  <PackageOperations>
+    <ProjectPackageCreationOperations />
+    <ProjectPackageImportOperations />
+    <ReturnPackageCreationOperations />
+    <ReturnPackageImportOperations />
+  </PackageOperations>
+</Project>

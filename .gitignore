@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp & cache
+temp/
+cache/
+logs/
+
+# Large binary files
+*.pdf
+*.docx
+*.zip
+*.tar.gz
+*.7z
+
+# Environment
+.env
+.env.local

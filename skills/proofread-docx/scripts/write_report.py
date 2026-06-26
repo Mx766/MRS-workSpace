@@ -1,0 +1,380 @@
+#!/usr/bin/env python3
+"""
+Phase 7: 生成 Word 格式校对报告
+输入: 配对信息 + 各阶段疑点汇总 + 术语库变更
+输出: Word (.docx) 格式的校对报告
+"""
+
+import argparse
+import json
+from pathlib import Path
+from datetime import datetime
+
+try:
+    from docx.shared import Cm, Inches, Pt, RGBColor
+except ImportError:
+    pass
+
+
+def generate_report(pair_info: dict, all_issues: list[dict],
+                    glossary_changes: list[dict] = None,
+                    mechanical_report: dict = None,
+                    output_path: str = None) -> str:
+    """
+    生成 Word 格式校对报告。
+    """
+    try:
+        from docx import Document
+        from docx.shared import Inches, Pt, RGBColor, Cm
+        from docx.enum.text import WD_ALIGN_PARAGRAPH
+        from docx.enum.table import WD_TABLE_ALIGNMENT
+        from docx.oxml.ns import qn
+        from docx.oxml import OxmlElement
+    except ImportError:
+        return json.dumps({'error': '需要 python-docx: pip install python-docx'})
+
+    doc = Document()
+
+    # 页面设置
+    for section in doc.sections:
+        section.top_margin = Cm(2.54)
+        section.bottom_margin = Cm(2.54)
+        section.left_margin = Cm(3.18)
+        section.right_margin = Cm(3.18)
+
+    style = doc.styles['Normal']
+    style.font.size = Pt(10.5)
+    style.font.name = '宋体'
+
+    # ── 标题 ──
+    title = doc.add_heading('翻译校对报告', level=0)
+    title.alignment = WD_ALIGN_PARAGRAPH.CENTER
+
+    # ── 一、基本信息 ──
+    doc.add_heading('一、基本信息', level=1)
+
+    # 兼容两种格式: 直接 {source:, target:} 或嵌套 {pairs: [{source:, target:}]}
+    if 'pairs' in pair_info and pair_info['pairs']:
+        src = pair_info['pairs'][0].get('source', {})
+        tgt = pair_info['pairs'][0].get('target', {})
+    else:
+        src = pair_info.get('source', {})
+        tgt = pair_info.get('target', {})
+
+    source_file = src.get('filename', '')
+    target_file = tgt.get('filename', '')
+    target_lang = tgt.get('lang_name', '')
+    source_format = src.get('format', '')
+
+    info_data = [
+        ('原文文件', f'{source_file}' + (f' ({source_format.upper()})' if source_format else '')),
+        ('译文文件', f'{target_file}'),
+        ('校对方向', f'原文语种 → {target_lang}' if target_lang else ''),
+        ('校对日期', datetime.now().strftime('%Y-%m-%d')),
+    ]
+
+    if pair_info.get('glossary_files'):
+        info_data.append(('使用术语库', ', '.join(pair_info['glossary_files'])))
+
+    if pair_info.get('total_paragraphs'):
+        info_data.append(('文档总段数', str(pair_info['total_paragraphs'])))
+
+    if pair_info.get('chapter_count'):
+        info_data.append(('校对章节数', str(pair_info['chapter_count'])))
+
+    _add_info_table(doc, info_data)
+
+    # ── 颜色图例 ──
+    doc.add_paragraph()
+    legend_heading = doc.add_paragraph('批注颜色说明：')
+    legend_heading.runs[0].bold = True
+
+    legend_items = [
+        ('🔴 红色高亮 = 严重问题（必须修改）：漏译、术语前后不一致、相同段落翻译不一致、不通顺、数字错误', 'FF0000'),
+        ('🟡 橙色高亮 = 中等问题（建议修改）：翻译腔、标点混用', 'FF8C00'),
+        ('🟢 绿色高亮 = 低问题（格式优化）：格式问题', '228B22'),
+    ]
+    for text, color in legend_items:
+        p = doc.add_paragraph(text)
+        for run in p.runs:
+            run.font.color.rgb = RGBColor(
+                int(color[0:2], 16), int(color[2:4], 16), int(color[4:6], 16)
+            )
+
+    # ── 二、问题统计总览 ──
+    doc.add_heading('二、问题统计总览', level=1)
+
+    # 按维度和严重度分组统计
+    stats = _calculate_stats(all_issues)
+
+    # 统计表
+    table = doc.add_table(rows=len(stats['by_dimension']) + 2, cols=5)
+    table.style = 'Table Grid'
+    table.alignment = WD_TABLE_ALIGNMENT.CENTER
+
+    headers = ['维度', '🔴 严重', '🟡 中等', '🟢 低', '合计']
+    for i, h in enumerate(headers):
+        cell = table.rows[0].cells[i]
+        cell.text = h
+        for p in cell.paragraphs:
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            for run in p.runs:
+                run.bold = True
+
+    for row_idx, (dim, counts) in enumerate(stats['by_dimension'].items()):
+        row = table.rows[row_idx + 1]
+        row.cells[0].text = dim
+        row.cells[1].text = str(counts.get('critical', 0))
+        row.cells[2].text = str(counts.get('medium', 0))
+        row.cells[3].text = str(counts.get('low', 0))
+        row.cells[4].text = str(sum(counts.values()))
+
+        # 颜色填充
+        if counts.get('critical', 0) > 0:
+            _set_cell_fill(row.cells[1], 'FFCCCC')
+        if counts.get('medium', 0) > 0:
+            _set_cell_fill(row.cells[2], 'FFE0B2')
+
+    # 合计行
+    total_row = table.rows[-1]
+    total_row.cells[0].text = '合计'
+    for run in total_row.cells[0].paragraphs[0].runs:
+        run.bold = True
+    total_row.cells[1].text = str(stats['total'].get('critical', 0))
+    total_row.cells[2].text = str(stats['total'].get('medium', 0))
+    total_row.cells[3].text = str(stats['total'].get('low', 0))
+    total_row.cells[4].text = str(stats['grand_total'])
+
+    # ── 三、🔴 严重问题清单（必须修改） ──
+    critical_issues = [i for i in all_issues if i.get('severity') == 'critical']
+    if critical_issues:
+        doc.add_heading('三、🔴 严重问题清单（必须修改）', level=1)
+        for idx, issue in enumerate(critical_issues):
+            _add_issue_paragraph(doc, idx + 1, issue, 'critical')
+    else:
+        doc.add_heading('三、🔴 严重问题清单（必须修改）', level=1)
+        doc.add_paragraph('✅ 未发现严重问题。')
+
+    # ── 四、🟡 中等问题汇总（建议修改） ──
+    medium_issues = [i for i in all_issues if i.get('severity') == 'medium']
+    if medium_issues:
+        doc.add_heading('四、🟡 中等问题汇总（建议修改）', level=1)
+        for idx, issue in enumerate(medium_issues):
+            _add_issue_paragraph(doc, idx + 1, issue, 'medium')
+    else:
+        doc.add_heading('四、🟡 中等问题汇总（建议修改）', level=1)
+        doc.add_paragraph('✅ 未发现中等问题。')
+
+    # ── 五、🟢 低问题汇总（格式优化） ──
+    low_issues = [i for i in all_issues if i.get('severity') == 'low']
+    if low_issues:
+        doc.add_heading('五、🟢 低问题汇总（格式优化）', level=1)
+        for idx, issue in enumerate(low_issues):
+            _add_issue_paragraph(doc, idx + 1, issue, 'low')
+    else:
+        doc.add_heading('五、🟢 低问题汇总（格式优化）', level=1)
+        doc.add_paragraph('✅ 未发现格式问题。')
+
+    # ── 六、术语一致性报告 ──
+    doc.add_heading('六、术语一致性报告', level=1)
+    if mechanical_report:
+        gl_vios = mechanical_report.get('glossary_violations', [])
+        glossary_match_rate = _calc_glossary_rate(mechanical_report)
+        doc.add_paragraph(f'术语库匹配率: {glossary_match_rate}')
+        doc.add_paragraph(f'术语违规: {len(gl_vios)} 处')
+    else:
+        doc.add_paragraph('术语库匹配率: 无术语库')
+
+    if glossary_changes:
+        doc.add_paragraph(f'新增入库术语: {len(glossary_changes)} 条')
+
+    # ── 七、范围表达统一性 ──
+    if mechanical_report and mechanical_report.get('range_stats'):
+        range_stats = mechanical_report['range_stats']
+        doc.add_heading('七、范围表达统一性检查', level=1)
+        non_zero = {k: v for k, v in range_stats.items() if v > 0}
+        if len(non_zero) > 1:
+            doc.add_paragraph(f'⚠️ 范围表达方式混用:')
+            for form, count in non_zero.items():
+                form_label = {'dash': '1-5(连字符)', 'tilde': '1～5(波浪号)', 'chinese': '1至5(中文)'}
+                doc.add_paragraph(f'  • {form_label.get(form, form)}: {count} 处')
+            doc.add_paragraph('建议全文统一为一种范围表达方式。')
+        elif len(non_zero) == 1:
+            form = list(non_zero.keys())[0]
+            form_label = {'dash': '1-5(连字符)', 'tilde': '1～5(波浪号)', 'chinese': '1至5(中文)'}
+            doc.add_paragraph(f'✅ 全文范围表达统一: {form_label.get(form, form)}')
+        else:
+            doc.add_paragraph('（文档中未使用范围表达）')
+
+    # ── 八、待确认事项 ──
+    doc.add_heading('八、待确认事项', level=1)
+    low_confidence = [i for i in all_issues if i.get('confidence') == 'low']
+    if low_confidence:
+        doc.add_paragraph(f'以下 {len(low_confidence)} 条问题置信度较低，建议人工确认：')
+        for idx, issue in enumerate(low_confidence):
+            doc.add_paragraph(f'{idx+1}. [{issue.get("chapter", "")}] {issue.get("issue", "")[:100]}')
+    else:
+        doc.add_paragraph('无待确认事项。')
+
+    # ── 九、附录：术语库变更记录 ──
+    if glossary_changes:
+        doc.add_heading('九、附录：术语库变更记录', level=1)
+        table = doc.add_table(rows=len(glossary_changes) + 1, cols=4)
+        table.style = 'Table Grid'
+        for i, h in enumerate(['英文术语', '中文译法', '领域', '来源']):
+            cell = table.rows[0].cells[i]
+            cell.text = h
+            for run in cell.paragraphs[0].runs:
+                run.bold = True
+        for row_idx, change in enumerate(glossary_changes):
+            table.rows[row_idx + 1].cells[0].text = change.get('source_term', '')
+            table.rows[row_idx + 1].cells[1].text = change.get('candidate_translation', '')
+            table.rows[row_idx + 1].cells[2].text = change.get('domain', '')
+            table.rows[row_idx + 1].cells[3].text = change.get('source', '')
+
+    # ── 保存 ──
+    output = output_path or '校对报告.docx'
+    doc.save(output)
+    return json.dumps({'status': 'ok', 'output': str(Path(output).resolve())}, ensure_ascii=False)
+
+
+def _add_info_table(doc, data: list):
+    """添加基本信息表格"""
+    table = doc.add_table(rows=len(data), cols=2)
+    table.style = 'Table Grid'
+    for i, (label, value) in enumerate(data):
+        table.rows[i].cells[0].text = label
+        table.rows[i].cells[1].text = value
+        for run in table.rows[i].cells[0].paragraphs[0].runs:
+            run.bold = True
+    # 设置列宽
+    for row in table.rows:
+        row.cells[0].width = Cm(3.5)
+        row.cells[1].width = Cm(12)
+
+
+def _add_issue_paragraph(doc, idx: int, issue: dict, severity: str):
+    """添加单条问题描述"""
+    sev_colors = {
+        'critical': ('FF0000', '🔴'),
+        'medium': ('FF8C00', '🟡'),
+        'low': ('228B22', '🟢'),
+    }
+    hex_color, icon = sev_colors.get(severity, ('000000', ''))
+
+    chapter = issue.get('chapter', '')
+    para_idx = issue.get('paragraph_index', '')
+    loc = f'[Ch{chapter} P{para_idx}]' if chapter and para_idx else ''
+
+    p = doc.add_paragraph()
+    run = p.add_run(f'{idx}. {icon} {loc} {issue.get("check_item", "")}')
+    run.bold = True
+    run.font.color.rgb = RGBColor(
+        int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+    )
+
+    p2 = doc.add_paragraph()
+    p2.paragraph_format.left_indent = Cm(1)
+    p2.add_run(f'原文: {issue.get("source_quote", "")}')
+    p2 = doc.add_paragraph()
+    p2.paragraph_format.left_indent = Cm(1)
+    p2.add_run(f'译文: {issue.get("target_quote", "")}')
+    p2 = doc.add_paragraph()
+    p2.paragraph_format.left_indent = Cm(1)
+    run = p2.add_run(f'建议: {issue.get("suggestion", "")}')
+    run.italic = True
+
+
+def _set_cell_fill(cell, color: str):
+    """设置表格单元格底色"""
+    try:
+        from docx.oxml.ns import qn
+        from docx.oxml import OxmlElement
+        tcPr = cell._tc.get_or_add_tcPr()
+        shd = OxmlElement('w:shd')
+        shd.set(qn('w:fill'), color)
+        shd.set(qn('w:val'), 'clear')
+        tcPr.append(shd)
+    except Exception:
+        pass
+
+
+def _calculate_stats(issues: list[dict]) -> dict:
+    """计算问题统计"""
+    by_dimension = {}
+    total = {'critical': 0, 'medium': 0, 'low': 0}
+
+    for issue in issues:
+        dim = issue.get('dimension', '其他')
+        sev = issue.get('severity', 'medium')
+        if dim not in by_dimension:
+            by_dimension[dim] = {'critical': 0, 'medium': 0, 'low': 0}
+        by_dimension[dim][sev] = by_dimension[dim].get(sev, 0) + 1
+        total[sev] = total.get(sev, 0) + 1
+
+    return {
+        'by_dimension': by_dimension,
+        'total': total,
+        'grand_total': sum(total.values()),
+    }
+
+
+def _calc_glossary_rate(mech_report: dict) -> str:
+    """计算术语库匹配率"""
+    gl_vios = mech_report.get('glossary_violations', [])
+    if isinstance(gl_vios, list):
+        return f'检测到 {len(gl_vios)} 处术语违规'
+    return '无术语库数据'
+
+
+def main():
+    parser = argparse.ArgumentParser(description='生成校对报告')
+    parser.add_argument('--pair-info', '-p', help='配对信息 JSON')
+    parser.add_argument('--issues', '-i', nargs='+', default=[], help='疑点 JSON 文件列表（可多个，合并处理）')
+    parser.add_argument('--glossary-changes', '-g', help='术语库变更 JSON')
+    parser.add_argument('--mechanical-report', '-m', help='机械检查报告 JSON')
+    parser.add_argument('--output', '-o', default='校对报告.docx', help='输出报告路径')
+    args = parser.parse_args()
+
+    # 加载配对信息
+    pair_info = {}
+    if args.pair_info:
+        try:
+            pair_info = json.loads(Path(args.pair_info).read_text(encoding='utf-8'))
+        except Exception:
+            pair_info = {}
+
+    # 合并所有 issues
+    all_issues = []
+    for issue_file in args.issues:
+        try:
+            data = json.loads(Path(issue_file).read_text(encoding='utf-8'))
+            if isinstance(data, list):
+                all_issues.extend(data)
+            elif isinstance(data, dict):
+                all_issues.extend(data.get('issues', data.get('findings', [])))
+        except Exception:
+            pass
+
+    # 术语库变更
+    glossary_changes = None
+    if args.glossary_changes:
+        try:
+            glossary_changes = json.loads(Path(args.glossary_changes).read_text(encoding='utf-8'))
+        except Exception:
+            pass
+
+    # 机械检查报告
+    mechanical_report = None
+    if args.mechanical_report:
+        try:
+            mechanical_report = json.loads(Path(args.mechanical_report).read_text(encoding='utf-8'))
+        except Exception:
+            pass
+
+    result = generate_report(pair_info, all_issues, glossary_changes, mechanical_report, args.output)
+    print(result)
+
+
+if __name__ == '__main__':
+    main()

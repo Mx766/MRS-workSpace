@@ -1,0 +1,6038 @@
+{
+  "schema_name": "DoclingDocument",
+  "version": "1.10.0",
+  "name": "[1]",
+  "origin": {
+    "mimetype": "application/pdf",
+    "binary_hash": 8098300436849643673,
+    "filename": "[1].pdf"
+  },
+  "furniture": {
+    "self_ref": "#/furniture",
+    "children": [],
+    "content_layer": "furniture",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "body": {
+    "self_ref": "#/body",
+    "children": [
+      {
+        "$ref": "#/texts/0"
+      },
+      {
+        "$ref": "#/texts/1"
+      },
+      {
+        "$ref": "#/texts/2"
+      },
+      {
+        "$ref": "#/texts/3"
+      },
+      {
+        "$ref": "#/groups/0"
+      },
+      {
+        "$ref": "#/texts/5"
+      },
+      {
+        "$ref": "#/groups/1"
+      },
+      {
+        "$ref": "#/texts/9"
+      },
+      {
+        "$ref": "#/texts/10"
+      },
+      {
+        "$ref": "#/texts/11"
+      },
+      {
+        "$ref": "#/texts/12"
+      },
+      {
+        "$ref": "#/texts/13"
+      },
+      {
+        "$ref": "#/texts/14"
+      },
+      {
+        "$ref": "#/texts/15"
+      },
+      {
+        "$ref": "#/texts/16"
+      },
+      {
+        "$ref": "#/texts/17"
+      },
+      {
+        "$ref": "#/groups/2"
+      },
+      {
+        "$ref": "#/texts/21"
+      },
+      {
+        "$ref": "#/texts/22"
+      },
+      {
+        "$ref": "#/texts/23"
+      },
+      {
+        "$ref": "#/texts/24"
+      },
+      {
+        "$ref": "#/texts/25"
+      },
+      {
+        "$ref": "#/texts/26"
+      },
+      {
+        "$ref": "#/texts/27"
+      },
+      {
+        "$ref": "#/pictures/0"
+      },
+      {
+        "$ref": "#/texts/28"
+      },
+      {
+        "$ref": "#/texts/29"
+      },
+      {
+        "$ref": "#/texts/30"
+      },
+      {
+        "$ref": "#/texts/31"
+      },
+      {
+        "$ref": "#/texts/32"
+      },
+      {
+        "$ref": "#/groups/3"
+      },
+      {
+        "$ref": "#/texts/36"
+      },
+      {
+        "$ref": "#/texts/37"
+      },
+      {
+        "$ref": "#/texts/38"
+      },
+      {
+        "$ref": "#/texts/39"
+      },
+      {
+        "$ref": "#/pictures/1"
+      },
+      {
+        "$ref": "#/groups/4"
+      },
+      {
+        "$ref": "#/texts/44"
+      },
+      {
+        "$ref": "#/groups/5"
+      },
+      {
+        "$ref": "#/texts/47"
+      },
+      {
+        "$ref": "#/texts/48"
+      },
+      {
+        "$ref": "#/texts/49"
+      },
+      {
+        "$ref": "#/texts/50"
+      },
+      {
+        "$ref": "#/texts/51"
+      },
+      {
+        "$ref": "#/texts/52"
+      },
+      {
+        "$ref": "#/texts/53"
+      },
+      {
+        "$ref": "#/texts/54"
+      },
+      {
+        "$ref": "#/texts/55"
+      },
+      {
+        "$ref": "#/texts/56"
+      },
+      {
+        "$ref": "#/pictures/2"
+      },
+      {
+        "$ref": "#/texts/96"
+      },
+      {
+        "$ref": "#/texts/97"
+      },
+      {
+        "$ref": "#/texts/98"
+      },
+      {
+        "$ref": "#/texts/99"
+      },
+      {
+        "$ref": "#/texts/100"
+      },
+      {
+        "$ref": "#/texts/101"
+      },
+      {
+        "$ref": "#/texts/102"
+      },
+      {
+        "$ref": "#/texts/103"
+      },
+      {
+        "$ref": "#/texts/104"
+      },
+      {
+        "$ref": "#/texts/105"
+      },
+      {
+        "$ref": "#/texts/106"
+      },
+      {
+        "$ref": "#/texts/107"
+      },
+      {
+        "$ref": "#/texts/108"
+      },
+      {
+        "$ref": "#/texts/109"
+      },
+      {
+        "$ref": "#/texts/110"
+      },
+      {
+        "$ref": "#/groups/6"
+      },
+      {
+        "$ref": "#/texts/120"
+      },
+      {
+        "$ref": "#/texts/121"
+      },
+      {
+        "$ref": "#/groups/7"
+      },
+      {
+        "$ref": "#/texts/125"
+      },
+      {
+        "$ref": "#/texts/126"
+      },
+      {
+        "$ref": "#/texts/127"
+      },
+      {
+        "$ref": "#/texts/128"
+      },
+      {
+        "$ref": "#/texts/129"
+      },
+      {
+        "$ref": "#/texts/130"
+      },
+      {
+        "$ref": "#/texts/131"
+      },
+      {
+        "$ref": "#/texts/132"
+      },
+      {
+        "$ref": "#/texts/133"
+      },
+      {
+        "$ref": "#/texts/134"
+      },
+      {
+        "$ref": "#/texts/135"
+      },
+      {
+        "$ref": "#/texts/136"
+      },
+      {
+        "$ref": "#/pictures/3"
+      },
+      {
+        "$ref": "#/texts/138"
+      },
+      {
+        "$ref": "#/texts/139"
+      },
+      {
+        "$ref": "#/texts/140"
+      },
+      {
+        "$ref": "#/texts/141"
+      },
+      {
+        "$ref": "#/texts/142"
+      },
+      {
+        "$ref": "#/texts/143"
+      },
+      {
+        "$ref": "#/texts/144"
+      },
+      {
+        "$ref": "#/texts/145"
+      },
+      {
+        "$ref": "#/texts/146"
+      },
+      {
+        "$ref": "#/groups/8"
+      },
+      {
+        "$ref": "#/texts/154"
+      },
+      {
+        "$ref": "#/texts/155"
+      },
+      {
+        "$ref": "#/texts/156"
+      },
+      {
+        "$ref": "#/texts/157"
+      },
+      {
+        "$ref": "#/texts/158"
+      },
+      {
+        "$ref": "#/texts/159"
+      },
+      {
+        "$ref": "#/texts/160"
+      },
+      {
+        "$ref": "#/texts/161"
+      },
+      {
+        "$ref": "#/groups/9"
+      },
+      {
+        "$ref": "#/texts/168"
+      },
+      {
+        "$ref": "#/groups/10"
+      },
+      {
+        "$ref": "#/texts/180"
+      }
+    ],
+    "content_layer": "body",
+    "name": "_root_",
+    "label": "unspecified"
+  },
+  "groups": [
+    {
+      "self_ref": "#/groups/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/4"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/6"
+        },
+        {
+          "$ref": "#/texts/7"
+        },
+        {
+          "$ref": "#/texts/8"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/18"
+        },
+        {
+          "$ref": "#/texts/19"
+        },
+        {
+          "$ref": "#/texts/20"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/33"
+        },
+        {
+          "$ref": "#/texts/34"
+        },
+        {
+          "$ref": "#/texts/35"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/4",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/42"
+        },
+        {
+          "$ref": "#/texts/43"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/45"
+        },
+        {
+          "$ref": "#/texts/46"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/6",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/111"
+        },
+        {
+          "$ref": "#/texts/112"
+        },
+        {
+          "$ref": "#/texts/113"
+        },
+        {
+          "$ref": "#/texts/114"
+        },
+        {
+          "$ref": "#/texts/115"
+        },
+        {
+          "$ref": "#/texts/116"
+        },
+        {
+          "$ref": "#/texts/117"
+        },
+        {
+          "$ref": "#/texts/118"
+        },
+        {
+          "$ref": "#/texts/119"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/7",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/122"
+        },
+        {
+          "$ref": "#/texts/123"
+        },
+        {
+          "$ref": "#/texts/124"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/8",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/147"
+        },
+        {
+          "$ref": "#/texts/148"
+        },
+        {
+          "$ref": "#/texts/149"
+        },
+        {
+          "$ref": "#/texts/150"
+        },
+        {
+          "$ref": "#/texts/151"
+        },
+        {
+          "$ref": "#/texts/152"
+        },
+        {
+          "$ref": "#/texts/153"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/162"
+        },
+        {
+          "$ref": "#/texts/163"
+        },
+        {
+          "$ref": "#/texts/164"
+        },
+        {
+          "$ref": "#/texts/165"
+        },
+        {
+          "$ref": "#/texts/166"
+        },
+        {
+          "$ref": "#/texts/167"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    },
+    {
+      "self_ref": "#/groups/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/169"
+        },
+        {
+          "$ref": "#/texts/170"
+        },
+        {
+          "$ref": "#/texts/171"
+        },
+        {
+          "$ref": "#/texts/172"
+        },
+        {
+          "$ref": "#/texts/173"
+        },
+        {
+          "$ref": "#/texts/174"
+        },
+        {
+          "$ref": "#/texts/175"
+        },
+        {
+          "$ref": "#/texts/176"
+        },
+        {
+          "$ref": "#/texts/177"
+        },
+        {
+          "$ref": "#/texts/178"
+        },
+        {
+          "$ref": "#/texts/179"
+        }
+      ],
+      "content_layer": "body",
+      "name": "list",
+      "label": "list"
+    }
+  ],
+  "texts": [
+    {
+      "self_ref": "#/texts/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 486.1416,
+            "t": 154.43705440000008,
+            "r": 488.212851,
+            "b": 23.130700000000047,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            29
+          ]
+        }
+      ],
+      "orig": "plasticsurgery.theclinics.com",
+      "text": "plasticsurgery.theclinics.com",
+      "hyperlink": "http://plasticsurgery.theclinics.com/"
+    },
+    {
+      "self_ref": "#/texts/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 681.2434195999999,
+            "r": 368.58610897999995,
+            "b": 635.7117677045334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "Microfocused Ultrasound for Skin Tightening",
+      "text": "Microfocused Ultrasound for Skin Tightening",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 620.454654,
+            "r": 146.08086799999998,
+            "b": 607.27585,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "Karol A. Gutowski, MD*",
+      "text": "Karol A. Gutowski, MD*"
+    },
+    {
+      "self_ref": "#/texts/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 39.1748,
+            "t": 586.5178908,
+            "r": 91.6938654,
+            "b": 577.9649463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "KEYWORDS",
+      "text": "KEYWORDS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/4",
+      "parent": {
+        "$ref": "#/groups/0"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 39.1748,
+            "t": 572.6424509999999,
+            "r": 400.7130519700001,
+            "b": 557.1486845999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            88
+          ]
+        }
+      ],
+      "orig": "\u000f Noninvasive skin tightening \u000f Ulthera \u000f Microfocused ultrasound \u000f Thermal injury zones",
+      "text": "\u000f Noninvasive skin tightening \u000f Ulthera \u000f Microfocused ultrasound \u000f Thermal injury zones",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/5",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 39.1748,
+            "t": 541.3336908,
+            "r": 92.67155858000001,
+            "b": 532.7807463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "KEY POINTS",
+      "text": "KEY POINTS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/6",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 39.1748,
+            "t": 524.680251,
+            "r": 438.2836422300002,
+            "b": 504.96066741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            105
+          ]
+        }
+      ],
+      "orig": "\u000f Noninvasive skin tightening is possible in one treatment session using Ulthera microfocused ultrasound.",
+      "text": "\u000f Noninvasive skin tightening is possible in one treatment session using Ulthera microfocused ultrasound.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/7",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 39.1748,
+            "t": 501.66286226999995,
+            "r": 290.21685391999995,
+            "b": 486.16909587,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            62
+          ]
+        }
+      ],
+      "orig": "\u000f Results may not be seen until 3 to 6 months after treatment.",
+      "text": "\u000f Results may not be seen until 3 to 6 months after treatment.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/8",
+      "parent": {
+        "$ref": "#/groups/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 39.1748,
+            "t": 489.64353711999996,
+            "r": 438.3230939500001,
+            "b": 469.86746583999997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            146
+          ]
+        }
+      ],
+      "orig": "\u000f Some patients may not see improvement after treatment depending on individual patient treatment response and the energy delivery protocols used.",
+      "text": "\u000f Some patients may not see improvement after treatment depending on individual patient treatment response and the energy delivery protocols used.",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/9",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 434.63769080000003,
+            "r": 103.2022888,
+            "b": 426.0847463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "INTRODUCTION",
+      "text": "INTRODUCTION",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/10",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 416.5183382,
+            "r": 233.12261413,
+            "b": 298.6572213299998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            504
+          ]
+        }
+      ],
+      "orig": "The continued patient demand for nonsurgical and minimal downtime facial rejuvenation has resulted in more use of injectable neurotoxins and fillers, andskinresurfacingandtighteningtreatments.Tissue heating either by radiofrequency (RF) or microfocused ultrasound (MFU) can be part of the overall treatment plan to tighten skin and even elevate facial structures. MFU generates heat in deeper dermis and subcutaneous tissue, leading to new collagen synthesis and subsequent skin tightening and elevation.",
+      "text": "The continued patient demand for nonsurgical and minimal downtime facial rejuvenation has resulted in more use of injectable neurotoxins and fillers, andskinresurfacingandtighteningtreatments.Tissue heating either by radiofrequency (RF) or microfocused ultrasound (MFU) can be part of the overall treatment plan to tighten skin and even elevate facial structures. MFU generates heat in deeper dermis and subcutaneous tissue, leading to new collagen synthesis and subsequent skin tightening and elevation."
+    },
+    {
+      "self_ref": "#/texts/11",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 283.0974908,
+            "r": 179.80686828000006,
+            "b": 263.5457346509333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            41
+          ]
+        }
+      ],
+      "orig": "COLLAGEN DENATURATION AND NEOCOLLAGENESIS",
+      "text": "COLLAGEN DENATURATION AND NEOCOLLAGENESIS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/12",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.845304380000016,
+            "t": 255.64207399999998,
+            "r": 233.11863198999995,
+            "b": 190.93957616,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            261
+          ]
+        }
+      ],
+      "orig": "When collagen is exposed to 60 \u000e C to 65 \u000e C, it becomes denatured. One study showed that new collagen synthesis is observed after 30 days and another study showed new collagen and elastin synthesis at 10 weeks, along with deposition of new hyaluronic acid. 1,2",
+      "text": "When collagen is exposed to 60 \u000e C to 65 \u000e C, it becomes denatured. One study showed that new collagen synthesis is observed after 30 days and another study showed new collagen and elastin synthesis at 10 weeks, along with deposition of new hyaluronic acid. 1,2"
+    },
+    {
+      "self_ref": "#/texts/13",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 175.32429079999997,
+            "r": 144.03825196000003,
+            "b": 166.77134631093327,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "MECHANISM OF ACTION",
+      "text": "MECHANISM OF ACTION",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/14",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 33.8457,
+            "t": 157.2050382,
+            "r": 233.10199164,
+            "b": 116.04792794000002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            189
+          ]
+        },
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 251.03728153,
+            "t": 434.43496453,
+            "r": 450.2989529500003,
+            "b": 349.45416638999984,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            190,
+            559
+          ]
+        }
+      ],
+      "orig": "Ultrasound medical devices use sound waves for diagnostic imaging or medical treatments. Higher ultrasound frequencies have more superficial tissue effects and lower frequencies have deeper tissue effects. When ultrasound waves are microfocused to a point in living tissue, molecular vibration results and heat is generated creating well-defined thermal injury zones at predetermined depths while leaving the surrounding tissue unaffected. At the resulting tissue temperatures, collagen contraction, and denaturation is seen and neocollagenesis is stimulated.",
+      "text": "Ultrasound medical devices use sound waves for diagnostic imaging or medical treatments. Higher ultrasound frequencies have more superficial tissue effects and lower frequencies have deeper tissue effects. When ultrasound waves are microfocused to a point in living tissue, molecular vibration results and heat is generated creating well-defined thermal injury zones at predetermined depths while leaving the surrounding tissue unaffected. At the resulting tissue temperatures, collagen contraction, and denaturation is seen and neocollagenesis is stimulated."
+    },
+    {
+      "self_ref": "#/texts/15",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 251.03537647000002,
+            "t": 346.78848539999984,
+            "r": 450.31150577000034,
+            "b": 272.74690382999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            324
+          ]
+        }
+      ],
+      "orig": "MFU is different from RF energy in that it can be microfocused to target deeper tissue without affecting more superficial tissue. Unlike RF energy, MFU can heat deeper tissue to between 60 \u000e C and 70 \u000e C without damaging the skin. For an RF device to achieve high temperatures, surface cooling is needed to protect the skin.",
+      "text": "MFU is different from RF energy in that it can be microfocused to target deeper tissue without affecting more superficial tissue. Unlike RF energy, MFU can heat deeper tissue to between 60 \u000e C and 70 \u000e C without damaging the skin. For an RF device to achieve high temperatures, surface cooling is needed to protect the skin."
+    },
+    {
+      "self_ref": "#/texts/16",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 251.0362,
+            "t": 259.0597908,
+            "r": 432.14889267999996,
+            "b": 239.50803465093333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            38
+          ]
+        }
+      ],
+      "orig": "ULTHERA MICROFOCUSED ULTRASOUND SYSTEM",
+      "text": "ULTHERA MICROFOCUSED ULTRASOUND SYSTEM",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/17",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 251.0362,
+            "t": 229.94203819999996,
+            "r": 450.2987680500005,
+            "b": 166.84528847,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            269
+          ]
+        }
+      ],
+      "orig": "The Ulthera system (Ultherapy) was approved by the US Food and Drug Administration in 2009 for noninvasive eyebrow elevation but is routinely used for panfacial and submental treatments. Depending on the device settings, the target tissue can be set to variable depths:",
+      "text": "The Ulthera system (Ultherapy) was approved by the US Food and Drug Administration in 2009 for noninvasive eyebrow elevation but is routinely used for panfacial and submental treatments. Depending on the device settings, the target tissue can be set to variable depths:"
+    },
+    {
+      "self_ref": "#/texts/18",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 157.70862877000002,
+            "r": 299.0059049999999,
+            "b": 142.21486237,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "\u000f 1.5 mm",
+      "text": "\u000f 1.5 mm",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/19",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 135.76898929999993,
+            "r": 450.3077343500003,
+            "b": 116.04940570999997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            87
+          ]
+        }
+      ],
+      "orig": "\u000f 4.5 mm, which targets the superficial muscular aponeurotic system (SMAS) and platysma",
+      "text": "\u000f 4.5 mm, which targets the superficial muscular aponeurotic system (SMAS) and platysma",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/20",
+      "parent": {
+        "$ref": "#/groups/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 146.76705287999994,
+            "r": 411.3401945500001,
+            "b": 131.27328648000002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            35
+          ]
+        }
+      ],
+      "orig": "\u000f 3.0 mm, which targets deep dermis",
+      "text": "\u000f 3.0 mm, which targets deep dermis",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/21",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 38.8346,
+            "t": 93.94739960000004,
+            "r": 445.33392848000045,
+            "b": 76.76701713786667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            205
+          ]
+        }
+      ],
+      "orig": "Disclosures: The author does not have any financial interests or relationships with the product manufacturers. Division of Plastic Surgery, University of Illinois, 908 West Armitage, Chicago, IL 60614, USA",
+      "text": "Disclosures: The author does not have any financial interests or relationships with the product manufacturers. Division of Plastic Surgery, University of Illinois, 908 West Armitage, Chicago, IL 60614, USA"
+    },
+    {
+      "self_ref": "#/texts/22",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 38.8346,
+            "t": 73.99161284000002,
+            "r": 370.57265545999996,
+            "b": 66.78912375786672,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            85
+          ]
+        }
+      ],
+      "orig": "* Corresponding author. 820 South Wood Street, Suite 515 CSN, Chicago, IL 60612-7316.",
+      "text": "* Corresponding author. 820 South Wood Street, Suite 515 CSN, Chicago, IL 60612-7316."
+    },
+    {
+      "self_ref": "#/texts/23",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 38.8346,
+            "t": 64.48475828000005,
+            "r": 184.74584842000004,
+            "b": 56.74569408000002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            36
+          ]
+        }
+      ],
+      "orig": "E-mail address: Karol@DrGutowski.com",
+      "text": "E-mail address: Karol@DrGutowski.com",
+      "hyperlink": "mailto:Karol@DrGutowski.com"
+    },
+    {
+      "self_ref": "#/texts/24",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 38.8346,
+            "t": 46.155299600000035,
+            "r": 166.78261166000001,
+            "b": 38.952810517866624,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            35
+          ]
+        }
+      ],
+      "orig": "Clin Plastic Surg 43 (2016) 577-582",
+      "text": "Clin Plastic Surg 43 (2016) 577-582"
+    },
+    {
+      "self_ref": "#/texts/25",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 38.8346,
+            "t": 36.177406219999966,
+            "r": 194.8432948000001,
+            "b": 28.97491713786667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "http://dx.doi.org/10.1016/j.cps.2016.03.012",
+      "text": "http://dx.doi.org/10.1016/j.cps.2016.03.012",
+      "hyperlink": "http://dx.doi.org/10.1016/j.cps.2016.03.012"
+    },
+    {
+      "self_ref": "#/texts/26",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 38.8346,
+            "t": 28.686215240000024,
+            "r": 309.6699662000001,
+            "b": 18.316985039999963,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            75
+          ]
+        }
+      ],
+      "orig": "0094-1298/16/$ - see front matter Ó 2016 Elsevier Inc. All rights reserved.",
+      "text": "0094-1298/16/$ - see front matter Ó 2016 Elsevier Inc. All rights reserved."
+    },
+    {
+      "self_ref": "#/texts/27",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 76.3385,
+            "t": 16.63476579999997,
+            "r": 427.6261000000012,
+            "b": 3.874958210672162,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.",
+      "text": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved."
+    },
+    {
+      "self_ref": "#/texts/28",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 17.6315,
+            "t": 693.7582996,
+            "r": 30.830151200000003,
+            "b": 686.5558105178667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "578",
+      "text": "578"
+    },
+    {
+      "self_ref": "#/texts/29",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 73.1339,
+            "t": 694.7446908000001,
+            "r": 114.6077772,
+            "b": 686.1917463109334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Gutowski",
+      "text": "Gutowski",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/30",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.68793380999999,
+            "t": 663.1324382,
+            "r": 252.95541749999998,
+            "b": 567.20946741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            396
+          ]
+        }
+      ],
+      "orig": "The Ulthera system delivers transcutaneous MFU energy from an operator-controlled hand piece ( Fig. 1 ) and a monitor allows direct visualization ( Fig. 2 ) of where the energy will be delivered so that specific structures such as bone can be avoided. The focal energy delivery in given in predetermined 'lines' results in discrete intervals between 1 mm 3 coagulation zones that promote healing.",
+      "text": "The Ulthera system delivers transcutaneous MFU energy from an operator-controlled hand piece ( Fig. 1 ) and a monitor allows direct visualization ( Fig. 2 ) of where the energy will be delivered so that specific structures such as bone can be avoided. The focal energy delivery in given in predetermined 'lines' results in discrete intervals between 1 mm 3 coagulation zones that promote healing."
+    },
+    {
+      "self_ref": "#/texts/31",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.6882,
+            "t": 554.4863908,
+            "r": 111.82450550000001,
+            "b": 545.9334463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "INDICATIONS",
+      "text": "INDICATIONS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/32",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.6882,
+            "t": 536.3104382,
+            "r": 252.94538827000002,
+            "b": 506.15139152,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            113
+          ]
+        }
+      ],
+      "orig": "Although the currently approved indications are listed below, other facial and nonfacial areas have been treated:",
+      "text": "Although the currently approved indications are listed below, other facial and nonfacial areas have been treated:"
+    },
+    {
+      "self_ref": "#/texts/33",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.249223240000006,
+            "t": 496.95734749999997,
+            "r": 125.14333459,
+            "b": 481.4635811,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "\u000f Lift eyebrows",
+      "text": "\u000f Lift eyebrows",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/34",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 475.0741957199999,
+            "r": 225.60893283000004,
+            "b": 459.58042931999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            46
+          ]
+        }
+      ],
+      "orig": "\u000f Improve lines and wrinkles in de ´ collete ´",
+      "text": "\u000f Improve lines and wrinkles in de ´ collete ´",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/35",
+      "parent": {
+        "$ref": "#/groups/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 486.01577160999994,
+            "r": 218.19469936000002,
+            "b": 470.52200521,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            39
+          ]
+        }
+      ],
+      "orig": "\u000f Lift submental tissue (chin and neck)",
+      "text": "\u000f Lift submental tissue (chin and neck)",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/36",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.6882,
+            "t": 453.5730908,
+            "r": 148.66262162000004,
+            "b": 445.0201463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "HISTOLOGIC STUDIES",
+      "text": "HISTOLOGIC STUDIES",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/37",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.68746021,
+            "t": 435.39713820000003,
+            "r": 252.94538826999997,
+            "b": 295.65137615999987,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            571
+          ]
+        }
+      ],
+      "orig": "An early prototype Ulthera device was used on the lateral cheek region in patients who would be undergoing a surgical rhytidectomy within 12 weeks of treatment. 3 Skin histology showed consistent and reproducible thermal injury zones in the dermis, without injury to the epidermis, which was absent by 12 weeks. Another study 4 showed more dermal collagen in the reticular dermis (24% increase) 2 months after treatment resulting in a mean increase in dermal thickening from 1.32 to 1.63 mm. Elastic fibers of the upper and lower dermis were more parallel and straighter.",
+      "text": "An early prototype Ulthera device was used on the lateral cheek region in patients who would be undergoing a surgical rhytidectomy within 12 weeks of treatment. 3 Skin histology showed consistent and reproducible thermal injury zones in the dermis, without injury to the epidermis, which was absent by 12 weeks. Another study 4 showed more dermal collagen in the reticular dermis (24% increase) 2 months after treatment resulting in a mean increase in dermal thickening from 1.32 to 1.63 mm. Elastic fibers of the upper and lower dermis were more parallel and straighter."
+    },
+    {
+      "self_ref": "#/texts/38",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.6882,
+            "t": 282.8707908,
+            "r": 137.96005194000003,
+            "b": 274.3178463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            15
+          ]
+        }
+      ],
+      "orig": "TREATMENT TIMES",
+      "text": "TREATMENT TIMES",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/39",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.6882,
+            "t": 264.7514382,
+            "r": 252.96332086999993,
+            "b": 234.53590382999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            139
+          ]
+        },
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.87978153,
+            "t": 663.13490676,
+            "r": 470.1280035000004,
+            "b": 643.91743597,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            140,
+            194
+          ]
+        }
+      ],
+      "orig": "Treatment times for the full face and neck are generally less than 90 minutes, but vary depending on provider experience, aggressiveness of protocol, patient comfort, and treatment surface area.",
+      "text": "Treatment times for the full face and neck are generally less than 90 minutes, but vary depending on provider experience, aggressiveness of protocol, patient comfort, and treatment surface area."
+    },
+    {
+      "self_ref": "#/texts/40",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.6882,
+            "t": 58.6277996,
+            "r": 252.91928940000003,
+            "b": 41.44741713786664,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            74
+          ]
+        }
+      ],
+      "orig": "Fig. 1. Patient treatment with Ulthera microfocused ultrasound hand piece.",
+      "text": "Fig. 1. Patient treatment with Ulthera microfocused ultrasound hand piece."
+    },
+    {
+      "self_ref": "#/texts/41",
+      "parent": {
+        "$ref": "#/pictures/1"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 154.0,
+            "t": 161.33333333333337,
+            "r": 166.66666666666669,
+            "b": 160.66666666666663,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "DS1015",
+      "text": "DS1015"
+    },
+    {
+      "self_ref": "#/texts/42",
+      "parent": {
+        "$ref": "#/groups/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 279.44080477,
+            "t": 634.78077627,
+            "r": 385.4072280600001,
+            "b": 619.28700987,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "\u000f Face - 30 to 60 minutes",
+      "text": "\u000f Face - 30 to 60 minutes",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/43",
+      "parent": {
+        "$ref": "#/groups/4"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 279.44080477,
+            "t": 623.8392003800001,
+            "r": 386.5405683800001,
+            "b": 608.34543398,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            25
+          ]
+        }
+      ],
+      "orig": "\u000f Neck - 30 to 45 minutes",
+      "text": "\u000f Neck - 30 to 45 minutes",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/44",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.8787,
+            "t": 600.2942908,
+            "r": 340.9176864600001,
+            "b": 591.7413463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "PRETREATMENT",
+      "text": "PRETREATMENT",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/45",
+      "parent": {
+        "$ref": "#/groups/5"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 279.4393,
+            "t": 582.620451,
+            "r": 470.1148425400004,
+            "b": 562.90086741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            61
+          ]
+        }
+      ],
+      "orig": "\u000f Topical betacaine/lidocaine/procaine cream for 60 minutes 5",
+      "text": "\u000f Topical betacaine/lidocaine/procaine cream for 60 minutes 5",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/46",
+      "parent": {
+        "$ref": "#/groups/5"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 279.4393,
+            "t": 560.736951,
+            "r": 470.1004964600002,
+            "b": 541.01736741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            55
+          ]
+        }
+      ],
+      "orig": "\u000f Topical lidocaine/tetracaine (7%/7%) for 45 minutes 6",
+      "text": "\u000f Topical lidocaine/tetracaine (7%/7%) for 45 minutes 6",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/47",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.8787,
+            "t": 526.2533908,
+            "r": 375.21928978,
+            "b": 506.75330110240003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            35
+          ]
+        }
+      ],
+      "orig": "SPECIFIC APPLICATIONS Face and Neck",
+      "text": "SPECIFIC APPLICATIONS Face and Neck",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/48",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.87789071,
+            "t": 498.04273820000003,
+            "r": 470.13507897999995,
+            "b": 336.35836954999974,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            677
+          ]
+        }
+      ],
+      "orig": "A prospective rater-blinded study of the forehead, temples, cheeks, submental region, and side of neck measured outcomes at 90 days. 6 Probes used were 4 MHz, 4.5-mm focal depth (source energy 0.75-1.2 J), 7 MHz, 4.5-mm focal depth (source energy 0.75-1.05 J), and 7 MHz, 3.0-mm focal depth (source energy 0.4-0.63 J). Ultrasound pulses were administered every 1.5 mm along each treatment line with 3 to 5 mm between treatment lines. Thirty of 35 patients (86%) had a clinically significant improvement in brow elevation (mean, 1.7 mm). Unfortunately, the imaging used in the study design did not allow for conclusions to be made regarding improvement of other treatment areas.",
+      "text": "A prospective rater-blinded study of the forehead, temples, cheeks, submental region, and side of neck measured outcomes at 90 days. 6 Probes used were 4 MHz, 4.5-mm focal depth (source energy 0.75-1.2 J), 7 MHz, 4.5-mm focal depth (source energy 0.75-1.05 J), and 7 MHz, 3.0-mm focal depth (source energy 0.4-0.63 J). Ultrasound pulses were administered every 1.5 mm along each treatment line with 3 to 5 mm between treatment lines. Thirty of 35 patients (86%) had a clinically significant improvement in brow elevation (mean, 1.7 mm). Unfortunately, the imaging used in the study design did not allow for conclusions to be made regarding improvement of other treatment areas."
+    },
+    {
+      "self_ref": "#/texts/49",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.8787,
+            "t": 323.6857492,
+            "r": 349.26212778000024,
+            "b": 315.3580011024,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "Periorbital Region",
+      "text": "Periorbital Region",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/50",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.8787,
+            "t": 306.5908382,
+            "r": 470.12512871000047,
+            "b": 243.55057615999988,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            261
+          ]
+        }
+      ],
+      "orig": "As with any energy device, extreme care is needed when treating the thinner periocular skin. Direct treatment of eyelids over the eye itself is not indicated. Upper eyelid improvement can be seen after treatment of the forehead and brow owing to brow elevation.",
+      "text": "As with any energy device, extreme care is needed when treating the thinner periocular skin. Direct treatment of eyelids over the eye itself is not indicated. Upper eyelid improvement can be seen after treatment of the forehead and brow owing to brow elevation."
+    },
+    {
+      "self_ref": "#/texts/51",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.87789018,
+            "t": 240.88489516999994,
+            "r": 470.1367849000004,
+            "b": 133.96305205,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            485
+          ]
+        }
+      ],
+      "orig": "Two studies of lower eyelid treatments, both in Asian patients, showed improvement in infraorbital laxity. Quantitative improvement was seen after targeting the lower eyelid skin and orbital septum with 1.5-mm and 3.0-mm probes in a small series of 7 patients. 6 A larger study of 15 patients 7,8 also showed improvement in most patients. Histologic analysis confirmed increased collagen and elastin fibers in the reticular dermis, but there was no significant change in the epidermis.",
+      "text": "Two studies of lower eyelid treatments, both in Asian patients, showed improvement in infraorbital laxity. Quantitative improvement was seen after targeting the lower eyelid skin and orbital septum with 1.5-mm and 3.0-mm probes in a small series of 7 patients. 6 A larger study of 15 patients 7,8 also showed improvement in most patients. Histologic analysis confirmed increased collagen and elastin fibers in the reticular dermis, but there was no significant change in the epidermis."
+    },
+    {
+      "self_ref": "#/texts/52",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.8787,
+            "t": 121.34884920000002,
+            "r": 402.0341158800004,
+            "b": 113.02110110240005,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            29
+          ]
+        }
+      ],
+      "orig": "Nasolabial Folds and Jaw Line",
+      "text": "Nasolabial Folds and Jaw Line",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/53",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 270.8787,
+            "t": 104.25383820000002,
+            "r": 470.1305084900002,
+            "b": 41.15594329999999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            277
+          ]
+        },
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 33.8457,
+            "t": 327.22703820000004,
+            "r": 233.10109500999994,
+            "b": 286.06903130999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            278,
+            441
+          ]
+        }
+      ],
+      "orig": "A prospective, blinded evaluator study of 22 patients using 7.5and 4.4-MHz hand pieces, delivering energy to a focal depth of 3.0 and 4.5 mm with linear arrays spaced in parallel at 3 mm, evaluated the nasolabial folds and jaw line. 4 Two months after treatment of the face and submental area, all patients demonstrated nasolabial fold and jaw line improvement, 77% and 73% of patients subjectively reported 'much improvement,' respectively.",
+      "text": "A prospective, blinded evaluator study of 22 patients using 7.5and 4.4-MHz hand pieces, delivering energy to a focal depth of 3.0 and 4.5 mm with linear arrays spaced in parallel at 3 mm, evaluated the nasolabial folds and jaw line. 4 Two months after treatment of the face and submental area, all patients demonstrated nasolabial fold and jaw line improvement, 77% and 73% of patients subjectively reported 'much improvement,' respectively."
+    },
+    {
+      "self_ref": "#/texts/54",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 76.3385,
+            "t": 16.63476579999997,
+            "r": 427.66150000000044,
+            "b": 3.874958210672162,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.",
+      "text": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved."
+    },
+    {
+      "self_ref": "#/texts/55",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 232.8944,
+            "t": 694.7446908000001,
+            "r": 432.38166712000026,
+            "b": 686.1917463109334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "Microfocused Ultrasound for Skin Tightening",
+      "text": "Microfocused Ultrasound for Skin Tightening"
+    },
+    {
+      "self_ref": "#/texts/56",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 473.2723,
+            "t": 694.3818996,
+            "r": 486.4709512,
+            "b": 687.1794105178667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "579",
+      "text": "579"
+    },
+    {
+      "self_ref": "#/texts/57",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 33.8457,
+            "t": 347.0244996,
+            "r": 415.5792260200004,
+            "b": 339.82201051786666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            102
+          ]
+        }
+      ],
+      "orig": "Fig. 2. Ulthera screen display. The upper one-third of the screen shows the depth of tissue treatment.",
+      "text": "Fig. 2. Ulthera screen display. The upper one-third of the screen shows the depth of tissue treatment."
+    },
+    {
+      "self_ref": "#/texts/58",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 50.66666666666667,
+            "t": 643.0,
+            "r": 136.33333333333331,
+            "b": 621.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "Ultherapy'",
+      "text": "Ultherapy'"
+    },
+    {
+      "self_ref": "#/texts/59",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 206.66666666666666,
+            "t": 640.3333333333334,
+            "r": 271.33333333333337,
+            "b": 631.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            23
+          ]
+        }
+      ],
+      "orig": "Lincoln Park Aesthetics",
+      "text": "Lincoln Park Aesthetics"
+    },
+    {
+      "self_ref": "#/texts/60",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 225.66666666666666,
+            "t": 631.0,
+            "r": 252.33333333333334,
+            "b": 622.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Charisse",
+      "text": "Charisse"
+    },
+    {
+      "self_ref": "#/texts/61",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 356.3333333333333,
+            "t": 631.0,
+            "r": 387.6666666666667,
+            "b": 622.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "DeepSEE",
+      "text": "DeepSEE"
+    },
+    {
+      "self_ref": "#/texts/62",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 395.3333333333333,
+            "t": 630.6666666666666,
+            "r": 427.6666666666667,
+            "b": 622.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            12
+          ]
+        }
+      ],
+      "orig": "Patient Info",
+      "text": "Patient Info"
+    },
+    {
+      "self_ref": "#/texts/63",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 109.66666666666667,
+            "t": 619.0,
+            "r": 125.66666666666667,
+            "b": 610.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Depth",
+      "text": "Depth"
+    },
+    {
+      "self_ref": "#/texts/64",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 353.6666666666667,
+            "t": 615.6666666666666,
+            "r": 378.6666666666667,
+            "b": 605.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "Imaging",
+      "text": "Imaging"
+    },
+    {
+      "self_ref": "#/texts/65",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 111.33333333333333,
+            "t": 610.0,
+            "r": 123.33333333333333,
+            "b": 600.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "1.5",
+      "text": "1.5"
+    },
+    {
+      "self_ref": "#/texts/66",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 111.33333333333333,
+            "t": 600.3333333333334,
+            "r": 123.66666666666667,
+            "b": 591.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "3.0",
+      "text": "3.0"
+    },
+    {
+      "self_ref": "#/texts/67",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 68.33333333333334,
+            "t": 591.6666666666667,
+            "r": 98.0,
+            "b": 577.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Ready",
+      "text": "Ready"
+    },
+    {
+      "self_ref": "#/texts/68",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 111.33333333333333,
+            "t": 591.3333333333333,
+            "r": 123.66666666666667,
+            "b": 582.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "4.5",
+      "text": "4.5"
+    },
+    {
+      "self_ref": "#/texts/69",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 355.3333333333333,
+            "t": 592.6666666666666,
+            "r": 373.6666666666667,
+            "b": 581.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "Sca",
+      "text": "Sca"
+    },
+    {
+      "self_ref": "#/texts/70",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 222.33333333333334,
+            "t": 550.0,
+            "r": 253.0,
+            "b": 525.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "13",
+      "text": "13"
+    },
+    {
+      "self_ref": "#/texts/71",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 177.0,
+            "t": 545.6666666666667,
+            "r": 213.0,
+            "b": 537.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "Patient Total",
+      "text": "Patient Total"
+    },
+    {
+      "self_ref": "#/texts/72",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 324.0,
+            "t": 545.6666666666667,
+            "r": 341.3333333333333,
+            "b": 536.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "2277",
+      "text": "2277"
+    },
+    {
+      "self_ref": "#/texts/73",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 373.3333333333333,
+            "t": 546.3333333333333,
+            "r": 395.0,
+            "b": 536.3333333333334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "Energy",
+      "text": "Energy"
+    },
+    {
+      "self_ref": "#/texts/74",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 399.6666666666667,
+            "t": 545.3333333333333,
+            "r": 421.0,
+            "b": 537.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "Length",
+      "text": "Length"
+    },
+    {
+      "self_ref": "#/texts/75",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 183.66666666666666,
+            "t": 536.6666666666666,
+            "r": 213.33333333333334,
+            "b": 527.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "353 Lines",
+      "text": "353 Lines"
+    },
+    {
+      "self_ref": "#/texts/76",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 259.66666666666663,
+            "t": 536.3333333333334,
+            "r": 269.0,
+            "b": 527.6666666666666,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "of",
+      "text": "of"
+    },
+    {
+      "self_ref": "#/texts/77",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 291.0,
+            "t": 535.3333333333334,
+            "r": 317.0,
+            "b": 527.3333333333334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            9
+          ]
+        }
+      ],
+      "orig": "DS 10-1.5",
+      "text": "DS 10-1.5"
+    },
+    {
+      "self_ref": "#/texts/78",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 324.0,
+            "t": 535.6666666666666,
+            "r": 341.0,
+            "b": 527.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            4
+          ]
+        }
+      ],
+      "orig": "2400",
+      "text": "2400"
+    },
+    {
+      "self_ref": "#/texts/79",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 373.3333333333333,
+            "t": 536.0,
+            "r": 394.6666666666667,
+            "b": 526.3333333333334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "0.25 J",
+      "text": "0.25 J"
+    },
+    {
+      "self_ref": "#/texts/80",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 398.6666666666667,
+            "t": 535.6666666666666,
+            "r": 421.3333333333333,
+            "b": 526.3333333333334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "25 mm",
+      "text": "25 mm"
+    },
+    {
+      "self_ref": "#/texts/81",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 225.33333333333334,
+            "t": 525.6666666666666,
+            "r": 248.66666666666666,
+            "b": 515.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "Reset",
+      "text": "Reset"
+    },
+    {
+      "self_ref": "#/texts/82",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 148.66666666666669,
+            "t": 490.66666666666663,
+            "r": 157.0,
+            "b": 483.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "15",
+      "text": "15"
+    },
+    {
+      "self_ref": "#/texts/83",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 320.3333333333333,
+            "t": 489.33333333333337,
+            "r": 329.3333333333333,
+            "b": 481.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "15",
+      "text": "15"
+    },
+    {
+      "self_ref": "#/texts/84",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 71.0,
+            "t": 476.33333333333337,
+            "r": 90.66666666666666,
+            "b": 466.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            6
+          ]
+        }
+      ],
+      "orig": "10-1.5",
+      "text": "10-1.5"
+    },
+    {
+      "self_ref": "#/texts/85",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 173.0,
+            "t": 475.66666666666663,
+            "r": 181.33333333333334,
+            "b": 468.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "15",
+      "text": "15"
+    },
+    {
+      "self_ref": "#/texts/86",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 73.33333333333334,
+            "t": 448.66666666666663,
+            "r": 90.0,
+            "b": 440.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "7-3.0",
+      "text": "7-3.0"
+    },
+    {
+      "self_ref": "#/texts/87",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 156.0,
+            "t": 443.0,
+            "r": 163.0,
+            "b": 437.66666666666663,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "40",
+      "text": "40"
+    },
+    {
+      "self_ref": "#/texts/88",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 233.33333333333334,
+            "t": 442.66666666666663,
+            "r": 242.33333333333334,
+            "b": 435.33333333333337,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "20",
+      "text": "20"
+    },
+    {
+      "self_ref": "#/texts/89",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 73.33333333333334,
+            "t": 422.66666666666663,
+            "r": 90.66666666666666,
+            "b": 414.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "7-4.5",
+      "text": "7-4.5"
+    },
+    {
+      "self_ref": "#/texts/90",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 232.33333333333334,
+            "t": 415.0,
+            "r": 243.0,
+            "b": 406.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "30",
+      "text": "30"
+    },
+    {
+      "self_ref": "#/texts/91",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 284.3333333333333,
+            "t": 407.6666666666667,
+            "r": 294.0,
+            "b": 399.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            2
+          ]
+        }
+      ],
+      "orig": "25",
+      "text": "25"
+    },
+    {
+      "self_ref": "#/texts/92",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 74.0,
+            "t": 396.3333333333333,
+            "r": 91.33333333333333,
+            "b": 387.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            5
+          ]
+        }
+      ],
+      "orig": "4-4.5",
+      "text": "4-4.5"
+    },
+    {
+      "self_ref": "#/texts/93",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 117.0,
+            "t": 391.3333333333333,
+            "r": 135.0,
+            "b": 373.0,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            1
+          ]
+        }
+      ],
+      "orig": "R",
+      "text": "R"
+    },
+    {
+      "self_ref": "#/texts/94",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 374.3333333333333,
+            "t": 388.3333333333333,
+            "r": 415.3333333333333,
+            "b": 379.6666666666667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            13
+          ]
+        }
+      ],
+      "orig": "End Treatment",
+      "text": "End Treatment"
+    },
+    {
+      "self_ref": "#/texts/95",
+      "parent": {
+        "$ref": "#/pictures/2"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 219.66666666666666,
+            "t": 370.3333333333333,
+            "r": 256.0,
+            "b": 362.3333333333333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            11
+          ]
+        }
+      ],
+      "orig": "02:09:55 PM",
+      "text": "02:09:55 PM"
+    },
+    {
+      "self_ref": "#/texts/96",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 33.8457,
+            "t": 271.1881492,
+            "r": 205.52399430000003,
+            "b": 262.86040110240003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            37
+          ]
+        }
+      ],
+      "orig": "Superficial Musculoaponeurotic System",
+      "text": "Superficial Musculoaponeurotic System",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/97",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 33.84544529,
+            "t": 254.09323819999997,
+            "r": 233.14771976999998,
+            "b": 147.17199184000003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            418
+          ]
+        }
+      ],
+      "orig": "A cadaver study of transcutaneous Ulthera energy delivery in the face demonstrated thermal injury zones in the SMAS along with SMAS contraction proportional to the amount of energy delivered. 9 The epidermis and sub-SMAS structures were not affected. These findings suggest that not only dermal contraction, but also deeper support structural improvement contributes to the aesthetic improvements seen after treatment.",
+      "text": "A cadaver study of transcutaneous Ulthera energy delivery in the face demonstrated thermal injury zones in the SMAS along with SMAS contraction proportional to the amount of energy delivered. 9 The epidermis and sub-SMAS structures were not affected. These findings suggest that not only dermal contraction, but also deeper support structural improvement contributes to the aesthetic improvements seen after treatment."
+    },
+    {
+      "self_ref": "#/texts/98",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 33.8457,
+            "t": 132.2905492,
+            "r": 71.24179320000002,
+            "b": 123.96280110240002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Buttocks",
+      "text": "Buttocks",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/99",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 33.845043509999996,
+            "t": 115.19563819999996,
+            "r": 233.11568122999995,
+            "b": 41.15708846999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            345
+          ]
+        },
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 251.03662504,
+            "t": 327.22957986000006,
+            "r": 450.3153324300003,
+            "b": 209.36756635999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            346,
+            842
+          ]
+        }
+      ],
+      "orig": "Asingle study evaluated ultrasound skin tightening and smoothing of the buttocks. 5 Using transducers with 3.0- and 4.5-mm focal depths, an area of twenty-five 1-inch by 1-inch squares was treated. The mean number of treatment lines delivered to the right buttock was 973 (the left buttock served as a control). In most cases, the highest energy levels were not used owing to patient preference. Standardized blinded assessment and patient satisfaction was measured. Although 17 of 19 patients (89%) showed objective improvement at 180 days, only 68% expressed overall satisfaction and most would not recommend it to family or friends. Furthermore, pain scores were high and may have limited the amount of energy delivered to the treatment area. It is possible that improved treatment protocols and patient selection may yield better results.",
+      "text": "Asingle study evaluated ultrasound skin tightening and smoothing of the buttocks. 5 Using transducers with 3.0- and 4.5-mm focal depths, an area of twenty-five 1-inch by 1-inch squares was treated. The mean number of treatment lines delivered to the right buttock was 973 (the left buttock served as a control). In most cases, the highest energy levels were not used owing to patient preference. Standardized blinded assessment and patient satisfaction was measured. Although 17 of 19 patients (89%) showed objective improvement at 180 days, only 68% expressed overall satisfaction and most would not recommend it to family or friends. Furthermore, pain scores were high and may have limited the amount of energy delivered to the treatment area. It is possible that improved treatment protocols and patient selection may yield better results."
+    },
+    {
+      "self_ref": "#/texts/100",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 251.0362,
+            "t": 198.05434920000005,
+            "r": 372.46568272000036,
+            "b": 189.72660110240008,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            26
+          ]
+        }
+      ],
+      "orig": "Arms, Thigh, and Knee Skin",
+      "text": "Arms, Thigh, and Knee Skin",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/101",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 251.03552715,
+            "t": 180.95933820000005,
+            "r": 450.37699864000035,
+            "b": 41.157436690000054,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            658
+          ]
+        }
+      ],
+      "orig": "Because skin aging is not limited to the face, patients (usually women) commonly seek skin tightening of the upper arms, inner thighs, and the area just above the knees. One small study included 6 of each of these areas using 1 (single plane) or 2 (dual treatment depths) treatment passes. 10 After 6 months, blinded assessors found more skin lifting effect in the upper arms and knees than in the inner thighs. The dual treatment depth areas had slightly better clinical improvement scores. Eighty-one percent of patients were highly satisfied and all patients opted to have more treatments at the same site or at other sites. Despite the reported favorable",
+      "text": "Because skin aging is not limited to the face, patients (usually women) commonly seek skin tightening of the upper arms, inner thighs, and the area just above the knees. One small study included 6 of each of these areas using 1 (single plane) or 2 (dual treatment depths) treatment passes. 10 After 6 months, blinded assessors found more skin lifting effect in the upper arms and knees than in the inner thighs. The dual treatment depth areas had slightly better clinical improvement scores. Eighty-one percent of patients were highly satisfied and all patients opted to have more treatments at the same site or at other sites. Despite the reported favorable"
+    },
+    {
+      "self_ref": "#/texts/102",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 76.3385,
+            "t": 16.63476579999997,
+            "r": 427.66150000000044,
+            "b": 3.874958210672162,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.",
+      "text": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved."
+    },
+    {
+      "self_ref": "#/texts/103",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 17.6315,
+            "t": 693.7582996,
+            "r": 30.830151200000003,
+            "b": 686.5558105178667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "580",
+      "text": "580"
+    },
+    {
+      "self_ref": "#/texts/104",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 73.1339,
+            "t": 694.7446908000001,
+            "r": 114.6077772,
+            "b": 686.1917463109334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Gutowski",
+      "text": "Gutowski",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/105",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.6882,
+            "t": 663.1324382,
+            "r": 252.96959727999993,
+            "b": 643.91496741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            72
+          ]
+        }
+      ],
+      "orig": "results, the published before and after images show modest improvements.",
+      "text": "results, the published before and after images show modest improvements."
+    },
+    {
+      "self_ref": "#/texts/106",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.6882,
+            "t": 628.4101492,
+            "r": 250.8000767599999,
+            "b": 620.0824011024,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            42
+          ]
+        }
+      ],
+      "orig": "Non-Caucasian Ethnic Groups and Skin Types",
+      "text": "Non-Caucasian Ethnic Groups and Skin Types",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/107",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.68808639999999,
+            "t": 611.3718382000001,
+            "r": 252.9641039,
+            "b": 537.3331761600001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            320
+          ]
+        }
+      ],
+      "orig": "Most studies were on Caucasian skin types. Chan and colleagues 11 reported on 49 Chinese patients with Fitzpatrick skin types III and IV followed for up to 6 months. As in other studies, most patients had transient erythema and edema. Two cases of postinflammatory hyperpigmentation were seen on the forehead at 1 month.",
+      "text": "Most studies were on Caucasian skin types. Chan and colleagues 11 reported on 49 Chinese patients with Fitzpatrick skin types III and IV followed for up to 6 months. As in other studies, most patients had transient erythema and edema. Two cases of postinflammatory hyperpigmentation were seen on the forehead at 1 month."
+    },
+    {
+      "self_ref": "#/texts/108",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.68808639999999,
+            "t": 534.6110074800001,
+            "r": 252.95065444999994,
+            "b": 493.5103849100001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            162
+          ]
+        }
+      ],
+      "orig": "Of 22 Korean patients with Fitzpatrick skin types III to VI treated with Ulthera, 2 developed whitish wheals or striations but no further details were provided. 4",
+      "text": "Of 22 Korean patients with Fitzpatrick skin types III to VI treated with Ulthera, 2 developed whitish wheals or striations but no further details were provided. 4"
+    },
+    {
+      "self_ref": "#/texts/109",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.6882,
+            "t": 478.0038492,
+            "r": 191.26306351999997,
+            "b": 469.6761011024,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            27
+          ]
+        }
+      ],
+      "orig": "Pain and Comfort Management",
+      "text": "Pain and Comfort Management",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/110",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.6882,
+            "t": 460.9089382,
+            "r": 252.93911186,
+            "b": 343.0478213299998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            460
+          ]
+        }
+      ],
+      "orig": "One frequent complaint of the Ulthera system is pain during treatment. Moderate to severe pain may limit the amount of energy delivered, decrease the treatment areas, and increase treatment duration times. Topical anesthetics can provide some relief, but when not used, 54% of patients reported their pain as being 'severe.' Specific protocols for comfort management during treatment have not been developed but the following options are available and include:",
+      "text": "One frequent complaint of the Ulthera system is pain during treatment. Moderate to severe pain may limit the amount of energy delivered, decrease the treatment areas, and increase treatment duration times. Topical anesthetics can provide some relief, but when not used, 54% of patients reported their pain as being 'severe.' Specific protocols for comfort management during treatment have not been developed but the following options are available and include:"
+    },
+    {
+      "self_ref": "#/texts/111",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.249223240000006,
+            "t": 333.9111616299998,
+            "r": 141.79375369,
+            "b": 318.41739522999984,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "\u000f Nitrous oxide gas",
+      "text": "\u000f Nitrous oxide gas",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/112",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 311.9715221599998,
+            "r": 127.38939273999999,
+            "b": 296.4777557599998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            16
+          ]
+        }
+      ],
+      "orig": "\u000f Oral narcotics",
+      "text": "\u000f Oral narcotics",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/113",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 322.9130980499998,
+            "r": 252.96421749999993,
+            "b": 307.41933164999983,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            45
+          ]
+        }
+      ],
+      "orig": "\u000f Oralnonsteroidalantiinflammatorymedications",
+      "text": "\u000f Oralnonsteroidalantiinflammatorymedications",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/114",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 301.02994626999975,
+            "r": 132.60777933999998,
+            "b": 285.5361798699998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            18
+          ]
+        }
+      ],
+      "orig": "\u000f Oral anxiolytics",
+      "text": "\u000f Oral anxiolytics",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/115",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 279.0903067999997,
+            "r": 207.92380270999996,
+            "b": 263.59654039999975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            36
+          ]
+        }
+      ],
+      "orig": "\u000f Injectable anesthetic nerve blocks",
+      "text": "\u000f Injectable anesthetic nerve blocks",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/116",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 290.03188268999975,
+            "r": 148.94168805,
+            "b": 274.5381162899998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            21
+          ]
+        }
+      ],
+      "orig": "\u000f Topical anesthetics",
+      "text": "\u000f Topical anesthetics",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/117",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 268.1487309099997,
+            "r": 161.02198404,
+            "b": 252.65496450999973,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            24
+          ]
+        }
+      ],
+      "orig": "\u000f Distraction techniques",
+      "text": "\u000f Distraction techniques",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/118",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 246.20909143999972,
+            "r": 171.86134411000003,
+            "b": 230.7153250399997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            26
+          ]
+        }
+      ],
+      "orig": "\u000f Precooled ultrasound gel",
+      "text": "\u000f Precooled ultrasound gel",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/119",
+      "parent": {
+        "$ref": "#/groups/6"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24922324000001,
+            "t": 257.20715501999973,
+            "r": 173.30581504,
+            "b": 241.7133886199997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            27
+          ]
+        }
+      ],
+      "orig": "\u000f Cool air devices and fans",
+      "text": "\u000f Cool air devices and fans",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/120",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.688200000000016,
+            "t": 227.79231123999966,
+            "r": 252.95704446000002,
+            "b": 197.57588023999972,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            106
+          ]
+        }
+      ],
+      "orig": "These modalities may be used alone or in combination depending on patient tolerance and clinical judgment.",
+      "text": "These modalities may be used alone or in combination depending on patient tolerance and clinical judgment."
+    },
+    {
+      "self_ref": "#/texts/121",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.68789088,
+            "t": 196.28623519999996,
+            "r": 252.95314882000002,
+            "b": 175.68826740999998,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            82
+          ]
+        }
+      ],
+      "orig": "Based on small pilot trials, 12 the following was found during Ulthera treatments:",
+      "text": "Based on small pilot trials, 12 the following was found during Ulthera treatments:"
+    },
+    {
+      "self_ref": "#/texts/122",
+      "parent": {
+        "$ref": "#/groups/7"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.248914119999995,
+            "t": 166.49422339,
+            "r": 252.93162969999995,
+            "b": 124.83500033000007,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            138
+          ]
+        }
+      ],
+      "orig": "\u000f No difference in pain relief between 800 mg of ibuprofen versus 10 mg hydrocodone/500 mg acetaminophen given 60 minutes before treatment",
+      "text": "\u000f No difference in pain relief between 800 mg of ibuprofen versus 10 mg hydrocodone/500 mg acetaminophen given 60 minutes before treatment",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/123",
+      "parent": {
+        "$ref": "#/groups/7"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24891411999999,
+            "t": 122.67143213999998,
+            "r": 252.88500494,
+            "b": 102.95184855000002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            88
+          ]
+        }
+      ],
+      "orig": "\u000f No difference in pain relief between topical liposomal lidocaine and a placebo control",
+      "text": "\u000f No difference in pain relief between topical liposomal lidocaine and a placebo control",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/124",
+      "parent": {
+        "$ref": "#/groups/7"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 62.24891411999999,
+            "t": 100.78828036000004,
+            "r": 252.92624991999995,
+            "b": 70.07063319000008,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            130
+          ]
+        }
+      ],
+      "orig": "\u000f Lower energy treatment levels had less discomfort that higher energy levels without a difference in clinical outcome at 180 days",
+      "text": "\u000f Lower energy treatment levels had less discomfort that higher energy levels without a difference in clinical outcome at 180 days",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/125",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 53.68789087999999,
+            "t": 60.43186069000001,
+            "r": 253.04460507999977,
+            "b": 41.157902209999975,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            96
+          ]
+        },
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.87947241,
+            "t": 663.13668376,
+            "r": 470.2092877100003,
+            "b": 643.91921297,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            97,
+            197
+          ]
+        }
+      ],
+      "orig": "Although inflammation is a necessary component of neocollagenesis after Ulthera treatment, it is unknown if chronic nonsteroidal anti-inflammatory medicationuse mayinterfere with the final outcome.",
+      "text": "Although inflammation is a necessary component of neocollagenesis after Ulthera treatment, it is unknown if chronic nonsteroidal anti-inflammatory medicationuse mayinterfere with the final outcome."
+    },
+    {
+      "self_ref": "#/texts/126",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.8787,
+            "t": 630.1675491999999,
+            "r": 382.57579878000024,
+            "b": 621.8398011024,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            22
+          ]
+        }
+      ],
+      "orig": "Recovery and Down Time",
+      "text": "Recovery and Down Time",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/127",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.8787,
+            "t": 613.0726382,
+            "r": 470.11705904000036,
+            "b": 571.9146313100001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            193
+          ]
+        }
+      ],
+      "orig": "Other than the mild tissue reactions described elsewhere in this paper, the Ulthera system can be considered to have no down time and a minimal recovery period. No specific aftercare is needed.",
+      "text": "Other than the mild tissue reactions described elsewhere in this paper, the Ulthera system can be considered to have no down time and a minimal recovery period. No specific aftercare is needed."
+    },
+    {
+      "self_ref": "#/texts/128",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.8787,
+            "t": 558.1676492,
+            "r": 404.98580850000036,
+            "b": 549.8399011024001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            30
+          ]
+        }
+      ],
+      "orig": "Side Effects and Complications",
+      "text": "Side Effects and Complications",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/129",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.87841777,
+            "t": 541.0726382,
+            "r": 470.1365762000004,
+            "b": 423.20990383,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            517
+          ]
+        }
+      ],
+      "orig": "Most published studies reported only mild side effects, typically mild erythema and edema that usually resolves after 2 days but no longer than 7 days. 6 However, some patients reported transient bruising, skin pigment changes, 9 and neuropathic pain for up to 3 months, after treatment. A small group of patients also reported numbness of the jawline, which resolved within 3 weeks. 4 A review of the literature focusing on the safety of MFU confirmed that side effects are generally mild and transient in nature. 13",
+      "text": "Most published studies reported only mild side effects, typically mild erythema and edema that usually resolves after 2 days but no longer than 7 days. 6 However, some patients reported transient bruising, skin pigment changes, 9 and neuropathic pain for up to 3 months, after treatment. A small group of patients also reported numbness of the jawline, which resolved within 3 weeks. 4 A review of the literature focusing on the safety of MFU confirmed that side effects are generally mild and transient in nature. 13"
+    },
+    {
+      "self_ref": "#/texts/130",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.8787,
+            "t": 407.3116908,
+            "r": 308.31308592000005,
+            "b": 398.7587463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "RESULTS",
+      "text": "RESULTS",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/131",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.8787,
+            "t": 389.1924382,
+            "r": 470.12871523000035,
+            "b": 282.27289721999983,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            490
+          ]
+        }
+      ],
+      "orig": "Collagen contraction immediately after treatment may result in an initial tissue 'lift.' There is also mild edema that contributes to the early aesthetic improvement seen by patients. However, the heatinduced collagen synthesis and remodeling can persist for up to 1 year. A typical result is shown in Fig. 3 . Because ideal candidates tend to have mild to moderate aging, those with more severe aging, sagging skin, and platysmal bands are likely to be better served by surgical treatment.",
+      "text": "Collagen contraction immediately after treatment may result in an initial tissue 'lift.' There is also mild edema that contributes to the early aesthetic improvement seen by patients. However, the heatinduced collagen synthesis and remodeling can persist for up to 1 year. A typical result is shown in Fig. 3 . Because ideal candidates tend to have mild to moderate aging, those with more severe aging, sagging skin, and platysmal bands are likely to be better served by surgical treatment."
+    },
+    {
+      "self_ref": "#/texts/132",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.8787,
+            "t": 279.60721622999984,
+            "r": 470.1600972800003,
+            "b": 95.98366863999979,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            817
+          ]
+        }
+      ],
+      "orig": "As with any noninvasive aesthetic treatment, not all patients and clinicians see an improvement. A 2010 study by Ulthera, 51 of 70 patients (73%) had a quantitative improvement in tissue lift in the submental areas after 3 months. Of those 51 patients, 84% (43 patients) had a qualitative improvement as determined by blinded assessors. Therefore, the overall positive response was 61%. Overall patient satisfaction was 67%. Because the energy density settings were about one-half of the density recommended, it is likely that a higher response is possible if more aggressive treatment protocols are used. A follow-up study of 64 patients found 64% to 79% of patients reporting some degree of improvement between 2 and 6 months after treatment. The group that included jowl treatment had lower satisfaction scores. 14",
+      "text": "As with any noninvasive aesthetic treatment, not all patients and clinicians see an improvement. A 2010 study by Ulthera, 51 of 70 patients (73%) had a quantitative improvement in tissue lift in the submental areas after 3 months. Of those 51 patients, 84% (43 patients) had a qualitative improvement as determined by blinded assessors. Therefore, the overall positive response was 61%. Overall patient satisfaction was 67%. Because the energy density settings were about one-half of the density recommended, it is likely that a higher response is possible if more aggressive treatment protocols are used. A follow-up study of 64 patients found 64% to 79% of patients reporting some degree of improvement between 2 and 6 months after treatment. The group that included jowl treatment had lower satisfaction scores. 14"
+    },
+    {
+      "self_ref": "#/texts/133",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 270.87858428,
+            "t": 94.63593519999995,
+            "r": 470.11783995000013,
+            "b": 41.15696435999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            230
+          ]
+        },
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.8457,
+            "t": 461.1356382,
+            "r": 233.12261413,
+            "b": 387.0973125799999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            231,
+            547
+          ]
+        }
+      ],
+      "orig": "One independent study 15 of 10 patients with standardized photography and blinded, experienced clinician evaluators found that 2 of the patients (20%) did not show any improvement. Patient self-assessment found 1 patient (10%) who reported no improvement and 2 patients (20%) who reported only mild improvement. However, treatment protocols, the amount of energy delivered, and individual patient factors make generalizations on expected outcomes difficult. Older patients with less 'healing potential' may not respond as well as younger patients.",
+      "text": "One independent study 15 of 10 patients with standardized photography and blinded, experienced clinician evaluators found that 2 of the patients (20%) did not show any improvement. Patient self-assessment found 1 patient (10%) who reported no improvement and 2 patients (20%) who reported only mild improvement. However, treatment protocols, the amount of energy delivered, and individual patient factors make generalizations on expected outcomes difficult. Older patients with less 'healing potential' may not respond as well as younger patients."
+    },
+    {
+      "self_ref": "#/texts/134",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "footnote",
+      "prov": [
+        {
+          "page_no": 4,
+          "bbox": {
+            "l": 76.3385,
+            "t": 16.63476579999997,
+            "r": 427.66150000000044,
+            "b": 3.874958210672162,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.",
+      "text": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved."
+    },
+    {
+      "self_ref": "#/texts/135",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 232.8944,
+            "t": 694.7446908000001,
+            "r": 432.38166712000026,
+            "b": 686.1917463109334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            43
+          ]
+        }
+      ],
+      "orig": "Microfocused Ultrasound for Skin Tightening",
+      "text": "Microfocused Ultrasound for Skin Tightening"
+    },
+    {
+      "self_ref": "#/texts/136",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 473.2723,
+            "t": 694.3818996,
+            "r": 486.4709512,
+            "b": 687.1794105178667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "581",
+      "text": "581"
+    },
+    {
+      "self_ref": "#/texts/137",
+      "parent": {
+        "$ref": "#/pictures/3"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "caption",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.8457,
+            "t": 486.84675,
+            "r": 450.3468324600003,
+            "b": 479.1076858,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            117
+          ]
+        }
+      ],
+      "orig": "Fig. 3. A 45-year-old woman before ( left ) and after ( right ) ulthera treatment of lower face and submental region.",
+      "text": "Fig. 3. A 45-year-old woman before ( left ) and after ( right ) ulthera treatment of lower face and submental region."
+    },
+    {
+      "self_ref": "#/texts/138",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.84542126999999,
+            "t": 384.4316315899999,
+            "r": 233.12143877,
+            "b": 211.7463366899999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            707
+          ]
+        }
+      ],
+      "orig": "In the largest Ulthera sponsored study with qualitative and quantitative imaging assessment, 16 58% of 93 patients had improvement in skin laxity after 3 months, as determined by blinded reviewers. In patients with a body mass index of greater than 30 kg/m 2 , 55% of patients did not have a change, compared with 12% of patients with a body mass index of 30 mg/kg 2 or less. At the same time, 66% of patients perceived an improvement in skin laxity of their lower half of the face and neck. All patients received a superficial and deep treatment of approximately 295 lines. It is possible that a higher treatment density (more lines) and assessment at 6 to 9 months may have shown more favorable responses.",
+      "text": "In the largest Ulthera sponsored study with qualitative and quantitative imaging assessment, 16 58% of 93 patients had improvement in skin laxity after 3 months, as determined by blinded reviewers. In patients with a body mass index of greater than 30 kg/m 2 , 55% of patients did not have a change, compared with 12% of patients with a body mass index of 30 mg/kg 2 or less. At the same time, 66% of patients perceived an improvement in skin laxity of their lower half of the face and neck. All patients received a superficial and deep treatment of approximately 295 lines. It is possible that a higher treatment density (more lines) and assessment at 6 to 9 months may have shown more favorable responses."
+    },
+    {
+      "self_ref": "#/texts/139",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.8457,
+            "t": 201.11574919999998,
+            "r": 118.36842726000003,
+            "b": 192.78800110240002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "Duration of Results",
+      "text": "Duration of Results",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/140",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.8457,
+            "t": 184.07753819999994,
+            "r": 233.11992424,
+            "b": 120.98078847,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            254
+          ]
+        }
+      ],
+      "orig": "Although no skin tightening procedure can claim permanent results, the long-term outcomes of energy-derived skin tightening devices is lacking. Surgical procedures (face and neck lifts), however, have demonstrated continued improvement at up to 10 years.",
+      "text": "Although no skin tightening procedure can claim permanent results, the long-term outcomes of energy-derived skin tightening devices is lacking. Surgical procedures (face and neck lifts), however, have demonstrated continued improvement at up to 10 years."
+    },
+    {
+      "self_ref": "#/texts/141",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.8457,
+            "t": 110.35044919999996,
+            "r": 119.42359056000001,
+            "b": 102.02270110239999,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            19
+          ]
+        }
+      ],
+      "orig": "Physician Oversight",
+      "text": "Physician Oversight",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/142",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 33.8457,
+            "t": 93.31213820000005,
+            "r": 233.1253040199999,
+            "b": 41.15696435999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            240
+          ]
+        }
+      ],
+      "orig": "Physicians may administer the treatments themselves, but in most cases, nurses or trained aestheticians provide the service. Specifics of oversight regarding patient evaluation and physician availability vary according to local regulations.",
+      "text": "Physicians may administer the treatments themselves, but in most cases, nurses or trained aestheticians provide the service. Specifics of oversight regarding patient evaluation and physician availability vary according to local regulations."
+    },
+    {
+      "self_ref": "#/texts/143",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 251.0362,
+            "t": 461.6234908,
+            "r": 408.432498,
+            "b": 453.0705463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            28
+          ]
+        }
+      ],
+      "orig": "TREATMENT PROTOCOL VARIATION",
+      "text": "TREATMENT PROTOCOL VARIATION",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/144",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 251.03589140999998,
+            "t": 443.5041382,
+            "r": 450.31370217000045,
+            "b": 336.58310382999997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            474
+          ]
+        }
+      ],
+      "orig": "Because not all patients may not respond to treatments, there is room for increasing the treatment line density. Experienced Ulthera user consensus group participants reported high rates of efficacy when using 600 to 800 lines per treatment. Treatment densities of up to 1500 lines have been used, but there seems to be little clinical return after 1200 to 1500 lines. 17 Therefore, physician assessment and a patient-specific treatment plan should be done for each patient.",
+      "text": "Because not all patients may not respond to treatments, there is room for increasing the treatment line density. Experienced Ulthera user consensus group participants reported high rates of efficacy when using 600 to 800 lines per treatment. Treatment densities of up to 1500 lines have been used, but there seems to be little clinical return after 1200 to 1500 lines. 17 Therefore, physician assessment and a patient-specific treatment plan should be done for each patient."
+    },
+    {
+      "self_ref": "#/texts/145",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 251.0362,
+            "t": 321.5881492,
+            "r": 360.8082017200002,
+            "b": 313.2604011024,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            23
+          ]
+        }
+      ],
+      "orig": "Other Treatment Options",
+      "text": "Other Treatment Options",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/146",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 251.0362,
+            "t": 304.49313820000003,
+            "r": 450.2566264400003,
+            "b": 285.27566741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            66
+          ]
+        }
+      ],
+      "orig": "Ulthera is only 1 option in the facial rejuvenation armamentarium.",
+      "text": "Ulthera is only 1 option in the facial rejuvenation armamentarium."
+    },
+    {
+      "self_ref": "#/texts/147",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 276.08162338999995,
+            "r": 450.2611095900003,
+            "b": 256.36203979999993,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            76
+          ]
+        }
+      ],
+      "orig": "\u000f Brow elevation can be achieved with neuromodulators and injectable fillers",
+      "text": "\u000f Brow elevation can be achieved with neuromodulators and injectable fillers",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/148",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 254.19847160999996,
+            "r": 450.2826287100005,
+            "b": 223.48082443999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            99
+          ]
+        }
+      ],
+      "orig": "\u000f Facial and neck skin tightening can also be achieved by a variety of energy devices, including RF",
+      "text": "\u000f Facial and neck skin tightening can also be achieved by a variety of energy devices, including RF",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/149",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 221.31725624999996,
+            "r": 450.26917926000027,
+            "b": 201.59767265999994,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            78
+          ]
+        }
+      ],
+      "orig": "\u000f Injectable fillers and fat grafts can result in mid and lower face elevation",
+      "text": "\u000f Injectable fillers and fat grafts can result in mid and lower face elevation",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/150",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 199.37761677999993,
+            "r": 450.2629028500005,
+            "b": 168.7164573,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            99
+          ]
+        }
+      ],
+      "orig": "\u000f Lower facial skin laxity and jowls have been treated with conservative laser-assisted liposuction",
+      "text": "\u000f Lower facial skin laxity and jowls have been treated with conservative laser-assisted liposuction",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/151",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 166.49640141999998,
+            "r": 450.30235457000043,
+            "b": 135.83524193999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            117
+          ]
+        }
+      ],
+      "orig": "\u000f Mid and lower face elevation can be achieved with percutaneous barbed 'threads'; however, the results are temporary",
+      "text": "\u000f Mid and lower face elevation can be achieved with percutaneous barbed 'threads'; however, the results are temporary",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/152",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 133.61518605999993,
+            "r": 450.26917926000027,
+            "b": 113.89560246999997,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            78
+          ]
+        }
+      ],
+      "orig": "\u000f Submental fullness can be reduced with deoxycholic acid (Kybella) injections",
+      "text": "\u000f Submental fullness can be reduced with deoxycholic acid (Kybella) injections",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/153",
+      "parent": {
+        "$ref": "#/groups/8"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 259.65371093,
+            "t": 111.73203428,
+            "r": 450.2637994800003,
+            "b": 70.07281121999995,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            156
+          ]
+        }
+      ],
+      "orig": "\u000f Submental fat reduction and skin contraction can be achieved with traditional liposuction (with possibly enhanced results using laserassisted liposuction)",
+      "text": "\u000f Submental fat reduction and skin contraction can be achieved with traditional liposuction (with possibly enhanced results using laserassisted liposuction)",
+      "enumerated": false,
+      "marker": ""
+    },
+    {
+      "self_ref": "#/texts/154",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 251.03619999999998,
+            "t": 60.43403871999999,
+            "r": 450.3032512000002,
+            "b": 41.16008023999996,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            90
+          ]
+        }
+      ],
+      "orig": "More invasive and surgical options should always be discussed with patients as more severe",
+      "text": "More invasive and surgical options should always be discussed with patients as more severe"
+    },
+    {
+      "self_ref": "#/texts/155",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_footer",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 76.3385,
+            "t": 16.63476579999997,
+            "r": 427.66150000000044,
+            "b": 3.874958210672162,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.",
+      "text": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved."
+    },
+    {
+      "self_ref": "#/texts/156",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "furniture",
+      "label": "page_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 17.6315,
+            "t": 693.7582996,
+            "r": 30.830151200000003,
+            "b": 686.5558105178667,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            3
+          ]
+        }
+      ],
+      "orig": "582",
+      "text": "582"
+    },
+    {
+      "self_ref": "#/texts/157",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 73.1339,
+            "t": 694.7446908000001,
+            "r": 114.6077772,
+            "b": 686.1917463109334,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            8
+          ]
+        }
+      ],
+      "orig": "Gutowski",
+      "text": "Gutowski",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/158",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 53.6882,
+            "t": 663.1324382,
+            "r": 252.88531405999998,
+            "b": 643.91496741,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            55
+          ]
+        }
+      ],
+      "orig": "aging may be less responsive to noninvasive treatments.",
+      "text": "aging may be less responsive to noninvasive treatments."
+    },
+    {
+      "self_ref": "#/texts/159",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 53.6882,
+            "t": 631.1919908,
+            "r": 102.2841887,
+            "b": 622.6390463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            7
+          ]
+        }
+      ],
+      "orig": "SUMMARY",
+      "text": "SUMMARY",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/160",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 53.6882,
+            "t": 613.0726382,
+            "r": 252.94090511999994,
+            "b": 517.0928433,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            394
+          ]
+        }
+      ],
+      "orig": "MFU is a noninvasive facial skin tightening technology with minimal down time that can complement other noninvasive treatments. However, variability in patient response needs to be considered and future improvements in treatment protocols may improve response rates. Outcomes may be better in patients with mild to moderate facial aging and in those with a body mass index of 30 kg/m 2 or less.",
+      "text": "MFU is a noninvasive facial skin tightening technology with minimal down time that can complement other noninvasive treatments. However, variability in patient response needs to be considered and future improvements in treatment protocols may improve response rates. Outcomes may be better in patients with mild to moderate facial aging and in those with a body mass index of 30 kg/m 2 or less."
+    },
+    {
+      "self_ref": "#/texts/161",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "section_header",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 53.6882,
+            "t": 504.3698908,
+            "r": 108.772172,
+            "b": 495.8169463109333,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            10
+          ]
+        }
+      ],
+      "orig": "REFERENCES",
+      "text": "REFERENCES",
+      "level": 1
+    },
+    {
+      "self_ref": "#/texts/162",
+      "parent": {
+        "$ref": "#/groups/9"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 58.1102,
+            "t": 484.850244,
+            "r": 252.9696347000001,
+            "b": 444.54892770000004,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            190
+          ]
+        }
+      ],
+      "orig": "1. Hayashi K, Nieckarz JA, Thabit G III, et al. Effect of nonablative laser energy on the joint capsule: an in vivo rabbit study using a holmium:YAG laser. Lasers Surg Med 1997;20(2):164-71.",
+      "text": "Hayashi K, Nieckarz JA, Thabit G III, et al. Effect of nonablative laser energy on the joint capsule: an in vivo rabbit study using a holmium:YAG laser. Lasers Surg Med 1997;20(2):164-71.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref1",
+      "enumerated": true,
+      "marker": "1."
+    },
+    {
+      "self_ref": "#/texts/163",
+      "parent": {
+        "$ref": "#/groups/9"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 58.11019999999999,
+            "t": 441.02769334000004,
+            "r": 253.0086886800001,
+            "b": 400.7263770400001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            162
+          ]
+        }
+      ],
+      "orig": "2. Hantash BM, Ubeid AA, Chang H, et al. Bipolar fractional radiofrequency treatment induces neoelastogenesis and neocollagenesis. Lasers Surg Med 2009;41(1):1-9.",
+      "text": "Hantash BM, Ubeid AA, Chang H, et al. Bipolar fractional radiofrequency treatment induces neoelastogenesis and neocollagenesis. Lasers Surg Med 2009;41(1):1-9.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref2",
+      "enumerated": true,
+      "marker": "2."
+    },
+    {
+      "self_ref": "#/texts/164",
+      "parent": {
+        "$ref": "#/groups/9"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 58.11019999999999,
+            "t": 397.2051426800001,
+            "r": 252.99992146000005,
+            "b": 356.9030293600002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            182
+          ]
+        }
+      ],
+      "orig": "3. Glich RE, White MW, Slayton MH, et al. Clinical pilot study of intense ultrasound therapy to deep dermal facial skin and subcutaneous tissues. Arch Facial Plast Surg 2007;9:88-95.",
+      "text": "Glich RE, White MW, Slayton MH, et al. Clinical pilot study of intense ultrasound therapy to deep dermal facial skin and subcutaneous tissues. Arch Facial Plast Surg 2007;9:88-95.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref3",
+      "enumerated": true,
+      "marker": "3."
+    },
+    {
+      "self_ref": "#/texts/165",
+      "parent": {
+        "$ref": "#/groups/9"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 58.11019999999996,
+            "t": 353.3817950000002,
+            "r": 252.99195126000006,
+            "b": 324.0219692600002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            147
+          ]
+        }
+      ],
+      "orig": "4. Suh DH, Shin MK, Lee SJ, et al. Intense focused ultrasound tightening in Asian skin: clinical and pathologic results. Dermatol Surg 2011;37:1-8.",
+      "text": "Suh DH, Shin MK, Lee SJ, et al. Intense focused ultrasound tightening in Asian skin: clinical and pathologic results. Dermatol Surg 2011;37:1-8.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref4",
+      "enumerated": true,
+      "marker": "4."
+    },
+    {
+      "self_ref": "#/texts/166",
+      "parent": {
+        "$ref": "#/groups/9"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 58.11099701999996,
+            "t": 320.5007349000002,
+            "r": 253.00071848000005,
+            "b": 291.14090916000026,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            149
+          ]
+        }
+      ],
+      "orig": "5. Goldberg DJ, Hornfeldt CS. Safety and efficacy of microfocused ultrasound to lift, tighten, and smooth the buttocks. Dermatol Surg 2014;40:1113-7.",
+      "text": "Goldberg DJ, Hornfeldt CS. Safety and efficacy of microfocused ultrasound to lift, tighten, and smooth the buttocks. Dermatol Surg 2014;40:1113-7.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref5",
+      "enumerated": true,
+      "marker": "5."
+    },
+    {
+      "self_ref": "#/texts/167",
+      "parent": {
+        "$ref": "#/groups/9"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 58.11179403999995,
+            "t": 287.61967480000027,
+            "r": 252.99513934000004,
+            "b": 269.2013396200003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            105
+          ]
+        }
+      ],
+      "orig": "6. Pak CS, Lee YK, Jeong JH, et al. Safety and efficacy of Ulthera in the rejuvenation of the aging lower",
+      "text": "Pak CS, Lee YK, Jeong JH, et al. Safety and efficacy of Ulthera in the rejuvenation of the aging lower",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref6",
+      "enumerated": true,
+      "marker": "6."
+    },
+    {
+      "self_ref": "#/texts/168",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "text",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 285.84830373999995,
+            "t": 663.2121617200003,
+            "r": 470.15359960000023,
+            "b": 644.8504149600002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            70
+          ]
+        }
+      ],
+      "orig": "eyelids: a pivotal clinical trial. Aesthetic Plast Surg 2014;38:861-8.",
+      "text": "eyelids: a pivotal clinical trial. Aesthetic Plast Surg 2014;38:861-8.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref6"
+    },
+    {
+      "self_ref": "#/texts/169",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 275.3029321199999,
+            "t": 639.0608616800002,
+            "r": 470.14802045999994,
+            "b": 609.7010359400002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            147
+          ]
+        }
+      ],
+      "orig": "7. Suh DH, Oh YJ, Lee SJ, et al. Intense-focused ultrasound tightening for the treatment of infraorbital laxity. J Cosmet Laser Ther 2012;14:290-5.",
+      "text": "Suh DH, Oh YJ, Lee SJ, et al. Intense-focused ultrasound tightening for the treatment of infraorbital laxity. J Cosmet Laser Ther 2012;14:290-5.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref7",
+      "enumerated": true,
+      "marker": "7."
+    },
+    {
+      "self_ref": "#/texts/170",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 275.3029321199999,
+            "t": 603.9114826600003,
+            "r": 470.17193106,
+            "b": 563.6093693400002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            161
+          ]
+        }
+      ],
+      "orig": "8. Alam M, White LE, Martin N, et al. Ultrasound tightening of facial and neck skin: a rater-blinded prospective cohort study. J Am Acad Dermatol 2010; 62:262-9.",
+      "text": "Alam M, White LE, Martin N, et al. Ultrasound tightening of facial and neck skin: a rater-blinded prospective cohort study. J Am Acad Dermatol 2010; 62:262-9.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref8",
+      "enumerated": true,
+      "marker": "8."
+    },
+    {
+      "self_ref": "#/texts/171",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 275.30213509999993,
+            "t": 557.7632276400002,
+            "r": 470.19663867999986,
+            "b": 517.51849976,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            199
+          ]
+        }
+      ],
+      "orig": "9. White WM, Makin IRS, Barthe PG, et al. Selective creation of thermal injury zones in the superficial musculoaponeurotic system using intense ultrasound therapy. Arch Facial Plast Surg 2007;9:22-9.",
+      "text": "White WM, Makin IRS, Barthe PG, et al. Selective creation of thermal injury zones in the superficial musculoaponeurotic system using intense ultrasound therapy. Arch Facial Plast Surg 2007;9:22-9.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref9",
+      "enumerated": true,
+      "marker": "9."
+    },
+    {
+      "self_ref": "#/texts/172",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.87947111999995,
+            "t": 511.67235806,
+            "r": 470.2388807400001,
+            "b": 482.3691207400001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            153
+          ]
+        }
+      ],
+      "orig": "10. Alster TA, Tanzi EL. Noninvasive lifting of the arm, thigh, and knee skin with transcutaneous intense focusedultrasound.DermatolSurg2012;38(5):754-9.",
+      "text": "Alster TA, Tanzi EL. Noninvasive lifting of the arm, thigh, and knee skin with transcutaneous intense focusedultrasound.DermatolSurg2012;38(5):754-9.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref10",
+      "enumerated": true,
+      "marker": "10."
+    },
+    {
+      "self_ref": "#/texts/173",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 476.52297904000005,
+            "r": 470.20939099999987,
+            "b": 436.2208657200001,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            162
+          ]
+        }
+      ],
+      "orig": "11. Chan NPY, Shek SYN, Yu CS, et al. Safety study of transcutaneous focused ultrasound for noninvasive skin tightening in Asians. Lasers Surg Med 2011;43:366-75.",
+      "text": "Chan NPY, Shek SYN, Yu CS, et al. Safety study of transcutaneous focused ultrasound for noninvasive skin tightening in Asians. Lasers Surg Med 2011;43:366-75.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref11",
+      "enumerated": true,
+      "marker": "11."
+    },
+    {
+      "self_ref": "#/texts/174",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 430.4313124400001,
+            "r": 470.16874298000005,
+            "b": 423.01105624000013,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            51
+          ]
+        }
+      ],
+      "orig": "12. Ulthera Update White Paper. Comfort management.",
+      "text": "Ulthera Update White Paper. Comfort management.",
+      "enumerated": true,
+      "marker": "12."
+    },
+    {
+      "self_ref": "#/texts/175",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 417.2215029600001,
+            "r": 470.23967776,
+            "b": 387.86167722000016,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            138
+          ]
+        }
+      ],
+      "orig": "13. Hitchcock TM, Dobke MK. Review of the safety profile for microfocused ultrasound with visualization. J Cosmet Dermatol 2014;13:329-35.",
+      "text": "Hitchcock TM, Dobke MK. Review of the safety profile for microfocused ultrasound with visualization. J Cosmet Dermatol 2014;13:329-35.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref13",
+      "enumerated": true,
+      "marker": "13."
+    },
+    {
+      "self_ref": "#/texts/176",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 382.07212394000015,
+            "r": 470.11613966,
+            "b": 363.7103771800002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            60
+          ]
+        }
+      ],
+      "orig": "14. Ulthera Update White Paper. Lower face, submentum, neck.",
+      "text": "Ulthera Update White Paper. Lower face, submentum, neck.",
+      "enumerated": true,
+      "marker": "14."
+    },
+    {
+      "self_ref": "#/texts/177",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 357.9208239000002,
+            "r": 470.1822923200001,
+            "b": 328.5609981600002,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            145
+          ]
+        }
+      ],
+      "orig": "15. Lee HS, Jang WS, Cha YJ, et al. Multiple pass ultrasound tightening of skin laxity of the lower face and neck. Dermatol Surg 2011;38(1):20-7.",
+      "text": "Lee HS, Jang WS, Cha YJ, et al. Multiple pass ultrasound tightening of skin laxity of the lower face and neck. Dermatol Surg 2011;38(1):20-7.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref15",
+      "enumerated": true,
+      "marker": "15."
+    },
+    {
+      "self_ref": "#/texts/178",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 322.7714448800002,
+            "r": 470.1934506000001,
+            "b": 282.4701285800003,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            179
+          ]
+        }
+      ],
+      "orig": "16. Oni G, Hoxworth R, Teotia S, et al. Evaluation of a microfocused ultrasound system for improving skin laxity and tightening in the lower face. Aesthet Surg J 2015;34:1099-110.",
+      "text": "Oni G, Hoxworth R, Teotia S, et al. Evaluation of a microfocused ultrasound system for improving skin laxity and tightening in the lower face. Aesthet Surg J 2015;34:1099-110.",
+      "hyperlink": "http://refhub.elsevier.com/S0094-1298(16)30023-2/sref16",
+      "enumerated": true,
+      "marker": "16."
+    },
+    {
+      "self_ref": "#/texts/179",
+      "parent": {
+        "$ref": "#/groups/10"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "list_item",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 270.88026814,
+            "t": 276.62398688000025,
+            "r": 455.77774986,
+            "b": 269.20373068000026,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            50
+          ]
+        }
+      ],
+      "orig": "17. Ulthera Update White Paper. Treatment density.",
+      "text": "Ulthera Update White Paper. Treatment density.",
+      "enumerated": true,
+      "marker": "17."
+    },
+    {
+      "self_ref": "#/texts/180",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "footnote",
+      "prov": [
+        {
+          "page_no": 6,
+          "bbox": {
+            "l": 76.3385,
+            "t": 16.63476579999997,
+            "r": 427.66150000000044,
+            "b": 3.874958210672162,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            233
+          ]
+        }
+      ],
+      "orig": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.",
+      "text": "Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved."
+    }
+  ],
+  "pictures": [
+    {
+      "self_ref": "#/pictures/0",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 1,
+          "bbox": {
+            "l": 408.15924072265625,
+            "t": 683.5959358215332,
+            "r": 450.86566162109375,
+            "b": 665.4533729553223,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/1",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/40"
+        },
+        {
+          "$ref": "#/texts/41"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 2,
+          "bbox": {
+            "l": 53.419578552246094,
+            "t": 212.88211059570312,
+            "r": 252.42861938476562,
+            "b": 64.3245849609375,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/40"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/2",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/57"
+        },
+        {
+          "$ref": "#/texts/58"
+        },
+        {
+          "$ref": "#/texts/59"
+        },
+        {
+          "$ref": "#/texts/60"
+        },
+        {
+          "$ref": "#/texts/61"
+        },
+        {
+          "$ref": "#/texts/62"
+        },
+        {
+          "$ref": "#/texts/63"
+        },
+        {
+          "$ref": "#/texts/64"
+        },
+        {
+          "$ref": "#/texts/65"
+        },
+        {
+          "$ref": "#/texts/66"
+        },
+        {
+          "$ref": "#/texts/67"
+        },
+        {
+          "$ref": "#/texts/68"
+        },
+        {
+          "$ref": "#/texts/69"
+        },
+        {
+          "$ref": "#/texts/70"
+        },
+        {
+          "$ref": "#/texts/71"
+        },
+        {
+          "$ref": "#/texts/72"
+        },
+        {
+          "$ref": "#/texts/73"
+        },
+        {
+          "$ref": "#/texts/74"
+        },
+        {
+          "$ref": "#/texts/75"
+        },
+        {
+          "$ref": "#/texts/76"
+        },
+        {
+          "$ref": "#/texts/77"
+        },
+        {
+          "$ref": "#/texts/78"
+        },
+        {
+          "$ref": "#/texts/79"
+        },
+        {
+          "$ref": "#/texts/80"
+        },
+        {
+          "$ref": "#/texts/81"
+        },
+        {
+          "$ref": "#/texts/82"
+        },
+        {
+          "$ref": "#/texts/83"
+        },
+        {
+          "$ref": "#/texts/84"
+        },
+        {
+          "$ref": "#/texts/85"
+        },
+        {
+          "$ref": "#/texts/86"
+        },
+        {
+          "$ref": "#/texts/87"
+        },
+        {
+          "$ref": "#/texts/88"
+        },
+        {
+          "$ref": "#/texts/89"
+        },
+        {
+          "$ref": "#/texts/90"
+        },
+        {
+          "$ref": "#/texts/91"
+        },
+        {
+          "$ref": "#/texts/92"
+        },
+        {
+          "$ref": "#/texts/93"
+        },
+        {
+          "$ref": "#/texts/94"
+        },
+        {
+          "$ref": "#/texts/95"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 3,
+          "bbox": {
+            "l": 35.3527717590332,
+            "t": 664.7992782592773,
+            "r": 448.3763122558594,
+            "b": 352.4422302246094,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/57"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    },
+    {
+      "self_ref": "#/pictures/3",
+      "parent": {
+        "$ref": "#/body"
+      },
+      "children": [
+        {
+          "$ref": "#/texts/137"
+        }
+      ],
+      "content_layer": "body",
+      "label": "picture",
+      "prov": [
+        {
+          "page_no": 5,
+          "bbox": {
+            "l": 35.47468185424805,
+            "t": 664.1053924560547,
+            "r": 242.8051300048828,
+            "b": 492.1074676513672,
+            "coord_origin": "BOTTOMLEFT"
+          },
+          "charspan": [
+            0,
+            0
+          ]
+        }
+      ],
+      "captions": [
+        {
+          "$ref": "#/texts/137"
+        }
+      ],
+      "references": [],
+      "footnotes": [],
+      "annotations": []
+    }
+  ],
+  "tables": [],
+  "key_value_items": [],
+  "form_items": [],
+  "pages": {
+    "1": {
+      "size": {
+        "width": 504.0,
+        "height": 720.0
+      },
+      "page_no": 1
+    },
+    "2": {
+      "size": {
+        "width": 504.0,
+        "height": 720.0
+      },
+      "page_no": 2
+    },
+    "3": {
+      "size": {
+        "width": 504.0,
+        "height": 720.0
+      },
+      "page_no": 3
+    },
+    "4": {
+      "size": {
+        "width": 504.0,
+        "height": 720.0
+      },
+      "page_no": 4
+    },
+    "5": {
+      "size": {
+        "width": 504.0,
+        "height": 720.0
+      },
+      "page_no": 5
+    },
+    "6": {
+      "size": {
+        "width": 504.0,
+        "height": 720.0
+      },
+      "page_no": 6
+    }
+  }
+}

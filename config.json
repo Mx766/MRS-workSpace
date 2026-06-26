@@ -1,0 +1,6 @@
+{
+  "service": "deepseek",
+  "api_key": "gAAAAABqO5fuOn6hxQgGTov5r9uVkPeyacNNV6LWRgxF4p79LaBsnmn-OQNPnftru3dZrT5Bm6NacblDV48pZgbZIqjdwZBru4qlUHM6uIx0ScZjhzFA45dIQPP0cJsEP3l4OvsjxJUD",
+  "model": "deepseek-chat",
+  "base_url_override": ""
+}

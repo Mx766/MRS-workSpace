@@ -1,0 +1,32 @@
+{
+  "total_segments": 267,
+  "glossary_applied": 1,
+  "glossary_violations": 0,
+  "glossary_violation_details": [
+    {
+      "text": "Remove/Take off immediately all contaminated clothing.Wash/Decontaminate removed",
+      "source_term": "Decon",
+      "expected": "保持英文原名",
+      "action": "强制替换"
+    }
+  ],
+  "critical_items_total": 35,
+  "critical_violations": 3,
+  "critical_violation_details": [
+    {
+      "text": "9.2.Other information",
+      "category": "decimal_number",
+      "value": "9.2"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "关键项丢失(decimal_number)",
+      "text": "9.2.Other information",
+      "detail": "\"9.2\" 在译文中未找到"
+    }
+  ],
+  "overall_score": 0.949,
+  "glossary_score": 1.0,
+  "critical_score": 0.914
+}
