@@ -31,9 +31,9 @@ XML_NS = 'http://www.w3.org/XML/1998/namespace'
 
 # ── Config ──
 INPUT_DOCX = 'D:/translation/proofread/1/[1]-CN.docx'
-ISSUES_JSON = 'cache/issues_phase4_v2_2.json'
-OUTPUT_DIR = 'D:/translation/proofread/1/v6'
-OUTPUT_NAME = '[1]-CN_校对稿_综合版.docx'
+ISSUES_JSON = 'cache/issues_phase4_new.json'
+OUTPUT_DIR = 'D:/translation/proofread/1/v8'
+OUTPUT_NAME = '[1]-CN_校对稿.docx'
 
 with open(ISSUES_JSON, 'r', encoding='utf-8') as f:
     issues = json.load(f).get('issues', [])

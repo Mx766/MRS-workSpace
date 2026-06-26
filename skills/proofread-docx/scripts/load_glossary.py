@@ -27,8 +27,9 @@ def load_excel_glossary(filepath: str) -> list[dict]:
     # 识别表头列
     header = [str(h).strip().lower() if h else '' for h in rows[0]]
     src_col = _find_column(header, ['英文术语', 'source', 'en', 'english', '原文', 'source_term', 'term'])
-    tgt_col = _find_column(header, ['中文术语', 'target', 'zh', 'chinese', '译文', 'target_term', 'synonym', 'translation'])
+    tgt_col = _find_column(header, ['中文译法', '中文术语', 'target', 'zh', 'chinese', '译文', 'target_term', 'synonym', 'translation'])
     domain_col = _find_column(header, ['领域', 'domain', 'field', 'category', '分类'])
+    action_col = _find_column(header, ['处理方式', 'action', 'type'])
 
     if src_col is None or tgt_col is None:
         # 尝试前两列作为默认
@@ -41,6 +42,12 @@ def load_excel_glossary(filepath: str) -> list[dict]:
         src = str(row[src_col]).strip() if src_col < len(row) and row[src_col] else ''
         tgt = str(row[tgt_col]).strip() if tgt_col < len(row) and row[tgt_col] else ''
         domain = str(row[domain_col]).strip() if domain_col is not None and domain_col < len(row) and row[domain_col] else '通用'
+        action = str(row[action_col]).strip() if action_col is not None and action_col < len(row) and row[action_col] else ''
+
+        # Skip keep-as-is terms (品牌名/人名等不翻译的术语)
+        if action in ('保留原文', 'keep', 'keep original', 'retain'):
+            continue
+
         if src and tgt:
             terms.append({'source': src, 'target': tgt, 'domain': domain})
 

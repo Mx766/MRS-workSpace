@@ -65,6 +65,14 @@ def extract_lang_suffix(filename: str) -> tuple[str, str] | None:
         if name_no_ext.endswith(suffix):
             base_name = name_no_ext[:-len(suffix)]
             return (LANG_SUFFIXES[suffix], base_name)
+
+    # Also try hyphen variants: -CN, -CHN, -ENG, etc.
+    # Convert underscore suffixes to hyphen: _CN → -CN, _EN_US → -EN-US
+    for suffix in sorted_suffixes:
+        hyphen_suffix = suffix.replace('_', '-')
+        if name_no_ext.endswith(hyphen_suffix):
+            base_name = name_no_ext[:-len(hyphen_suffix)]
+            return (LANG_SUFFIXES[suffix], base_name)
     return None
 
 
