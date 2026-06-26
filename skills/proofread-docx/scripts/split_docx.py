@@ -10,7 +10,11 @@ PDF: 提取文本后按页面分块
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
 from typing import Any
 
 

@@ -9,8 +9,12 @@ Phase 3: 机械检查
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from collections import Counter
+
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
 
 
 # ═══════════════════════════════════════════════════════════
@@ -459,14 +463,113 @@ def check_units(source_text: str, target_text: str, para_index: int = 0) -> list
 # 主入口
 # ═══════════════════════════════════════════════════════════
 
+def _formats_match(source_path: str, target_path: str) -> bool:
+    """检测原文和译文是否为同格式（可做逐段对齐）"""
+    src_sfx = Path(source_path).suffix.lower()
+    tgt_sfx = Path(target_path).suffix.lower()
+    # 同格式对：docx↔docx, xlsx↔xlsx
+    return src_sfx == tgt_sfx
+
+
+def _check_fulltext_numbers(full_src: str, full_tgt: str) -> list[dict]:
+    """跨格式模式：全文数字一致性检查"""
+    issues = []
+    src_nums = extract_numbers(full_src)
+    tgt_nums = extract_numbers(full_tgt)
+
+    # Check integers
+    tgt_ints = set(tgt_nums.get('integer', []))
+    for num in src_nums.get('integer', []):
+        if num not in tgt_ints:
+            # Check if logically close (e.g. "577" from page number shouldn't count)
+            # Skip large page-number-like numbers (>500)
+            try:
+                if int(num) > 500:
+                    continue
+            except ValueError:
+                pass
+            issues.append({
+                'paragraph_index': 0,
+                'type': 'number_missing',
+                'source_value': num,
+                'severity': 'medium',
+                'check': f'数字 "{num}" 在译文中可能缺失（全文匹配模式，仅供参考）',
+            })
+
+    # Check decimals
+    tgt_decimals = set(tgt_nums.get('decimal', []))
+    for num in src_nums.get('decimal', []):
+        if num not in tgt_decimals:
+            issues.append({
+                'paragraph_index': 0,
+                'type': 'decimal_mismatch',
+                'source_value': num,
+                'severity': 'medium',
+                'check': f'小数 "{num}" 在译文中可能缺失（全文匹配模式，仅供参考）',
+            })
+
+    # Check percentages
+    src_pct_values = set()
+    for m in src_nums.get('percentage', []):
+        nums = re.findall(r'\d+(?:\.\d+)?', m)
+        if nums:
+            src_pct_values.add(float(nums[0]))
+    tgt_pct_values = set()
+    for m in tgt_nums.get('percentage', []):
+        nums = re.findall(r'\d+(?:\.\d+)?', m)
+        if nums:
+            tgt_pct_values.add(float(nums[0]))
+
+    for val in src_pct_values:
+        # Allow ±0.1 tolerance
+        found = any(abs(val - tv) < 0.1 for tv in tgt_pct_values)
+        if not found:
+            issues.append({
+                'paragraph_index': 0,
+                'type': 'percentage_mismatch',
+                'source_value': f'{val}%',
+                'severity': 'critical',
+                'check': f'百分比 "{val}%" 在译文中可能缺失（全文匹配模式，仅供参考）',
+            })
+
+    return issues
+
+
+def _check_fulltext_glossary(full_src: str, full_tgt: str, glossary: dict) -> list[dict]:
+    """跨格式模式：全文术语合规检查"""
+    violations = []
+    source_lower = full_src.lower()
+    target_lower = full_tgt.lower()
+
+    for key, term in glossary.items():
+        src = term['source']
+        expected_tgt = term['target'].lower()
+        if src.lower() in source_lower:
+            if expected_tgt not in target_lower:
+                violations.append({
+                    'paragraph_index': 0,
+                    'type': 'glossary_violation',
+                    'source_term': src,
+                    'expected_target': term['target'],
+                    'domain': term.get('domain', ''),
+                    'severity': 'medium',
+                    'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到（全文匹配模式，仅供参考）',
+                })
+
+    return violations
+
+
 def check_all(source_path: str, target_path: str,
               glossary: dict = None, direction: str = 'en→zh') -> dict:
     """
     执行全部机械检查。
-    source_path: 原文文件（.docx/.xlsx/.txt）
+    source_path: 原文文件（.docx/.xlsx/.txt/.pdf）
     target_path: 译文文件（.docx/.xlsx/.txt）
     glossary: 预加载的术语表
     direction: 校对方向
+
+    同格式（如 DOCX↔DOCX）: 逐段 1:1 对齐检查
+    跨格式（如 PDF→DOCX）: 全文匹配模式，结果仅供参考
     """
     result = {
         'number_mismatches': [],
@@ -475,35 +578,77 @@ def check_all(source_path: str, target_path: str,
         'format_issues': [],
         'unit_issues': [],
         'range_stats': {},
+        'alignment_mode': 'paragraph',  # default
+        'alignment_warning': None,
     }
 
-    # 提取文本
     source_paras = _extract_paragraphs(source_path)
     target_paras = _extract_paragraphs(target_path)
 
-    # 逐段检查数字和符号
-    all_range_stats = Counter()
-    for i, (sp, tp) in enumerate(zip(source_paras, target_paras)):
-        src_text = sp.get('text', '') if isinstance(sp, dict) else str(sp)
-        tgt_text = tp.get('text', '') if isinstance(tp, dict) else str(tp)
+    if not source_paras or not target_paras:
+        result['summary'] = {'total_issues': 0, 'by_severity': {'critical': 0, 'medium': 0, 'low': 0}}
+        result['alignment_warning'] = '原文或译文中未提取到文本段落，无法执行机械检查'
+        return result
 
-        result['number_mismatches'].extend(check_numbers(src_text, tgt_text, i + 1))
-        result['symbol_issues'].extend(check_symbols(src_text, tgt_text, i + 1, direction))
-        result['unit_issues'].extend(check_units(src_text, tgt_text, i + 1))
+    same_format = _formats_match(source_path, target_path)
 
+    if same_format:
+        # ── 同格式：逐段 1:1 对齐检查 ──
+        all_range_stats = Counter()
+        for i, (sp, tp) in enumerate(zip(source_paras, target_paras)):
+            src_text = sp.get('text', '') if isinstance(sp, dict) else str(sp)
+            tgt_text = tp.get('text', '') if isinstance(tp, dict) else str(tp)
+
+            result['number_mismatches'].extend(check_numbers(src_text, tgt_text, i + 1))
+            result['symbol_issues'].extend(check_symbols(src_text, tgt_text, i + 1, direction))
+            result['unit_issues'].extend(check_units(src_text, tgt_text, i + 1))
+
+            range_expr = extract_range_expressions(tgt_text)
+            for k, v in range_expr.items():
+                all_range_stats[k] += v
+
+            if glossary:
+                gl_result = check_glossary(src_text, tgt_text, glossary, i + 1)
+                result['glossary_violations'].extend(gl_result['violations'])
+
+        result['range_stats'] = dict(all_range_stats)
+        result['range_consistency_warning'] = _check_range_consistency(all_range_stats)
+
+    else:
+        # ── 跨格式：全文匹配模式 ──
+        result['alignment_mode'] = 'full_text'
+        result['alignment_warning'] = (
+            f'注意：原文为 {Path(source_path).suffix} 格式（{len(source_paras)} 个文本块），'
+            f'译文为 {Path(target_path).suffix} 格式（{len(target_paras)} 个段落），'
+            f'二者段落不对齐，使用全文匹配模式。此模式下结果仅供参考，可能存在误报。'
+        )
+
+        full_src = '\n'.join(p.get('text', '') if isinstance(p, dict) else str(p) for p in source_paras)
+        full_tgt = '\n'.join(p.get('text', '') if isinstance(p, dict) else str(p) for p in target_paras)
+
+        # 数字检查（全文匹配）
+        result['number_mismatches'].extend(_check_fulltext_numbers(full_src, full_tgt))
+
+        # 术语检查（全文匹配）
+        if glossary:
+            result['glossary_violations'].extend(_check_fulltext_glossary(full_src, full_tgt, glossary))
+
+        # 符号检查 → 跨格式跳过（不可靠）
         # 范围表达统计
-        range_expr = extract_range_expressions(tgt_text)
+        all_range_stats = Counter()
+        range_expr = extract_range_expressions(full_tgt)
         for k, v in range_expr.items():
             all_range_stats[k] += v
+        result['range_stats'] = dict(all_range_stats)
+        result['range_consistency_warning'] = _check_range_consistency(all_range_stats)
 
-        # 术语检查（原文 vs 译文）
-        if glossary:
-            gl_result = check_glossary(src_text, tgt_text, glossary, i + 1)
-            result['glossary_violations'].extend(gl_result['violations'])
-
-    # 范围表达统计（供 Phase 6 全局检查）
-    result['range_stats'] = dict(all_range_stats)
-    result['range_consistency_warning'] = _check_range_consistency(all_range_stats)
+        # 跨格式时降低所有 issue severity
+        for item in result['number_mismatches']:
+            if item.get('severity') == 'critical':
+                item['severity'] = 'medium'
+        for item in result['glossary_violations']:
+            if item.get('severity') == 'critical':
+                item['severity'] = 'medium'
 
     # 格式检查（仅 Word）
     if source_path.endswith('.docx') and target_path.endswith('.docx'):
@@ -516,7 +661,6 @@ def check_all(source_path: str, target_path: str,
             sev = item.get('severity', 'medium')
             if sev in all_severity_counts:
                 all_severity_counts[sev] += 1
-    # 格式问题全部按 low 计数
     all_severity_counts['low'] += len(result['format_issues'])
 
     result['summary'] = {

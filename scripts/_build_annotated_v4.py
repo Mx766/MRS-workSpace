@@ -13,7 +13,7 @@ v4 FIX:
                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                  document.xml is COPIED VERBATIM, never parsed by lxml
 """
-import sys, json, os, tempfile, zipfile, re as regex
+import sys, json, os, tempfile, zipfile, re as regex, argparse
 from docx import Document
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
@@ -29,11 +29,22 @@ CT_COMMENTS = 'application/vnd.openxmlformats-officedocument.wordprocessingml.co
 REL_NS = 'http://schemas.openxmlformats.org/package/2006/relationships'
 XML_NS = 'http://www.w3.org/XML/1998/namespace'
 
-# ── Config ──
-INPUT_DOCX = 'D:/translation/proofread/1/[1]-CN.docx'
-ISSUES_JSON = 'cache/issues_phase4_new.json'
-OUTPUT_DIR = 'D:/translation/proofread/1/v8'
-OUTPUT_NAME = '[1]-CN_校对稿.docx'
+# ── CLI ──
+parser = argparse.ArgumentParser(description='Build annotated DOCX with highlights and Word comments')
+parser.add_argument('--input', '-i', default='D:/translation/proofread/1/[1]-CN.docx',
+                    help='Input DOCX file (translation target)')
+parser.add_argument('--issues', '-j', default='cache/issues_phase4_new.json',
+                    help='Issues JSON file path')
+parser.add_argument('--output-dir', '-d', default='D:/translation/proofread/1',
+                    help='Output directory')
+parser.add_argument('--output-name', '-n', default='[1]-CN_校对稿.docx',
+                    help='Output file name')
+args = parser.parse_args()
+
+INPUT_DOCX = args.input
+ISSUES_JSON = args.issues
+OUTPUT_DIR = args.output_dir
+OUTPUT_NAME = args.output_name
 
 with open(ISSUES_JSON, 'r', encoding='utf-8') as f:
     issues = json.load(f).get('issues', [])

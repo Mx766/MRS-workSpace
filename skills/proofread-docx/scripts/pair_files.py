@@ -13,6 +13,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
+
 # 译入语后缀映射
 LANG_SUFFIXES = {
     # 中文

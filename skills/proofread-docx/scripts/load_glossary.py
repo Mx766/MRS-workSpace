@@ -11,6 +11,9 @@ import sys
 import os
 from pathlib import Path
 
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
+
 def load_excel_glossary(filepath: str) -> list[dict]:
     """从 Excel 加载术语库，自动识别列"""
     try:

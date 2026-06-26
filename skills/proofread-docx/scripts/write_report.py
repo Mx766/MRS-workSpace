@@ -7,7 +7,12 @@ Phase 7: 生成 Word 格式校对报告
 
 import argparse
 import json
+import os
+import sys
 from pathlib import Path
+
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
 from datetime import datetime
 
 try:
@@ -341,7 +346,8 @@ def main():
     if args.pair_info:
         try:
             pair_info = json.loads(Path(args.pair_info).read_text(encoding='utf-8'))
-        except Exception:
+        except Exception as e:
+            print(f'警告: 无法加载配对信息 {args.pair_info}: {e}', file=sys.stderr)
             pair_info = {}
 
     # 合并所有 issues
@@ -353,16 +359,28 @@ def main():
                 all_issues.extend(data)
             elif isinstance(data, dict):
                 all_issues.extend(data.get('issues', data.get('findings', [])))
-        except Exception:
-            pass
+        except Exception as e:
+            print(f'警告: 无法加载 issues 文件 {issue_file}: {e}', file=sys.stderr)
 
     # 术语库变更
     glossary_changes = None
     if args.glossary_changes:
         try:
-            glossary_changes = json.loads(Path(args.glossary_changes).read_text(encoding='utf-8'))
-        except Exception:
-            pass
+            raw = json.loads(Path(args.glossary_changes).read_text(encoding='utf-8'))
+            # Normalize: accept both list and dict formats
+            if isinstance(raw, list):
+                glossary_changes = raw
+            elif isinstance(raw, dict):
+                glossary_changes = raw.get('new_terms', raw.get('terms', raw.get('changes', [])))
+                if not isinstance(glossary_changes, list):
+                    print(f'警告: glossary_changes JSON 格式不兼容（期望 list 或含 new_terms/terms/changes 的 dict），已设为空列表', file=sys.stderr)
+                    glossary_changes = []
+            else:
+                print(f'警告: glossary_changes JSON 类型不兼容 ({type(raw).__name__})，已设为空列表', file=sys.stderr)
+                glossary_changes = []
+        except Exception as e:
+            print(f'警告: 无法加载 glossary_changes {args.glossary_changes}: {e}', file=sys.stderr)
+            glossary_changes = []
 
     # 机械检查报告
     mechanical_report = None
@@ -371,6 +389,11 @@ def main():
             mechanical_report = json.loads(Path(args.mechanical_report).read_text(encoding='utf-8'))
         except Exception:
             pass
+
+    # Ensure output directory exists before generating report
+    out_dir = os.path.dirname(os.path.abspath(args.output))
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
 
     result = generate_report(pair_info, all_issues, glossary_changes, mechanical_report, args.output)
     print(result)
