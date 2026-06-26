@@ -324,16 +324,32 @@ def _add_issue_paragraph(doc, idx: int, issue: dict, severity: str):
         int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
     )
 
-    p2 = doc.add_paragraph()
-    p2.paragraph_format.left_indent = Cm(1)
-    p2.add_run(f'原文: {issue.get("source_quote", "")}')
-    p2 = doc.add_paragraph()
-    p2.paragraph_format.left_indent = Cm(1)
-    p2.add_run(f'译文: {issue.get("target_quote", "")}')
-    p2 = doc.add_paragraph()
-    p2.paragraph_format.left_indent = Cm(1)
-    run = p2.add_run(f'建议: {issue.get("suggestion", "")}')
-    run.italic = True
+    # 动态构建行列表：空字段跳过对应行（铁律 D）
+    lines = []
+    sq = issue.get("source_quote", "").strip()
+    tq = issue.get("target_quote", "").strip()
+    is_text = issue.get("issue", "").strip()
+    sug = issue.get("suggestion", "").strip()
+    if sq:
+        lines.append(('原文', sq, False))
+    if tq:
+        lines.append(('译文', tq, False))
+    if is_text:
+        lines.append(('问题', is_text, False))
+    if sug:
+        lines.append(('建议', sug, True))  # italic for suggestion
+    # Fallback: if all fields empty, at least show suggestion/check
+    if not lines:
+        fallback = sug or issue.get("check", "").strip()
+        if fallback:
+            lines.append(('说明', fallback, True))
+
+    for label, text, italic in lines:
+        p2 = doc.add_paragraph()
+        p2.paragraph_format.left_indent = Cm(1)
+        run = p2.add_run(f'{label}: {text}')
+        if italic:
+            run.italic = True
 
 
 def _set_cell_fill(cell, color: str):
