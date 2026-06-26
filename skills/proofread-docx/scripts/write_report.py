@@ -24,6 +24,7 @@ except ImportError:
 def generate_report(pair_info: dict, all_issues: list[dict],
                     glossary_changes: list[dict] = None,
                     mechanical_report: dict = None,
+                    mech_summary: dict = None,
                     output_path: str = None) -> str:
     """
     生成 Word 格式校对报告。
@@ -162,10 +163,29 @@ def generate_report(pair_info: dict, all_issues: list[dict],
 
     # ── 四、🟡 中等问题汇总（建议修改） ──
     medium_issues = [i for i in all_issues if i.get('severity') == 'medium']
-    if medium_issues:
+    has_mech = mech_summary and mech_summary.get('total', 0) > 0
+    if medium_issues or has_mech:
         doc.add_heading('四、🟡 中等问题汇总（建议修改）', level=1)
-        for idx, issue in enumerate(medium_issues):
-            _add_issue_paragraph(doc, idx + 1, issue, 'medium')
+
+        # 4a. 机械检查参考（全文匹配，仅供参考）
+        if has_mech:
+            p = doc.add_paragraph(
+                f'⚠️ 机械检查发现 {mech_summary["total"]} 处疑似问题'
+                f'（跨格式 PDF→DOCX 全文匹配，无法定位到具体段落，仅供参考）：'
+            )
+            p.runs[0].bold = True
+            for label, info in mech_summary.get('by_type', {}).items():
+                examples = '、'.join(f'"{e}"' for e in info['examples'] if e)
+                doc.add_paragraph(f'  • {label}: {info["count"]} 处（如 {examples}）')
+            doc.add_paragraph('建议人工逐条复核确认。')
+            doc.add_paragraph()
+
+        # 4b. 语义审查问题（有上下文，逐条列出）
+        if medium_issues:
+            p = doc.add_paragraph(f'以下 {len(medium_issues)} 条问题经语义审查确认，附原文+译文上下文：')
+            p.runs[0].bold = True
+            for idx, issue in enumerate(medium_issues):
+                _add_issue_paragraph(doc, idx + 1, issue, 'medium')
     else:
         doc.add_heading('四、🟡 中等问题汇总（建议修改）', level=1)
         doc.add_paragraph('✅ 未发现中等问题。')
@@ -333,6 +353,120 @@ def _calc_glossary_rate(mech_report: dict) -> str:
     return '无术语库数据'
 
 
+def _summarize_mechanical(issues: list[dict]) -> dict:
+    """汇总机械检查 pi=0 问题（跨格式全文匹配，仅供参考）。"""
+    by_type = {}
+    for issue in issues:
+        t = issue.get('type', issue.get('check_item', '其他'))
+        label = {
+            'number_missing': '数字缺失',
+            'decimal_mismatch': '小数位不匹配',
+            'glossary_violation': '术语库违规',
+            'symbol_missing': '符号缺失',
+            'format_issue': '格式问题',
+            'unit_issue': '单位问题',
+        }.get(t, t)
+        if label not in by_type:
+            by_type[label] = {'count': 0, 'examples': []}
+        by_type[label]['count'] += 1
+        if len(by_type[label]['examples']) < 3:
+            by_type[label]['examples'].append(
+                issue.get('source_quote', '') or issue.get('source_term', '') or issue.get('source_value', '')
+            )
+    return {
+        'total': len(issues),
+        'by_type': by_type,
+        'note': '以下问题由跨格式（PDF→DOCX）全文匹配产生，无法定位到具体段落，仅供参考。建议人工复核确认。',
+    }
+
+
+def _normalize_issues(issues: list[dict]) -> list[dict]:
+    """将机械检查 issues 的字段名统一为 Phase 4 语义审查的字段名。
+    
+    机械检查格式 (Phase 3):
+      - type (number_missing / glossary_violation / ...)
+      - source_value (原文数值)
+      - check (问题描述 + 建议合一)
+      - paragraph_index
+    
+    语义审查格式 (Phase 4):
+      - check_item (如 "1.4 错译")
+      - source_quote (原文原句)
+      - target_quote (译文原句)
+      - issue (问题描述)
+      - suggestion (修改建议)
+      - chapter / paragraph_index / dimension / severity / confidence
+    """
+    type_labels = {
+        'number_missing': '数字缺失',
+        'decimal_mismatch': '小数位不匹配',
+        'glossary_violation': '术语库违规',
+        'symbol_missing': '符号缺失',
+        'punctuation_mixed': '标点混用',
+        'format_issue': '格式问题',
+        'unit_issue': '单位问题',
+    }
+    for issue in issues:
+        # If already has Phase 4 fields, skip
+        if issue.get('check_item') and issue.get('source_quote'):
+            continue
+        
+        issue_type = issue.get('type', '')
+        if not issue_type:
+            # Try to infer: has source_term → glossary_violation
+            if issue.get('source_term'):
+                issue_type = 'glossary_violation'
+            elif issue.get('source_value'):
+                issue_type = 'number_missing'
+        
+        # check_item
+        if not issue.get('check_item'):
+            issue['check_item'] = type_labels.get(issue_type, issue_type or '机械检查')
+        
+        # source_quote ← source_value or source_term
+        if not issue.get('source_quote'):
+            issue['source_quote'] = issue.get('source_value') or issue.get('source_term') or issue.get('check', '')[:200]
+        
+        # target_quote
+        if not issue.get('target_quote'):
+            issue['target_quote'] = issue.get('target_value') or issue.get('expected_target', '')
+        
+        # suggestion ← check
+        if not issue.get('suggestion'):
+            issue['suggestion'] = issue.get('check', '')
+        
+        # issue ← synthesize from check / type
+        if not issue.get('issue'):
+            check_text = issue.get('check', '')
+            if '缺失' in check_text:
+                issue['issue'] = f'原文数值 "{issue.get("source_value", "")}" 在译文中可能缺失。'
+            elif '术语' in check_text or '应译为' in check_text:
+                src = issue.get('source_term', '')
+                exp = issue.get('expected_target', '')
+                issue['issue'] = f'术语 "{src}" 术语库要求译为 "{exp}"，但译文中未找到匹配。'
+            else:
+                issue['issue'] = check_text[:200]
+        
+        # dimension (if missing)
+        if not issue.get('dimension'):
+            if 'number' in issue_type or 'decimal' in issue_type:
+                issue['dimension'] = '三.数字符号单位'
+            elif 'glossary' in issue_type:
+                issue['dimension'] = '四.术语合规'
+            elif 'symbol' in issue_type or 'punctuation' in issue_type:
+                issue['dimension'] = '二.表达规范'
+            elif 'format' in issue_type:
+                issue['dimension'] = '五.格式排版'
+            else:
+                issue['dimension'] = '三.数字符号单位'
+        
+        # confidence (if missing)
+        if not issue.get('confidence'):
+            issue['confidence'] = 'medium' if issue.get('paragraph_index', 0) < 1 else 'high'
+    
+    return issues
+
+
 def main():
     parser = argparse.ArgumentParser(description='生成校对报告')
     parser.add_argument('--pair-info', '-p', help='配对信息 JSON')
@@ -362,6 +496,21 @@ def main():
                 all_issues.extend(data.get('issues', data.get('findings', [])))
         except Exception as e:
             print(f'警告: 无法加载 issues 文件 {issue_file}: {e}', file=sys.stderr)
+
+    # ── 格式归一化：机械检查 issues → Phase 4 issues 字段名 ──
+    all_issues = _normalize_issues(all_issues)
+
+    # ── 拆分：语义审查问题 vs 机械检查参考（pi=0 全文匹配）──
+    review_issues = []       # Phase 4 语义审查 + pi>=1 问题（有真实上下文）
+    mech_ref_issues = []     # pi=0 机械问题（跨格式全文匹配，仅供参考）
+    for issue in all_issues:
+        pi = issue.get('paragraph_index', 0)
+        # 机械检查问题特征：有 type 字段且 pi=0
+        if issue.get('type') and pi < 1:
+            mech_ref_issues.append(issue)
+        else:
+            review_issues.append(issue)
+    mech_summary = _summarize_mechanical(mech_ref_issues) if mech_ref_issues else None
 
     # 术语库变更
     glossary_changes = None
@@ -396,7 +545,7 @@ def main():
     if out_dir:
         os.makedirs(out_dir, exist_ok=True)
 
-    result = generate_report(pair_info, all_issues, glossary_changes, mechanical_report, args.output)
+    result = generate_report(pair_info, review_issues, glossary_changes, mechanical_report, mech_summary, args.output)
     print(result)
 
 
