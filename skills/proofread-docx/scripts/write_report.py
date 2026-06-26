@@ -224,9 +224,9 @@ def generate_report(pair_info: dict, all_issues: list[dict],
     # ── 九、附录：术语库变更记录 ──
     if glossary_changes:
         doc.add_heading('九、附录：术语库变更记录', level=1)
-        table = doc.add_table(rows=len(glossary_changes) + 1, cols=4)
+        table = doc.add_table(rows=len(glossary_changes) + 1, cols=5)
         table.style = 'Table Grid'
-        for i, h in enumerate(['英文术语', '中文译法', '领域', '来源']):
+        for i, h in enumerate(['英文术语', '中文译法', '领域', '来源', '入库时间']):
             cell = table.rows[0].cells[i]
             cell.text = h
             for run in cell.paragraphs[0].runs:
@@ -236,6 +236,7 @@ def generate_report(pair_info: dict, all_issues: list[dict],
             table.rows[row_idx + 1].cells[1].text = change.get('candidate_translation', '')
             table.rows[row_idx + 1].cells[2].text = change.get('domain', '')
             table.rows[row_idx + 1].cells[3].text = change.get('source', '')
+            table.rows[row_idx + 1].cells[4].text = change.get('added_at', '')
 
     # ── 保存 ──
     output = output_path or '校对报告.docx'

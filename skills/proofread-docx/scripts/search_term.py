@@ -145,7 +145,8 @@ def search_wikipedia(term: str) -> tuple:
 
 
 def search_term(term: str, offline: bool = False) -> dict:
-    """按优先级逐源查证术语。返回包含查证结果和错误诊断的 dict。"""
+    """按优先级逐源查证术语。返回包含查证结果和错误诊断的 dict。
+    优先级: MeSH → PubMed → openFDA → Wikipedia"""
     errors = []
     result = None
 
@@ -160,29 +161,31 @@ def search_term(term: str, offline: bool = False) -> dict:
             'unreachable_backends': ['离线模式：所有网络后端已跳过'],
         }
 
-    # 优先级1: 术语在线
-    result, err = search_termonline(term)
+    # 优先级1: MeSH (NIH Medical Subject Headings)
+    result, err = search_mesh(term)
     if result:
         return result
     if err:
         errors.append(err)
 
-    # 优先级2: WHO
-    result, err = search_who_terms(term)
-    if result and result.get('candidate_translation'):
+    # 优先级2: PubMed (medical literature)
+    result, err = search_pubmed(term)
+    if result:
+        result['unreachable_backends'] = errors
         return result
     if err:
         errors.append(err)
 
-    # 优先级3: FDA
-    result, err = search_fda_nmpa(term)
-    if result and result.get('candidate_translation'):
+    # 优先级3: openFDA (drug/device database)
+    result, err = search_openfda(term)
+    if result:
+        result['unreachable_backends'] = errors
         return result
     if err:
         errors.append(err)
 
-    # 优先级4: 通用搜索
-    result, err = search_general(term)
+    # 优先级4: Wikipedia (general fallback)
+    result, err = search_wikipedia(term)
     if result:
         result['unreachable_backends'] = errors
         return result
