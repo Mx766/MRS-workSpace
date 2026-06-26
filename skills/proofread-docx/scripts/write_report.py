@@ -114,7 +114,9 @@ def generate_report(pair_info: dict, all_issues: list[dict],
     stats = _calculate_stats(all_issues)
 
     # 统计表
-    table = doc.add_table(rows=len(stats['by_dimension']) + 2, cols=5)
+    has_mech = mech_summary and mech_summary.get('total', 0) > 0
+    nrows = len(stats['by_dimension']) + 2 + (1 if has_mech else 0)
+    table = doc.add_table(rows=nrows, cols=5)
     table.style = 'Table Grid'
     table.alignment = WD_TABLE_ALIGNMENT.CENTER
 
@@ -141,15 +143,35 @@ def generate_report(pair_info: dict, all_issues: list[dict],
         if counts.get('medium', 0) > 0:
             _set_cell_fill(row.cells[2], 'FFE0B2')
 
+    next_row = len(stats['by_dimension']) + 1
+
+    # 机械检查补充行
+    if has_mech:
+        mech_row = table.rows[next_row]
+        mech_row.cells[0].text = '机械检查（全文匹配参考）'
+        for run in mech_row.cells[0].paragraphs[0].runs:
+            run.bold = True
+        mech_row.cells[1].text = '0'
+        mech_row.cells[2].text = str(mech_summary['total'])
+        mech_row.cells[3].text = '0'
+        mech_row.cells[4].text = str(mech_summary['total'])
+        _set_cell_fill(mech_row.cells[2], 'FFF9C4')
+        next_row += 1
+
     # 合计行
-    total_row = table.rows[-1]
+    total_row = table.rows[next_row]
     total_row.cells[0].text = '合计'
     for run in total_row.cells[0].paragraphs[0].runs:
         run.bold = True
-    total_row.cells[1].text = str(stats['total'].get('critical', 0))
-    total_row.cells[2].text = str(stats['total'].get('medium', 0))
-    total_row.cells[3].text = str(stats['total'].get('low', 0))
-    total_row.cells[4].text = str(stats['grand_total'])
+    total_crit = stats['total'].get('critical', 0)
+    total_med = stats['total'].get('medium', 0)
+    total_low = stats['total'].get('low', 0)
+    if mech_summary:
+        total_med += mech_summary.get('total', 0)
+    total_row.cells[1].text = str(total_crit)
+    total_row.cells[2].text = str(total_med)
+    total_row.cells[3].text = str(total_low)
+    total_row.cells[4].text = str(total_crit + total_med + total_low)
 
     # ── 三、🔴 严重问题清单（必须修改） ──
     critical_issues = [i for i in all_issues if i.get('severity') == 'critical']
@@ -289,8 +311,11 @@ def _add_issue_paragraph(doc, idx: int, issue: dict, severity: str):
     hex_color, icon = sev_colors.get(severity, ('000000', ''))
 
     chapter = issue.get('chapter', '')
+    # Strip existing 'Ch' prefix if present to avoid 'ChCh' double prefix
+    if isinstance(chapter, str) and chapter.startswith('Ch'):
+        chapter = chapter[2:]
     para_idx = issue.get('paragraph_index', '')
-    loc = f'[Ch{chapter} P{para_idx}]' if chapter and para_idx else ''
+    loc = f'[Ch{chapter} P{para_idx}]' if chapter and str(para_idx) else ''
 
     p = doc.add_paragraph()
     run = p.add_run(f'{idx}. {icon} {loc} {issue.get("check_item", "")}')

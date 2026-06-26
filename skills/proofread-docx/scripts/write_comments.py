@@ -50,11 +50,17 @@ def write_word_comments(filepath: str, issues: list[dict],
     os.makedirs(os.path.dirname(output) or '.', exist_ok=True)
 
     # ─── 按段落分组、排序 ───
-    # v4: pi=0 的问题（跨格式全文匹配）不丢弃，作为文档级问题处理
+    # v5: pi=0 机械检查问题（有 type 字段）跳过不写批注
+    #     仅保留有真实段落位置的语义审查问题
     issues_by_para = {}
     doc_level_issues = []
+    skipped_mech = 0
     for issue in issues:
         pi = issue.get('paragraph_index', 0)
+        is_mech = bool(issue.get('type')) and pi < 1
+        if is_mech:
+            skipped_mech += 1
+            continue
         if pi < 1:
             doc_level_issues.append(issue)
         else:
@@ -199,6 +205,8 @@ def write_word_comments(filepath: str, issues: list[dict],
 
     if verbose:
         print(f'STEP 1: highlights + {comment_id} comment refs written via python-docx')
+        if skipped_mech > 0:
+            print(f'  Skipped mechanical (pi=0): {skipped_mech} issues')
         if doc_level_count > 0:
             print(f'  Document-level (pi=0): {doc_level_count} bare refs at paragraph 1')
 
@@ -236,12 +244,35 @@ def write_word_comments(filepath: str, issues: list[dict],
             # v4: doc-level issues get a prefix explaining cross-format matching
             doc_prefix = '⚠️ [全文匹配，仅供参考] ' if is_doc_level else ''
 
+            # Normalize field access: fall back to mechanical-issue field names
+            def _get(issue, *keys):
+                for k in keys:
+                    v = issue.get(k, '')
+                    if v:
+                        return v
+                return ''
+            src_quote = _get(issue, 'source_quote', 'source_value', 'source_term')
+            tgt_quote = _get(issue, 'target_quote', 'expected_target')
+            iss_text = _get(issue, 'issue')
+            sug_text = _get(issue, 'suggestion', 'check')
+            dim_text = _get(issue, 'dimension')
+            chk_text = _get(issue, 'check_item', 'type')
+            # Map raw type names to Chinese labels
+            type_map = {
+                'number_missing': '数字缺失', 'decimal_mismatch': '小数位不匹配',
+                'glossary_violation': '术语库违规', 'symbol_missing': '符号缺失',
+                'punctuation_mixed': '标点混用', 'format_issue': '格式问题',
+                'unit_issue': '单位问题',
+            }
+            if chk_text in type_map:
+                chk_text = type_map[chk_text]
+
             lines = [
                 doc_prefix + sev_label,
-                f'【{issue.get("dimension", "")} — {issue.get("check_item", "")}】', '',
-                f'原文: {issue.get("source_quote", "")}', '',
-                f'问题: {issue.get("issue", "")}', '',
-                f'建议: {issue.get("suggestion", "")}',
+                f'【{dim_text} — {chk_text}】', '',
+                f'原文: {src_quote}', '',
+                f'问题: {iss_text}', '',
+                f'建议: {sug_text}',
             ]
             for i, line in enumerate(lines):
                 pe = lxe.SubElement(cmt, f'{{{NS_W}}}p')
