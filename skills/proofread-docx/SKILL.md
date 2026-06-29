@@ -97,7 +97,67 @@ python ${SKILL_ROOT}/scripts/load_glossary.py --auto-scan --glossary-dir "/path/
 
 ---
 
-## Phase 1: 文件配对
+### 0.3 术语库双格式管理（铁律——不可违反）
+
+术语库同时维护两种格式，**两者必须随时同步**：
+
+| 格式 | 路径 | 用途 | 使用者 |
+|------|------|------|--------|
+| **Excel** | `glossaries/术语库_标准格式.xlsx` | 人类可读、可编辑 | 人类检查/审核/手动修改 |
+| **JSON** | `cache/glossary.json` | AI 可读、快速加载 | `check_mechanical.py` / `load_glossary.py` |
+
+**Excel 列结构**：`英文术语 | 中文译法 | 处理方式 | 领域 | 备注 | 入库时间`
+
+**同步规则**：
+
+```
+Excel ──[load_glossary.py]──→ JSON       ← 每次 Phase 0 自动生成
+JSON ──[classify/Agent]────→ JSON 更新   ← 领域分类、修正
+JSON ──[写回脚本]──────────→ Excel       ← 分类完成后必须同步回 Excel
+```
+
+**何时写回 Excel**：
+- Agent 完成术语领域分类后
+- 手动修正术语领域标签后
+- 新增术语入库后
+- 任何对 `cache/glossary.json` 的修改之后
+
+**写回命令**（示例）：
+```bash
+python -c "
+import json, openpyxl
+gl = json.load(open('cache/glossary.json'))
+domain_map = {v['source']: v.get('domain','通用') for v in gl['terms'].values()}
+wb = openpyxl.load_workbook('skills/proofread-docx/glossaries/术语库_标准格式.xlsx')
+ws = wb.active
+for row in range(2, ws.max_row+1):
+    src = ws.cell(row, 1).value
+    if src and src in domain_map:
+        ws.cell(row, 4).value = domain_map[src]
+wb.save('skills/proofread-docx/glossaries/术语库_标准格式.xlsx')
+"
+```
+
+**验证同步**——每次更新后必须跑：
+```bash
+python -c "
+import json, openpyxl
+from collections import Counter
+gl = json.load(open('cache/glossary.json'))
+wb = openpyxl.load_workbook('skills/proofread-docx/glossaries/术语库_标准格式.xlsx')
+ws = wb.active
+json_domains = Counter(v.get('domain','?') for v in gl['terms'].values())
+xlsx_domains = Counter()
+for row in range(2, ws.max_row+1):
+    xlsx_domains[ws.cell(row, 4).value or '通用'] += 1
+assert json_domains == xlsx_domains, f'MISMATCH!\nJSON: {json_domains}\nXLSX: {xlsx_domains}'
+print('OK: JSON and Excel in sync')
+"
+```
+
+**教训**：Agent 只更新了 JSON 缓存没写回 Excel，导致人类检查时 Excel 仍显示全"通用"——浪费了分类工作。**JSON 的修改不算完成，直到 Excel 也同步更新。**
+
+---
 
 ```bash
 python ${SKILL_ROOT}/scripts/pair_files.py --input-dir "<用户给定的目录>"
