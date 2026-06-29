@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Phase 6: 批注写入（v5 — pi=0 不再丢弃，全部作为文档级批注）
+Phase 6: 批注写入（v6 — v5 + WPS 兼容：commentRangeStart/End 包裹每个批注 run）
 
 关键修复:
   - commentReference 放在高亮 run 的 rPr 内部（紧挨 w:shd + w:highlight）
-  - 删除 commentRangeStart/End（不需要，且会引起渲染问题）
+  - commentRangeStart/End 加回（WPS 兼容性所需），commentReference 保留在 rPr 内（Word 高亮 fix）
   - document.xml 只用 python-docx OxmlElement 操作，禁止 lxml 触碰
   - lxml 仅用于构建 comments.xml / rels / CT（ZIP 层注入）
   - 跨 run 匹配：target_quote 跨多段 run 时，通过全文拼接定位起始 run
@@ -45,6 +45,27 @@ def write_word_comments(filepath: str, issues: list[dict],
         from docx.oxml import OxmlElement
     except ImportError as e:
         return {'status': 'error', 'message': f'缺少依赖: {e}'}
+
+    def _add_cmt_range(para_elem, run_elem, cid):
+        """Insert w:commentRangeStart before and w:commentRangeEnd after run_elem in para_elem.
+
+        Required for WPS compatibility — WPS cannot locate comments without range markers,
+        even though Word renders them fine with just commentReference in rPr.
+        """
+        children = list(para_elem)
+        try:
+            pos = children.index(run_elem)
+        except ValueError:
+            return
+        rs = OxmlElement('w:commentRangeStart')
+        rs.set(qn('w:id'), str(cid))
+        para_elem.insert(pos, rs)
+        # Re-find run position (shifted by the start marker insertion)
+        children = list(para_elem)
+        pos = children.index(run_elem)
+        re = OxmlElement('w:commentRangeEnd')
+        re.set(qn('w:id'), str(cid))
+        para_elem.insert(pos + 1, re)
 
     output = output_path or filepath.replace('.docx', '_校对稿.docx')
     os.makedirs(os.path.dirname(output) or '.', exist_ok=True)
@@ -180,6 +201,7 @@ def write_word_comments(filepath: str, issues: list[dict],
                                 cr = OxmlElement('w:commentReference')
                                 cr.set(qn('w:id'), str(comment_id))
                                 rPr.append(cr)
+                            _add_cmt_range(para._p, run._r, comment_id)
                             total_matched += 1
                             matched = True
                             break
@@ -206,6 +228,7 @@ def write_word_comments(filepath: str, issues: list[dict],
                             cr = OxmlElement('w:commentReference')
                             cr.set(qn('w:id'), str(comment_id))
                             rPr.append(cr)
+                            _add_cmt_range(para._p, run._r, comment_id)
                             total_matched += 1
                             matched = True
                             break
@@ -223,6 +246,7 @@ def write_word_comments(filepath: str, issues: list[dict],
                 ref_rPr.append(cr)
                 ref_run.append(ref_rPr)
                 p_elem.insert(insert_pos, ref_run)
+                _add_cmt_range(p_elem, ref_run, comment_id)
 
             comment_id += 1
 
@@ -248,6 +272,7 @@ def write_word_comments(filepath: str, issues: list[dict],
             ref_rPr.append(cr)
             ref_run.append(ref_rPr)
             pelem.insert(insert_pos, ref_run)
+            _add_cmt_range(pelem, ref_run, comment_id)
 
             comment_id += 1
             doc_level_count += 1
