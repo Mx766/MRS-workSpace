@@ -94,24 +94,37 @@ def _load_csv_fallback(filepath: str) -> list[dict]:
     return terms
 
 
+def _quote_sqlite_ident(name: str) -> str:
+    """Safely quote a SQLite identifier (table or column name).
+
+    SQLite uses double quotes for identifiers. Embedded double quotes are
+    escaped by doubling them. Only call on names validated against an allowlist.
+    """
+    return '"' + name.replace('"', '""') + '"'
+
+
 def load_sqlite_glossary(filepath: str) -> list[dict]:
     """从 SQLite 数据库加载术语"""
     import sqlite3
     conn = sqlite3.connect(filepath)
     cur = conn.cursor()
-    # 尝试多种表结构
+    # 尝试多种表结构 — table names from sqlite_master (trusted source)
     tables = [r[0] for r in cur.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
     terms = []
     for table in tables:
         try:
-            cols = [c[1] for c in cur.execute(f"PRAGMA table_info({table})").fetchall()]
+            q_table = _quote_sqlite_ident(table)
+            cols = [c[1] for c in cur.execute(f"PRAGMA table_info({q_table})").fetchall()]
             src_col = _find_column(cols, ['source', 'en', 'english', 'src', 'source_term', '英文术语'])
             tgt_col = _find_column(cols, ['target', 'zh', 'chinese', 'tgt', 'target_term', '中文术语'])
             domain_col = _find_column(cols, ['domain', 'field', 'category', '领域'])
             if src_col is None or tgt_col is None:
                 continue
-            cols_str = ', '.join(f'"{c}"' for c in [cols[src_col], cols[tgt_col]] + ([cols[domain_col]] if domain_col is not None else []))
-            rows = cur.execute(f"SELECT {cols_str} FROM {table}").fetchall()
+            sel_cols = [cols[src_col], cols[tgt_col]]
+            if domain_col is not None:
+                sel_cols.append(cols[domain_col])
+            cols_str = ', '.join(_quote_sqlite_ident(c) for c in sel_cols)
+            rows = cur.execute(f"SELECT {cols_str} FROM {q_table}").fetchall()
             for row in rows:
                 src = str(row[0]).strip()
                 tgt = str(row[1]).strip()
