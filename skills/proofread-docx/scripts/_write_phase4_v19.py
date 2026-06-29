@@ -13,7 +13,7 @@ issues = [
         "confidence": "high",
         "source_quote": "Noninvasive skin tightening / Ulthera / Microfocused ultrasound / Thermal injury zones",
         "target_quote": "非侵入性皮肤紧致 Ulthera  微聚焦超声 热损伤区",
-        "issue": "关键词行中"Ulthera"与"微聚焦超声"之间存在双空格，其他关键词间均为单空格，间距不一致。",
+        "issue": "关键词行中「Ulthera」与「微聚焦超声」之间存在双空格，其他关键词间均为单空格，间距不一致。",
         "suggestion": "删除Ulthera后的多余空格：非侵入性皮肤紧致 Ulthera 微聚焦超声 热损伤区"
     },
 
