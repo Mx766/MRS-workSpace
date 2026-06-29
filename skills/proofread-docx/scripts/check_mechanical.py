@@ -236,11 +236,14 @@ def check_symbols(source_text: str, target_text: str, para_index: int = 0,
 # 3.3 术语库匹配
 # ═══════════════════════════════════════════════════════════
 
-def check_glossary(source_text: str, target_text: str, glossary: dict, para_index: int = 0) -> dict:
+def check_glossary(source_text: str, target_text: str, glossary: dict, para_index: int = 0,
+                   domain_filter: str = None, strict_short_terms: bool = False) -> dict:
     """
     检查术语库合规性。
     规则: 若原文段落中出现术语库中的英文术语，则译文中必须包含规定的对应译法。
     glossary: {normalized_source: {source, target, domain}}
+    domain_filter: 仅匹配该领域或"通用"的术语（None=全部匹配）
+    strict_short_terms: 短词（≤3字符）是否保持原严重度（默认降级为low）
     返回: {violations, unknown_terms}
     """
     violations = []
@@ -252,23 +255,31 @@ def check_glossary(source_text: str, target_text: str, glossary: dict, para_inde
     for key, term in glossary.items():
         src = term['source']
         expected_tgt = term['target'].lower()
-        # 检查原文术语是否出现在原文中
-        if src.lower() in source_lower:
-            # 原文出现了这个术语 → 译文中必须包含规定译法
+
+        # 领域过滤：传了 domain_filter 则只匹配该领域或"通用"术语
+        if domain_filter:
+            term_domain = term.get('domain', '')
+            if term_domain not in (domain_filter, '通用', ''):
+                continue
+
+        # 词边界匹配（\b）：杜绝子串误报（arm→harmonized, SE→USE）
+        if re.search(r'\b' + re.escape(src) + r'\b', source_lower, re.IGNORECASE):
             if expected_tgt not in target_lower:
+                sev = 'critical'
+                # 短词（≤3字符）自动降级：占误报67%，领域错配风险极高
+                if len(src) <= 3 and not strict_short_terms:
+                    sev = 'low'
                 violations.append({
                     'paragraph_index': para_index,
                     'type': 'glossary_violation',
                     'source_term': src,
                     'expected_target': term['target'],
                     'domain': term.get('domain', ''),
-                    'severity': 'critical',
+                    'severity': sev,
                     'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到',
                 })
-        else:
-            # 原文中没出现该术语 → 检查译文是否误用了术语库中的译法
-            # （如把普通词误译为术语）
-            pass
+                if len(src) <= 3 and not strict_short_terms:
+                    violations[-1]['_short_term_warning'] = True
 
     return {'violations': violations, 'unknown_terms': unknown_terms}
 
@@ -576,7 +587,8 @@ def _check_perpage_numbers(source_paras: list[dict], full_tgt: str) -> list[dict
     return issues
 
 
-def _check_perpage_glossary(source_paras: list[dict], full_tgt: str, glossary: dict) -> list[dict]:
+def _check_perpage_glossary(source_paras: list[dict], full_tgt: str, glossary: dict,
+                          domain_filter: str = None, strict_short_terms: bool = False) -> list[dict]:
     """跨格式模式：逐页术语合规检查，记录 source_page"""
     violations = []
     target_lower = full_tgt.lower()
@@ -589,24 +601,39 @@ def _check_perpage_glossary(source_paras: list[dict], full_tgt: str, glossary: d
         for key, term in glossary.items():
             src = term['source']
             expected_tgt = term['target'].lower()
-            if src.lower() in page_lower:
+
+            # 领域过滤
+            if domain_filter:
+                term_domain = term.get('domain', '')
+                if term_domain not in (domain_filter, '通用', ''):
+                    continue
+
+            # 词边界匹配
+            if re.search(r'\b' + re.escape(src) + r'\b', page_lower, re.IGNORECASE):
                 if expected_tgt not in target_lower:
-                    violations.append({
+                    sev = 'medium'
+                    if len(src) <= 3 and not strict_short_terms:
+                        sev = 'low'
+                    violation = {
                         'paragraph_index': 0,
                         'source_page': page_num,
                         'type': 'glossary_violation',
                         'source_term': src,
                         'expected_target': term['target'],
                         'domain': term.get('domain', ''),
-                        'severity': 'medium',
+                        'severity': sev,
                         'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到（跨格式匹配，仅供参考）',
-                    })
+                    }
+                    if len(src) <= 3 and not strict_short_terms:
+                        violation['_short_term_warning'] = True
+                    violations.append(violation)
 
     return violations
 
 
 def check_all(source_path: str, target_path: str,
-              glossary: dict = None, direction: str = 'en→zh') -> dict:
+              glossary: dict = None, direction: str = 'en→zh',
+              domain_filter: str = None, strict_short_terms: bool = False) -> dict:
     """
     执行全部机械检查。
     source_path: 原文文件（.docx/.xlsx/.txt/.pdf）
@@ -654,7 +681,8 @@ def check_all(source_path: str, target_path: str,
                 all_range_stats[k] += v
 
             if glossary:
-                gl_result = check_glossary(src_text, tgt_text, glossary, i + 1)
+                gl_result = check_glossary(src_text, tgt_text, glossary, i + 1,
+                                           domain_filter, strict_short_terms)
                 result['glossary_violations'].extend(gl_result['violations'])
 
         result['range_stats'] = dict(all_range_stats)
@@ -677,7 +705,8 @@ def check_all(source_path: str, target_path: str,
 
         # 术语检查（逐页匹配 + 记录 source_page）
         if glossary:
-            result['glossary_violations'].extend(_check_perpage_glossary(source_paras, full_tgt, glossary))
+            result['glossary_violations'].extend(_check_perpage_glossary(source_paras, full_tgt, glossary,
+                                                                  domain_filter, strict_short_terms))
 
         # ── 页面→段落映射 ──
         # 用滑动窗口相似度将 PDF 页码映射到 DOCX 段落
@@ -859,6 +888,9 @@ def main():
     parser.add_argument('--glossary', '-g', help='术语库 JSON 文件（由 load_glossary.py 生成）')
     parser.add_argument('--direction', '-d', default='en→zh', help='校对方向')
     parser.add_argument('--output', '-o', help='输出 JSON 路径')
+    parser.add_argument('--domain', help='领域过滤：仅匹配该领域或"通用"的术语')
+    parser.add_argument('--strict-short-terms', action='store_true',
+                        help='短词（≤3字符）保持原严重度，不自动降级')
     args = parser.parse_args()
 
     glossary = None
@@ -869,7 +901,8 @@ def main():
         except Exception as e:
             print(f'警告: 无法加载术语库: {e}', file=sys.stderr)
 
-    result = check_all(args.source, args.target, glossary, args.direction)
+    result = check_all(args.source, args.target, glossary, args.direction,
+                       args.domain, args.strict_short_terms)
 
     output_json = json.dumps(result, ensure_ascii=False, indent=2)
     if args.output:
