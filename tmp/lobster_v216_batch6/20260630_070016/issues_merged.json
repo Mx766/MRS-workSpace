@@ -1,0 +1,54 @@
+[
+  {
+    "paragraph_index": 16,
+    "dimension": "五.表达规范",
+    "check_item": "5.3 错别字/多余字",
+    "severity": "low",
+    "severity_justification": "format_deviation",
+    "confidence": "high",
+    "source_quote": "patients for nonsurgical and minimal downtime facial rejuvenation",
+    "target_quote": "患者对对非手术、恢复期极短的面部年轻化治疗",
+    "issue": "译文中\"患者对对非手术\"多了一个\"对\"字，应为\"患者对非手术\"。属低级笔误，不影响理解。",
+    "suggestion": "删除多余的\"对\"字，改为\"患者对非手术、恢复期极短的面部年轻化治疗\"",
+    "_calibration": {
+      "original_severity": "low",
+      "calibrated_severity": "low",
+      "reason": "无需调整"
+    }
+  },
+  {
+    "paragraph_index": 63,
+    "dimension": "二.表达流畅度",
+    "check_item": "2.12 翻译腔/结构不完整",
+    "severity": "critical",
+    "severity_justification": "breaks_sentence_structure",
+    "confidence": "high",
+    "source_quote": "Two months after treatment of the submental area, all patients demonstrated nasolabial fold and jaw line improvement",
+    "target_quote": "在面部和颏下区域治疗两个",
+    "issue": "译文\"治疗两个\"句子不完整，原文完整句意为\"治疗颏下区域后两个月，所有患者均显示鼻唇沟和下颌线改善\"。译文将\"Two months after treatment of the submental area\"截断为\"治疗两个\"，丢失时间状语和主语，导致语义残缺。",
+    "suggestion": "将\"治疗两个\"修正为\"治疗颏下区域后两个月，所有患者均显示鼻唇沟和下颌线改善\"，与下段首句\"77%和73%的患者...\"形成完整句意。",
+    "_calibration": {
+      "original_severity": "medium",
+      "calibrated_severity": "medium",
+      "reason": "无需调整; 领域升级: medium → critical (涉及领域术语 'area')",
+      "domain_escalated": true
+    }
+  },
+  {
+    "paragraph_index": 120,
+    "dimension": "三.数字符号单位",
+    "check_item": "3.3 符号格式",
+    "severity": "medium",
+    "severity_justification": "format_deviation",
+    "confidence": "high",
+    "source_quote": "body mass index of 30 mg/kg2 or less",
+    "target_quote": "体重指数≤30mg/kg2",
+    "issue": "BMI（体重指数）单位应为\"kg/m²\"而非\"mg/kg²\"。同段落中另一处正确写作\"大于30kg/m2\"（P141也正确），此处\"mg/kg2\"为PDF文本提取错误被照搬至译文，属于单位符号失真，在学术论文中可能引起专业读者质疑",
+    "suggestion": "将\"体重指数≤30mg/kg2\"改为\"体重指数≤30 kg/m²\"，确保与同段落\"大于30kg/m2\"及全文一致",
+    "_calibration": {
+      "original_severity": "medium",
+      "calibrated_severity": "medium",
+      "reason": "无需调整"
+    }
+  }
+]

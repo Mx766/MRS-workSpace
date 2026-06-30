@@ -1,0 +1,14 @@
+{
+  "version": "2.15",
+  "total_findings": 0,
+  "verdict_options": [
+    "confirmed",
+    "false_positive",
+    "needs_context",
+    "unverifiable"
+  ],
+  "verdict_requirements": {},
+  "by_type": {},
+  "by_paragraph": {},
+  "verdicts": []
+}

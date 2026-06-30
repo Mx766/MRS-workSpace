@@ -1,0 +1,86 @@
+{
+  "total_flags": 3,
+  "flags": [
+    {
+      "type": "high_risk_missed",
+      "count": 24,
+      "paragraphs": [
+        {
+          "paragraph_index": 56,
+          "risk_reason": "含 11 个数字; 超长句",
+          "score": 34
+        },
+        {
+          "paragraph_index": 111,
+          "risk_reason": "含 6 个数字; 超长句",
+          "score": 19
+        },
+        {
+          "paragraph_index": 451,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 498,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 52,
+          "risk_reason": "含 4 个数字; 含测量单位",
+          "score": 13
+        },
+        {
+          "paragraph_index": 126,
+          "risk_reason": "含 4 个数字; 含测量单位",
+          "score": 13
+        },
+        {
+          "paragraph_index": 127,
+          "risk_reason": "含 4 个数字; 含测量单位",
+          "score": 13
+        },
+        {
+          "paragraph_index": 149,
+          "risk_reason": "含 4 个数字; 含测量单位",
+          "score": 13
+        },
+        {
+          "paragraph_index": 58,
+          "risk_reason": "含 4 个数字",
+          "score": 12
+        },
+        {
+          "paragraph_index": 60,
+          "risk_reason": "含 4 个数字",
+          "score": 12
+        }
+      ],
+      "severity": "high",
+      "recommendation": "24 个高风险段落在 Phase 4 中零 issue，可能漏报。建议重审 top 段。"
+    },
+    {
+      "type": "severity_justification_mismatch",
+      "paragraph_index": 120,
+      "check_item": "3.3 符号格式",
+      "severity": "medium",
+      "justification": "format_deviation",
+      "expected": [
+        "low"
+      ],
+      "recommendation": "P120: severity=medium 但 justification=format_deviation 不匹配，期望 ['low']。"
+    },
+    {
+      "type": "empty_phase3_verdicts",
+      "severity": "high",
+      "detail": "Phase 3 发现 36 条问题，但 phase3_verdicts 为空——所有发现被静默丢弃。",
+      "recommendation": "必须重新审查：逐条给出判决。"
+    }
+  ],
+  "severity_summary": {
+    "low": 1,
+    "critical": 1,
+    "medium": 1
+  },
+  "recommendation": "共 3 个红旗，建议复核"
+}

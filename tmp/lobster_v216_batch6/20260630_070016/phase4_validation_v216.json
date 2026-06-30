@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.1']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.2']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.3']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "low_issue_density",
+      "severity": "warning",
+      "message": "Issue 密度 = 2.0%（3 条 / 148 段），低于建议阈值。建议换模型复核。"
+    }
+  ],
+  "stats": {
+    "phase": "4.35",
+    "version": "2.16",
+    "total_paragraphs": 148,
+    "covered_paragraphs": 148,
+    "has_issue_paragraphs": 3,
+    "total_issues": 3,
+    "severity_distribution": {
+      "critical": 0,
+      "medium": 2,
+      "low": 1
+    },
+    "dimension_coverage_check_ids": 50,
+    "expected_check_ids": 50,
+    "phase3_verdict_count": 0,
+    "expected_verdict_count": 0,
+    "unique_explanations": 0,
+    "total_explanations": 0,
+    "explanation_uniqueness_pct": 0.0
+  },
+  "action_required": null
+}

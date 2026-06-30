@@ -1,0 +1,58 @@
+{
+  "passed": false,
+  "errors": [
+    {
+      "check": "phase3_verdicts_all_dismissed",
+      "severity": "error",
+      "message": "Phase 3 的 42 条发现全部被判为误报（confirmed=0/42）。统计上不可能——即使在最精确的术语库中，也不会有 0% 的机械发现成立。AI 用笼统理由批量 dismiss 了所有发现。必须逐条重判，至少确认部分发现。"
+    },
+    {
+      "check": "verdict_copy_paste",
+      "severity": "error",
+      "message": "V6 模板化检测：42 条判决中仅 1 种不同解释 （唯一率 2%，阈值 30%）。最常见解释重复 42/42 次: \"该术语在此论文语境中有不同含义，译文处理符合原文意思且准确。术语库定义适用于临床试验场景而非期刊论文。\" ——AI 用模板回复批量处理，未逐条审查。必须重新逐条判决，每条给出针对该术语/数字的具体理由。"
+    },
+    {
+      "check": "single_issue",
+      "severity": "error",
+      "message": "V7 单 issue 检测：148 段文档仅发现 1 条 issue。这极可能是 AI 敷衍（如仅发现一个明显错别字而忽略所有翻译质量问题）。必须重新审查全部段落。"
+    }
+  ],
+  "warnings": [
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.1']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.2']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.3']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    }
+  ],
+  "stats": {
+    "phase": "4.35",
+    "version": "2.16",
+    "total_paragraphs": 148,
+    "covered_paragraphs": 148,
+    "has_issue_paragraphs": 1,
+    "total_issues": 1,
+    "severity_distribution": {
+      "critical": 0,
+      "medium": 0,
+      "low": 1
+    },
+    "dimension_coverage_check_ids": 50,
+    "expected_check_ids": 50,
+    "phase3_verdict_count": 42,
+    "expected_verdict_count": 42,
+    "unique_explanations": 1,
+    "total_explanations": 42,
+    "explanation_uniqueness_pct": 2.4
+  },
+  "action_required": "修复以上 error 后再运行 validate_phase4_output.py。全部通过后才能进入 Phase 4.4。"
+}
