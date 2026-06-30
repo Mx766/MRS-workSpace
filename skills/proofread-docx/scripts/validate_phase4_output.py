@@ -598,29 +598,49 @@ def validate_verdict_uniqueness(
 def validate_issue_quantity(
     issues: list,
     total_paragraphs: int,
-) -> tuple[list[dict], list[dict]]:
-    """V7: 检测异常低的 issue 数量（v2.16 新增）。
+    dimension_coverage: dict | None = None,
+) -> tuple[list[dict], list[dict], list[str]]:
+    """V7: 检测异常低的 issue 数量（v2.16，v2.16.1 降级）。
 
-    如果总 issue 数远低于文档规模对应的合理下限，
-    说明 AI 没有认真审查。
+    v2.16.1 修正：硬最少 issue 数 = Goodhart 陷阱——Agent 会为了通过而编造问题。
+    降级为 WARNING + 指定必须重审的维度，而非硬阻断。
 
-    阈值设计：
-      - 0 issues 任何情况 → ERROR（翻译文档不可能完全无问题）
-      - 1 issue + >30 段 → ERROR（仅发现一个明显错别字 = 敷衍）
-      - < 3 issues + >50 段 → ERROR
-      - 密度 < 2% → WARNING
+    只有 0 issue 保留为 ERROR（翻译文档不可能完全无问题，且无可造假的基础）。
 
     Returns:
-        (errors, warnings)
+        (errors, warnings, re_review_dimensions)
     """
     errors = []
     warnings = []
+    re_review = []
 
     if total_paragraphs <= 0:
-        return errors, warnings
+        return errors, warnings, re_review
 
     n_issues = len(issues) if isinstance(issues, list) else 0
     density_pct = round(n_issues / total_paragraphs * 100, 1)
+
+    # 找出 issues_found=0 的大维度组（用于重审建议）
+    zero_dims = []
+    if dimension_coverage and isinstance(dimension_coverage, dict):
+        DIM_GROUPS = {
+            "一.双语忠实度": ["1.1","1.2","1.3","1.4","1.5","1.6","1.7","1.8","1.9"],
+            "二.表达规范": ["2.1","2.2","2.3","2.4","2.5","2.6","2.7",
+                           "2.11","2.12","2.13","2.18","2.19","2.20","2.21",
+                           "2.23","2.24","2.25","2.26","2.F1","2.F2","2.F3","2.F4",
+                           "2.G1","2.G2","2.G3","2.G4"],
+            "三.数字符号单位": ["3.1","3.2","3.3","3.4","3.5","3.6"],
+            "四.术语合规": ["4.1","4.2","4.3","4.4","4.5"],
+            "五.格式排版": ["5.1","5.2","5.3"],
+        }
+        for group_name, check_ids in DIM_GROUPS.items():
+            all_zero = all(
+                dimension_coverage.get(cid, {}).get("issues_found", 0) == 0
+                for cid in check_ids
+                if cid in dimension_coverage
+            )
+            if all_zero:
+                zero_dims.append(group_name)
 
     if n_issues == 0:
         errors.append({
@@ -632,35 +652,37 @@ def validate_issue_quantity(
             ),
         })
     elif n_issues == 1 and total_paragraphs > 30:
-        errors.append({
-            "check": "single_issue",
-            "severity": "error",
-            "message": (
-                f"V7 单 issue 检测：{total_paragraphs} 段文档仅发现 1 条 issue。"
-                f"这极可能是 AI 敷衍（如仅发现一个明显错别字而忽略所有翻译质量问题）。"
-                f"必须重新审查全部段落。"
-            ),
-        })
-    elif n_issues < 3 and total_paragraphs > 50:
-        errors.append({
-            "check": "too_few_issues",
-            "severity": "error",
-            "message": (
-                f"V7 issue 数量异常：{total_paragraphs} 段文档仅发现 {n_issues} 条 issue "
-                f"（< 3 条）。Phase 4 审查不完整。必须重审。"
-            ),
-        })
-    elif n_issues < max(5, total_paragraphs * 0.02):
         warnings.append({
-            "check": "low_issue_density",
+            "check": "single_issue_warning",
+            "severity": "warning",
+            "message": (
+                f"V7 低密度警告：{total_paragraphs} 段文档仅发现 1 条 issue（密度 {density_pct}%）。"
+                f"审查可能不完整，但禁止为了通过而编造问题。"
+            ),
+        })
+        re_review = zero_dims
+    elif n_issues < 3 and total_paragraphs > 50:
+        warnings.append({
+            "check": "low_issue_count_warning",
+            "severity": "warning",
+            "message": (
+                f"V7 低密度警告：{total_paragraphs} 段文档仅发现 {n_issues} 条 issue"
+                f"（密度 {density_pct}%）。审查可能不完整，但禁止为了凑数而编造。"
+            ),
+        })
+        re_review = zero_dims
+    elif density_pct < 2.0:
+        warnings.append({
+            "check": "low_issue_density_warning",
             "severity": "warning",
             "message": (
                 f"Issue 密度 = {density_pct}%（{n_issues} 条 / {total_paragraphs} 段），"
-                f"低于建议阈值。建议换模型复核。"
+                f"低于建议阈值 2%。建议复核。"
             ),
         })
+        re_review = zero_dims
 
-    return errors, warnings
+    return errors, warnings, re_review
 
 
 # ══════════════════════════════════════════════════════════════
@@ -752,9 +774,10 @@ def validate_all(
     all_errors.extend(uniq_errors)
     all_warnings.extend(uniq_warnings)
 
-    # 7. issue 数量检测（v2.16 新增 — 检测异常低的 issue 数）
-    issue_qty_errors, issue_qty_warnings = validate_issue_quantity(
-        issues, max(total_paras, 1)
+    # 7. issue 数量检测（v2.16.1 降级：除 0 issue 外均为 WARNING，防 Goodhart 造假）
+    issue_qty_errors, issue_qty_warnings, re_review_dims = validate_issue_quantity(
+        issues, max(total_paras, 1),
+        issues_data.get("dimension_coverage", {})
     )
     all_errors.extend(issue_qty_errors)
     all_warnings.extend(issue_qty_warnings)
@@ -798,7 +821,17 @@ def validate_all(
         stats["explanation_uniqueness_pct"] = 0.0
 
     passed = len(all_errors) == 0
-    action = None if passed else "修复以上 error 后再运行 validate_phase4_output.py。全部通过后才能进入 Phase 4.4。"
+
+    # 构建 action_required
+    action_parts = []
+    if not passed:
+        action_parts.append("修复以上 error 后再运行 validate_phase4_output.py。全部通过后才能进入 Phase 4.4。")
+    if re_review_dims:
+        action_parts.append(
+            f"以下维度组零发现，建议定向重审: {', '.join(re_review_dims[:3])}。"
+            f"重审聚焦这些维度组的 34 项检查，逐段确认。禁止为了凑 issue 数而编造问题。"
+        )
+    action = " ".join(action_parts) if action_parts else None
 
     return {
         "passed": passed,
@@ -806,6 +839,7 @@ def validate_all(
         "warnings": all_warnings,
         "stats": stats,
         "action_required": action,
+        "re_review_dimensions": re_review_dims,
     }
 
 
