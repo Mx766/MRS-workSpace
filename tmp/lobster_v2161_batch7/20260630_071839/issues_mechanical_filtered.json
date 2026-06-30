@@ -1,0 +1,9 @@
+{
+  "total_raw": 36,
+  "filtered_glossary": {
+    "layer1_removed": 8,
+    "layer2_removed": 28
+  },
+  "filtered_numbers": 0,
+  "kept": []
+}

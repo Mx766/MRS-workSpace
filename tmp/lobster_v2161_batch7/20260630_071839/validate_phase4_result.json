@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "phase": "4.35",
+    "version": "2.16",
+    "total_paragraphs": 148,
+    "covered_paragraphs": 148,
+    "has_issue_paragraphs": 4,
+    "total_issues": 4,
+    "severity_distribution": {
+      "critical": 1,
+      "medium": 1,
+      "low": 2
+    },
+    "dimension_coverage_check_ids": 50,
+    "expected_check_ids": 50,
+    "phase3_verdict_count": 0,
+    "expected_verdict_count": 0,
+    "unique_explanations": 0,
+    "total_explanations": 0,
+    "explanation_uniqueness_pct": 0.0
+  },
+  "action_required": null,
+  "re_review_dimensions": []
+}

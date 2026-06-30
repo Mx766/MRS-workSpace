@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "source_file": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/7/20260630_071839/split_source.json",
+    "target_file": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/7/20260630_071839/split_target.json",
+    "source_type": "pdf",
+    "target_type": "docx",
+    "total_source_paragraphs": 507,
+    "total_target_paragraphs": 148,
+    "is_cross_format": true
+  },
+  "domain": {
+    "primary": "医疗器械注册",
+    "secondary": [],
+    "confidence": 0.97,
+    "evidence_keywords": [
+      "clinical\\s+trial",
+      "ultrasound",
+      "dermal",
+      "collagen",
+      "epidermis",
+      "dermis",
+      "subcutaneous",
+      "treatment\\s+area",
+      "patient"
+    ],
+    "domain_notes": "医疗器械技术文档。术语应遵循医疗器械行业标准（ISO 13485/14971），临床术语使用 GCP 规范译法。"
+  },
+  "key_terminology": [],
+  "high_risk_paragraphs": [
+    {
+      "paragraph_index": 56,
+      "score": 34,
+      "reason": "含 11 个数字; 超长句"
+    },
+    {
+      "paragraph_index": 111,
+      "score": 19,
+      "reason": "含 6 个数字; 超长句"
+    },
+    {
+      "paragraph_index": 451,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 498,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 52,
+      "score": 13,
+      "reason": "含 4 个数字; 含测量单位"
+    },
+    {
+      "paragraph_index": 126,
+      "score": 13,
+      "reason": "含 4 个数字; 含测量单位"
+    },
+    {
+      "paragraph_index": 127,
+      "score": 13,
+      "reason": "含 4 个数字; 含测量单位"
+    },
+    {
+      "paragraph_index": 149,
+      "score": 13,
+      "reason": "含 4 个数字; 含测量单位"
+    },
+    {
+      "paragraph_index": 58,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 60,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 68,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 70,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 107,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 328,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 459,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 462,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 465,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 472,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 480,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 483,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 493,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 502,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 76,
+      "score": 10,
+      "reason": "含 3 个数字; 超长句"
+    },
+    {
+      "paragraph_index": 120,
+      "score": 10,
+      "reason": "含 3 个数字; 超长句"
+    }
+  ],
+  "structure_checklist": [
+    {
+      "type": "cross_format_broken_paragraphs",
+      "count": 63,
+      "paragraph_indices": [
+        1,
+        4,
+        5,
+        7,
+        15,
+        18,
+        19,
+        21,
+        25,
+        26,
+        27,
+        28,
+        29,
+        33,
+        34,
+        35,
+        37,
+        39,
+        42,
+        47
+      ],
+      "note": "跨格式(PDF→DOCX)检测到 63 个不以标点结尾的段，可能是 PDF 提取断段"
+    },
+    {
+      "type": "cross_format_figure_captions",
+      "note": "PDF → DOCX 转换可能导致图表标题/题注缺失，Phase 4 需检查图表标题完整性"
+    },
+    {
+      "type": "cross_format_note",
+      "note": "跨格式校对模式，所有查找结果标记 [全文匹配，仅供参考]。注意：PDF 文本提取可能遗漏表格、图片中的文字。"
+    }
+  ],
+  "mandatory_checks": [
+    {
+      "check_id": "2.23",
+      "name": "术语过于泛化",
+      "reason": "医疗器械术语有严格行业译法，MT 容易泛化（如探头、手柄、治疗头）"
+    },
+    {
+      "check_id": "4.3",
+      "name": "跨段术语统一",
+      "reason": "器械名称、部件名称、测量指标必须在全文中保持一致"
+    },
+    {
+      "check_id": "3.1",
+      "name": "数值单位",
+      "reason": "医疗器械文档含大量测量值和单位（mm, J, MHz, kg/m^2），单位换算风险高"
+    },
+    {
+      "check_id": "1.4",
+      "name": "错译",
+      "reason": "器械部件名（handpiece, transducer, probe）易被误译为日常词汇"
+    },
+    {
+      "check_id": "2.5",
+      "name": "褒贬色彩",
+      "reason": "医疗器械安全性描述中 result in/due to/lead to 容易译出负面色彩"
+    }
+  ],
+  "domain_escalation_rules": {
+    "medical_term_error": "critical",
+    "unit_conversion_error": "critical",
+    "safety_related_error": "critical",
+    "connotation_error": "medium",
+    "punctuation_style": "low"
+  }
+}

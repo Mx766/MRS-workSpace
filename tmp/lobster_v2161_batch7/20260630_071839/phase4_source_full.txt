@@ -1,0 +1,525 @@
+Microfocused Ultrasound
+for Skin Tightening
+Karol A. Gutowski, MD*
+INTRODUCTION
+The continued patient demand for nonsurgical and
+minimal downtime facial rejuvenation has resulted
+in more use of injectable neurotoxins and fillers,
+and skin resurfacing and tightening treatments. Tis-
+sue heating either by radiofrequency (RF) or micro-
+focused ultrasound (MFU) can be part of the overall
+treatment plan to tighten skin and even elevate
+facial structures. MFU generates heat in deeper
+dermis and subcutaneous tissue, leading to new
+collagen synthesis and subsequent skin tightening
+and elevation.
+COLLAGEN DENATURATION AND
+NEOCOLLAGENESIS
+When collagen is exposed to 60C to 65C, it
+becomes denatured. One study showed that new
+collagen synthesis is observed after 30 days and
+another study showed new collagen and elastin
+synthesis at 10 weeks, along with deposition of
+new hyaluronic acid.1,2
+MECHANISM OF ACTION
+Ultrasound medical devices use sound waves for
+diagnostic imaging or medical treatments. Higher
+ultrasound frequencies have more superficial tis-
+sue effects and lower frequencies have deeper
+tissue effects. When ultrasound waves are micro-
+focused to a point in living tissue, molecular
+vibration results and heat is generated creating
+well-defined thermal injury zones at predeter-
+mined depths while leaving the surrounding tissue
+unaffected. At the resulting tissue temperatures,
+collagen contraction, and denaturation is seen
+and neocollagenesis is stimulated.
+MFU is different from RF energy in that it can be
+microfocused to target deeper tissue without
+affecting more superficial tissue. Unlike RF energy,
+MFU can heat deeper tissue to between 60C and
+70C without damaging the skin. For an RF device
+to achieve high temperatures, surface cooling is
+needed to protect the skin.
+ULTHERA MICROFOCUSED ULTRASOUND
+SYSTEM
+The Ulthera system (Ultherapy) was approved by
+the US Food and Drug Administration in 2009 for
+noninvasive eyebrow elevation but is routinely
+used for panfacial and submental treatments.
+Depending on the device settings, the target tissue
+can be set to variable depths:
+ 1.5 mm
+ 3.0 mm, which targets deep dermis
+ 4.5 mm, which targets the superficial muscular
+aponeurotic system (SMAS) and platysma
+Disclosures: The author does not have any financial interests or relationships with the product manufacturers.
+Division of Plastic Surgery, University of Illinois, 908 West Armitage, Chicago, IL 60614, USA
+* Corresponding author. 820 South Wood Street, Suite 515 CSN, Chicago, IL 60612-7316.
+E-mail address: Karol@DrGutowski.com
+KEYWORDS
+ Noninvasive skin tightening  Ulthera  Microfocused ultrasound  Thermal injury zones
+KEY POINTS
+ Noninvasive skin tightening is possible in one treatment session using Ulthera microfocused
+ultrasound.
+ Results may not be seen until 3 to 6 months after treatment.
+ Some patients may not see improvement after treatment depending on individual patient treatment
+response and the energy delivery protocols used.
+Clin Plastic Surg 43 (2016) 577–582
+http://dx.doi.org/10.1016/j.cps.2016.03.012
+0094-1298/16/$ – see front matter  2016 Elsevier Inc. All rights reserved.
+plasticsurgery.theclinics.com
+Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 
+2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.
+
+--- PAGE BREAK ---
+
+The Ulthera system delivers transcutaneous
+MFU energy from an operator-controlled hand
+piece (Fig. 1) and a monitor allows direct visualiza-
+tion (Fig. 2) of where the energy will be delivered
+so that specific structures such as bone can be
+avoided. The focal energy delivery in given in
+predetermined “lines” results in discrete intervals
+between 1 mm3 coagulation zones that promote
+healing.
+INDICATIONS
+Although the currently approved indications are
+listed below, other facial and nonfacial areas
+have been treated:
+ Lift eyebrows
+ Lift submental tissue (chin and neck)
+ Improve lines and wrinkles in de´ collete´
+HISTOLOGIC STUDIES
+An early prototype Ulthera device was used on
+the lateral cheek region in patients who would
+be undergoing a surgical rhytidectomy within
+12 weeks of treatment.3 Skin histology showed
+consistent and reproducible thermal injury zones
+in the dermis, without injury to the epidermis,
+which was absent by 12 weeks. Another study4
+showed more dermal collagen in the reticular
+dermis (24% increase) 2 months after treatment
+resulting in a mean increase in dermal thick-
+ening from 1.32 to 1.63 mm. Elastic fibers of the
+upper and lower dermis were more parallel and
+straighter.
+TREATMENT TIMES
+Treatment times for the full face and neck are
+generally less than 90 minutes, but vary depend-
+ing on provider experience, aggressiveness of
+protocol, patient comfort, and treatment surface
+area.
+ Face – 30 to 60 minutes
+ Neck – 30 to 45 minutes
+PRETREATMENT
+ Topical betacaine/lidocaine/procaine cream
+for 60 minutes5
+ Topical
+lidocaine/tetracaine
+(7%/7%)
+for
+45 minutes6
+SPECIFIC APPLICATIONS
+Face and Neck
+A prospective rater-blinded study of the forehead,
+temples, cheeks, submental region, and side of
+neck measured outcomes at 90 days.6 Probes
+used were 4 MHz, 4.5-mm focal depth (source
+energy 0.75–1.2 J), 7 MHz, 4.5-mm focal depth
+(source energy 0.75–1.05 J), and 7 MHz, 3.0-mm
+focal depth (source energy 0.4–0.63 J). Ultrasound
+pulses were administered every 1.5 mm along
+each treatment line with 3 to 5 mm between treat-
+ment lines. Thirty of 35 patients (86%) had a clini-
+cally significant improvement in brow elevation
+(mean, 1.7 mm). Unfortunately, the imaging used
+in the study design did not allow for conclusions
+to be made regarding improvement of other treat-
+ment areas.
+Periorbital Region
+As with any energy device, extreme care is needed
+when treating the thinner periocular skin. Direct
+treatment of eyelids over the eye itself is not indi-
+cated. Upper eyelid improvement can be seen
+after treatment of the forehead and brow owing
+to brow elevation.
+Two studies of lower eyelid treatments, both in
+Asian patients, showed improvement in infraorbital
+laxity. Quantitative improvement was seen after
+targeting the lower eyelid skin and orbital septum
+with 1.5-mm and 3.0-mm probes in a small series
+of 7 patients.6 A larger study of 15 patients7,8 also
+showed improvement in most patients. Histologic
+analysis confirmed increased collagen and elastin
+fibers in the reticular dermis, but there was no
+significant change in the epidermis.
+Nasolabial Folds and Jaw Line
+A prospective, blinded evaluator study of 22
+patients using 7.5- and 4.4-MHz hand pieces,
+delivering energy to a focal depth of 3.0 and
+4.5 mm with linear arrays spaced in parallel at
+3 mm, evaluated the nasolabial folds and jaw
+line.4 Two months after treatment of the face and
+Fig. 1. Patient treatment with Ulthera microfocused
+ultrasound hand piece.
+Gutowski
+578
+Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 
+2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.
+
+--- PAGE BREAK ---
+
+submental area, all patients demonstrated nasola-
+bial fold and jaw line improvement, 77% and 73%
+of patients subjectively reported “much improve-
+ment,” respectively.
+Superficial Musculoaponeurotic System
+A
+cadaver
+study
+of
+transcutaneous
+Ulthera
+energy delivery in the face demonstrated thermal
+injury zones in the SMAS along with SMAS
+contraction proportional to the amount of energy
+delivered.9 The epidermis and sub-SMAS struc-
+tures were not affected. These findings sug-
+gest that not only dermal contraction, but also
+deeper support structural improvement contrib-
+utes to the aesthetic improvements seen after
+treatment.
+Buttocks
+A single study evaluated ultrasound skin tightening
+and smoothing of the buttocks.5 Using transducers
+with 3.0- and 4.5-mm focal depths, an area of
+twenty-five 1-inch by 1-inch squares was treated.
+The mean number of treatment lines delivered to
+the right buttock was 973 (the left buttock served
+as a control). In most cases, the highest energy
+levels were not used owing to patient preference.
+Standardized blinded assessment and patient
+satisfaction was measured. Although 17 of 19
+patients (89%) showed objective improvement at
+180 days, only 68% expressed overall satisfaction
+and most would not recommend it to family or
+friends. Furthermore, pain scores were high and
+may have limited the amount of energy delivered
+to the treatment area. It is possible that improved
+treatment protocols and patient selection may yield
+better results.
+Arms, Thigh, and Knee Skin
+Because skin aging is not limited to the face,
+patients (usually women) commonly seek skin tight-
+ening of the upper arms, inner thighs, and the area
+just above the knees. One small study included 6
+of each of these areas using 1 (single plane) or 2
+(dual treatment depths) treatment passes.10 After
+6 months, blinded assessors found more skin lifting
+effect in the upper arms and knees than in the inner
+thighs. The dual treatment depth areas had slightly
+better clinical improvement scores. Eighty-one
+percent of patients were highly satisfied and all pa-
+tients opted to have more treatments at the same
+site or at other sites. Despite the reported favorable
+Fig. 2. Ulthera screen display. The upper one-third of the screen shows the depth of tissue treatment.
+Microfocused Ultrasound for Skin Tightening
+579
+Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 
+2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.
+
+--- PAGE BREAK ---
+
+results, the published before and after images show
+modest improvements.
+Non-Caucasian Ethnic Groups and Skin Types
+Most studies were on Caucasian skin types. Chan
+and colleagues11 reported on 49 Chinese patients
+with Fitzpatrick skin types III and IV followed for up
+to 6 months. As in other studies, most patients had
+transient erythema and edema. Two cases of
+postinflammatory hyperpigmentation were seen
+on the forehead at 1 month.
+Of 22 Korean patients with Fitzpatrick skin types
+III to VI treated with Ulthera, 2 developed whitish
+wheals or striations but no further details were
+provided.4
+Pain and Comfort Management
+One frequent complaint of the Ulthera system
+is pain during treatment. Moderate to severe
+pain may limit the amount of energy delivered,
+decrease
+the
+treatment
+areas,
+and
+increase
+treatment duration times. Topical anesthetics
+can provide some relief, but when not used,
+54% of patients reported their pain as being
+“severe.” Specific protocols for comfort manage-
+ment during treatment have not been developed
+but
+the
+following
+options
+are
+available
+and
+include:
+ Nitrous oxide gas
+ Oralnonsteroidalantiinflammatorymedications
+ Oral narcotics
+ Oral anxiolytics
+ Topical anesthetics
+ Injectable anesthetic nerve blocks
+ Distraction techniques
+ Cool air devices and fans
+ Precooled ultrasound gel
+These modalities may be used alone or in com-
+bination depending on patient tolerance and clin-
+ical judgment.
+Based on small pilot trials,12 the following was
+found during Ulthera treatments:
+ No difference in pain relief between 800 mg of
+ibuprofen versus 10 mg hydrocodone/500 mg
+acetaminophen
+given
+60
+minutes
+before
+treatment
+ No difference in pain relief between topical
+liposomal lidocaine and a placebo control
+ Lower
+energy
+treatment
+levels
+had
+less
+discomfort that higher energy levels without
+a difference in clinical outcome at 180 days
+Although inflammation is a necessary component
+of neocollagenesis after Ulthera treatment, it is
+unknown if chronic nonsteroidal anti-inflammatory
+medication use may interfere with the final outcome.
+Recovery and Down Time
+Other than the mild tissue reactions described
+elsewhere in this paper, the Ulthera system can
+be considered to have no down time and a minimal
+recovery period. No specific aftercare is needed.
+Side Effects and Complications
+Most published studies reported only mild side
+effects, typically mild erythema and edema that
+usually resolves after 2 days but no longer than
+7 days.6 However, some patients reported tran-
+sient bruising, skin pigment changes,9 and neuro-
+pathic pain for up to 3 months, after treatment.
+A small group of patients also reported numbness
+of the jawline, which resolved within 3 weeks.4
+A review of the literature focusing on the safety
+of MFU confirmed that side effects are generally
+mild and transient in nature.13
+RESULTS
+Collagen contraction immediately after treatment
+may result in an initial tissue “lift.” There is also
+mild edema that contributes to the early aesthetic
+improvement seen by patients. However, the heat-
+induced collagen synthesis and remodeling can
+persist for up to 1 year. A typical result is shown
+in Fig. 3. Because ideal candidates tend to have
+mild to moderate aging, those with more severe
+aging, sagging skin, and platysmal bands are likely
+to be better served by surgical treatment.
+As with any noninvasive aesthetic treatment, not
+all patients and clinicians see an improvement.
+A 2010 study by Ulthera, 51 of 70 patients (73%)
+had a quantitative improvement in tissue lift in
+the submental areas after 3 months. Of those 51
+patients, 84% (43 patients) had a qualitative
+improvement as determined by blinded assessors.
+Therefore, the overall positive response was 61%.
+Overall patient satisfaction was 67%. Because the
+energy density settings were about one-half of the
+density recommended, it is likely that a higher
+response is possible if more aggressive treatment
+protocols are used. A follow-up study of 64 pa-
+tients found 64% to 79% of patients reporting
+some degree of improvement between 2 and
+6 months after treatment. The group that included
+jowl treatment had lower satisfaction scores.14
+One independent study15 of 10 patients with
+standardized photography and blinded, experi-
+enced clinician evaluators found that 2 of the
+patients (20%) did not show any improvement. Pa-
+tient self-assessment found 1 patient (10%) who
+Gutowski
+580
+Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 
+2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.
+
+--- PAGE BREAK ---
+
+reported no improvement and 2 patients (20%)
+who reported only mild improvement. However,
+treatment protocols, the amount of energy deliv-
+ered, and individual patient factors make general-
+izations on expected outcomes difficult. Older
+patients with less “healing potential” may not
+respond as well as younger patients.
+In the largest Ulthera sponsored study with
+qualitative
+and
+quantitative
+imaging
+assess-
+ment,16 58% of 93 patients had improvement in
+skin laxity after 3 months, as determined by
+blinded reviewers. In patients with a body mass in-
+dex of greater than 30 kg/m2, 55% of patients did
+not have a change, compared with 12% of
+patients with a body mass index of 30 mg/kg2
+or less. At the same time, 66% of patients
+perceived an improvement in skin laxity of their
+lower half of the face and neck. All patients
+received a superficial and deep treatment of
+approximately 295 lines. It is possible that a higher
+treatment density (more lines) and assessment at
+6 to 9 months may have shown more favorable
+responses.
+Duration of Results
+Although no skin tightening procedure can claim
+permanent results, the long-term outcomes of
+energy-derived skin tightening devices is lacking.
+Surgical procedures (face and neck lifts), however,
+have demonstrated continued improvement at up
+to 10 years.
+Physician Oversight
+Physicians may administer the treatments them-
+selves, but in most cases, nurses or trained
+aestheticians provide the service. Specifics of
+oversight regarding patient evaluation and physi-
+cian availability vary according to local regulations.
+TREATMENT PROTOCOL VARIATION
+Because not all patients may not respond to treat-
+ments, there is room for increasing the treatment
+line density. Experienced Ulthera user consensus
+group participants reported high rates of efficacy
+when using 600 to 800 lines per treatment. Treat-
+ment densities of up to 1500 lines have been
+used, but there seems to be little clinical return
+after 1200 to 1500 lines.17 Therefore, physician
+assessment and a patient-specific treatment plan
+should be done for each patient.
+Other Treatment Options
+Ulthera is only 1 option in the facial rejuvenation
+armamentarium.
+ Brow elevation can be achieved with neuro-
+modulators and injectable fillers
+ Facial and neck skin tightening can also be
+achieved by a variety of energy devices,
+including RF
+ Injectable fillers and fat grafts can result in mid
+and lower face elevation
+ Lower facial skin laxity and jowls have been
+treated
+with
+conservative
+laser-assisted
+liposuction
+ Mid and lower face elevation can be achieved
+with percutaneous barbed “threads”; how-
+ever, the results are temporary
+ Submental fullness can be reduced with
+deoxycholic acid (Kybella) injections
+ Submental fat reduction and skin contraction
+can be achieved with traditional liposuction
+(with possibly enhanced results using laser-
+assisted liposuction)
+More invasive and surgical options should al-
+ways be discussed with patients as more severe
+Fig. 3. A 45-year-old woman before (left) and after (right) ulthera treatment of lower face and submental region.
+Microfocused Ultrasound for Skin Tightening
+581
+Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 
+2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.
+
+--- PAGE BREAK ---
+
+aging may be less responsive to noninvasive
+treatments.
+SUMMARY
+MFU is a noninvasive facial skin tightening tech-
+nology with minimal down time that can com-
+plement other noninvasive treatments. However,
+variability in patient response needs to be consid-
+ered and future improvements in treatment proto-
+cols may improve response rates. Outcomes may
+be better in patients with mild to moderate facial
+aging and in those with a body mass index of
+30 kg/m2 or less.
+REFERENCES
+1. Hayashi K, Nieckarz JA, Thabit G III, et al. Effect
+of nonablative laser energy on the joint capsule: an
+in vivo rabbit study using a holmium:YAG laser.
+Lasers Surg Med 1997;20(2):164–71.
+2. Hantash BM, Ubeid AA, Chang H, et al. Bipolar frac-
+tional radiofrequency treatment induces neoelasto-
+genesis and neocollagenesis. Lasers Surg Med
+2009;41(1):1–9.
+3. Glich RE, White MW, Slayton MH, et al. Clinical pilot
+study of intense ultrasound therapy to deep dermal
+facial skin and subcutaneous tissues. Arch Facial
+Plast Surg 2007;9:88–95.
+4. Suh DH, Shin MK, Lee SJ, et al. Intense focused
+ultrasound tightening in Asian skin: clinical and
+pathologic results. Dermatol Surg 2011;37:1–8.
+5. Goldberg DJ, Hornfeldt CS. Safety and efficacy of
+microfocused ultrasound to lift, tighten, and smooth
+the buttocks. Dermatol Surg 2014;40:1113–7.
+6. Pak CS, Lee YK, Jeong JH, et al. Safety and efficacy
+of Ulthera in the rejuvenation of the aging lower
+eyelids: a pivotal clinical trial. Aesthetic Plast Surg
+2014;38:861–8.
+7. Suh DH, Oh YJ, Lee SJ, et al. Intense-focused ultra-
+sound tightening for the treatment of infraorbital
+laxity. J Cosmet Laser Ther 2012;14:290–5.
+8. Alam M, White LE, Martin N, et al. Ultrasound tight-
+ening of facial and neck skin: a rater-blinded pro-
+spective cohort study. J Am Acad Dermatol 2010;
+62:262–9.
+9. White WM, Makin IRS, Barthe PG, et al. Selective
+creation of thermal injury zones in the superficial
+musculoaponeurotic system using intense ultra-
+sound therapy. Arch Facial Plast Surg 2007;9:22–9.
+10. Alster TA, Tanzi EL. Noninvasive lifting of the arm,
+thigh, and knee skin with transcutaneous intense
+focusedultrasound.Dermatol Surg2012;38(5):754–9.
+11. Chan NPY, Shek SYN, Yu CS, et al. Safety study
+of
+transcutaneous focused ultrasound for
+non-
+invasive skin tightening in Asians. Lasers Surg Med
+2011;43:366–75.
+12. Ulthera Update White Paper. Comfort management.
+13. Hitchcock TM, Dobke MK. Review of the safety pro-
+file for microfocused ultrasound with visualization.
+J Cosmet Dermatol 2014;13:329–35.
+14. Ulthera Update White Paper. Lower face, submen-
+tum, neck.
+15. Lee HS, Jang WS, Cha YJ, et al. Multiple pass ultra-
+sound tightening of skin laxity of the lower face and
+neck. Dermatol Surg 2011;38(1):20–7.
+16. Oni G, Hoxworth R, Teotia S, et al. Evaluation of a
+microfocused ultrasound system for improving skin
+laxity and tightening in the lower face. Aesthet
+Surg J 2015;34:1099–110.
+17. Ulthera Update White Paper. Treatment density.
+Gutowski
+582
+Downloaded for Anonymous User (n/a) at Seoul National University Hospital from ClinicalKey.com by Elsevier on July 27, 
+2023. For personal use only. No other uses without permission. Copyright ©2023. Elsevier Inc. All rights reserved.
+
+--- PAGE BREAK ---
+

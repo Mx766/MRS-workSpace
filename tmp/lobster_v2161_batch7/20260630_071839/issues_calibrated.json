@@ -1,0 +1,70 @@
+[
+  {
+    "paragraph_index": 16,
+    "dimension": "二.中文表达质量",
+    "check_item": "2.1",
+    "severity": "low",
+    "severity_justification": "unnatural_expression",
+    "confidence": "high",
+    "source_quote": "The continued patient demand for nonsurgical and minimal downtime facial rejuvenation",
+    "target_quote": "患者对对非手术、恢复期极短的面部年轻化治疗的持续需求",
+    "issue": "译文中出现重复的\"对\"字，应为\"患者对非手术\"。属于文字冗余笔误，删除后句子通顺。",
+    "suggestion": "改为：患者对非手术、恢复期极短的面部年轻化治疗的持续需求",
+    "_calibration": {
+      "original_severity": "low",
+      "calibrated_severity": "low",
+      "reason": "无需调整"
+    }
+  },
+  {
+    "paragraph_index": 63,
+    "dimension": "一.双语忠实度",
+    "check_item": "1.3",
+    "severity": "critical",
+    "severity_justification": "breaks_sentence_structure",
+    "confidence": "high",
+    "source_quote": "Two months after treatment of the face and submental area, all patients demonstrated nasolabial fold and jaw line improvement",
+    "target_quote": "在面部和颏下区域治疗两个（第63段末尾）... [图2插入] ...月后，所有患者均显示出鼻唇沟和下颌线的改善",
+    "issue": "句子\"两个月后\"被图2截断：\"两个\"孤悬于第63段末尾，\"月后\"出现在第70段开头。源文为完整时间状语，排版截断后语义不连贯。",
+    "suggestion": "将图2移至段70之后，或合并63-70段为完整句子。",
+    "_calibration": {
+      "original_severity": "critical",
+      "calibrated_severity": "critical",
+      "reason": "无需调整"
+    }
+  },
+  {
+    "paragraph_index": 120,
+    "dimension": "一.双语忠实度",
+    "check_item": "1.4",
+    "severity": "critical",
+    "severity_justification": "changes_meaning",
+    "confidence": "high",
+    "source_quote": "body mass index ≤30 kg/m²",
+    "target_quote": "体重指数≤30mg/kg2",
+    "issue": "\"mg/kg²\"是严重单位错误。BMI正确单位是kg/m²。同段前文用\"30kg/m2\"正确，此处\"mg/kg²\"含义完全不同。",
+    "suggestion": "改为：体重指数≤30 kg/m²。",
+    "_calibration": {
+      "original_severity": "medium",
+      "calibrated_severity": "critical",
+      "reason": "规则匹配: 期望=critical, 原始=medium"
+    }
+  },
+  {
+    "paragraph_index": 110,
+    "dimension": "四.术语合规",
+    "check_item": "4.3",
+    "severity": "critical",
+    "severity_justification": "connotation_mismatch",
+    "confidence": "medium",
+    "source_quote": "Because ideal candidates tend to have mild to moderate aging",
+    "target_quote": "由于理想候选人通常呈现轻度至中度衰老",
+    "issue": "\"candidates\"译为\"候选人\"属政治竞选用语，医学论文中应译为\"适用人群\"或\"适合患者\"。",
+    "suggestion": "改为：由于理想适用人群通常呈现轻度至中度衰老。",
+    "_calibration": {
+      "original_severity": "low",
+      "calibrated_severity": "critical",
+      "reason": "规则匹配: 期望=critical, 原始=low"
+    }
+  }
+]

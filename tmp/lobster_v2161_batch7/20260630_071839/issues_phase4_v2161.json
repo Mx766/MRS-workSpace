@@ -1,0 +1,849 @@
+{
+  "version": "2.16.1",
+  "dimension_coverage": {
+    "0.客户术语合规": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.3": {
+      "checked": true,
+      "issues_found": 1
+    },
+    "1.4": {
+      "checked": true,
+      "issues_found": 1
+    },
+    "1.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.7": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.8": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.9": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.1": {
+      "checked": true,
+      "issues_found": 1
+    },
+    "2.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.7": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.11": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.12": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.13": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.18": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.19": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.20": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.21": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.23": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.24": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.25": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.26": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.3": {
+      "checked": true,
+      "issues_found": 1
+    },
+    "4.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.3": {
+      "checked": true,
+      "issues_found": 0
+    }
+  },
+  "paragraph_coverage": [
+    {
+      "paragraph_index": 1,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 2,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 3,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 4,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 5,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 6,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 7,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 8,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 9,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 10,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 11,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 12,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 13,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 14,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 15,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 16,
+      "status": "has_issue"
+    },
+    {
+      "paragraph_index": 17,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 18,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 19,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 20,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 21,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 22,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 23,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 24,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 25,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 26,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 27,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 28,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 29,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 30,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 31,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 32,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 33,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 34,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 35,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 36,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 37,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 38,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 39,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 40,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 41,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 42,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 43,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 44,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 45,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 46,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 47,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 48,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 49,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 50,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 51,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 52,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 53,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 54,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 55,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 56,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 57,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 58,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 59,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 60,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 61,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 62,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 63,
+      "status": "has_issue"
+    },
+    {
+      "paragraph_index": 64,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 65,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 66,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 67,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 68,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 69,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 70,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 71,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 72,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 73,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 74,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 75,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 76,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 77,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 78,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 79,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 80,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 81,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 82,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 83,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 84,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 85,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 86,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 87,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 88,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 89,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 90,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 91,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 92,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 93,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 94,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 95,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 96,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 97,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 98,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 99,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 100,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 101,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 102,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 103,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 104,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 105,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 106,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 107,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 108,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 109,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 110,
+      "status": "has_issue"
+    },
+    {
+      "paragraph_index": 111,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 112,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 113,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 114,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 115,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 116,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 117,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 118,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 119,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 120,
+      "status": "has_issue"
+    },
+    {
+      "paragraph_index": 121,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 122,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 123,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 124,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 125,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 126,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 127,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 128,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 129,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 130,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 131,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 132,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 133,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 134,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 135,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 136,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 137,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 138,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 139,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 140,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 141,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 142,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 143,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 144,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 145,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 146,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 147,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 148,
+      "status": "clean"
+    }
+  ],
+  "issues": [
+    {
+      "paragraph_index": 16,
+      "dimension": "二.中文表达质量",
+      "check_item": "2.1",
+      "severity": "low",
+      "severity_justification": "unnatural_expression",
+      "confidence": "high",
+      "source_quote": "The continued patient demand for nonsurgical and minimal downtime facial rejuvenation",
+      "target_quote": "患者对对非手术、恢复期极短的面部年轻化治疗的持续需求",
+      "issue": "译文中出现重复的\"对\"字，应为\"患者对非手术\"。属于文字冗余笔误，删除后句子通顺。",
+      "suggestion": "改为：患者对非手术、恢复期极短的面部年轻化治疗的持续需求"
+    },
+    {
+      "paragraph_index": 63,
+      "dimension": "一.双语忠实度",
+      "check_item": "1.3",
+      "severity": "critical",
+      "severity_justification": "breaks_sentence_structure",
+      "confidence": "high",
+      "source_quote": "Two months after treatment of the face and submental area, all patients demonstrated nasolabial fold and jaw line improvement",
+      "target_quote": "在面部和颏下区域治疗两个（第63段末尾）... [图2插入] ...月后，所有患者均显示出鼻唇沟和下颌线的改善",
+      "issue": "句子\"两个月后\"被图2截断：\"两个\"孤悬于第63段末尾，\"月后\"出现在第70段开头。源文为完整时间状语，排版截断后语义不连贯。",
+      "suggestion": "将图2移至段70之后，或合并63-70段为完整句子。"
+    },
+    {
+      "paragraph_index": 120,
+      "dimension": "一.双语忠实度",
+      "check_item": "1.4",
+      "severity": "medium",
+      "severity_justification": "changes_meaning",
+      "confidence": "high",
+      "source_quote": "body mass index ≤30 kg/m²",
+      "target_quote": "体重指数≤30mg/kg2",
+      "issue": "\"mg/kg²\"是严重单位错误。BMI正确单位是kg/m²。同段前文用\"30kg/m2\"正确，此处\"mg/kg²\"含义完全不同。",
+      "suggestion": "改为：体重指数≤30 kg/m²。"
+    },
+    {
+      "paragraph_index": 110,
+      "dimension": "四.术语合规",
+      "check_item": "4.3",
+      "severity": "low",
+      "severity_justification": "connotation_mismatch",
+      "confidence": "medium",
+      "source_quote": "Because ideal candidates tend to have mild to moderate aging",
+      "target_quote": "由于理想候选人通常呈现轻度至中度衰老",
+      "issue": "\"candidates\"译为\"候选人\"属政治竞选用语，医学论文中应译为\"适用人群\"或\"适合患者\"。",
+      "suggestion": "改为：由于理想适用人群通常呈现轻度至中度衰老。"
+    }
+  ]
+}
