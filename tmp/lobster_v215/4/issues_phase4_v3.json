@@ -1,0 +1,1067 @@
+{
+  "dimension_coverage": {
+    "0.客户术语合规": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.7": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.8": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.9": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.7": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.11": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.12": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.13": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.18": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.19": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.20": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.21": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.23": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.24": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.25": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.26": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.3": {
+      "checked": true,
+      "issues_found": 1
+    }
+  },
+  "paragraph_coverage": [
+    {
+      "paragraph_index": 1,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 2,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 3,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 4,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 5,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 6,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 7,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 8,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 9,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 10,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 11,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 12,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 13,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 14,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 15,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 16,
+      "status": "has_issue",
+      "issue_count": 1
+    },
+    {
+      "paragraph_index": 17,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 18,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 19,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 20,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 21,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 22,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 23,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 24,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 25,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 26,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 27,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 28,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 29,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 30,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 31,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 32,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 33,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 34,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 35,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 36,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 37,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 38,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 39,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 40,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 41,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 42,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 43,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 44,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 45,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 46,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 47,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 48,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 49,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 50,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 51,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 52,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 53,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 54,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 55,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 56,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 57,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 58,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 59,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 60,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 61,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 62,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 63,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 64,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 65,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 66,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 67,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 68,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 69,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 70,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 71,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 72,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 73,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 74,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 75,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 76,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 77,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 78,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 79,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 80,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 81,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 82,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 83,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 84,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 85,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 86,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 87,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 88,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 89,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 90,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 91,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 92,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 93,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 94,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 95,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 96,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 97,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 98,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 99,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 100,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 101,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 102,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 103,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 104,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 105,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 106,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 107,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 108,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 109,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 110,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 111,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 112,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 113,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 114,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 115,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 116,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 117,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 118,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 119,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 120,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 121,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 122,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 123,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 124,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 125,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 126,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 127,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 128,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 129,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 130,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 131,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 132,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 133,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 134,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 135,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 136,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 137,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 138,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 139,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 140,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 141,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 142,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 143,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 144,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 145,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 146,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 147,
+      "status": "empty"
+    },
+    {
+      "paragraph_index": 148,
+      "status": "empty"
+    }
+  ],
+  "issues": [
+    {
+      "paragraph_index": 16,
+      "dimension": "五.表达规范",
+      "check_item": "5.3 错别字/多余字",
+      "severity": "low",
+      "severity_justification": "format_deviation",
+      "confidence": "high",
+      "source_quote": "patients for nonsurgical and minimal downtime facial rejuvenation",
+      "target_quote": "患者对对非手术、恢复期极短的面部年轻化治疗",
+      "issue": "\"患者对对非手术\"多了一个\"对\"字，应为\"患者对非手术\"",
+      "suggestion": "删除多余的\"对\"字"
+    }
+  ],
+  "phase3_verdicts": [
+    {
+      "verdict_id": "term_001",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_002",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_003",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_004",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_005",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_006",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_007",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_008",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_009",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_010",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_011",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_012",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_013",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_014",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_015",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_016",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_017",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_018",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_019",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_020",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_021",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_022",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_023",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_024",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_025",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_026",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_027",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_028",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_029",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_030",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_031",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_032",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_033",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_034",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_035",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_036",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_037",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_038",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_039",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_040",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_041",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "term_042",
+      "verdict": "false_positive",
+      "explanation": "该术语在此论文语境中有特定含义，译文处理符合原文意思且在该语境下准确。术语库定义的译法主要适用于临床试验/实验室场景。",
+      "severity_if_confirmed": "medium"
+    }
+  ]
+}

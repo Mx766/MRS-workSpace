@@ -1,0 +1,11 @@
+{
+  "batch": "4",
+  "timestamp": "20260630_061004",
+  "output_dir": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/4/20260630_061004",
+  "skill_root": "/home/mx766/.qwenpaw/workspaces/default/skills/proofread-docx",
+  "source": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/MFU_skin_tightening.pdf",
+  "target": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/MFU_skin_tightening_CN.docx",
+  "glossary_loaded": true,
+  "total_terms": 2813,
+  "has_client_terms": false
+}

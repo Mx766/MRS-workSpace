@@ -1,0 +1,19 @@
+{
+  "pairs": [
+    {
+      "source": {
+        "filename": "MFU_skin_tightening.pdf",
+        "format": "pdf"
+      },
+      "target": {
+        "filename": "MFU_skin_tightening_CN.docx",
+        "lang_name": "中文"
+      }
+    }
+  ],
+  "glossary_files": [
+    "glossary.json (2813条)"
+  ],
+  "total_paragraphs": 148,
+  "chapter_count": 17
+}

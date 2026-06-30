@@ -1,0 +1,2231 @@
+{
+  "dimension_coverage": {
+    "0.客户术语合规": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.7": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.8": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "1.9": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.7": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.11": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.12": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.13": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.18": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.19": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.20": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.21": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.23": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.24": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.25": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.26": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.F4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "2.G4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "3.6": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.3": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.4": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "4.5": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.1": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.2": {
+      "checked": true,
+      "issues_found": 0
+    },
+    "5.3": {
+      "checked": true,
+      "issues_found": 0
+    }
+  },
+  "paragraph_coverage": [
+    {
+      "paragraph_index": 1,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 2,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 3,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 4,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 5,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 6,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 7,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 8,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 9,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 10,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 11,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 12,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 13,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 14,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 15,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 16,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 17,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 18,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 19,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 20,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 21,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 22,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 23,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 24,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 25,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 26,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 27,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 28,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 29,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 30,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 31,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 32,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 33,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 34,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 35,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 36,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 37,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 38,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 39,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 40,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 41,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 42,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 43,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 44,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 45,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 46,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 47,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 48,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 49,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 50,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 51,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 52,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 53,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 54,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 55,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 56,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 57,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 58,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 59,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 60,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 61,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 62,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 63,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 64,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 65,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 66,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 67,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 68,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 69,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 70,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 71,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 72,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 73,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 74,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 75,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 76,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 77,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 78,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 79,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 80,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 81,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 82,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 83,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 84,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 85,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 86,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 87,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 88,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 89,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 90,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 91,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 92,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 93,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 94,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 95,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 96,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 97,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 98,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 99,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 100,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 101,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 102,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 103,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 104,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 105,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 106,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 107,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 108,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 109,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 110,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 111,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 112,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 113,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 114,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 115,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 116,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 117,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 118,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 119,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 120,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 121,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 122,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 123,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 124,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 125,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 126,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 127,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 128,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 129,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 130,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 131,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 132,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 133,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 134,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 135,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 136,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 137,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 138,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 139,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 140,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 141,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 142,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 143,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 144,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 145,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 146,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 147,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 148,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 149,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 150,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 151,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 152,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 153,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 154,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 155,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 156,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 157,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 158,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 159,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 160,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 161,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 162,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 163,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 164,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 165,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 166,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 167,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 168,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 169,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 170,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 171,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 172,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 173,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 174,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 175,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 176,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 177,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 178,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 179,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 180,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 181,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 182,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 183,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 184,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 185,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 186,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 187,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 188,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 189,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 190,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 191,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 192,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 193,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 194,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 195,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 196,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 197,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 198,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 199,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 200,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 201,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 202,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 203,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 204,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 205,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 206,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 207,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 208,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 209,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 210,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 211,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 212,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 213,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 214,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 215,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 216,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 217,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 218,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 219,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 220,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 221,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 222,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 223,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 224,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 225,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 226,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 227,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 228,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 229,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 230,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 231,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 232,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 233,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 234,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 235,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 236,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 237,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 238,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 239,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 240,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 241,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 242,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 243,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 244,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 245,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 246,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 247,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 248,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 249,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 250,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 251,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 252,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 253,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 254,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 255,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 256,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 257,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 258,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 259,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 260,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 261,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 262,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 263,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 264,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 265,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 266,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 267,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 268,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 269,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 270,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 271,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 272,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 273,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 274,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 275,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 276,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 277,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 278,
+      "status": "clean"
+    },
+    {
+      "paragraph_index": 279,
+      "status": "clean"
+    }
+  ],
+  "issues": [],
+  "phase3_verdicts": [
+    {
+      "verdict_id": "term_001",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_002",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_003",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_004",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_005",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_006",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_007",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_008",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_009",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_010",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_011",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_012",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_013",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_014",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_015",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_016",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_017",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_018",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_019",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_020",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_021",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_022",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_023",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_024",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_025",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_026",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "term_027",
+      "verdict": "false_positive",
+      "explanation": "该术语来自医学-临床试验术语库，在本网络安全渗透测试报告语境中含义不同。本文档为SGS韩国的渗透测试报告，IT指Information Technology（信息技术），非医学含义。术语库定义不适用于本领域，为跨领域假阳性。",
+      "severity_if_confirmed": "low"
+    },
+    {
+      "verdict_id": "num_001",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_002",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_003",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_004",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_005",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_006",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_007",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_008",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_009",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_010",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_011",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_012",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_013",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_014",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_015",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_016",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_017",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_018",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_019",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_020",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_021",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_022",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_023",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_024",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_025",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_026",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_027",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_028",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_029",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_030",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_031",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_032",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_033",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_034",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_035",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_036",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_037",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_038",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_039",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_040",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_041",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_042",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_043",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_044",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_045",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_046",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_047",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_048",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_049",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_050",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_051",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_052",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_053",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_054",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_055",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_056",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_057",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_058",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_059",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_060",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_061",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_062",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_063",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_064",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_065",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_066",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_067",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_068",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_069",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_070",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_071",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_072",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_073",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_074",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_075",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_076",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_077",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_078",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_079",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_080",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_081",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_082",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_083",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_084",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_085",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_086",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_087",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_088",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_089",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_090",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_091",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_092",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_093",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_094",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_095",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_096",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_097",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_098",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_099",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_100",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_101",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_102",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_103",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_104",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_105",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_106",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_107",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_108",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_109",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_110",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_111",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_112",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_113",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_114",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_115",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_116",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_117",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_118",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_119",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_120",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_121",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_122",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_123",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    },
+    {
+      "verdict_id": "num_124",
+      "verdict": "false_positive",
+      "explanation": "该数字来自PDF页眉/页脚格式标记（页码、版本号、分节号），为跨格式匹配导致的假阳性。DOCX格式中无此标记，译文无需保留。",
+      "severity_if_confirmed": "medium"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "paragraph_index": 313,
+    "dimension": "五.表达规范",
+    "check_item": "5.2 表达不简洁",
+    "severity": "low",
+    "severity_justification": "style_preference",
+    "confidence": "low",
+    "source_quote": "As shown in Figure 25, the evaluator directly logged in using this user account and confirmed the permission configuration was problematic.",
+    "target_quote": "如图25所示，评估人员直接使用该用户账户登录，并确认权限配置存在问题。此账户被授予了过度权限，允许其查看和修改其他用户的主目录和文件，其中包含许多敏感文件，如脚本，包括start.sh和shutdown.sh。",
+    "issue": "译文长句结构略显冗余（\"允许其查看和修改其他用户的主目录和文件，其中包含许多敏感文件，如脚本，包括start.sh和shutdown.sh\"），可调整为\"允许查看和修改其他用户的主目录和文件，其中包含start.sh和shutdown.sh等敏感脚本\"更简洁",
+    "suggestion": "调整为\"允许查看和修改其他用户的主目录和文件，其中包含start.sh和shutdown.sh等敏感脚本\"",
+    "_calibration": {
+      "original_severity": "low",
+      "calibrated_severity": "low",
+      "reason": "无需调整"
+    },
+    "chapter": "8.3.1用户账户过度权限"
+  }
+]

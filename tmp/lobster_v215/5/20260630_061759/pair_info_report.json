@@ -1,0 +1,19 @@
+{
+  "pairs": [
+    {
+      "source": {
+        "filename": "DSS_F690501-RF-CBS000062v2.0_combined.pdf",
+        "format": "pdf"
+      },
+      "target": {
+        "filename": "DSS_F690501-RF-CBS000062v2.0_combined_CHN.docx",
+        "lang_name": "中文"
+      }
+    }
+  ],
+  "glossary_files": [
+    "glossary.json (6条网络安全术语)"
+  ],
+  "total_paragraphs": 342,
+  "chapter_count": 31
+}

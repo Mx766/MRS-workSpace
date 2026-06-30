@@ -1,0 +1,14 @@
+[
+  {
+    "chapter": "引言",
+    "paragraph_index": 16,
+    "dimension": "五.表达规范",
+    "check_item": "5.3 错别字/多余字",
+    "severity": "low",
+    "confidence": "high",
+    "source_quote": "patients for nonsurgical facial rejuvenation",
+    "target_quote": "患者对对非手术、恢复期极短的面部年轻化治疗",
+    "issue": "\"患者对对非手术\"多了一个\"对\"字",
+    "suggestion": "删除多余的\"对\"字"
+  }
+]

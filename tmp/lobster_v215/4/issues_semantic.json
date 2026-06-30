@@ -1,0 +1,12 @@
+[
+  {
+    "paragraph_index": 16,
+    "dimension": "五.表达规范",
+    "check_item": "5.3 错别字/多余字",
+    "severity": "low",
+    "verdict": "confirmed",
+    "explanation": "译文第16段“患者对对非手术”中有一个多余“对”字，原文为“patients for nonsurgical”，属于中文打字重复错误",
+    "issue": "\"患者对对非手术\"多了一个\"对\"字，应为\"患者对非手术\"",
+    "suggestion": "删除多余的\"对\"字"
+  }
+]

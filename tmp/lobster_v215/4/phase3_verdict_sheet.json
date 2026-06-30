@@ -1,0 +1,755 @@
+{
+  "version": "2.15",
+  "total_findings": 42,
+  "verdict_options": [
+    "confirmed",
+    "false_positive",
+    "needs_context",
+    "unverifiable"
+  ],
+  "verdict_requirements": {
+    "explanation_min_chars": 20,
+    "explanation_language": "Chinese",
+    "must_cover_all": true,
+    "note": "每一条 Phase 3 发现都必须有对应的判决。禁止用笼统理由（如'跨领域匹配'、'全部假阳性'）批量 dismiss。"
+  },
+  "by_type": {
+    "glossary_violations": 42
+  },
+  "by_paragraph": {
+    "16": [
+      "term_001"
+    ],
+    "18": [
+      "term_002"
+    ],
+    "19": [
+      "term_003"
+    ],
+    "21": [
+      "term_004"
+    ],
+    "22": [
+      "term_005"
+    ],
+    "23": [
+      "term_006"
+    ],
+    "25": [
+      "term_007"
+    ],
+    "37": [
+      "term_008"
+    ],
+    "39": [
+      "term_009"
+    ],
+    "40": [
+      "term_010"
+    ],
+    "42": [
+      "term_011"
+    ],
+    "43": [
+      "term_012"
+    ],
+    "60": [
+      "term_013",
+      "term_017",
+      "term_032"
+    ],
+    "62": [
+      "term_014",
+      "term_018",
+      "term_033"
+    ],
+    "63": [
+      "term_015",
+      "term_019",
+      "term_034"
+    ],
+    "66": [
+      "term_016",
+      "term_020",
+      "term_035"
+    ],
+    "70": [
+      "term_021",
+      "term_036"
+    ],
+    "72": [
+      "term_022",
+      "term_037"
+    ],
+    "73": [
+      "term_023",
+      "term_038"
+    ],
+    "75": [
+      "term_024",
+      "term_039"
+    ],
+    "76": [
+      "term_040"
+    ],
+    "78": [
+      "term_041"
+    ],
+    "79": [
+      "term_042"
+    ],
+    "119": [
+      "term_025"
+    ],
+    "120": [
+      "term_026"
+    ],
+    "122": [
+      "term_027"
+    ],
+    "123": [
+      "term_028"
+    ],
+    "125": [
+      "term_029"
+    ],
+    "126": [
+      "term_030"
+    ],
+    "127": [
+      "term_031"
+    ]
+  },
+  "verdicts": [
+    {
+      "verdict_id": "term_001",
+      "type": "glossary_violations",
+      "paragraph_index": 16,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "denatured",
+      "expected_target": "改性",
+      "check": "术语 \"denatured\" 应译为 \"改性\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-实验室",
+      "source_page": 1,
+      "phase3_judgment": "[中等] 术语 \"denatured\" 应译为 \"改性\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_002",
+      "type": "glossary_violations",
+      "paragraph_index": 18,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Food and Drug Administration",
+      "expected_target": "美国食品药品监督管理局",
+      "check": "术语 \"Food and Drug Administration\" 应译为 \"美国食品药品监督管理局\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 1,
+      "phase3_judgment": "[中等] 术语 \"Food and Drug Administration\" 应译为 \"美国食品药品监督管理局\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_003",
+      "type": "glossary_violations",
+      "paragraph_index": 19,
+      "severity": "low",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-治疗",
+      "source_page": 1,
+      "phase3_judgment": "[轻微] 术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_004",
+      "type": "glossary_violations",
+      "paragraph_index": 21,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Neocollagenesis",
+      "expected_target": "新胶原蛋白合成",
+      "check": "术语 \"Neocollagenesis\" 应译为 \"新胶原蛋白合成\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-皮肤美容",
+      "source_page": 1,
+      "phase3_judgment": "[中等] 术语 \"Neocollagenesis\" 应译为 \"新胶原蛋白合成\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_005",
+      "type": "glossary_violations",
+      "paragraph_index": 22,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "response",
+      "expected_target": "缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）",
+      "check": "术语 \"response\" 应译为 \"缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 1,
+      "phase3_judgment": "[中等] 术语 \"response\" 应译为 \"缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_006",
+      "type": "glossary_violations",
+      "paragraph_index": 23,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "well",
+      "expected_target": "培养孔",
+      "check": "术语 \"well\" 应译为 \"培养孔\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-实验室",
+      "source_page": 1,
+      "phase3_judgment": "[中等] 术语 \"well\" 应译为 \"培养孔\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_007",
+      "type": "glossary_violations",
+      "paragraph_index": 25,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Ulthera",
+      "expected_target": "Ulthera（品牌名，保留不译）",
+      "check": "术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "品牌名",
+      "source_page": 1,
+      "phase3_judgment": "[中等] 术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_008",
+      "type": "glossary_violations",
+      "paragraph_index": 37,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Asian",
+      "expected_target": "亚裔",
+      "check": "术语 \"Asian\" 应译为 \"亚裔\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 2,
+      "phase3_judgment": "[中等] 术语 \"Asian\" 应译为 \"亚裔\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_009",
+      "type": "glossary_violations",
+      "paragraph_index": 39,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "consistent",
+      "expected_target": "一致性",
+      "check": "术语 \"consistent\" 应译为 \"一致性\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "通用",
+      "source_page": 2,
+      "phase3_judgment": "[中等] 术语 \"consistent\" 应译为 \"一致性\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_010",
+      "type": "glossary_violations",
+      "paragraph_index": 40,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "monitor",
+      "expected_target": "监查员",
+      "check": "术语 \"monitor\" 应译为 \"监查员\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-器械",
+      "source_page": 2,
+      "phase3_judgment": "[中等] 术语 \"monitor\" 应译为 \"监查员\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_011",
+      "type": "glossary_violations",
+      "paragraph_index": 42,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "protocol",
+      "expected_target": "测试方案",
+      "check": "术语 \"protocol\" 应译为 \"测试方案\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 2,
+      "phase3_judgment": "[中等] 术语 \"protocol\" 应译为 \"测试方案\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_012",
+      "type": "glossary_violations",
+      "paragraph_index": 43,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Ulthera",
+      "expected_target": "Ulthera（品牌名，保留不译）",
+      "check": "术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "品牌名",
+      "source_page": 2,
+      "phase3_judgment": "[中等] 术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_013",
+      "type": "glossary_violations",
+      "paragraph_index": 60,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "control",
+      "expected_target": "质控品",
+      "check": "术语 \"control\" 应译为 \"质控品\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-实验室",
+      "source_page": 3,
+      "phase3_judgment": "[中等] 术语 \"control\" 应译为 \"质控品\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_014",
+      "type": "glossary_violations",
+      "paragraph_index": 62,
+      "severity": "low",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-治疗",
+      "source_page": 3,
+      "phase3_judgment": "[轻微] 术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_015",
+      "type": "glossary_violations",
+      "paragraph_index": 63,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "site",
+      "expected_target": "注射部位",
+      "check": "术语 \"site\" 应译为 \"注射部位\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-皮肤美容",
+      "source_page": 3,
+      "phase3_judgment": "[中等] 术语 \"site\" 应译为 \"注射部位\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_016",
+      "type": "glossary_violations",
+      "paragraph_index": 66,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Ulthera",
+      "expected_target": "Ulthera（品牌名，保留不译）",
+      "check": "术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "品牌名",
+      "source_page": 3,
+      "phase3_judgment": "[中等] 术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_017",
+      "type": "glossary_violations",
+      "paragraph_index": 60,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "clinical outcome",
+      "expected_target": "临床效果",
+      "check": "术语 \"clinical outcome\" 应译为 \"临床效果\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"clinical outcome\" 应译为 \"临床效果\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_018",
+      "type": "glossary_violations",
+      "paragraph_index": 62,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "control",
+      "expected_target": "质控品",
+      "check": "术语 \"control\" 应译为 \"质控品\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-实验室",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"control\" 应译为 \"质控品\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_019",
+      "type": "glossary_violations",
+      "paragraph_index": 63,
+      "severity": "low",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-治疗",
+      "source_page": 4,
+      "phase3_judgment": "[轻微] 术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_020",
+      "type": "glossary_violations",
+      "paragraph_index": 66,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Neocollagenesis",
+      "expected_target": "新胶原蛋白合成",
+      "check": "术语 \"Neocollagenesis\" 应译为 \"新胶原蛋白合成\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-皮肤美容",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"Neocollagenesis\" 应译为 \"新胶原蛋白合成\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_021",
+      "type": "glossary_violations",
+      "paragraph_index": 70,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Recovery",
+      "expected_target": "回收（率）",
+      "check": "术语 \"Recovery\" 应译为 \"回收（率）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"Recovery\" 应译为 \"回收（率）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_022",
+      "type": "glossary_violations",
+      "paragraph_index": 72,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "response",
+      "expected_target": "缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）",
+      "check": "术语 \"response\" 应译为 \"缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"response\" 应译为 \"缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_023",
+      "type": "glossary_violations",
+      "paragraph_index": 73,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "safety",
+      "expected_target": "磁共振成像的安全性",
+      "check": "术语 \"safety\" 应译为 \"磁共振成像的安全性\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"safety\" 应译为 \"磁共振成像的安全性\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_024",
+      "type": "glossary_violations",
+      "paragraph_index": 75,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Ulthera",
+      "expected_target": "Ulthera（品牌名，保留不译）",
+      "check": "术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "品牌名",
+      "source_page": 4,
+      "phase3_judgment": "[中等] 术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_025",
+      "type": "glossary_violations",
+      "paragraph_index": 119,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "claim",
+      "expected_target": "声明",
+      "check": "术语 \"claim\" 应译为 \"声明\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "通用",
+      "source_page": 5,
+      "phase3_judgment": "[中等] 术语 \"claim\" 应译为 \"声明\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_026",
+      "type": "glossary_violations",
+      "paragraph_index": 120,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "efficacy",
+      "expected_target": "有效性",
+      "check": "术语 \"efficacy\" 应译为 \"有效性\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 5,
+      "phase3_judgment": "[中等] 术语 \"efficacy\" 应译为 \"有效性\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_027",
+      "type": "glossary_violations",
+      "paragraph_index": 122,
+      "severity": "low",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-治疗",
+      "source_page": 5,
+      "phase3_judgment": "[轻微] 术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_028",
+      "type": "glossary_violations",
+      "paragraph_index": 123,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "protocol",
+      "expected_target": "测试方案",
+      "check": "术语 \"protocol\" 应译为 \"测试方案\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 5,
+      "phase3_judgment": "[中等] 术语 \"protocol\" 应译为 \"测试方案\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_029",
+      "type": "glossary_violations",
+      "paragraph_index": 125,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "return",
+      "expected_target": "返还",
+      "check": "术语 \"return\" 应译为 \"返还\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "通用",
+      "source_page": 5,
+      "phase3_judgment": "[中等] 术语 \"return\" 应译为 \"返还\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_030",
+      "type": "glossary_violations",
+      "paragraph_index": 126,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "well",
+      "expected_target": "培养孔",
+      "check": "术语 \"well\" 应译为 \"培养孔\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-实验室",
+      "source_page": 5,
+      "phase3_judgment": "[中等] 术语 \"well\" 应译为 \"培养孔\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_031",
+      "type": "glossary_violations",
+      "paragraph_index": 127,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Ulthera",
+      "expected_target": "Ulthera（品牌名，保留不译）",
+      "check": "术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "品牌名",
+      "source_page": 5,
+      "phase3_judgment": "[中等] 术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_032",
+      "type": "glossary_violations",
+      "paragraph_index": 60,
+      "severity": "low",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "arm",
+      "expected_target": "导光臂",
+      "check": "术语 \"arm\" 应译为 \"导光臂\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-器械",
+      "source_page": 6,
+      "phase3_judgment": "[轻微] 术语 \"arm\" 应译为 \"导光臂\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_033",
+      "type": "glossary_violations",
+      "paragraph_index": 62,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Asian",
+      "expected_target": "亚裔",
+      "check": "术语 \"Asian\" 应译为 \"亚裔\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"Asian\" 应译为 \"亚裔\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_034",
+      "type": "glossary_violations",
+      "paragraph_index": 63,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "clinical trial",
+      "expected_target": "临床试验",
+      "check": "术语 \"clinical trial\" 应译为 \"临床试验\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"clinical trial\" 应译为 \"临床试验\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_035",
+      "type": "glossary_violations",
+      "paragraph_index": 66,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "efficacy",
+      "expected_target": "有效性",
+      "check": "术语 \"efficacy\" 应译为 \"有效性\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"efficacy\" 应译为 \"有效性\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_036",
+      "type": "glossary_violations",
+      "paragraph_index": 70,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "et al",
+      "expected_target": "等人（等作者）",
+      "check": "术语 \"et al\" 应译为 \"等人（等作者）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "通用",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"et al\" 应译为 \"等人（等作者）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_037",
+      "type": "glossary_violations",
+      "paragraph_index": 72,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Joint",
+      "expected_target": "连接点",
+      "check": "术语 \"Joint\" 应译为 \"连接点\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-器械",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"Joint\" 应译为 \"连接点\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_038",
+      "type": "glossary_violations",
+      "paragraph_index": 73,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Neocollagenesis",
+      "expected_target": "新胶原蛋白合成",
+      "check": "术语 \"Neocollagenesis\" 应译为 \"新胶原蛋白合成\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-皮肤美容",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"Neocollagenesis\" 应译为 \"新胶原蛋白合成\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_039",
+      "type": "glossary_violations",
+      "paragraph_index": 75,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "response",
+      "expected_target": "缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）",
+      "check": "术语 \"response\" 应译为 \"缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"response\" 应译为 \"缓解（适用于肿瘤治疗领域）；应答（适用于病毒治疗领域）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_040",
+      "type": "glossary_violations",
+      "paragraph_index": 76,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "safety",
+      "expected_target": "磁共振成像的安全性",
+      "check": "术语 \"safety\" 应译为 \"磁共振成像的安全性\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "医学-临床试验",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"safety\" 应译为 \"磁共振成像的安全性\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_041",
+      "type": "glossary_violations",
+      "paragraph_index": 78,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "White",
+      "expected_target": "白种人",
+      "check": "术语 \"White\" 应译为 \"白种人\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "通用",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"White\" 应译为 \"白种人\"，但译文中未找到（跨格式匹配，仅供参考）"
+    },
+    {
+      "verdict_id": "term_042",
+      "type": "glossary_violations",
+      "paragraph_index": 79,
+      "severity": "medium",
+      "verdict": null,
+      "explanation": null,
+      "severity_if_confirmed": null,
+      "source_term": "Ulthera",
+      "expected_target": "Ulthera（品牌名，保留不译）",
+      "check": "术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）",
+      "domain": "品牌名",
+      "source_page": 6,
+      "phase3_judgment": "[中等] 术语 \"Ulthera\" 应译为 \"Ulthera（品牌名，保留不译）\"，但译文中未找到（跨格式匹配，仅供参考）"
+    }
+  ]
+}

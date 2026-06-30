@@ -1,0 +1,46 @@
+{
+  "pairs": [
+    {
+      "source": {
+        "filename": "MFU_skin_tightening.pdf",
+        "fullpath": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/MFU_skin_tightening.pdf",
+        "format": "pdf",
+        "stem": "MFU_skin_tightening"
+      },
+      "target": {
+        "filename": "MFU_skin_tightening_CN.docx",
+        "fullpath": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/MFU_skin_tightening_CN.docx",
+        "lang_code": "zh",
+        "lang_name": "中文",
+        "base_name": "MFU_skin_tightening",
+        "format": "docx"
+      }
+    },
+    {
+      "source": {
+        "filename": "DSS_F690501-RF-CBS000062v2.0_combined.pdf",
+        "fullpath": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/DSS_F690501-RF-CBS000062v2.0_combined.pdf",
+        "format": "pdf",
+        "stem": "DSS_F690501-RF-CBS000062v2.0_combined"
+      },
+      "target": {
+        "filename": "DSS_F690501-RF-CBS000062v2.0_combined_CHN.docx",
+        "fullpath": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/DSS_F690501-RF-CBS000062v2.0_combined_CHN.docx",
+        "lang_code": "zh",
+        "lang_name": "中文",
+        "base_name": "DSS_F690501-RF-CBS000062v2.0_combined",
+        "format": "docx"
+      }
+    }
+  ],
+  "orphan_originals": [],
+  "orphan_translations": [],
+  "duplicate_pairs": [],
+  "stats": {
+    "total_pairs": 2,
+    "orphan_originals": 0,
+    "orphan_translations": 0
+  },
+  "ignored": [],
+  "total_scanned": 4
+}

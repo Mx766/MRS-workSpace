@@ -1,0 +1,1344 @@
+{
+  "number_mismatches": [
+    {
+      "paragraph_index": 119,
+      "source_page": 1,
+      "type": "number_missing",
+      "source_value": "208",
+      "severity": "medium",
+      "check": "数字 \"208\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 1,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 1,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 1,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 2,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 2,
+      "type": "number_missing",
+      "source_value": "100",
+      "severity": "medium",
+      "check": "数字 \"100\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 2,
+      "type": "number_missing",
+      "source_value": "000",
+      "severity": "medium",
+      "check": "数字 \"000\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 2,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 50,
+      "source_page": 3,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 51,
+      "source_page": 3,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 68,
+      "source_page": 4,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 69,
+      "source_page": 4,
+      "type": "number_missing",
+      "source_value": "35",
+      "severity": "medium",
+      "check": "数字 \"35\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 70,
+      "source_page": 4,
+      "type": "number_missing",
+      "source_value": "37",
+      "severity": "medium",
+      "check": "数字 \"37\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 71,
+      "source_page": 4,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 72,
+      "source_page": 4,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 73,
+      "source_page": 4,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 74,
+      "source_page": 4,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 5,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 5,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 5,
+      "type": "decimal_mismatch",
+      "source_value": "0.1",
+      "severity": "medium",
+      "check": "小数 \"0.1\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 5,
+      "type": "decimal_mismatch",
+      "source_value": "1.0",
+      "severity": "medium",
+      "check": "小数 \"1.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 5,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 6,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 6,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 128,
+      "source_page": 7,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 129,
+      "source_page": 7,
+      "type": "number_missing",
+      "source_value": "192",
+      "severity": "medium",
+      "check": "数字 \"192\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 130,
+      "source_page": 7,
+      "type": "number_missing",
+      "source_value": "168",
+      "severity": "medium",
+      "check": "数字 \"168\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 131,
+      "source_page": 7,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 132,
+      "source_page": 7,
+      "type": "decimal_mismatch",
+      "source_value": "192.168",
+      "severity": "medium",
+      "check": "小数 \"192.168\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 133,
+      "source_page": 7,
+      "type": "decimal_mismatch",
+      "source_value": "1.0",
+      "severity": "medium",
+      "check": "小数 \"1.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 146,
+      "source_page": 8,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 147,
+      "source_page": 8,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 9,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 9,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 83,
+      "source_page": 10,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 84,
+      "source_page": 10,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 11,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 11,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 11,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 11,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 11,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 124,
+      "source_page": 11,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 65,
+      "source_page": 12,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 66,
+      "source_page": 12,
+      "type": "number_missing",
+      "source_value": "001",
+      "severity": "medium",
+      "check": "数字 \"001\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 67,
+      "source_page": 12,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 13,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 13,
+      "type": "number_missing",
+      "source_value": "002",
+      "severity": "medium",
+      "check": "数字 \"002\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 13,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 14,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 14,
+      "type": "number_missing",
+      "source_value": "003",
+      "severity": "medium",
+      "check": "数字 \"003\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 14,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 15,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 15,
+      "type": "number_missing",
+      "source_value": "004",
+      "severity": "medium",
+      "check": "数字 \"004\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 15,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 16,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 16,
+      "type": "number_missing",
+      "source_value": "005",
+      "severity": "medium",
+      "check": "数字 \"005\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 16,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 17,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 17,
+      "type": "number_missing",
+      "source_value": "006",
+      "severity": "medium",
+      "check": "数字 \"006\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 17,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 18,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 18,
+      "type": "number_missing",
+      "source_value": "007",
+      "severity": "medium",
+      "check": "数字 \"007\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 18,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 19,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 19,
+      "type": "number_missing",
+      "source_value": "008",
+      "severity": "medium",
+      "check": "数字 \"008\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 19,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 20,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 20,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 21,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 21,
+      "type": "number_missing",
+      "source_value": "009",
+      "severity": "medium",
+      "check": "数字 \"009\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 21,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 22,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 22,
+      "type": "number_missing",
+      "source_value": "010",
+      "severity": "medium",
+      "check": "数字 \"010\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 22,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 23,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 23,
+      "type": "number_missing",
+      "source_value": "011",
+      "severity": "medium",
+      "check": "数字 \"011\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 23,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 24,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 24,
+      "type": "number_missing",
+      "source_value": "012",
+      "severity": "medium",
+      "check": "数字 \"012\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 24,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 25,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 25,
+      "type": "number_missing",
+      "source_value": "013",
+      "severity": "medium",
+      "check": "数字 \"013\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 25,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 26,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 26,
+      "type": "number_missing",
+      "source_value": "014",
+      "severity": "medium",
+      "check": "数字 \"014\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 26,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 27,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 27,
+      "type": "number_missing",
+      "source_value": "015",
+      "severity": "medium",
+      "check": "数字 \"015\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 27,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 28,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 28,
+      "type": "number_missing",
+      "source_value": "016",
+      "severity": "medium",
+      "check": "数字 \"016\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 28,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 29,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 29,
+      "type": "number_missing",
+      "source_value": "017",
+      "severity": "medium",
+      "check": "数字 \"017\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 29,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 30,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 30,
+      "type": "number_missing",
+      "source_value": "018",
+      "severity": "medium",
+      "check": "数字 \"018\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 30,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 31,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 31,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 32,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 32,
+      "type": "number_missing",
+      "source_value": "019",
+      "severity": "medium",
+      "check": "数字 \"019\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 32,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 33,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 33,
+      "type": "number_missing",
+      "source_value": "020",
+      "severity": "medium",
+      "check": "数字 \"020\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 33,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 34,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 34,
+      "type": "number_missing",
+      "source_value": "021",
+      "severity": "medium",
+      "check": "数字 \"021\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 34,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 34,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 35,
+      "type": "number_missing",
+      "source_value": "35",
+      "severity": "medium",
+      "check": "数字 \"35\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 35,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 35,
+      "type": "number_missing",
+      "source_value": "021",
+      "severity": "medium",
+      "check": "数字 \"021\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 35,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 35,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 36,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 36,
+      "type": "number_missing",
+      "source_value": "022",
+      "severity": "medium",
+      "check": "数字 \"022\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 36,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 36,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 119,
+      "source_page": 37,
+      "type": "number_missing",
+      "source_value": "37",
+      "severity": "medium",
+      "check": "数字 \"37\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 120,
+      "source_page": 37,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 37,
+      "type": "number_missing",
+      "source_value": "022",
+      "severity": "medium",
+      "check": "数字 \"022\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 37,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 37,
+      "type": "decimal_mismatch",
+      "source_value": "3.9",
+      "severity": "medium",
+      "check": "小数 \"3.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 324,
+      "source_page": 38,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 325,
+      "source_page": 38,
+      "type": "number_missing",
+      "source_value": "38",
+      "severity": "medium",
+      "check": "数字 \"38\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 326,
+      "source_page": 38,
+      "type": "number_missing",
+      "source_value": "80",
+      "severity": "medium",
+      "check": "数字 \"80\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 327,
+      "source_page": 38,
+      "type": "decimal_mismatch",
+      "source_value": "2.0",
+      "severity": "medium",
+      "check": "小数 \"2.0\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 328,
+      "source_page": 38,
+      "type": "decimal_mismatch",
+      "source_value": "3.2",
+      "severity": "medium",
+      "check": "小数 \"3.2\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 342,
+      "source_page": 38,
+      "type": "decimal_mismatch",
+      "source_value": "7.80",
+      "severity": "medium",
+      "check": "小数 \"7.80\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 324,
+      "source_page": 38,
+      "type": "decimal_mismatch",
+      "source_value": "0.4",
+      "severity": "medium",
+      "check": "小数 \"0.4\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 325,
+      "source_page": 38,
+      "type": "decimal_mismatch",
+      "source_value": "2.5",
+      "severity": "medium",
+      "check": "小数 \"2.5\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    },
+    {
+      "paragraph_index": 326,
+      "source_page": 38,
+      "type": "decimal_mismatch",
+      "source_value": "4.9",
+      "severity": "medium",
+      "check": "小数 \"4.9\" 在译文中可能缺失（跨格式匹配，仅供参考）"
+    }
+  ],
+  "glossary_violations": [
+    {
+      "paragraph_index": 121,
+      "source_page": 6,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 148,
+      "source_page": 8,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 121,
+      "source_page": 9,
+      "type": "glossary_violation",
+      "source_term": "IR",
+      "expected_target": "反转恢复（序列）",
+      "domain": "医学-影像",
+      "severity": "low",
+      "check": "术语 \"IR\" 应译为 \"反转恢复（序列）\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 9,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 68,
+      "source_page": 12,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 13,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 14,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 124,
+      "source_page": 15,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 16,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 17,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 18,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 19,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 21,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 22,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 23,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 24,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 25,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 26,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 27,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 28,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 29,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 32,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 122,
+      "source_page": 33,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 34,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 125,
+      "source_page": 35,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 123,
+      "source_page": 36,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    },
+    {
+      "paragraph_index": 125,
+      "source_page": 37,
+      "type": "glossary_violation",
+      "source_term": "IT",
+      "expected_target": "鞘内注射",
+      "domain": "医学-治疗",
+      "severity": "low",
+      "check": "术语 \"IT\" 应译为 \"鞘内注射\"，但译文中未找到（跨格式匹配，仅供参考） [领域待确认：请人工判断此术语在本文语境中的正确译法]"
+    }
+  ],
+  "symbol_issues": [],
+  "format_issues": [],
+  "unit_issues": [],
+  "client_grammar_issues": []
+}

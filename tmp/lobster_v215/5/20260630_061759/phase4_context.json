@@ -1,0 +1,407 @@
+{
+  "meta": {
+    "source_file": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/5/20260630_061759/split_source.json",
+    "target_file": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/5/20260630_061759/split_target.json",
+    "source_type": "pdf",
+    "target_type": "docx",
+    "total_source_paragraphs": 1346,
+    "total_target_paragraphs": 342,
+    "is_cross_format": true
+  },
+  "domain": {
+    "primary": "网络安全评估",
+    "secondary": [],
+    "confidence": 0.85,
+    "evidence_keywords": [
+      "penetration\\s+test",
+      "vulnerability",
+      "exploit",
+      "CVSS",
+      "OWASP",
+      "NIST",
+      "rute.?force",
+      "fuzz",
+      "attack\\s+vector",
+      "privilege\\s+escalation"
+    ],
+    "domain_notes": "网络安全渗透测试报告。术语应遵循 OWASP/NIST 规范，CVSS 评分术语使用标准译法。"
+  },
+  "key_terminology": [
+    {
+      "source": "delta",
+      "required_target": "差",
+      "domain": "通用",
+      "count": 13,
+      "is_critical": true,
+      "translation_status": "missing"
+    },
+    {
+      "source": "software update",
+      "required_target": "软件升级",
+      "domain": "软件-IT",
+      "count": 8,
+      "is_critical": true,
+      "translation_status": "missing"
+    },
+    {
+      "source": "audit",
+      "required_target": "稽查",
+      "domain": "医学-临床试验",
+      "count": 6,
+      "is_critical": true,
+      "translation_status": "missing"
+    },
+    {
+      "source": "audit trail",
+      "required_target": "稽查轨迹",
+      "domain": "医学-临床试验",
+      "count": 5,
+      "is_critical": true,
+      "translation_status": "missing"
+    },
+    {
+      "source": "control",
+      "required_target": "质控品",
+      "domain": "医学-实验室",
+      "count": 4,
+      "is_critical": true,
+      "translation_status": "missing"
+    },
+    {
+      "source": "custom",
+      "required_target": "定制",
+      "domain": "通用",
+      "count": 4,
+      "is_critical": false,
+      "translation_status": "present"
+    }
+  ],
+  "high_risk_paragraphs": [
+    {
+      "paragraph_index": 40,
+      "score": 18,
+      "reason": "含 6 个数字"
+    },
+    {
+      "paragraph_index": 65,
+      "score": 18,
+      "reason": "含 6 个数字"
+    },
+    {
+      "paragraph_index": 50,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 63,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 64,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 67,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 68,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 87,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 89,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 92,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 93,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 223,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 230,
+      "score": 15,
+      "reason": "含 5 个数字"
+    },
+    {
+      "paragraph_index": 39,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 52,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 53,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 55,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 57,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 59,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 61,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 62,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 66,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 91,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 96,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 184,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 202,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 235,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 270,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 275,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 282,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 303,
+      "score": 12,
+      "reason": "含 4 个数字"
+    },
+    {
+      "paragraph_index": 6,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 48,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 51,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 60,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 70,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 72,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 74,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 76,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 78,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 80,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 82,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 84,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 86,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 88,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 90,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 94,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 98,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 128,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 134,
+      "score": 9,
+      "reason": "含 3 个数字"
+    },
+    {
+      "paragraph_index": 150,
+      "score": 9,
+      "reason": "含 3 个数字"
+    }
+  ],
+  "structure_checklist": [
+    {
+      "type": "cross_format_broken_paragraphs",
+      "count": 205,
+      "paragraph_indices": [
+        6,
+        15,
+        20,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
+      "note": "跨格式(PDF→DOCX)检测到 205 个不以标点结尾的段，可能是 PDF 提取断段"
+    },
+    {
+      "type": "cross_format_figure_captions",
+      "note": "PDF → DOCX 转换可能导致图表标题/题注缺失，Phase 4 需检查图表标题完整性"
+    },
+    {
+      "type": "cross_format_note",
+      "note": "跨格式校对模式，所有查找结果标记 [全文匹配，仅供参考]。注意：PDF 文本提取可能遗漏表格、图片中的文字。"
+    }
+  ],
+  "mandatory_checks": [
+    {
+      "check_id": "4.1",
+      "name": "术语库一致",
+      "reason": "网络安全术语有标准译法（CVE/NIST/OWASP），不可随意翻译"
+    },
+    {
+      "check_id": "2.23",
+      "name": "术语过于泛化",
+      "reason": "安全评估术语容易泛化（penetration→渗透而非穿刺，attack→攻击而非袭击）"
+    },
+    {
+      "check_id": "1.4",
+      "name": "错译",
+      "reason": "安全机制名称（TLS, SSH, brute-force）有固定译法，不能字面翻译"
+    },
+    {
+      "check_id": "2.12",
+      "name": "翻译腔",
+      "reason": "英文安全报告多用被动语态，中文需转换为主动/无主语句"
+    },
+    {
+      "check_id": "3.3",
+      "name": "符号格式",
+      "reason": "版本号、IP 地址、端口号、哈希值等符号序列必须完全一致"
+    }
+  ],
+  "domain_escalation_rules": {
+    "vulnerability_misclassification": "critical",
+    "cvss_scoring_error": "critical",
+    "authentication_bypass": "critical",
+    "port_protocol_error": "medium",
+    "terminology_inconsistency": "medium"
+  }
+}

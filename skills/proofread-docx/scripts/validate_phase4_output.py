@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Phase 4.35: 输出 schema 硬校验网关（v2.15 新增）
+Phase 4.35: 输出 schema 硬校验网关（v2.15 新增，v2.16 强化）
 
 在 Phase 4 结束后、Phase 4.4 校准前运行。
 验证 issues_phase4.json 的结构完整性：
@@ -480,13 +480,161 @@ def validate_phase3_verdicts(
             "message": f"{len(short_explanations)} 条判决的解释不足 20 个中文字: {short_explanations[:3]}{'...' if len(short_explanations) > 3 else ''}",
         })
 
-    # 全部 dismiss 警告
+    # 全部 dismiss → ERROR（v2.16 升级：从 warning 改为 error）
     total = len(expected_ids)
     if total > 0 and confirmed_count == 0:
+        errors.append({
+            "check": "phase3_verdicts_all_dismissed",
+            "severity": "error",
+            "message": (
+                f"Phase 3 的 {total} 条发现全部被判为误报（confirmed=0/{total}）。"
+                f"统计上不可能——即使在最精确的术语库中，也不会有 0% 的机械发现成立。"
+                f"AI 用笼统理由批量 dismiss 了所有发现。必须逐条重判，至少确认部分发现。"
+            ),
+        })
+    elif total > 0 and confirmed_count / total < 0.05:
         warnings.append({
-            "check": "phase3_verdicts",
+            "check": "phase3_verdicts_near_zero",
             "severity": "warning",
-            "message": f"Phase 3 的 {total} 条发现全部被判为误报（confirmed=0）。极不可能，建议人工抽查。",
+            "message": (
+                f"Phase 3 发现的确认率仅 {round(confirmed_count/total*100, 1)}% "
+                f"（{confirmed_count}/{total}）。异常偏低，建议抽查 5 条。"
+            ),
+        })
+
+    return errors, warnings
+
+
+# ══════════════════════════════════════════════════════════════
+# v2.16 新增：内容质量校验
+# ══════════════════════════════════════════════════════════════
+
+def validate_verdict_uniqueness(
+    verdicts: list[dict],
+    verdict_sheet: dict | None = None,
+) -> tuple[list[dict], list[dict]]:
+    """V6: 检测判决解释的模板化复制粘贴（v2.16 新增）。
+
+    如果大量 verdict 使用相同/高度相似的 explanation，
+    说明 AI 没有逐条审查，而是用模板回复批量处理。
+
+    Returns:
+        (errors, warnings)
+    """
+    errors = []
+    warnings = []
+
+    if not verdicts or not isinstance(verdicts, list):
+        return errors, warnings
+
+    # 提取所有非空 explanation
+    explanations = []
+    for v in verdicts:
+        if isinstance(v, dict):
+            expl = v.get("explanation", "").strip()
+            if expl:
+                explanations.append(expl)
+
+    total = len(explanations)
+    if total < 3:
+        return errors, warnings
+
+    # 精确匹配检测
+    from collections import Counter
+    counter = Counter(explanations)
+    unique_count = len(counter)
+    uniqueness_pct = unique_count / total
+
+    if uniqueness_pct < 0.3:
+        most_common_expl, most_common_count = counter.most_common(1)[0]
+        errors.append({
+            "check": "verdict_copy_paste",
+            "severity": "error",
+            "message": (
+                f"V6 模板化检测：{total} 条判决中仅 {unique_count} 种不同解释 "
+                f"（唯一率 {uniqueness_pct:.0%}，阈值 30%）。"
+                f"最常见解释重复 {most_common_count}/{total} 次: "
+                f"\"{most_common_expl[:60]}{'...' if len(most_common_expl) > 60 else ''}\""
+                f" ——AI 用模板回复批量处理，未逐条审查。必须重新逐条判决，"
+                f"每条给出针对该术语/数字的具体理由。"
+            ),
+        })
+    elif uniqueness_pct < 0.5:
+        warnings.append({
+            "check": "verdict_low_uniqueness",
+            "severity": "warning",
+            "message": (
+                f"判决解释唯一率仅 {uniqueness_pct:.0%}（{unique_count}/{total}），"
+                f"可能存在模板化倾向，建议抽查。"
+            ),
+        })
+
+    return errors, warnings
+
+
+def validate_issue_quantity(
+    issues: list,
+    total_paragraphs: int,
+) -> tuple[list[dict], list[dict]]:
+    """V7: 检测异常低的 issue 数量（v2.16 新增）。
+
+    如果总 issue 数远低于文档规模对应的合理下限，
+    说明 AI 没有认真审查。
+
+    阈值设计：
+      - 0 issues 任何情况 → ERROR（翻译文档不可能完全无问题）
+      - 1 issue + >30 段 → ERROR（仅发现一个明显错别字 = 敷衍）
+      - < 3 issues + >50 段 → ERROR
+      - 密度 < 2% → WARNING
+
+    Returns:
+        (errors, warnings)
+    """
+    errors = []
+    warnings = []
+
+    if total_paragraphs <= 0:
+        return errors, warnings
+
+    n_issues = len(issues) if isinstance(issues, list) else 0
+    density_pct = round(n_issues / total_paragraphs * 100, 1)
+
+    if n_issues == 0:
+        errors.append({
+            "check": "zero_issues",
+            "severity": "error",
+            "message": (
+                f"V7 零 issue 检测：{total_paragraphs} 段文档中 issues 数为 0。"
+                f"任何翻译文档都不可能完全没有问题。Phase 4 等于空跑。必须换模型重审。"
+            ),
+        })
+    elif n_issues == 1 and total_paragraphs > 30:
+        errors.append({
+            "check": "single_issue",
+            "severity": "error",
+            "message": (
+                f"V7 单 issue 检测：{total_paragraphs} 段文档仅发现 1 条 issue。"
+                f"这极可能是 AI 敷衍（如仅发现一个明显错别字而忽略所有翻译质量问题）。"
+                f"必须重新审查全部段落。"
+            ),
+        })
+    elif n_issues < 3 and total_paragraphs > 50:
+        errors.append({
+            "check": "too_few_issues",
+            "severity": "error",
+            "message": (
+                f"V7 issue 数量异常：{total_paragraphs} 段文档仅发现 {n_issues} 条 issue "
+                f"（< 3 条）。Phase 4 审查不完整。必须重审。"
+            ),
+        })
+    elif n_issues < max(5, total_paragraphs * 0.02):
+        warnings.append({
+            "check": "low_issue_density",
+            "severity": "warning",
+            "message": (
+                f"Issue 密度 = {density_pct}%（{n_issues} 条 / {total_paragraphs} 段），"
+                f"低于建议阈值。建议换模型复核。"
+            ),
         })
 
     return errors, warnings
@@ -532,7 +680,7 @@ def validate_all(
             "passed": passed,
             "errors": all_errors,
             "warnings": all_warnings,
-            "stats": {"phase": "4.35", "version": "2.15"},
+            "stats": {"phase": "4.35", "version": "2.16"},
             "action_required": "issues_phase4.json 顶层结构错误。修复后重新验证。" if not passed else None,
         }
 
@@ -551,25 +699,39 @@ def validate_all(
     all_warnings.extend(para_warnings)
 
     # 4. issues
-    issue_errors, issue_warnings = validate_issues(issues_data.get("issues", []))
+    issues = issues_data.get("issues", [])
+    para_cov = issues_data.get("paragraph_coverage", [])
+    total_paras = len(split_target) if split_target else len(para_cov)
+
+    issue_errors, issue_warnings = validate_issues(issues)
     all_errors.extend(issue_errors)
     all_warnings.extend(issue_warnings)
 
-    # 5. phase3_verdicts
+    # 5. phase3_verdicts（含 v2.16 confirmed=0 ERROR 升级）
     verdict_errors, verdict_warnings = validate_phase3_verdicts(
         issues_data.get("phase3_verdicts", []), verdict_sheet
     )
     all_errors.extend(verdict_errors)
     all_warnings.extend(verdict_warnings)
 
-    # 统计
-    issues = issues_data.get("issues", [])
-    para_cov = issues_data.get("paragraph_coverage", [])
-    total_paras = len(split_target) if split_target else len(para_cov)
+    # 6. verdict 解释唯一性（v2.16 新增 — 检测 copy-paste 模板化）
+    uniq_errors, uniq_warnings = validate_verdict_uniqueness(
+        issues_data.get("phase3_verdicts", []), verdict_sheet
+    )
+    all_errors.extend(uniq_errors)
+    all_warnings.extend(uniq_warnings)
 
+    # 7. issue 数量检测（v2.16 新增 — 检测异常低的 issue 数）
+    issue_qty_errors, issue_qty_warnings = validate_issue_quantity(
+        issues, max(total_paras, 1)
+    )
+    all_errors.extend(issue_qty_errors)
+    all_warnings.extend(issue_qty_warnings)
+
+    # 统计
     stats = {
         "phase": "4.35",
-        "version": "2.15",
+        "version": "2.16",
         "total_paragraphs": max(total_paras, 1),
         "covered_paragraphs": len(para_cov),
         "has_issue_paragraphs": has_issue_count,
@@ -584,6 +746,25 @@ def validate_all(
         "phase3_verdict_count": len(issues_data.get("phase3_verdicts", [])),
         "expected_verdict_count": len(verdict_sheet.get("verdicts", [])) if verdict_sheet else 0,
     }
+
+    # v2.16 统计: 解释唯一性
+    verdicts_for_stats = issues_data.get("phase3_verdicts", [])
+    if isinstance(verdicts_for_stats, list) and verdicts_for_stats:
+        from collections import Counter
+        expl_counter = Counter(
+            v.get("explanation", "").strip()
+            for v in verdicts_for_stats
+            if isinstance(v, dict) and v.get("explanation", "").strip()
+        )
+        stats["unique_explanations"] = len(expl_counter)
+        stats["total_explanations"] = sum(expl_counter.values())
+        stats["explanation_uniqueness_pct"] = round(
+            len(expl_counter) / max(sum(expl_counter.values()), 1) * 100, 1
+        )
+    else:
+        stats["unique_explanations"] = 0
+        stats["total_explanations"] = 0
+        stats["explanation_uniqueness_pct"] = 0.0
 
     passed = len(all_errors) == 0
     action = None if passed else "修复以上 error 后再运行 validate_phase4_output.py。全部通过后才能进入 Phase 4.4。"

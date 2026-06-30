@@ -1,0 +1,87 @@
+{
+  "total_flags": 4,
+  "flags": [
+    {
+      "type": "phase3_phase4_mismatch",
+      "dimension": "三.数字符号单位",
+      "phase3_count": 133,
+      "phase4_count": 0,
+      "severity": "high",
+      "recommendation": "Phase 3 发现 133 处数字问题，但 Phase 4 维度三零 issue。Phase 4 可能未审查数字/符号。"
+    },
+    {
+      "type": "high_risk_missed",
+      "count": 51,
+      "paragraphs": [
+        {
+          "paragraph_index": 40,
+          "risk_reason": "含 6 个数字",
+          "score": 18
+        },
+        {
+          "paragraph_index": 65,
+          "risk_reason": "含 6 个数字",
+          "score": 18
+        },
+        {
+          "paragraph_index": 50,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 63,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 64,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 67,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 68,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 87,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 89,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        },
+        {
+          "paragraph_index": 92,
+          "risk_reason": "含 5 个数字",
+          "score": 15
+        }
+      ],
+      "severity": "high",
+      "recommendation": "51 个高风险段落在 Phase 4 中零 issue，可能漏报。建议重审 top 段。"
+    },
+    {
+      "type": "all_phase3_dismissed",
+      "severity": "high",
+      "detail": "Phase 4 将 Phase 3 的 160 条发现全部判为误报（confirmed=0/160，0.0%）。即使在最精确的术语库中，也不可能所有 Phase 3 发现都是误报。极可能是 AI 偷懒批量 dismiss。",
+      "recommendation": "抽查至少 5 条 Phase 3 发现，确认是否真的全是假阳性。如有 ≥1 条实际成立，说明 Phase 4 审核不完整，需重审。"
+    },
+    {
+      "type": "abnormally_low_issue_density",
+      "severity": "high",
+      "detail": "Issue 密度 = 0.3%（1 条 / 342 段），低于最低阈值 2.0%。",
+      "recommendation": "建议换模型重审，或至少抽查 34 段确认是否有遗漏。"
+    }
+  ],
+  "severity_summary": {
+    "low": 1
+  },
+  "recommendation": "共 4 个红旗，建议复核"
+}

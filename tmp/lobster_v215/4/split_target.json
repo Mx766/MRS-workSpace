@@ -1,0 +1,1067 @@
+{
+  "doc_path": "/home/mx766/.qwenpaw/workspaces/default/jobs/proofread/input/MFU_skin_tightening_CN.docx",
+  "total_paragraphs": 148,
+  "total_tables": 1,
+  "chapter_count": 17,
+  "chapters": [
+    {
+      "chapter_id": "Ch1",
+      "title": "段落 1 起",
+      "heading_level": null,
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Karol A. Gutowski，医学博士*",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 2,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 3,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 1,
+      "chapter_number": 1
+    },
+    {
+      "chapter_id": "Ch2",
+      "title": "关键词",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 4,
+          "text": "关键词",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 5,
+          "text": "非侵入性皮肤紧致 Ulthera  微聚焦超声 热损伤区",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 6,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 4,
+      "chapter_number": 2
+    },
+    {
+      "chapter_id": "Ch3",
+      "title": "关键点",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 7,
+          "text": "关键点",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 8,
+          "text": "使用Ulthera微聚焦超声，单次治疗即可实现非侵入性皮肤紧致。",
+          "heading_level": null,
+          "style": "List Paragraph"
+        },
+        {
+          "index": 9,
+          "text": "治疗后可能需要3到6个月才能看到效果。",
+          "heading_level": null,
+          "style": "List Paragraph"
+        },
+        {
+          "index": 10,
+          "text": "根据个体患者的治疗反应和所使用的能量传递方案，部分患者治疗后可能看不到改善。",
+          "heading_level": null,
+          "style": "List Paragraph"
+        },
+        {
+          "index": 11,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 12,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 13,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 7,
+      "chapter_number": 3
+    },
+    {
+      "chapter_id": "Ch4",
+      "title": "",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 14,
+          "text": "",
+          "heading_level": 1,
+          "style": "Heading 1"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 14,
+      "chapter_number": 4
+    },
+    {
+      "chapter_id": "Ch5",
+      "title": "引言",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 15,
+          "text": "引言",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 16,
+          "text": "患者对对非手术、恢复期极短的面部年轻化治疗的持续需求，导致注射用神经毒素和填充剂、皮肤换肤术及紧致治疗的应用日益增多。通过射频(RF)或微聚焦超声(MFU)进行的组织加热，都可以成为整体治疗方案的一部分，用于紧致皮肤甚至提升面部结构。MFU在真皮深层和皮下组织中产生热量，促进新的胶原蛋白合成，进而实现皮肤紧致和提升。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 17,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 15,
+      "chapter_number": 5
+    },
+    {
+      "chapter_id": "Ch6",
+      "title": "胶原蛋白变性与新胶原生成",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 18,
+          "text": "胶原蛋白变性与新胶原生成",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 19,
+          "text": "当胶原蛋白暴露于60℃至65℃时，它会变性。一项研究显示，30天后观察到新的胶原蛋白合成，另一项研究显示，10周时出现新的胶原蛋白和弹性蛋白合成，同时伴有新的透明质酸沉积。 1,2",
+          "heading_level": null,
+          "style": "Table Paragraph"
+        },
+        {
+          "index": 20,
+          "text": "",
+          "heading_level": null,
+          "style": "Table Paragraph"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 18,
+      "chapter_number": 6
+    },
+    {
+      "chapter_id": "Ch7",
+      "title": "作用机制",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 21,
+          "text": "作用机制",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 22,
+          "text": "超声波医疗设备利用声波进行诊断成像或医学治疗。较高的超声频率对表浅组织影响更大，较低的频率则对深层组织影响更大。当超声波被微聚焦到活体组织中的某一点时，会产生分子振动并生成热量，在预定深度形成界限清晰的热损伤区域，同时使周围组织不受影响。在由此产生的组织温度下，会出现胶原收缩和变性，并刺激新胶原生成。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 23,
+          "text": "MFU与RF能量的不同之处在于，它可以微聚焦以靶向更深层组织，而不影响更浅层组织。与RF能量不同，MFU可以加热更深层组织至60℃到70℃之间，而不会损伤皮肤。对于RF设备，要达到高温，需要表面冷却以保护皮肤。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 24,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 21,
+      "chapter_number": 7
+    },
+    {
+      "chapter_id": "Ch8",
+      "title": "ULTHERA微聚焦超声系统",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 25,
+          "text": "ULTHERA微聚焦超声系统",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 26,
+          "text": "Ulthera系统(Ultherapy)于2009年获得美国食品药品管理局批准，用于非侵入性眉部提升，但通常用于全面部和颏下治疗。根据设备设置，目标组织可设定为不同深度：",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 27,
+          "text": "1.5mm",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 28,
+          "text": "3.0mm，靶向真皮深层",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 29,
+          "text": "4.5mm，靶向浅表肌肉腱膜系统(SMAS)和颈阔肌",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 30,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 31,
+          "text": "Ulthera系统通过操作者控制的手柄传递经皮MFU能量（图1），监视器允许直观显示能量传递的位置（图2），从而避免骨骼等特定结构。预定的“线”状聚焦能量传递，导致在1 mm3凝固区之间产生离散间隔，从而促进愈合。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 32,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 25,
+      "chapter_number": 8
+    },
+    {
+      "chapter_id": "Ch9",
+      "title": "适应症",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 33,
+          "text": "适应症",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 34,
+          "text": "尽管目前批准的适应症如下所列，但其他面部及非面部区域也已接受治疗：",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 35,
+          "text": "提升眉毛",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 36,
+          "text": "提升颏下组织（下巴和颈部）",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 37,
+          "text": "改善肩颈部的细纹和皱纹",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 38,
+          "text": "",
+          "heading_level": null,
+          "style": "List Paragraph"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 33,
+      "chapter_number": 9
+    },
+    {
+      "chapter_id": "Ch10",
+      "title": "组织学研究",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 39,
+          "text": "组织学研究",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 40,
+          "text": "一款早期Ulthera原型设备被用于患者治疗12周内将接受手术除皱术的患者的面颊外侧区域。 3皮肤组织学检查显示，真皮出现一致且可重复的热损伤区域，表皮未受损伤，且该损伤在12周时已消失。另一项研究 4显示，治疗后2个月，网状真皮层中的真皮胶原蛋白增多（增加24%），导致真皮厚度平均从1.32 mm增加到1.63 mm。真皮上部和下部的弹性纤维更加平行和笔直。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 41,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 39,
+      "chapter_number": 10
+    },
+    {
+      "chapter_id": "Ch11",
+      "title": "治疗时间",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 42,
+          "text": "治疗时间",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 43,
+          "text": "全面部和颈部的治疗时间通常少于90分钟，但根据操作者经验、方案的激进程度、患者舒适度以及治疗表面积而有所不同。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 44,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 45,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 46,
+          "text": "图1.使用Ulthera微聚焦超声手柄对患者进行治疗。",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 47,
+          "text": "面部– 30到60分钟",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 48,
+          "text": "颈部– 30到45分钟",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 49,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 42,
+      "chapter_number": 11
+    },
+    {
+      "chapter_id": "Ch12",
+      "title": "预处理",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 50,
+          "text": "预处理",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 51,
+          "text": "局部用贝他卡因/利多卡因/普鲁卡因乳膏60分钟 5",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 52,
+          "text": "局部用利多卡因/丁卡因（7%/7%）45分钟 6",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 53,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 50,
+      "chapter_number": 12
+    },
+    {
+      "chapter_id": "Ch13",
+      "title": "具体应用",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 54,
+          "text": "具体应用",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 55,
+          "text": "面部与颈部",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 56,
+          "text": "一项针对前额、颞部、面颊、颏下区域和颈侧的前瞻性评估者设盲研究，测量了90天时的结局。 6 所使用的探头包括：4MHz、4.5mm焦距（源能量0.75–1.2J），7MHz、4.5 mm焦距（源能量0.75–1.05J），以及7MHz、3.0mm焦距（源能量0.4–0.63J）。超声脉冲沿每条治疗线每隔1.5mm施加一次，治疗线之间的间距为3至5mm。35例患者中有30例（86%）的眉部提升在临床上获得显著改善（平均提升1.7mm）。遗憾的是，研究设计中使用的影像学方法无法得出关于其他治疗区域改善的结论。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 57,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 58,
+          "text": "眼周区域",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 59,
+          "text": "与任何能量设备一样，治疗较薄的眼周皮肤时需要格外小心。对眼睛上方的眼睑直接治疗并不适用。由于眉部提升，前额和眉部治疗后可以看到上眼睑的改善。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 60,
+          "text": "两项针对下眼睑治疗的研究（均在亚洲患者中进行）显示，眶下松弛状况有所改善。在一项针对7例患者的小型研究中，使用1.5 mm和3.0 mm探头靶向下眼睑皮肤和眶隔后，观察到定量改善。6 一项纳入15例患者的更大规模研究7,8 也显示大多数患者有所改善。 组织学分析证实，网状真皮层中胶原蛋白和弹性蛋白纤维增加，但表皮层未见显著变化。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 61,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 62,
+          "text": "鼻唇沟与下颌线",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 63,
+          "text": "一项前瞻性、盲法评估研究，纳入22例患者，使用7.5MHz和4.4MHz手柄，以3 mm平行间隔的线阵将能量递送至3.0mm和4.5mm的聚焦深度，评估了鼻唇沟和下颌线。4 在面部和颏下区域治疗两个",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 64,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 65,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 66,
+          "text": "图2.Ulthera屏幕显示。屏幕上方的三分之一区域显示组织治疗深度。",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 67,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 68,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 69,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 70,
+          "text": "月后，所有患者均显示出鼻唇沟和下颌线的改善，分别有77%和73%的患者主观报告“显著改善”。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 71,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 72,
+          "text": "浅表肌肉腱膜系统",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 73,
+          "text": "一项关于经皮Ulthera能量在面部传递的尸体研究显示，SMAS中出现热损伤区域，且SMAS收缩程度与传递的能量成正比。9 表皮和SMAS下层结构未受影响。这些发现表明，不仅真皮收缩，而且更深层支撑结构的改善也有助于治疗后所观察到的美学改善。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 74,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 75,
+          "text": "臀部",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 76,
+          "text": "一项单一研究评估了超声皮肤紧致和臀部平滑效果。5 使用焦深为3.0mm和4.5mm的换能器，对面积为25个1英寸×1英寸的正方形区域进行了治疗。 右臀部接受的治疗线数平均为973条（左臀部作为对照）。在大多数情况下，由于患者偏好，未使用最高能量水平。测量了标准化的设盲评估和患者满意度。尽管19例患者中有17例（89%）在180天时显示出客观改善，但只有68%表示总体满意，且大多数人不会将其推荐给家人或朋友。此外，疼痛评分较高，可能限制了传递至治疗区域的能量总量。改进的治疗方案和患者筛选可能会带来更好的结果。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 77,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 78,
+          "text": "手臂、大腿和膝部皮肤",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 79,
+          "text": "由于皮肤老化不仅限于面部，患者（通常是女性）通常寻求对上臂、大腿内侧以及膝盖正上方区域进行皮肤紧致治疗。一项小型研究对每个区域进行了6次治疗，采用1次（单平面）或2次（双重治疗深度）治疗遍数。10 6个月后，设盲评估者发现上臂和膝盖的皮肤提升效果优于大腿内侧。 双重治疗深度区域的临床改善评分略有提高。81%的患者表示非常满意，且所有患者均选择在同一或其他治疗点接受更多治疗。尽管报道称结果良好，但已发布的术前和术后图像显示改善幅度有限。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 80,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 81,
+          "text": "非高加索人群与皮肤类型",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 82,
+          "text": "大多数研究针对的是高加索皮肤类型。Chan及其同事11 报告了49例Fitzpatrick皮肤类型为III型和IV型的中国患者，随访时间长达6个月。 与其他研究一样，大多数患者出现短暂性红斑和水肿。1个月时，前额出现两例炎症后色素沉着过度。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 83,
+          "text": "在22例接受Ulthera治疗的Fitzpatrick皮肤类型III至VI的韩国患者中，有2例出现白色风团或条纹，但未提供更多细节。 4",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 84,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 85,
+          "text": "疼痛与舒适度管理",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 86,
+          "text": "Ulthera系统的一个常见抱怨是治疗过程中的疼痛。中度至重度疼痛可能限制传递的能量，减少治疗区域，并增加治疗持续时间。局部麻醉剂可提供一定缓解，但在未使用时，54%的患者报告其疼痛为“严重”。尚未制定治疗期间舒适度管理的具体方案，但以下选项可供选择，包括：",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 87,
+          "text": "一氧化二氮气体",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 88,
+          "text": "口服非甾体抗炎药",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 89,
+          "text": "口服麻醉药",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 90,
+          "text": "口服抗焦虑药",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 91,
+          "text": "局部麻醉剂",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 92,
+          "text": "注射用麻醉神经阻滞",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 93,
+          "text": "分心技术",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 94,
+          "text": "冷气设备和风扇",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 95,
+          "text": "预冷超声凝胶",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 96,
+          "text": "这些方式可根据患者耐受性和临床判断单独或联合使用。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 97,
+          "text": "基于小型试点试验，12 在Ulthera治疗过程中发现了以下情况：",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 98,
+          "text": "在治疗前60分钟给予800mg布洛芬与10mg氢可酮/500mg对乙酰氨基酚，两者在疼痛缓解方面无差异",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 99,
+          "text": "局部用脂质体利多卡因与安慰剂对照在疼痛缓解方面无差异",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 100,
+          "text": "较低能量治疗水平的不适感低于较高能量水平，且在180天时临床结果无差异",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 101,
+          "text": "尽管炎症是Ulthera治疗后新胶原生成的必要组成部分，但尚不清楚长期使用非甾体抗炎药物是否会干扰最终结果。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 102,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 103,
+          "text": "恢复与停机时间",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 104,
+          "text": "除本文其他部分描述的轻微组织反应外，Ulthera系统可被视为无恢复期且恢复时间极短。无需特殊后续护理。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 105,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 106,
+          "text": "副作用与并发症",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 107,
+          "text": "大多数已发表的研究仅报告了轻微的副作用，通常是轻度红斑和水肿，通常在2天后消退，但不超过7天。6 然而，一些患者报告了治疗后出现短暂性瘀伤、皮肤色素改变、9 以及持续长达3个月的神经性疼痛。一小部分患者还报告了下颌线麻木，该症状在3周内消退。4 一篇聚焦于MFU安全性的文献综述证实，副作用通常性质轻微且短暂。 13",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 108,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 54,
+      "chapter_number": 13
+    },
+    {
+      "chapter_id": "Ch14",
+      "title": "结果",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 109,
+          "text": "结果",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 110,
+          "text": "治疗后立即出现的胶原蛋白收缩可能导致组织的初步“提升”。还有轻度水肿有助于患者看到的早期美学改善。然而，热诱导的胶原蛋白合成与重塑可持续长达1年。典型结果如图3所示。由于理想候选人通常呈现轻度至中度衰老，那些衰老程度更重、皮肤松弛且出现颈阔肌带的人群，可能更适合通过手术治疗。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 111,
+          "text": "与任何非侵入性美容治疗一样，并非所有患者和临床医生都能看到改善效果。Ulthera在2010年的一项研究中，70例患者中有51例（73%）在3个月后颏下区域的组织提升出现了量化改善。在这51例患者中，84%（43例患者）经盲态评估者判定，出现了定性改善。因此，总体阳性反应率为61%。患者总体满意度为67%。由于能量密度设置约为推荐密度的一半，如果采用更激进的治疗方案，可能会获得更高的响应。一项针对64例患者的随访研究发现，64%至79%的患者报告在治疗后2至6个月之间有某种程度的改善。包括下颌治疗的那组满意度评分较低。14",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 112,
+          "text": "一项独立研究15 对10例患者采用标准化摄影和盲法、由经验丰富的临床医生评估后发现，其中2例患者（20%）未显示出任何改善。患者自我评估",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 113,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 114,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 115,
+          "text": "图3.一位45岁女性在Ulthera治疗下面部和颏下区域前（左侧）和后（右侧）的对比。",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 116,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 117,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 118,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 119,
+          "text": "发现，1例患者（10%）报告无改善，2例患者（20%）报告仅有轻微改善。然而，治疗方案、传递的能量剂量以及患者个体因素使得对预期结果进行概括变得困难。老年患者“愈合潜力”较低，可能不如年轻患者反应良好。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 120,
+          "text": "在Ulthera赞助的、最大规模，通过定性和定量影像学评估的研究中，16 经设盲评审者判定，93例患者中有58%在3个月后皮肤松弛得到改善。 在体重指数大于30kg/m2的患者中，55%的患者没有变化，而体重指数≤30mg/kg2 的患者中这一比例为12%。与此同时，66%的患者认为其下半面部和颈部的皮肤松弛状况有所改善。所有患者均接受了约295条线的浅层和深层治疗。在更高的治疗密度（更多疗程）和6至9个月时的评估下，可能会显示出更有利的反应。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 121,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 122,
+          "text": "效果的持续时间",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 123,
+          "text": "尽管没有任何皮肤紧致程序能声称永久效果，但能量源皮肤紧致设备的长期效果仍缺乏数据支持。外科手术（面部和颈部提升术）已显示出持续改善效果，最长可达10年。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 124,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 125,
+          "text": "医师监督",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 126,
+          "text": "医生可以自行实施治疗，但在大多数情况下，由护士或经过培训的美容师提供服务。关于患者评估和医生可用性的监督具体要求因当地法规而异。",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 109,
+      "chapter_number": 14
+    },
+    {
+      "chapter_id": "Ch15",
+      "title": "治疗方案变更",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 127,
+          "text": "治疗方案变更",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 128,
+          "text": "由于并非所有患者都可能对治疗产生反应，因此存在增加治疗线密度的空间。经验丰富的Ulthera用户共识组参与者报告称，每次治疗使用600至800条线时，疗效显著。已使用高达1500线的治疗密度，但超过1200至1500线后，临床收益似乎不大。17 因此，应为每位患者进行医生评估并制定个体化治疗方案。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 129,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 130,
+          "text": "其他治疗方案",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 131,
+          "text": "Ulthera只是面部年轻化治疗手段中的一种选择。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 132,
+          "text": "眉部提升可通过神经调节剂和注射填充材料实现。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 133,
+          "text": "面部和颈部皮肤紧致也可以通过多种能量设备实现，包括射频注射填充材料和脂肪移植，可导致中下面部提升",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 134,
+          "text": "下面部皮肤松弛和下颌赘肉已通过保守性激光辅助吸脂术进行治疗。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 135,
+          "text": "中下面部提升可通过经皮埋置倒钩“线”实现；然而，效果是暂时的。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 136,
+          "text": "颏下饱满感可通过注射去氧胆酸(Kybella)来减少",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 137,
+          "text": "颏下脂肪减少和皮肤收缩可以通过传统吸脂术实现（使用激光辅助吸脂术可能增强效果）",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 138,
+          "text": "应始终与患者讨论更具侵入性的手术选择，因为更严重的衰老可能对非侵入性治疗反应较差。",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 139,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 127,
+      "chapter_number": 15
+    },
+    {
+      "chapter_id": "Ch16",
+      "title": "摘要",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 140,
+          "text": "摘要",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 141,
+          "text": "MFU是一种非侵入性面部皮肤紧致技术，恢复时间短，可作为其他非侵入性治疗的补充。然而，需考虑患者反应的差异性，未来治疗方案的改进可能会提高反应率。对于轻度至中度面部衰老的患者以及体重指数为30 kg/m2 或以下的患者，效果可能更佳。",
+          "heading_level": null,
+          "style": "Body Text"
+        },
+        {
+          "index": 142,
+          "text": "",
+          "heading_level": null,
+          "style": "Body Text"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 140,
+      "chapter_number": 16
+    },
+    {
+      "chapter_id": "Ch17",
+      "title": "参考文献",
+      "heading_level": 1,
+      "paragraphs": [
+        {
+          "index": 143,
+          "text": "参考文献",
+          "heading_level": 1,
+          "style": "Heading 1"
+        },
+        {
+          "index": 144,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 145,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 146,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 147,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        },
+        {
+          "index": 148,
+          "text": "",
+          "heading_level": null,
+          "style": "Normal"
+        }
+      ],
+      "tables": [],
+      "start_para_idx": 143,
+      "chapter_number": 17
+    }
+  ],
+  "cross_page_tables": []
+}

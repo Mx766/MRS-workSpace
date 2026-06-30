@@ -1,0 +1,402 @@
+[
+  {
+    "paragraph_index": 1,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 4,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 5,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 7,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 8,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 9,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 10,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 15,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 16,
+    "status": "has_issue"
+  },
+  {
+    "paragraph_index": 18,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 19,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 21,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 22,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 23,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 25,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 26,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 27,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 28,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 29,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 31,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 33,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 34,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 35,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 36,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 37,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 39,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 40,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 42,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 43,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 46,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 47,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 48,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 50,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 51,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 52,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 54,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 55,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 56,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 58,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 59,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 60,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 62,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 63,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 66,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 70,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 72,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 73,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 75,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 76,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 78,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 79,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 81,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 82,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 83,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 85,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 86,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 87,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 88,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 89,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 90,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 91,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 92,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 93,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 94,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 95,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 96,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 97,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 98,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 99,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 100,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 101,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 103,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 104,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 106,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 107,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 109,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 110,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 111,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 112,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 115,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 119,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 120,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 122,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 123,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 125,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 126,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 127,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 128,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 130,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 131,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 132,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 133,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 134,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 135,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 136,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 137,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 138,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 140,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 141,
+    "status": "clean"
+  },
+  {
+    "paragraph_index": 143,
+    "status": "clean"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['3.1']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'number_mismatches'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['3.2']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'number_mismatches'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.1']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.2']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "dimension_coverage",
+      "severity": "warning",
+      "message": "dimension_coverage['4.3']: issues_found=0，但 Phase 3 在相关子类型中有发现: {'glossary_violations'}"
+    },
+    {
+      "check": "phase3_verdicts",
+      "severity": "warning",
+      "message": "Phase 3 的 160 条发现全部被判为误报（confirmed=0）。极不可能，建议人工抽查。"
+    }
+  ],
+  "stats": {
+    "phase": "4.35",
+    "version": "2.15",
+    "total_paragraphs": 6,
+    "covered_paragraphs": 342,
+    "has_issue_paragraphs": 1,
+    "total_issues": 1,
+    "severity_distribution": {
+      "critical": 0,
+      "medium": 0,
+      "low": 1
+    },
+    "dimension_coverage_check_ids": 50,
+    "expected_check_ids": 50,
+    "phase3_verdict_count": 160,
+    "expected_verdict_count": 160
+  },
+  "action_required": null
+}
