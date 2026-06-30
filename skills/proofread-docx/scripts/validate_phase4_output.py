@@ -701,7 +701,15 @@ def validate_all(
     # 4. issues
     issues = issues_data.get("issues", [])
     para_cov = issues_data.get("paragraph_coverage", [])
-    total_paras = len(split_target) if split_target else len(para_cov)
+
+    # total_paras 必须从 split_target 的 total_paragraphs 字段获取
+    # （split_target 本身是 dict，len(split_target) 返回的是顶层 key 数而非段落数）
+    if isinstance(split_target, dict):
+        total_paras = split_target.get("total_paragraphs", len(para_cov))
+    elif isinstance(split_target, list):
+        total_paras = len(split_target)
+    else:
+        total_paras = len(para_cov)
 
     issue_errors, issue_warnings = validate_issues(issues)
     all_errors.extend(issue_errors)

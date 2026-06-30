@@ -623,6 +623,28 @@ def validate_verdict_completeness(
             "recommendation": "每条 verdict 的 explanation 必须 ≥ 20 个中文字，详细说明判断理由。",
         })
 
+    # v2.16 新增：解释唯一性检测
+    explanations = [v.get("explanation", "").strip() for v in phase3_verdicts
+                    if isinstance(v, dict) and v.get("explanation", "").strip()]
+    if len(explanations) >= 3:
+        unique_count = len(set(explanations))
+        uniqueness_pct = unique_count / len(explanations)
+        if uniqueness_pct < 0.3:
+            from collections import Counter
+            top_expl, top_count = Counter(explanations).most_common(1)[0]
+            flags.append({
+                "type": "verdict_template_detected",
+                "severity": "high",
+                "detail": (
+                    f"{len(explanations)} 条判决中仅 {unique_count} 种不同解释 "
+                    f"（唯一率 {uniqueness_pct:.0%}）。"
+                    f"最常见解释重复 {top_count}/{len(explanations)} 次: "
+                    f""{top_expl[:50]}{'...' if len(top_expl) > 50 else ''}""
+                ),
+                "recommendation": "AI 使用模板回复批量处理判决。必须重新逐条审查，"
+                                 "每条给出针对该术语/数字的具体理由。",
+            })
+
     return flags
 
 
