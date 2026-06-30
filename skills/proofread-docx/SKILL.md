@@ -239,6 +239,18 @@ python ${SKILL_ROOT}/scripts/pair_files.py --input-dir "<用户给定的目录>"
 
 ---
 
+
+---
+
+### Phase 0 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 0.1 Python 依赖验证: python -c "import docx, openpyxl, fitz; print('ok')" -> 输出: ok
+□ [ ] 0.2 术语库加载: glossaries/glossary.json 存在 -> 共 ____ 条术语
+□ [ ] 0.3 术语库双格式: 确认存在 JSON + CSV 两份 -> JSON: [ ] CSV: [ ]
+□ [ ] 0.4 版本目录检测: 确认版本目录 -> proofread/<project>/v<N>/
+□ [ ] 0.5 客户术语检测: 检查 client_terms.json -> 存在: [ ] 不存在: [ ]（如存在则加载 ____ 条）
+```
 ## Phase 2: 文档拆分
 
 对每对文件执行：
@@ -270,6 +282,18 @@ python ${SKILL_ROOT}/scripts/split_docx.py --type pdf --input "<原文PDF路径>
 
 ---
 
+
+
+### Phase 2 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 split_docx.py 拆分源文档 -> 源文档: ____ 段 / ____ 表格
+□ [ ] 运行 split_docx.py 拆分目标文档 -> 目标文档: ____ 段 / ____ 表格
+□ [ ] 段落数差异: 源 ____ 段 vs 目标 ____ 段（差异 ____ 段，[ ] 合理 [ ] 不合理）
+□ [ ] 确认输出: cache/split_source.json [ ]  cache/split_target.json [ ]
+□ [ ] 确认对齐模式: [ ] paragraph  /  [ ] cross_format_per_page
+```
+
 ## Phase 3: 机械检查
 
 ```bash
@@ -297,6 +321,23 @@ python ${SKILL_ROOT}/scripts/check_mechanical.py \
 ```
 
 **Agent 行动**：记录 `summary.total_issues` 和 `range_consistency_warning`。将此输出留存，Phase 4 每章加载时引用对应段的疑点。
+
+
+### Phase 3 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 check_mechanical.py -> cache/issues_mechanical.json
+□ [ ] 运行 filter_glossary_violations.py -> cache/issues_glossary_filtered.json
+□ [ ] 运行 filter_number_issues.py -> cache/issues_number_filtered.json
+□ [ ] 机械检查结果汇总:
+    - glossary_violations: ____ 条 -> 过滤后 ____ 条
+    - number_mismatches: ____ 条 -> 过滤后 ____ 条
+    - symbol_issues: ____ 条
+    - format_issues: ____ 条
+    - unit_issues: ____ 条
+    - 总计: ____ 条 -> 过滤后 ____ 条
+```
+
 
 ### 3.1 机械检查数据契约（重要）
 
@@ -464,6 +505,19 @@ python ${SKILL_ROOT}/scripts/inject_context.py \
 
 ---
 
+
+
+### Phase 3.5 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 inject_context.py -> cache/phase4_context.json
+□ [ ] 领域检测: [________________]  置信度: [____]%
+□ [ ] 关键术语: ____ 条（源文中出现 >=3 次的术语库术语）
+□ [ ] 高风险段落: ____ 段（top 15%）
+□ [ ] 强制检查项: ____ 条 -> [________________________________]
+□ [ ] 确认领域升级规则: [________________________________]
+```
+
 ### 3.6 判决书生成 `2026-06-30 新增 v2.15`
 
 > **背景**：v2.14 在龙虾模型上失败——Phase 3 发现 42 条术语违规，Phase 4 AI 用一句"跨领域匹配，全部假阳性"就全部 dismiss。没有机制要求 AI 逐条判决。
@@ -507,6 +561,22 @@ python ${SKILL_ROOT}/scripts/build_phase3_verdicts.py \
 **Phase 4 在输出时必须包含 `phase3_verdicts` 数组**，逐条填写 `verdict`、`explanation`（≥20 中文字）、`severity_if_confirmed`。Phase 4.35 校验脚本会检查全部 verdict 是否完整。
 
 ---
+
+
+
+### Phase 3.6 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 build_phase3_verdicts.py -> cache/phase3_verdict_sheet.json
+□ [ ] 待判决总数: ____ 条
+    - glossary_violations: ____
+    - client_glossary_violations: ____
+    - number_mismatches: ____
+    - symbol_issues: ____
+    - format_issues: ____
+    - unit_issues: ____
+□ [ ] 覆盖段落数: ____ 段
+```
 
 ## Phase 4: 强制分批逐段审查（Agent 核心）
 
@@ -1064,6 +1134,21 @@ python ${SKILL_ROOT}/scripts/validate_phase4_output.py   --issues cache/issues_p
 | `style_preference` | 正确但可更优 |
 | `format_deviation` | 视觉/格式不一致 |
 
+
+
+### Phase 4.35 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 validate_phase4_output.py -> cache/phase4_validation_report.json
+□ [ ] 确认 passed = [ ] true  /  [ ] false（若 false -> 按 errors 逐条修复 -> 重校验 -> 直到 passed = true）
+□ [ ] 五道校验逐项确认:
+    V1 顶层结构: [ ] pass  [ ] fail
+    V2 dimension_coverage: [ ] pass  [ ] fail
+    V3 paragraph_coverage: [ ] pass  [ ] fail
+    V4 issues: [ ] pass  [ ] fail
+    V5 phase3_verdicts: [ ] pass  [ ] fail
+```
+
 ### 4.4 严重度决策表 `2026-06-30 强化`
 
 **严重度不由主观判断，必须按以下优先级规则顺序匹配，命中即停。**
@@ -1086,6 +1171,22 @@ python ${SKILL_ROOT}/scripts/validate_phase4_output.py   --issues cache/issues_p
 | 14 | 可有可无的修饰词增删 | **low** | "不同的手机"中"不同的"冗余 |
 
 **Agent 赋值流程**：写出 issue → 从规则 1 顺序往下扫 → 命中的第一条规则就是严重度 → 把规则编号写入 `severity_justification`。不可跳过、不可凭感觉、不可用默认值。
+
+
+
+### Phase 4.4 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 calibrate_severity.py -> cache/issues_phase4_calibrated.json + cache/phase4_flags.json
+□ [ ] 严重度分布: critical ____ / medium ____ / low ____
+□ [ ] 红旗数量: ____ 个
+    - 如有 -> 逐条阅读并判断是否需要重审
+    - all_phase3_dismissed? [ ] 是 [ ] 否（是 -> 必须抽查 Phase 3 发现）
+    - abnormally_low_issue_density? [ ] 是 [ ] 否（是 -> 必须换模型重审）
+    - empty_dimension 有 ____ 个维度零 issue
+□ [ ] 确认输出文件: issues_phase4_calibrated.json [ ]  phase4_flags.json [ ]
+```
+
 
 ### 4.5 逐段检查执行规范
 
@@ -1223,6 +1324,19 @@ python ${SKILL_ROOT}/scripts/check_cross_file_terms.py \
 
 ---
 
+
+
+### Phase 4.5 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 场景判断: [ ] 单文件 -> 跳过此 Phase  /  [ ] 多文件 -> 继续
+□ [ ] 运行 check_cross_file_terms.py -> cache/cross_file_issues.json
+□ [ ] 跨文件术语冲突: ____ 条
+□ [ ] Agent 复核每条冲突 -> 确认/驳回
+□ [ ] 合并确认的冲突到 issues_phase4_calibrated.json
+```
+
+
 ## Phase 4.6: 全文档模式传播 `2026-06-29 新增`
 
 > **背景**：翻译人员反馈"目录里指出 test group 应改，但后文出现了它就没再指出来"。
@@ -1274,6 +1388,17 @@ python ${SKILL_ROOT}/scripts/propagate_patterns.py \
 ```
 
 ---
+
+
+
+### Phase 4.6 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 propagate_patterns.py -> 提取 ____ 条替换模式
+□ [ ] 全文档扫描 -> 新增 ____ 条传播 issue
+□ [ ] 合并传播 issue 到 issues_phase4_calibrated.json -> 总 issue 数: ____ 条
+```
+
 
 ## Phase 5: 未匹配术语查证
 
@@ -1332,6 +1457,18 @@ python ${SKILL_ROOT}/scripts/search_term.py --terms "term1" "term2" --format tex
 
 ---
 
+
+
+### Phase 5 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 识别未匹配术语: ____ 条
+□ [ ] 逐条联网查证 -> confirmed: ____ / 无法确认: ____
+□ [ ] 输出 term_additions.json -> ____ 条新增术语
+□ [ ] 无法确认的术语 -> 列入报告"待确认事项"
+```
+
+
 ## Phase 6: 批注写入
 
 将 Phase 3 + Phase 4 的所有疑点写入译文文件：
@@ -1366,6 +1503,19 @@ python ${SKILL_ROOT}/scripts/write_comments.py \
 **若写入失败**（如文件被占用）：报告错误，询问用户是否重试或换路径。
 
 ---
+
+
+
+### Phase 6 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 write_comments.py -> <校对稿>.docx
+□ [ ] 批注总数: ____ 条
+    - 语义批注（有 paragraph_index）: ____ 条
+    - 机械批注（paragraph_index=0，合并为全文参考）: ____ 条
+□ [ ] 抽查验证: 随机选 3 条批注 -> 在 DOCX 中 Ctrl+F 搜索 target_quote -> [ ] 全部可定位 [ ] 有失败
+```
+
 
 ## Phase 7: 生成校对报告
 
@@ -1471,6 +1621,26 @@ Phase 1 `pair_files.py` 输出已包含 `source.filename` / `source.format` / `t
 | 多章混在一起校对 | 一章一章来 |
 | 脚本报错假装没看见 | 按"脚本失败处理"表执行 |
 | 报告用 Markdown 输出 | 跑 Phase 7 脚本生成 .docx |
+
+
+
+### Phase 7 强制任务清单（不可跳过）`v2.15`
+
+```
+□ [ ] 运行 write_report.py -> <校对报告>.docx
+□ [ ] 报告章节确认:
+    一、基本信息 [ ]
+    二、问题统计总览 [ ]
+    三、严重问题清单 [ ]（____ 条）
+    四、中等问题汇总 [ ]（____ 条）
+    五、低问题汇总 [ ]（____ 条）
+    六、术语一致性报告 [ ]
+    七、范围表达统一性检查 [ ]
+    八、待确认事项 [ ]
+□ [ ] 报告 issue 数 = 校对稿批注数? ____ vs ____ -> [ ] 一致 [ ] 不一致（不一致 -> 排查）
+□ [ ] 确认输出目录: proofread/<project>/v<N>/<校对稿>.docx + <校对报告>.docx
+```
+
 
 ## 版本
 - v2.15 (2026-06-30): **Phase 3→4 强制联动 + 输出硬校验**：新增 Phase 3.6 判决书生成 `build_phase3_verdicts.py`（42 条 Phase 3 发现转为必答问卷，逐条 confirmed/false_positive + ≥20 字中文解释）；新增 Phase 4.35 输出校验网关 `validate_phase4_output.py`（五道校验：顶层结构/dimension_coverage/paragraph_coverage/issues/phase3_verdicts，不通过则阻断）；校准脚本 `calibrate_severity.py` 新增 verdict 完整性校验 + issue 密度异常检测；铁律 E 脚本化（V3 校验自动阻断零 issue 文档）。修复龙虾模型零发现 + Phase 3 发现被批量 dismiss 问题。
