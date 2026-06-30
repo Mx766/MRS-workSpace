@@ -278,11 +278,7 @@ def validate_paragraph_coverage(para_cov: list, split_target=None) -> tuple[list
 
     # 与 split_target 对比
     if split_target:
-        expected_indices = set()
-        for para in split_target:
-            pi = para.get("index", para.get("paragraph_index"))
-            if pi is not None:
-                expected_indices.add(pi)
+        expected_indices = extract_paragraph_indices(split_target)
         missing = expected_indices - covered_indices
         extra = covered_indices - expected_indices
         coverage_pct = round(len(covered_indices & expected_indices) / max(len(expected_indices), 1) * 100, 1)

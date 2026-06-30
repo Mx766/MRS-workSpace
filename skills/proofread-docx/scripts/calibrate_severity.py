@@ -534,6 +534,144 @@ def flag_outliers(
 # ══════════════════════════════════════════════════════════════
 # Main
 # ══════════════════════════════════════════════════════════════
+# v2.15 新增：Phase 3 verdict 完整性 + Issue 密度校验
+# ══════════════════════════════════════════════════════════════
+
+def validate_verdict_completeness(
+    phase3_verdicts: list[dict] | None,
+    phase3_issues: dict | None = None,
+) -> list[dict]:
+    """v2.15: 校验 Phase 3 verdict 完整性。
+
+    - 检查 phase3_verdicts 是否存在
+    - 检查 confirmed 比例是否 > 0
+    - 检查每条 verdict 的 explanation 是否 ≥ 20 中文字
+
+    Args:
+        phase3_verdicts: Phase 4 输出的 phase3_verdicts 列表
+        phase3_issues: Phase 3 机械检查输出（用于获取预期总数）
+
+    Returns:
+        红旗列表
+    """
+    flags = []
+
+    if phase3_verdicts is None or not isinstance(phase3_verdicts, list):
+        # 检查 Phase 3 是否有发现
+        if phase3_issues and isinstance(phase3_issues, dict):
+            total_phase3 = sum(
+                len(phase3_issues.get(t, []))
+                for t in ["glossary_violations", "client_glossary_violations",
+                          "number_mismatches", "symbol_issues", "format_issues", "unit_issues"]
+            )
+            if total_phase3 > 0:
+                flags.append({
+                    "type": "missing_phase3_verdicts",
+                    "severity": "high",
+                    "detail": f"Phase 3 发现 {total_phase3} 条问题，但 Phase 4 没有输出 phase3_verdicts。"
+                              f"所有 Phase 3 发现未经 AI 逐条判决即被丢弃。",
+                    "recommendation": "Phase 4 必须对每条 Phase 3 发现给出 confirmed/false_positive/needs_context 判决。",
+                })
+        return flags
+
+    if not phase3_verdicts:
+        if phase3_issues and isinstance(phase3_issues, dict):
+            total_phase3 = sum(
+                len(phase3_issues.get(t, []))
+                for t in ["glossary_violations", "client_glossary_violations",
+                          "number_mismatches", "symbol_issues", "format_issues", "unit_issues"]
+            )
+            if total_phase3 > 0:
+                flags.append({
+                    "type": "empty_phase3_verdicts",
+                    "severity": "high",
+                    "detail": f"Phase 3 发现 {total_phase3} 条问题，但 phase3_verdicts 为空——所有发现被静默丢弃。",
+                    "recommendation": "必须重新审查：逐条给出判决。",
+                })
+        return flags
+
+    total = len(phase3_verdicts)
+    confirmed_count = sum(1 for v in phase3_verdicts if isinstance(v, dict) and v.get("verdict") == "confirmed")
+    short_explanations = []
+    for v in phase3_verdicts:
+        if not isinstance(v, dict):
+            continue
+        expl = v.get("explanation", "")
+        cn_count = len(re.findall(r'[一-鿿]', expl))
+        if cn_count < 20:
+            short_explanations.append(v.get("verdict_id", "?"))
+
+    confirmed_pct = round(confirmed_count / max(total, 1) * 100, 1)
+
+    if confirmed_count == 0 and total > 0:
+        flags.append({
+            "type": "all_phase3_dismissed",
+            "severity": "high",
+            "detail": f"Phase 4 将 Phase 3 的 {total} 条发现全部判为误报（confirmed=0/{total}，{confirmed_pct}%）。"
+                      f"即使在最精确的术语库中，也不可能所有 Phase 3 发现都是误报。"
+                      f"极可能是 AI 偷懒批量 dismiss。",
+            "recommendation": f"抽查至少 {min(5, total)} 条 Phase 3 发现，确认是否真的全是假阳性。"
+                             f"如有 ≥1 条实际成立，说明 Phase 4 审核不完整，需重审。",
+        })
+
+    if short_explanations:
+        flags.append({
+            "type": "insufficient_explanation",
+            "severity": "medium",
+            "detail": f"{len(short_explanations)} 条 verdict 的解释不足 20 个中文字: "
+                      f"{short_explanations[:5]}{'...' if len(short_explanations) > 5 else ''}",
+            "recommendation": "每条 verdict 的 explanation 必须 ≥ 20 个中文字，详细说明判断理由。",
+        })
+
+    return flags
+
+
+def validate_issue_density(
+    issues: list[dict],
+    total_paragraphs: int,
+    min_density_pct: float = 2.0,
+) -> list[dict]:
+    """v2.15: 检测异常低的 issue 密度。
+
+    如果 issues 总数 < 总段落数的 min_density_pct%，说明 Phase 4 可能没有认真审查。
+    龙虾案例：100 段只出了 1 条 issue → 密度 1%，明显异常。
+
+    Args:
+        issues: Phase 4 校准后的 issue 列表
+        total_paragraphs: 文档总段落数
+        min_density_pct: 最低密度阈值（百分比），默认 2%
+
+    Returns:
+        红旗列表
+    """
+    flags = []
+
+    if total_paragraphs <= 0:
+        return flags
+
+    density = round(len(issues) / total_paragraphs * 100, 1)
+
+    if len(issues) == 0:
+        flags.append({
+            "type": "zero_issues",
+            "severity": "high",
+            "detail": f"Phase 4 在 {total_paragraphs} 段文档中未发现任何问题（issue 密度 = 0%）。"
+                      f"任何翻译文档都不可能完全无问题。",
+            "recommendation": "必须换模型（fable→opus→sonnet）重审全部批次。",
+        })
+    elif density < min_density_pct:
+        flags.append({
+            "type": "abnormally_low_issue_density",
+            "severity": "high",
+            "detail": f"Issue 密度 = {density}%（{len(issues)} 条 / {total_paragraphs} 段），"
+                      f"低于最低阈值 {min_density_pct}%。",
+            "recommendation": f"建议换模型重审，或至少抽查 {(total_paragraphs // 10)} 段确认是否有遗漏。",
+        })
+
+    return flags
+
+
+# ══════════════════════════════════════════════════════════════
 
 def main():
     parser = argparse.ArgumentParser(
@@ -548,15 +686,35 @@ def main():
 
     # ── 加载 ──
     with open(args.issues, "r", encoding="utf-8") as f:
-        issues = json.load(f)
+        issues_raw = json.load(f)
 
-    # issues 可能是 {issues: [...]} 或 纯 list
+    # issues 可能是 {issues: [...], dimension_coverage: {...}, phase3_verdicts: [...]} 或 纯 list
     dimension_coverage = None
-    if isinstance(issues, dict):
-        dimension_coverage = issues.get("dimension_coverage")
-        issues = issues.get("issues", [])
+    phase3_verdicts = None
+    paragraph_coverage = None
+    if isinstance(issues_raw, dict):
+        dimension_coverage = issues_raw.get("dimension_coverage")
+        phase3_verdicts = issues_raw.get("phase3_verdicts")
+        paragraph_coverage = issues_raw.get("paragraph_coverage", [])
+        issues = issues_raw.get("issues", [])
+    else:
+        issues = issues_raw
     if not isinstance(issues, list):
         issues = []
+
+    # v2.15: 过滤段落状态条目（龙虾场景——Phase 4 只输出了 paragraph_coverage，没有实际 issues）
+    real_issues = []
+    status_only_count = 0
+    for iss in issues:
+        if isinstance(iss, dict):
+            keys = set(iss.keys())
+            if keys <= {"paragraph_index", "status"}:
+                status_only_count += 1
+                continue
+        real_issues.append(iss)
+    if status_only_count > 0:
+        print(f"⚠️ 过滤 {status_only_count} 条段落状态条目（只有 paragraph_index + status，无实际 issue 内容）")
+    issues = real_issues
 
     context = None
     if args.context:
@@ -575,7 +733,8 @@ def main():
             pass
 
     # ── 校准 ──
-    print(f"输入: {len(issues)} 条 issue")
+    total_paras = len(paragraph_coverage) if isinstance(paragraph_coverage, list) else 0
+    print(f"输入: {len(issues)} 条 issue, {total_paras} 段")
 
     # Step 1: 严重度归一化
     calibrated = normalize_severity(issues)
@@ -601,7 +760,15 @@ def main():
     outlier_flags = flag_outliers(calibrated, high_risk)
     print(f"异常检测: {len(outlier_flags)} 个")
 
-    all_flags = dimension_flags + outlier_flags
+    # Step 5: v2.15 新增 — Phase 3 verdict 完整性校验
+    verdict_flags = validate_verdict_completeness(phase3_verdicts, phase3_issues)
+    print(f"Phase 3 verdict 校验: {len(verdict_flags)} 个问题")
+
+    # Step 6: v2.15 新增 — Issue 密度异常检测
+    density_flags = validate_issue_density(calibrated, total_paras)
+    print(f"Issue 密度检测: {len(density_flags)} 个问题")
+
+    all_flags = dimension_flags + outlier_flags + verdict_flags + density_flags
 
     # ── 输出 ──
     # 统计
