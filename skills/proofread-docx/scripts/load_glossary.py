@@ -219,6 +219,112 @@ def scan_glossary_dir(directory: str) -> list[str]:
     return files
 
 
+# ═══════════════════════════════════════════════════════════
+# 客户术语需求加载（Fix E: 客户要求指定词翻译成什么）
+# ═══════════════════════════════════════════════════════════
+
+def load_client_glossary(filepath: str) -> dict:
+    """加载客户术语需求文件。
+
+    支持格式：
+    - Excel (.xlsx/.xls)：列名自动识别（原文/译法要求 或 source/target）
+    - JSON (.json)：{ "terms": {"src": "tgt", ...} } 或 [{ "source": "...", "target": "..." }]
+
+    返回: { "terms": {normalized_src: {source, target, note}}, "count": N, "source_file": "..." }
+    """
+    path = Path(filepath)
+    if not path.exists():
+        return {'terms': {}, 'count': 0, 'source_file': filepath, 'error': '文件不存在'}
+
+    suffix = path.suffix.lower()
+    terms = {}
+
+    if suffix in ('.xlsx', '.xls'):
+        try:
+            import openpyxl
+            wb = openpyxl.load_workbook(filepath, read_only=True, data_only=True)
+            ws = wb.active
+            rows = list(ws.iter_rows(values_only=True))
+            if len(rows) < 2:
+                wb.close()
+                return {'terms': {}, 'count': 0, 'source_file': filepath, 'error': '空文件或仅有表头'}
+            header = [str(h).strip().lower() if h else '' for h in rows[0]]
+            src_col = _find_column(header, ['原文', 'source', 'en', 'english', '英文术语', '要求术语', '需检查的词'])
+            tgt_col = _find_column(header, ['译法要求', 'target', 'zh', 'chinese', '中文译法', '要求译法', '必须译为'])
+            note_col = _find_column(header, ['备注', 'note', '说明', 'comment', '原因'])
+            if src_col is None or tgt_col is None:
+                src_col, tgt_col = 0, 1
+            for row in rows[1:]:
+                if row is None:
+                    continue
+                src = str(row[src_col]).strip() if src_col < len(row) and row[src_col] else ''
+                tgt = str(row[tgt_col]).strip() if tgt_col < len(row) and row[tgt_col] else ''
+                note = str(row[note_col]).strip() if note_col is not None and note_col < len(row) and row[note_col] else ''
+                if src and tgt:
+                    key = normalize_key(src)
+                    terms[key] = {'source': src, 'target': tgt, 'note': note}
+            wb.close()
+        except Exception as e:
+            return {'terms': {}, 'count': 0, 'source_file': filepath, 'error': str(e)}
+
+    elif suffix == '.json':
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            if isinstance(data, dict) and 'terms' in data:
+                raw_terms = data['terms']
+                if isinstance(raw_terms, dict):
+                    for src, tgt in raw_terms.items():
+                        if isinstance(tgt, str):
+                            key = normalize_key(src)
+                            terms[key] = {'source': src, 'target': tgt, 'note': ''}
+                        elif isinstance(tgt, dict):
+                            key = normalize_key(src)
+                            terms[key] = {'source': src, 'target': tgt.get('target', str(tgt)), 'note': tgt.get('note', '')}
+            elif isinstance(data, list):
+                for item in data:
+                    src = item.get('source', item.get('src', item.get('en', '')))
+                    tgt = item.get('target', item.get('tgt', item.get('zh', '')))
+                    note = item.get('note', item.get('备注', ''))
+                    if src and tgt:
+                        key = normalize_key(src)
+                        terms[key] = {'source': src, 'target': tgt, 'note': note}
+            elif isinstance(data, dict):
+                # 可能整个文件就是 {src: tgt} 格式
+                for k, v in data.items():
+                    if isinstance(v, str) and k not in ('project', 'description', 'version', 'name'):
+                        key = normalize_key(k)
+                        terms[key] = {'source': k, 'target': v, 'note': ''}
+        except Exception as e:
+            return {'terms': {}, 'count': 0, 'source_file': filepath, 'error': str(e)}
+
+    else:
+        return {'terms': {}, 'count': 0, 'source_file': filepath, 'error': f'不支持的文件格式: {suffix}'}
+
+    return {'terms': terms, 'count': len(terms), 'source_file': filepath}
+
+
+def find_client_glossary(batch_dir: str) -> str | None:
+    """在批次目录中查找客户术语需求文件。
+
+    检测顺序：
+    1. _术语要求.xlsx / _术语要求.xls
+    2. client_terms.json / _client_terms.json
+    3. 术语要求.xlsx / client_glossary.json
+    """
+    candidates = [
+        '_术语要求.xlsx', '_术语要求.xls',
+        'client_terms.json', '_client_terms.json',
+        '术语要求.xlsx', 'client_glossary.json',
+    ]
+    batch = Path(batch_dir)
+    for name in candidates:
+        p = batch / name
+        if p.exists():
+            return str(p.resolve())
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser(description='加载并合并术语库')
     parser.add_argument('--input', '-i', nargs='*', help='术语库文件路径（支持 .xlsx/.db/.csv）。留空则自动扫描')

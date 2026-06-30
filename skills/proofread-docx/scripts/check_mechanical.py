@@ -59,6 +59,22 @@ def extract_range_expressions(text: str) -> dict:
     return result
 
 
+def _context_around(text: str, value: str, radius: int = 40) -> str:
+    """在 text 中找到 value 的位置，提取前后各 radius 字符的上下文片段。
+    用于机械检查中给译者提供定位信息——否则译者只看到"缺了某个符号"但不知道在哪。
+    """
+    idx = text.find(value)
+    if idx == -1:
+        return ''
+    start = max(0, idx - radius)
+    end = min(len(text), idx + len(value) + radius)
+    snippet = text[start:end]
+    # 标记前后截断
+    prefix = '…' if start > 0 else ''
+    suffix = '…' if end < len(text) else ''
+    return prefix + snippet + suffix
+
+
 def check_numbers(source_text: str, target_text: str, para_index: int = 0) -> list[dict]:
     """对比原文-译文段落中的数字一致性"""
     issues = []
@@ -77,22 +93,28 @@ def check_numbers(source_text: str, target_text: str, para_index: int = 0) -> li
             # 容忍千分位差异
             alt = num.replace(',', '')
             if alt not in tgt_integers:
+                ctx = _context_around(source_text, num)
                 issues.append({
                     'paragraph_index': para_index,
                     'type': 'number_missing',
                     'source_value': num,
+                    'source_quote': ctx,
+                    'target_quote': target_text[:120] + ('…' if len(target_text) > 120 else ''),
                     'severity': 'medium',
-                    'check': f'数字 "{num}" 在译文中可能缺失',
+                    'check': f'数字 "{num}" 在译文中可能缺失（原文上下文：{ctx}）',
                 })
 
     for num in src_decimals:
         if num not in tgt_decimals:
+            ctx = _context_around(source_text, num)
             issues.append({
                 'paragraph_index': para_index,
                 'type': 'decimal_mismatch',
                 'source_value': num,
+                'source_quote': ctx,
+                'target_quote': target_text[:120] + ('…' if len(target_text) > 120 else ''),
                 'severity': 'critical',
-                'check': f'小数 "{num}" 在译文中不一致或缺失',
+                'check': f'小数 "{num}" 在译文中不一致或缺失（原文上下文：{ctx}）',
             })
 
     # 百分比
@@ -144,6 +166,18 @@ SPECIAL_SYMBOLS = {
     'δ': 'delta',
 }
 
+# ── 符号等价替换：这些替代写法在技术文档中是合法等价形式，不应报缺失 ──
+# 格式: {Unicode符号: [等效ASCII/替代写法]}
+SYMBOL_EQUIVALENTS = {
+    '≥': ['>='],
+    '≤': ['<='],
+    '≠': ['!='],
+    '±': ['+/-'],
+    '×': ['x', 'X'],
+    '²': ['^2'],
+    '³': ['^3'],
+}
+
 CAS_PATTERN = re.compile(r'CAS\s*\d{2,7}-\d{2}-\d{1}')
 CHEM_FORMULA_PATTERN = re.compile(r'\b([A-Z][a-z]?\d*){2,}\b')
 SUPERSCRIPT_PATTERN = re.compile(r'(m|cm|mm|km)\^?([²³⁴⁵⁶⁷⁸⁹]|\d+)')
@@ -162,18 +196,26 @@ def check_symbols(source_text: str, target_text: str, para_index: int = 0,
     """检查符号和特殊字符"""
     issues = []
 
-    # 特殊符号检查
+    # 特殊符号检查（含等价替代宽容）
     for symbol, name in SPECIAL_SYMBOLS.items():
         in_source = symbol in source_text
         in_target = symbol in target_text
         if in_source and not in_target:
+            # 检查是否有等价替代写法（如 ≥→>=, ≤→<=）
+            equivalents = SYMBOL_EQUIVALENTS.get(symbol, [])
+            has_equivalent = any(eq in target_text for eq in equivalents)
+            if has_equivalent:
+                continue  # 合法替代写法，不报缺失
+            ctx = _context_around(source_text, symbol)
             issues.append({
                 'paragraph_index': para_index,
                 'type': 'symbol_missing',
                 'symbol': symbol,
                 'symbol_name': name,
+                'source_quote': ctx,
+                'target_quote': target_text[:120] + ('…' if len(target_text) > 120 else ''),
                 'severity': 'medium',
-                'check': f'符号 "{symbol}"({name}) 在原文中存在但译文中缺失',
+                'check': f'符号 "{symbol}"({name}) 在原文中存在但译文中缺失（原文上下文：{ctx}）',
             })
 
     # CAS 号
@@ -181,12 +223,15 @@ def check_symbols(source_text: str, target_text: str, para_index: int = 0,
     tgt_cas = CAS_PATTERN.findall(target_text)
     for cas in src_cas:
         if cas not in tgt_cas:
+            ctx = _context_around(source_text, cas)
             issues.append({
                 'paragraph_index': para_index,
                 'type': 'cas_missing',
                 'source_value': cas,
+                'source_quote': ctx,
+                'target_quote': target_text[:120] + ('…' if len(target_text) > 120 else ''),
                 'severity': 'critical',
-                'check': f'CAS号 "{cas}" 在译文中缺失或不一致',
+                'check': f'CAS号 "{cas}" 在译文中缺失或不一致（原文上下文：{ctx}）',
             })
 
     # 法规/标准编号
@@ -195,12 +240,15 @@ def check_symbols(source_text: str, target_text: str, para_index: int = 0,
         tgt_matches = pattern.findall(target_text)
         for m in src_matches:
             if m not in tgt_matches:
+                ctx = _context_around(source_text, m)
                 issues.append({
                     'paragraph_index': para_index,
                     'type': 'regulation_missing',
                     'source_value': m,
+                    'source_quote': ctx,
+                    'target_quote': target_text[:120] + ('…' if len(target_text) > 120 else ''),
                     'severity': 'critical',
-                    'check': f'法规/标准编号 "{m}" 在译文中缺失',
+                    'check': f'法规/标准编号 "{m}" 在译文中缺失（原文上下文：{ctx}）',
                 })
 
     # 标点混排检查
@@ -237,51 +285,80 @@ def check_symbols(source_text: str, target_text: str, para_index: int = 0,
 # ═══════════════════════════════════════════════════════════
 
 def check_glossary(source_text: str, target_text: str, glossary: dict, para_index: int = 0,
-                   domain_filter: str = None, strict_short_terms: bool = False) -> dict:
+                   domain_filter: str = None, strict_short_terms: bool = False,
+                   client_glossary: dict = None) -> dict:
     """
     检查术语库合规性。
     规则: 若原文段落中出现术语库中的英文术语，则译文中必须包含规定的对应译法。
+
     glossary: {normalized_source: {source, target, domain}}
     domain_filter: 仅匹配该领域或"通用"的术语（None=全部匹配）
     strict_short_terms: 短词（≤3字符）是否保持原严重度（默认降级为low）
-    返回: {violations, unknown_terms}
+    client_glossary: {normalized_source: {source, target, note}} — 客户术语需求（最高优先级）
+    返回: {violations, unknown_terms, client_violations}
     """
     violations = []
+    client_violations = []
     unknown_terms = []
 
     source_lower = source_text.lower()
     target_lower = target_text.lower()
 
-    for key, term in glossary.items():
-        src = term['source']
-        expected_tgt = term['target'].lower()
+    # ── 1. 客户术语优先检查（Fix E: 客户要求指定词翻译成什么）──
+    client_matched_sources = set()  # 客户术语已覆盖的源词
+    if client_glossary:
+        for key, cterm in client_glossary.items():
+            src = cterm['source']
+            required_tgt = cterm['target'].lower()
+            if re.search(r'\b' + re.escape(src) + r'\b', source_lower, re.IGNORECASE):
+                client_matched_sources.add(key)
+                if required_tgt not in target_lower:
+                    client_violations.append({
+                        'paragraph_index': para_index,
+                        'type': 'client_glossary_violation',
+                        'source_term': src,
+                        'required_target': cterm['target'],
+                        'client_note': cterm.get('note', ''),
+                        'severity': 'critical',
+                        'check': f'【客户要求】术语 "{src}" 必须译为 "{cterm["target"]}"，但译文中未找到',
+                    })
 
-        # 领域过滤：传了 domain_filter 则只匹配该领域或"通用"术语
-        if domain_filter:
-            term_domain = term.get('domain', '')
-            if term_domain not in (domain_filter, '通用', ''):
+    # ── 2. 通用术语库检查（排除已被客户术语覆盖的源词）──
+    if glossary:
+        for key, term in glossary.items():
+            src = term['source']
+            expected_tgt = term['target'].lower()
+
+            # 跳过已由客户术语覆盖的源词（避免重复检查）
+            if key in client_matched_sources:
                 continue
 
-        # 词边界匹配（\b）：杜绝子串误报（arm→harmonized, SE→USE）
-        if re.search(r'\b' + re.escape(src) + r'\b', source_lower, re.IGNORECASE):
-            if expected_tgt not in target_lower:
-                sev = 'critical'
-                # 短词（≤3字符）自动降级：占误报67%，领域错配风险极高
-                if len(src) <= 3 and not strict_short_terms:
-                    sev = 'low'
-                violations.append({
-                    'paragraph_index': para_index,
-                    'type': 'glossary_violation',
-                    'source_term': src,
-                    'expected_target': term['target'],
-                    'domain': term.get('domain', ''),
-                    'severity': sev,
-                    'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到',
-                })
-                if len(src) <= 3 and not strict_short_terms:
-                    violations[-1]['_short_term_warning'] = True
+            # 领域过滤：传了 domain_filter 则只匹配该领域或"通用"术语
+            if domain_filter:
+                term_domain = term.get('domain', '')
+                if term_domain not in (domain_filter, '通用', ''):
+                    continue
 
-    return {'violations': violations, 'unknown_terms': unknown_terms}
+            # 词边界匹配（\b）：杜绝子串误报（arm→harmonized, SE→USE）
+            if re.search(r'\b' + re.escape(src) + r'\b', source_lower, re.IGNORECASE):
+                if expected_tgt not in target_lower:
+                    sev = 'critical'
+                    # 短词（≤3字符）自动降级：占误报67%，领域错配风险极高
+                    if len(src) <= 3 and not strict_short_terms:
+                        sev = 'low'
+                    violations.append({
+                        'paragraph_index': para_index,
+                        'type': 'glossary_violation',
+                        'source_term': src,
+                        'expected_target': term['target'],
+                        'domain': term.get('domain', ''),
+                        'severity': sev,
+                        'check': f'术语 "{src}" 应译为 "{term["target"]}"，但译文中未找到',
+                    })
+                    if len(src) <= 3 and not strict_short_terms:
+                        violations[-1]['_short_term_warning'] = True
+
+    return {'violations': violations, 'unknown_terms': unknown_terms, 'client_violations': client_violations}
 
 
 # ═══════════════════════════════════════════════════════════
@@ -633,7 +710,8 @@ def _check_perpage_glossary(source_paras: list[dict], full_tgt: str, glossary: d
 
 def check_all(source_path: str, target_path: str,
               glossary: dict = None, direction: str = 'en→zh',
-              domain_filter: str = None, strict_short_terms: bool = False) -> dict:
+              domain_filter: str = None, strict_short_terms: bool = False,
+              client_glossary: dict = None) -> dict:
     """
     执行全部机械检查。
     source_path: 原文文件（.docx/.xlsx/.txt/.pdf）
@@ -648,6 +726,7 @@ def check_all(source_path: str, target_path: str,
         'number_mismatches': [],
         'symbol_issues': [],
         'glossary_violations': [],
+        'client_glossary_violations': [],
         'format_issues': [],
         'unit_issues': [],
         'range_stats': {},
@@ -680,10 +759,12 @@ def check_all(source_path: str, target_path: str,
             for k, v in range_expr.items():
                 all_range_stats[k] += v
 
-            if glossary:
+            if glossary or client_glossary:
                 gl_result = check_glossary(src_text, tgt_text, glossary, i + 1,
-                                           domain_filter, strict_short_terms)
+                                           domain_filter, strict_short_terms,
+                                           client_glossary)
                 result['glossary_violations'].extend(gl_result['violations'])
+                result['client_glossary_violations'].extend(gl_result['client_violations'])
 
         result['range_stats'] = dict(all_range_stats)
         result['range_consistency_warning'] = _check_range_consistency(all_range_stats)
@@ -704,9 +785,19 @@ def check_all(source_path: str, target_path: str,
         result['number_mismatches'].extend(_check_perpage_numbers(source_paras, full_tgt))
 
         # 术语检查（逐页匹配 + 记录 source_page）
-        if glossary:
-            result['glossary_violations'].extend(_check_perpage_glossary(source_paras, full_tgt, glossary,
-                                                                  domain_filter, strict_short_terms))
+        if glossary or client_glossary:
+            if glossary:
+                result['glossary_violations'].extend(_check_perpage_glossary(source_paras, full_tgt, glossary,
+                                                                      domain_filter, strict_short_terms))
+            if client_glossary:
+                for pg_data in source_paras:
+                    pg_text = pg_data.get('text', '') if isinstance(pg_data, dict) else str(pg_data)
+                    gl_result = check_glossary(pg_text, full_tgt, None, 0,
+                                               domain_filter, strict_short_terms,
+                                               client_glossary)
+                    for v in gl_result['client_violations']:
+                        v['source_page'] = pg_data.get('page', 0) if isinstance(pg_data, dict) else 0
+                    result['client_glossary_violations'].extend(gl_result['client_violations'])
 
         # ── 页面→段落映射 ──
         # 用滑动窗口相似度将 PDF 页码映射到 DOCX 段落
@@ -753,7 +844,8 @@ def check_all(source_path: str, target_path: str,
 
     # 汇总
     all_severity_counts = {'critical': 0, 'medium': 0, 'low': 0}
-    for key in ['number_mismatches', 'symbol_issues', 'glossary_violations', 'unit_issues']:
+    for key in ['number_mismatches', 'symbol_issues', 'glossary_violations',
+                'client_glossary_violations', 'unit_issues']:
         for item in result[key]:
             sev = item.get('severity', 'medium')
             if sev in all_severity_counts:
@@ -891,6 +983,7 @@ def main():
     parser.add_argument('--domain', help='领域过滤：仅匹配该领域或"通用"的术语')
     parser.add_argument('--strict-short-terms', action='store_true',
                         help='短词（≤3字符）保持原严重度，不自动降级')
+    parser.add_argument('--client-glossary', help='客户术语需求文件（_术语要求.xlsx 或 client_terms.json）')
     args = parser.parse_args()
 
     glossary = None
@@ -901,8 +994,18 @@ def main():
         except Exception as e:
             print(f'警告: 无法加载术语库: {e}', file=sys.stderr)
 
+    client_glossary = None
+    if args.client_glossary:
+        try:
+            from load_glossary import load_client_glossary
+            cl_data = load_client_glossary(args.client_glossary)
+            client_glossary = cl_data.get('terms', {})
+            print(f'加载客户术语要求: {cl_data.get("count", 0)} 条 → {args.client_glossary}', file=sys.stderr)
+        except Exception as e:
+            print(f'警告: 无法加载客户术语文件: {e}', file=sys.stderr)
+
     result = check_all(args.source, args.target, glossary, args.direction,
-                       args.domain, args.strict_short_terms)
+                       args.domain, args.strict_short_terms, client_glossary)
 
     output_json = json.dumps(result, ensure_ascii=False, indent=2)
     if args.output:
