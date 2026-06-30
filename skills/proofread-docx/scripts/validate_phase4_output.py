@@ -102,6 +102,29 @@ def validate_top_level(issues_data) -> list[dict]:
 
     if isinstance(issues_data, dict):
         # OK: dict format
+
+        # v2.16: version 字段校验 — 防复用旧版本 AI 产出
+        data_version = issues_data.get("version", "")
+        if data_version and data_version != "2.16":
+            errors.append({
+                "check": "version_mismatch",
+                "severity": "error",
+                "message": (
+                    f"issues_phase4.json 的 version 字段为 '{data_version}'，"
+                    f"但当前 SKILL 版本为 2.16。可能是从旧版本目录复用了 AI 产出。"
+                    f"必须删除旧 cache/ 并重新运行 Phase 4。"
+                ),
+            })
+        elif not data_version:
+            warnings.append({
+                "check": "version_missing",
+                "severity": "warning",
+                "message": (
+                    "issues_phase4.json 缺少 version 字段，无法确认是否为本次运行产出。"
+                    "请确保 Phase 4 输出包含 "version": "2.16"。"
+                ),
+            })
+
         required_top = ["dimension_coverage", "paragraph_coverage", "issues"]
         for key in required_top:
             if key not in issues_data:
