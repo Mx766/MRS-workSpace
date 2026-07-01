@@ -179,6 +179,26 @@ DEFAULT_ESCALATION_RULES = {
 
 
 # ══════════════════════════════════════════════════════════════
+# v2.21: 领域关键标识符模式 — 即使只出现 1 次也必须检查
+# ══════════════════════════════════════════════════════════════
+
+CRITICAL_IDENTIFIER_PATTERNS = [
+    re.compile(r'^[A-Z]\d{3}[A-Z]?$'),            # GHS: H319, P201, H314
+    re.compile(r'^CVE-\d{4}-\d{4,}$', re.I),       # CVE identifiers
+    re.compile(r'^[A-Z]{2,8}\s*\d{2,8}$'),        # ISO 13485, ASTM D4236, EN 455
+    re.compile(r'^\d{2,7}-\d{2}-\d$'),              # CAS: 7732-18-5
+    re.compile(r'^NCT\d{8}$', re.I),               # ClinicalTrials.gov
+    re.compile(r'^[A-Z]{2}\d{6,}[A-Z]?\d?$'),     # Patent: US12345678, WO20250001
+]
+
+
+def _is_domain_critical_identifier(term: str) -> bool:
+    """判断术语是否匹配领域关键标识符模式（H-code/CVE/CAS/标准号等）。"""
+    term_clean = term.strip()
+    return any(p.match(term_clean) for p in CRITICAL_IDENTIFIER_PATTERNS)
+
+
+# ══════════════════════════════════════════════════════════════
 # 1. 领域检测
 # ══════════════════════════════════════════════════════════════
 
@@ -267,29 +287,68 @@ def extract_key_terminology(
     source_text: str,
     target_text: str,
     glossary: dict | None = None,
+    client_glossary: dict | None = None,
+    source_paras: list[dict] | None = None,
     min_occurrences: int = 3,
-) -> list[dict]:
-    """找出源文中出现 ≥min_occurrences 次的术语库术语，标注必须验证。
+) -> tuple[list[dict], list[dict]]:
+    """提取文档中的关键术语，分两路输出。
 
-    交叉检查目标文：如果某术语的规范译法在目标文中不存在，标记 translation_status: missing。
+    高频通道: 出现 ≥min_occurrences 次的术语（传统逻辑，上限 30 条）
+    低频关键通道: 出现 1-2 次但有强信号（客户要求/结构位置/领域标识符）
 
     Args:
-        source_text: 源文全部文本（按页或按段拼接）
+        source_text: 源文全部文本
         target_text: 译文全部文本
         glossary: 术语库字典 (terms key)
-        min_occurrences: 最少出现次数阈值
+        client_glossary: 客户术语需求 {normalized_source: {source, target, note}}
+        source_paras: 源文段落列表 [{index, text, style, heading_level}, ...]
+        min_occurrences: 高频通道的最少出现次数阈值 (default: 3)
 
     Returns:
-        [{source, required_target, domain, count, is_critical, translation_status}]
+        (key_terminology, critical_low_freq_terms)
+        - key_terminology: 高频术语，最多 30 条
+        - critical_low_freq_terms: 低频但关键的术语，最多 50 条
     """
     if not glossary or not isinstance(glossary, dict) or 'terms' not in glossary:
-        return []
+        return ([], [])
 
     source_lower = source_text.lower()
     target_lower = target_text.lower()
     glossary_terms = glossary['terms']
 
-    results = []
+    # ── v2.21: 预处理 ──
+    # 构建客户术语查找表 (normalized source → 客户要求)
+    client_term_lookup = {}
+    if client_glossary:
+        for key, cterm in client_glossary.items():
+            src = cterm.get('source', key) if isinstance(cterm, dict) else key
+            client_term_lookup[src.lower().strip()] = cterm
+
+    # 构建结构化文本块
+    heading_text = ""
+    abstract_text = ""
+    table_text = ""
+    if source_paras:
+        heading_paras = [
+            p for p in source_paras
+            if p.get("heading_level") or (p.get("style", "") or "").startswith("Heading")
+        ]
+        heading_text = " ".join(p.get("text", "") for p in heading_paras).lower()
+
+        abstract_paras = source_paras[:3]
+        abstract_text = " ".join(p.get("text", "") for p in abstract_paras).lower()
+
+        table_paras = [
+            p for p in source_paras
+            if (p.get("style", "") or "") == "Table" or p.get("is_table")
+        ]
+        table_text = " ".join(p.get("text", "") for p in table_paras).lower()
+
+    # ── 主循环 ──
+    key_terms = []
+    low_freq_critical = []
+    seen_sources = set()  # 防止同一术语出现在两个列表中
+
     for key, info in glossary_terms.items():
         term_src = info.get('source', key) if isinstance(info, dict) else key
         term_tgt = info.get('target', '') if isinstance(info, dict) else info
@@ -298,42 +357,84 @@ def extract_key_terminology(
         if not term_src or not term_tgt:
             continue
 
-        # 在源文中统计出现次数
         term_lower = term_src.lower().strip()
-        if len(term_lower) < 4:  # 跳过太短的术语（容易大量误匹配）
+        source_lower_key = term_lower  # for dedup
+
+        # v2.21: 客户术语/领域标识符不受最短长度限制
+        is_client_term = source_lower_key in client_term_lookup
+        is_domain_id = _is_domain_critical_identifier(term_src)
+        if not is_client_term and not is_domain_id and len(term_lower) < 4:
             continue
 
-        # 用词边界匹配
+        # 统计源文中出现次数
         pattern = re.compile(r'\b' + re.escape(term_lower) + r'\b', re.IGNORECASE)
         source_matches = pattern.findall(source_lower)
         count = len(source_matches)
 
-        if count < min_occurrences:
+        if count == 0:
             continue
 
         # 检查目标文中是否存在规范译法
         tgt_lower = term_tgt.lower().strip()
         translation_status = "present" if tgt_lower in target_lower else "missing"
 
-        # 在标题或关键位置出现 → is_critical
-        is_critical = (
-            count >= 10 or
-            translation_status == "missing" or
-            bool(re.search(r'(?i)(?:heading|title|caption|table\s+\d+|figure\s+\d+).*' + re.escape(term_lower), source_text[:5000]))
-        )
+        # ── v2.21: 多信号重要性判断 ──
+        importance_reasons = []
 
-        results.append({
+        if is_client_term:
+            importance_reasons.append("client_mandated")
+
+        if is_domain_id:
+            importance_reasons.append("domain_critical")
+
+        # 结构位置信号
+        if heading_text and term_lower in heading_text:
+            importance_reasons.append("heading_term")
+        if abstract_text and term_lower in abstract_text:
+            importance_reasons.append("abstract_term")
+        if table_text and term_lower in table_text:
+            importance_reasons.append("table_term")
+
+        if count >= 10:
+            importance_reasons.append("high_frequency")
+        if translation_status == "missing":
+            importance_reasons.append("translation_missing")
+
+        # 传统 is_critical（向后兼容）
+        is_critical = bool(importance_reasons)
+
+        # 判断归属通道
+        has_low_freq_signal = bool({
+            "client_mandated", "domain_critical", "heading_term",
+            "abstract_term", "table_term"
+        } & set(importance_reasons))
+
+        term_entry = {
             "source": term_src,
             "required_target": term_tgt,
             "domain": domain,
             "count": count,
             "is_critical": is_critical,
             "translation_status": translation_status,
-        })
+            "importance_reason": "|".join(importance_reasons) if importance_reasons else "frequency",
+        }
 
-    # 按出现次数降序，最多 30 条
-    results.sort(key=lambda x: x["count"], reverse=True)
-    return results[:30]
+        if count >= min_occurrences:
+            key_terms.append(term_entry)
+            seen_sources.add(source_lower_key)
+        elif has_low_freq_signal and source_lower_key not in seen_sources:
+            low_freq_critical.append(term_entry)
+            seen_sources.add(source_lower_key)
+
+    # 排序输出
+    key_terms.sort(key=lambda x: (not x["is_critical"], -x["count"]))
+    low_freq_critical.sort(key=lambda x: (
+        "client_mandated" not in x["importance_reason"],
+        "domain_critical" not in x["importance_reason"],
+        -x["count"],
+    ))
+
+    return (key_terms[:30], low_freq_critical[:50])
 
 
 # ══════════════════════════════════════════════════════════════
@@ -720,7 +821,7 @@ def main():
         source_type = pair_info["pairs"][0].get("source", {}).get("format", source_type)
     target_type = "docx"
 
-    # ── 2. 加载术语库和 Phase 3 结果 ──
+    # ── 2. 加载术语库、客户术语和 Phase 3 结果 ──
     glossary = None
     if args.glossary:
         try:
@@ -728,6 +829,17 @@ def main():
                 glossary = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             sys.stderr.write(f"[inject_context] 术语库加载失败，跳过: {args.glossary}\n")
+
+    client_glossary = None
+    if args.client_glossary:
+        try:
+            from load_glossary import load_client_glossary
+            cl_data = load_client_glossary(args.client_glossary)
+            client_glossary = cl_data.get('terms', {})
+            if client_glossary:
+                sys.stderr.write(f"[inject_context] 加载客户术语: {len(client_glossary)} 条 → {args.client_glossary}\n")
+        except Exception as e:
+            sys.stderr.write(f"[inject_context] 客户术语加载失败: {e}\n")
 
     phase3_issues = None
     if args.issues_mech:
@@ -739,11 +851,16 @@ def main():
 
     # ── 3. 分析 ──
     domain_info = detect_domain(source_text, glossary)
-    key_terminology = extract_key_terminology(
-        source_text, target_text, glossary, args.min_term_occurrences
+    key_terminology, critical_low_freq_terms = extract_key_terminology(
+        source_text, target_text, glossary,
+        client_glossary=client_glossary,
+        source_paras=source_paras,
+        min_occurrences=args.min_term_occurrences,
     )
+    # 合并所有术语用于高风险段落识别
+    all_terms_for_risk = key_terminology + critical_low_freq_terms
     high_risk_paras = identify_high_risk_paragraphs(
-        source_paras, target_paras, key_terminology
+        source_paras, target_paras, all_terms_for_risk
     )
     structure = build_structure_checklist(
         source_paras, target_paras, source_type, target_type, pair_info
@@ -764,6 +881,7 @@ def main():
         },
         "domain": domain_info,
         "key_terminology": key_terminology,
+        "critical_low_freq_terms": critical_low_freq_terms,
         "high_risk_paragraphs": high_risk_paras,
         "structure_checklist": structure,
         "mandatory_checks": mandatory_checks,
@@ -775,8 +893,12 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     # ── 5. 摘要输出 ──
+    n_critical_lf = len(critical_low_freq_terms)
+    lf_reasons = Counter(t.get("importance_reason", "") for t in critical_low_freq_terms)
     print(f"领域: {domain_info['primary']} (置信度 {domain_info['confidence']:.0%})")
-    print(f"关键术语: {len(key_terminology)} 个")
+    print(f"关键术语: {len(key_terminology)} 个 (高频) + {n_critical_lf} 个 (低频关键)")
+    if n_critical_lf > 0:
+        print(f"  低频信号分布: {dict(lf_reasons)}")
     print(f"高风险段落: {len(high_risk_paras)} 个")
     print(f"必检项: {len(mandatory_checks)} 个")
     print(f"结构检查项: {len(structure)} 个")

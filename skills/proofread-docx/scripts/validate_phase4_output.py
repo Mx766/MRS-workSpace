@@ -106,13 +106,13 @@ def validate_top_level(issues_data) -> list[dict]:
 
         # v2.16: version 字段校验 — 防复用旧版本 AI 产出
         data_version = issues_data.get("version", "")
-        if data_version and data_version != "2.19":
+        if data_version and data_version != "2.21":
             errors.append({
                 "check": "version_mismatch",
                 "severity": "error",
                 "message": (
                     f"issues_phase4.json 的 version 字段为 '{data_version}'，"
-                    f"但当前 SKILL 版本为 2.16。可能是从旧版本目录复用了 AI 产出。"
+                    f"但当前 SKILL 版本为 2.21。可能是从旧版本目录复用了 AI 产出。"
                     f"必须删除旧 cache/ 并重新运行 Phase 4。"
                 ),
             })
@@ -122,7 +122,7 @@ def validate_top_level(issues_data) -> list[dict]:
                 "severity": "warning",
                 "message": (
                     "issues_phase4.json 缺少 version 字段，无法确认是否为本次运行产出。"
-                    "请确保 Phase 4 输出包含 'version': '2.16'。"
+                    "请确保 Phase 4 输出包含 'version': '2.21'。"
                 ),
             })
 
@@ -767,7 +767,7 @@ def validate_all(
             "passed": passed,
             "errors": all_errors,
             "warnings": all_warnings,
-            "stats": {"phase": "4.35", "version": "2.19"},
+            "stats": {"phase": "4.35", "version": "2.21"},
             "action_required": "issues_phase4.json 顶层结构错误。修复后重新验证。" if not passed else None,
         }
 
@@ -827,7 +827,7 @@ def validate_all(
     # 统计
     stats = {
         "phase": "4.35",
-        "version": "2.19",
+        "version": "2.21",
         "total_paragraphs": max(total_paras, 1),
         "covered_paragraphs": len(para_cov),
         "has_issue_paragraphs": has_issue_count,

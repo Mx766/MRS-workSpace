@@ -96,8 +96,16 @@ def build_batch_prompt_context(
     batch_paras = batch_data.get("paragraphs", [])
     batch_indices = [p.get("index", p.get("paragraph_index", -1)) for p in batch_paras]
 
-    # 找出相关术语
-    relevant_terms = find_relevant_terms(batch_paras, context.get("key_terminology", []))
+    # 找出相关术语（v2.21: 合并高频 + 低频关键术语）
+    all_terms = context.get("key_terminology", []) + context.get("critical_low_freq_terms", [])
+    relevant_terms = find_relevant_terms(batch_paras, all_terms)
+
+    # 分离低频关键术语（在 batch 中出现的），单独标注以引起 AI 注意
+    critical_low_freq_in_batch = [
+        t for t in relevant_terms
+        if t.get("importance_reason", "") not in ("", "frequency", "high_frequency")
+        and t.get("count", 0) < 3
+    ]
 
     # 找出高风险段落
     high_risk = find_high_risk_in_batch(batch_paras, context.get("high_risk_paragraphs", []))
@@ -142,6 +150,7 @@ def build_batch_prompt_context(
     enriched["_prompt_context"] = {
         "domain_context": domain_context,
         "key_terminology": relevant_terms,
+        "critical_low_freq_terms": critical_low_freq_in_batch,
         "mandatory_checks": mandatory_checks,
         "high_risk_paragraphs": high_risk,
         "structure_notes": structure_items,
