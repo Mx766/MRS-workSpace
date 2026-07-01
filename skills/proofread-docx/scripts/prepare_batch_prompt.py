@@ -80,6 +80,72 @@ def find_high_risk_in_batch(
     return [p for p in high_risk_paragraphs if p.get("paragraph_index") in batch_indices]
 
 
+def _build_table_context(batch_paras: list[dict]) -> list[dict]:
+    """从 batch 段落中提取表格单元格，按 table_index 分组渲染。
+
+    每组输出: {table_index, rows, cols, cells: [[text, ...], ...], sample_paras: [...]}
+    限制: 每表最多 30 个单元格，超过截断并标注。
+    """
+    # 收集 TABLE_CELL 条目
+    table_cells = [p for p in batch_paras if p.get("is_table_cell")]
+    if not table_cells:
+        return []
+
+    # 按 table_index 分组
+    from collections import defaultdict
+    by_table = defaultdict(list)
+    for p in table_cells:
+        ti = p.get("table_index", 0)
+        by_table[ti].append(p)
+
+    result = []
+    for ti in sorted(by_table):
+        cells = by_table[ti]
+        if not cells:
+            continue
+        max_row = max(c.get("row", 0) for c in cells)
+        max_col = max(c.get("col", 0) for c in cells)
+
+        # 构建单元格矩阵 (1-based)
+        matrix = {}
+        for c in cells:
+            matrix[(c.get("row", 0), c.get("col", 0))] = c.get("text", "")
+
+        # 渲染为行列表（截断）
+        rows_display = []
+        total_cells = 0
+        truncated = False
+        for r in range(1, max_row + 1):
+            row_texts = []
+            for col in range(1, max_col + 1):
+                txt = matrix.get((r, col), "")
+                if txt:
+                    total_cells += 1
+                if total_cells > 30:
+                    truncated = True
+                    break
+                row_texts.append(txt[:100] if len(txt) > 100 else txt)
+            if row_texts:
+                rows_display.append(row_texts)
+            if truncated:
+                break
+
+        table_info = {
+            "table_index": ti,
+            "total_rows": max_row,
+            "total_cols": max_col,
+            "cell_count": len(cells),
+            "cells": rows_display,
+        }
+        if truncated:
+            table_info["truncated"] = True
+            table_info["note"] = f"表格超过30个单元格，仅显示前{len(rows_display)}行。请对照原文完整审查。"
+
+        result.append(table_info)
+
+    return result
+
+
 def build_batch_prompt_context(
     batch_data: dict,
     context: dict,
@@ -138,6 +204,9 @@ def build_batch_prompt_context(
                     f"本批有 {len(broken_in_batch)} 个不以标点结尾的段落（可能为跨格式断段）: {broken_in_batch}"
                 )
 
+    # v2.22: 构建表格上下文 — 将 TABLE_CELL 条目按表分组
+    table_context = _build_table_context(batch_paras)
+
     # 构建 meta（跨格式标志等）
     meta = context.get("meta", {})
     is_cross_format = meta.get("is_cross_format", False)
@@ -151,6 +220,7 @@ def build_batch_prompt_context(
         "domain_context": domain_context,
         "key_terminology": relevant_terms,
         "critical_low_freq_terms": critical_low_freq_in_batch,
+        "table_context": table_context,
         "mandatory_checks": mandatory_checks,
         "high_risk_paragraphs": high_risk,
         "structure_notes": structure_items,
@@ -228,7 +298,7 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     ("2.23", "术语泛化", "每个短名词问：该领域是否有更规范的全称？\"探头\"→\"治疗探头\""),
     ("2.24", "修饰语欧化", "\"接种试验Endozime的产品\"→语序不通。多字定语前置时逐词检查"),
     ("2.25", "字面直译", "每个短句读一遍，不通顺就标——不需要对照英文。MT常见陷阱：专业术语字面直译而非使用领域标准译法。该领域常见字面直译案例见下方领域特定翻译模式指南"),
-    ("2.26", "英文残留", "逐段扫读：有无孤立英文单词/标号/数字残留？"),
+    ("2.26", "英文残留", "逐段扫读（含标题和表格！）：有无孤立英文单词/标号/数字残留？特别注意：全英文的标题(CONTENTS/SUMMARY/RESULTS等)不是格式元素——必须翻译为中文！英文表格名/图表标签同样必须翻译"),
     # 二.F、用词精确度
     ("2.F1", "词义范围偏差", "改善vs改进vs提升vs增强——每个\"improve\"译法检查；显示vs表明vs呈现vs证明——每个\"show\"译法检查"),
     ("2.F2", "抽象名词直译", "\"XX的YY\"结构中YY是动作名词→转动词。\"X的应用导致\"→\"施加X使\""),
@@ -243,6 +313,7 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     ("2.27", "论证逻辑/因果方向", "\"基于X，认为Y不具有显著性\"→真正含义是否是\"Y系X所致，故不具有显著性\"？因果关系方向是否被翻译反转？特别是\"因此/所以/基于…认为/由于…导致\"开头的句子——仔细核对因果方向是否与原文一致"),
     # 三、领域惯例（v2.19 新增 — 深层领域知识，放在 ROUND2）
     ("3.8", "领域惯例一致", "检查每个涉及专业概念的词——该领域是否有约定俗成的规范化用语？对象称呼、操作动词、实验类型术语是否符合该领域惯例？具体对照下方领域特定翻译模式指南中的约定术语"),
+    ("3.9", "标题翻译完整性", "逐标题检查——中英文混排文档的标题经常被MT漏掉！每个标题问：英文标题是否已翻译为中文？中文标题是否MT字面直译而非领域规范用语？（例：CONTENTS→目录, SUMMARY→摘要, RESULTS→结果, REFERENCES→参考文献, FIGURES→图, TABLES→表, APPENDICES→附录）。标题中的每个词是否为该领域标准术语？"),
     # 四、术语合规
     ("4.1", "术语库一致", "术语库规定的译法是否遵守？无术语库时按文档类型主动判断译法规范。逐词核实该领域的标准译法——不同领域对同一英文词有完全不同的规范译法。具体对照下方领域特定翻译模式指南"),
     ("4.2", "段内术语统一", "同一段内同一英文术语出现多次→中文译法必须一致。thermal injury zone≠前句\"热损伤区域\"后句\"热损伤区\""),
@@ -254,6 +325,8 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     ("5.5", "表格术语一致", "表格中术语译法是否与正文一致？同一列/行术语是否统一？"),
     ("5.6", "表格数值一致", "表格中数字/百分比/单位是否与原文完全一致？特别注意小数点位置"),
     ("5.7", "格式保真", "加粗/斜体/下划线/字体样式是否与原文一致？重点标记是否保留？"),
+    ("5.9", "表格内容翻译", "逐单元格检查——所有单元格是否已翻译为中文？单元格内的术语译法是否与正文一致？表格内的地名/机构名/编号是否正确处理（不是保留英文就是翻译到位，不能半中半英或错译）？数值是否与原文一致？"),
+    ("5.10", "表格脚注", "表格下方的统计显著性标注（* p<0.05/** p<0.01等）、缩写说明（如S=Scheduled/ scheduled sacrifice）、注释是否已翻译？脚注中的术语是否与正文统一？脚注是否因格式原因被遗漏？"),
 ]
 
 # v2.17: 期望发现量——帮助模型校准期望（通用基线，领域模式见下方指南）

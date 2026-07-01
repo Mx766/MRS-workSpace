@@ -35,8 +35,57 @@ HL_COLORS = {'critical': ('FFCCCC', 'red'), 'medium': ('FFF9C4', 'yellow'), 'low
 SEV_ORDER = {'critical': 0, 'medium': 1, 'low': 2}
 
 
+def _build_table_cell_map(split_target_path: str) -> dict:
+    """从 split_target.json 构建 paragraph_index → (table_index, row, col) 映射。
+
+    扫描所有章节的 tables 数组，为每个非空 TABLE_CELL 条目分配一个连续的
+    paragraph_index（从 len(doc.paragraphs)+1 开始），返回映射字典。
+    """
+    if not split_target_path or not os.path.exists(split_target_path):
+        return {}
+
+    try:
+        with open(split_target_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError):
+        return {}
+
+    # 先统计总段落数（用于确定 table cell 索引起点）
+    # split_target.json 的 paragraphs 索引与 doc.paragraphs 对齐
+    total_paras = 0
+    if 'chapters' in data:
+        for ch in data['chapters']:
+            total_paras += len(ch.get('paragraphs', []))
+
+    cell_map = {}
+    cell_idx = total_paras + 1
+    if 'chapters' in data:
+        for ch in data['chapters']:
+            for table in ch.get('tables', []):
+                ti = table.get('table_index', 0)
+                rows_data = table.get('data', table.get('rows', []))
+                for ri, row in enumerate(rows_data):
+                    if not isinstance(row, list):
+                        continue
+                    for ci, cell in enumerate(row):
+                        cell_text = ''
+                        if isinstance(cell, dict):
+                            cell_text = cell.get('text', '')
+                        elif isinstance(cell, str):
+                            cell_text = cell
+                        if cell_text.strip():
+                            cell_map[cell_idx] = {
+                                'table_index': ti,
+                                'row': ri + 1,
+                                'col': ci + 1,
+                            }
+                            cell_idx += 1
+    return cell_map
+
+
 def write_word_comments(filepath: str, issues: list[dict],
-                        output_path: str = None, verbose: bool = False) -> dict:
+                        output_path: str = None, verbose: bool = False,
+                        table_cell_map: dict = None) -> dict:
     """主入口：写高亮 + 批注到译文 DOCX。"""
     try:
         from lxml import etree
@@ -154,9 +203,25 @@ def write_word_comments(filepath: str, issues: list[dict],
     # ── 1a: Paragraph-level issues (pi >= 1) ──
     # Process first so they get lower comment_ids
     for para_idx in sorted(issues_by_para.keys()):
+        is_table_cell = False
         if para_idx > len(doc.paragraphs):
-            continue
-        para = doc.paragraphs[para_idx - 1]
+            # v2.22: 检查是否为表格单元格索引
+            cell_info = (table_cell_map or {}).get(para_idx)
+            if cell_info:
+                try:
+                    ti = cell_info['table_index']
+                    ri = cell_info['row']
+                    ci = cell_info['col']
+                    cell = doc.tables[ti - 1].rows[ri - 1].cells[ci - 1]
+                    para = cell.paragraphs[0]
+                    is_table_cell = True
+                except (IndexError, AttributeError):
+                    continue
+            else:
+                continue
+        else:
+            para = doc.paragraphs[para_idx - 1]
+
         sorted_issues = sorted(issues_by_para[para_idx],
                                key=lambda x: SEV_ORDER.get(x.get('severity', 'medium'), 1))
 
@@ -487,6 +552,7 @@ def main():
     parser.add_argument('--input', '-i', required=True, help='译文文件路径')
     parser.add_argument('--issues', '-j', required=True, help='疑点 JSON 文件路径')
     parser.add_argument('--output', '-o', help='输出路径（默认: 原文名_校对稿.docx）')
+    parser.add_argument('--split-target', help='split_target.json 路径（v2.22: 用于表格单元格定位）')
     parser.add_argument('--verbose', '-v', action='store_true', help='详细输出')
     args = parser.parse_args()
 
@@ -502,7 +568,11 @@ def main():
         print(json.dumps({'status': 'error', 'message': 'issues 列表为空'}, ensure_ascii=False))
         sys.exit(1)
 
-    result = write_word_comments(args.input, issues, args.output, verbose=args.verbose)
+    # v2.22: 构建表格单元格索引映射（用于 phase 4 表格问题标注）
+    table_cell_map = _build_table_cell_map(args.split_target) if args.split_target else {}
+
+    result = write_word_comments(args.input, issues, args.output,
+                                 verbose=args.verbose, table_cell_map=table_cell_map)
     print(json.dumps(result, ensure_ascii=False))
 
 

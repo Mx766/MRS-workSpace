@@ -340,7 +340,7 @@ def extract_key_terminology(
 
         table_paras = [
             p for p in source_paras
-            if (p.get("style", "") or "") == "Table" or p.get("is_table")
+            if (p.get("style", "") or "") == "Table" or p.get("is_table") or p.get("is_table_cell")
         ]
         table_text = " ".join(p.get("text", "") for p in table_paras).lower()
 
@@ -714,10 +714,10 @@ def build_domain_escalation_rules(domain_info: dict) -> dict:
 # ══════════════════════════════════════════════════════════════
 
 def _collect_text(data: dict) -> str:
-    """从 split JSON 中收集全部文本。
+    """从 split JSON 中收集全部文本（含表格单元格）。
 
     支持两种格式:
-      - 按段落: {chapters: [{paragraphs: [{index, text}]}]}  (target)
+      - 按段落: {chapters: [{paragraphs: [{index, text}], tables: [...]}]}  (target)
       - 按页面: {pages: [{page_num, text}]}  (source PDF)
     """
     text_parts = []
@@ -729,6 +729,14 @@ def _collect_text(data: dict) -> str:
         for ch in data["chapters"]:
             for para in ch.get("paragraphs", []):
                 text_parts.append(para.get("text", ""))
+            # v2.22: 收集表格单元格文本
+            for table in ch.get("tables", []):
+                for row in table.get("data", table.get("rows", [])):
+                    for cell in (row if isinstance(row, list) else []):
+                        if isinstance(cell, dict):
+                            text_parts.append(cell.get("text", ""))
+                        elif isinstance(cell, str):
+                            text_parts.append(cell)
     elif isinstance(data, list):
         for item in data:
             text_parts.append(item.get("text", ""))
@@ -739,7 +747,10 @@ def _collect_text(data: dict) -> str:
 
 
 def _collect_paragraphs(data: dict) -> list[dict]:
-    """从 split JSON 中收集段落列表。"""
+    """从 split JSON 中收集段落列表（含表格单元格）。
+
+    表格单元格作为特殊段落注入，带 is_table_cell 标记和 (table_index, row, col) 元数据。
+    """
     paragraphs = []
 
     if "chapters" in data:
@@ -751,6 +762,30 @@ def _collect_paragraphs(data: dict) -> list[dict]:
                     "style": para.get("style", "Normal"),
                     "heading_level": para.get("heading_level"),
                 })
+            # v2.22: 表格单元格作为特殊段落注入
+            for table in ch.get("tables", []):
+                ti = table.get("table_index", 0)
+                rows_data = table.get("data", table.get("rows", []))
+                for ri, row in enumerate(rows_data):
+                    if not isinstance(row, list):
+                        continue
+                    for ci, cell in enumerate(row):
+                        cell_text = ""
+                        if isinstance(cell, dict):
+                            cell_text = cell.get("text", "")
+                        elif isinstance(cell, str):
+                            cell_text = cell
+                        if cell_text.strip():
+                            paragraphs.append({
+                                "index": len(paragraphs) + 1,
+                                "text": cell_text.strip(),
+                                "style": "TABLE_CELL",
+                                "heading_level": None,
+                                "is_table_cell": True,
+                                "table_index": ti,
+                                "row": ri + 1,
+                                "col": ci + 1,
+                            })
     elif "pages" in data:
         for page in data["pages"]:
             # PDF 页面按段拆分（以换行分隔）
