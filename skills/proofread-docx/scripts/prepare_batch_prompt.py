@@ -134,6 +134,10 @@ def build_batch_prompt_context(
     meta = context.get("meta", {})
     is_cross_format = meta.get("is_cross_format", False)
 
+    # v2.20: 根据检测到的文档领域选择翻译模式指南
+    domain_info = context.get("domain", {})
+    domain_guide = get_domain_guide(domain_info)
+
     enriched = dict(batch_data)  # 复制原数据
     enriched["_prompt_context"] = {
         "domain_context": domain_context,
@@ -146,10 +150,11 @@ def build_batch_prompt_context(
             "原文为 PDF 格式，本模式使用逐页匹配，所有机械检查结果仅供参考，可能存在误报。"
             if is_cross_format else ""
         ),
-        # v2.17: 嵌入压缩触发清单，消除外部文档依赖
+        # v2.17: 嵌入压缩触发清单
+        # v2.20: Round 2 末尾追加领域特定翻译模式指南
         "checklist_round1": build_checklist_section(for_round=1),
-        "checklist_round2": build_checklist_section(for_round=2),
-        "expected_findings_hint": EXPECTED_FINDINGS_HINT,
+        "checklist_round2": build_checklist_section(for_round=2, domain_guide=domain_guide),
+        "expected_findings_hint": EXPECTED_FINDINGS_HINT_BASE,
     }
 
     return enriched
@@ -189,9 +194,9 @@ CHECKLIST_ROUND1 = [   # 表面错误扫描 — 快速，每段 ~30 秒
 
 CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     # 二、用词准确性（逐词审视）
-    ("2.4", "口语vs书面", "每个词问：这是书面语吗？\"看不到改善\"→\"无明显改善\"，\"没了\"→\"消失\"。科研文本特别注意：\"做→进行/实施\"、\"通信→沟通记录\"、\"测试方案→试验方案\"、\"给病人→对患者\""),
+    ("2.4", "口语vs书面", "每个词问：这是书面语吗？\"看不到改善\"→\"无明显改善\"，\"没了\"→\"消失\"。技术文档必须使用书面语，避免口语化表达。领域专业用语规范见下方领域特定翻译模式指南"),
     ("2.5", "褒贬色彩", "claim→\"声称\"(质疑)还是\"主张\"？leading to→\"导致\"(贬)还是\"推动\"(中)？due to→\"得益于\"(褒)？"),
-    ("2.6", "近义词混淆", "避免vs避开、影响vs作用、允许vs可、程序vs治疗手段——每个易错对检查。医学科研特别注意：容量vs体积、测试vs试验、显著性vs意义、摄入vs给药、培养基vs基质、介质vs溶媒"),
+    ("2.6", "近义词混淆", "避免vs避开、影响vs作用、允许vs可、程序vs治疗手段——每个易错对检查。根据文档领域判断近义词的正确译法——不同领域有完全不同的惯用搭配。常见陷阱见下方领域特定翻译模式指南"),
     ("2.7", "动宾搭配", "每个动宾结构读一遍：\"测量了…满意度\"——测量能搭配满意度吗？"),
     ("2.8", "修饰-名词搭配", "\"界限清晰的热损伤区域\"→中文习惯\"边界清晰\"。每个修饰语读一遍"),
     ("2.9", "介词连词", "and/or/with/versus 译法是否正确？\"与\"vs\"或\"——逐句确认"),
@@ -213,7 +218,7 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     # 二.E、MT残留
     ("2.23", "术语泛化", "每个短名词问：该领域是否有更规范的全称？\"探头\"→\"治疗探头\""),
     ("2.24", "修饰语欧化", "\"接种试验Endozime的产品\"→语序不通。多字定语前置时逐词检查"),
-    ("2.25", "字面直译", "每个短句读一遍，不通顺就标——不需要对照英文。毒理/药学研究常见直译：test substance→受试物(非\"测试物质\")，test article→受试物(非\"测试物品\")，clinical dose→临床剂量(非\"临床用量\")，expected clinical dose→预期临床剂量(非\"预期临床用量\")"),
+    ("2.25", "字面直译", "每个短句读一遍，不通顺就标——不需要对照英文。MT常见陷阱：专业术语字面直译而非使用领域标准译法。该领域常见字面直译案例见下方领域特定翻译模式指南"),
     ("2.26", "英文残留", "逐段扫读：有无孤立英文单词/标号/数字残留？"),
     # 二.F、用词精确度
     ("2.F1", "词义范围偏差", "改善vs改进vs提升vs增强——每个\"improve\"译法检查；显示vs表明vs呈现vs证明——每个\"show\"译法检查"),
@@ -228,13 +233,13 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     # 二.H、论证与逻辑（v2.19 新增）
     ("2.27", "论证逻辑/因果方向", "\"基于X，认为Y不具有显著性\"→真正含义是否是\"Y系X所致，故不具有显著性\"？因果关系方向是否被翻译反转？特别是\"因此/所以/基于…认为/由于…导致\"开头的句子——仔细核对因果方向是否与原文一致"),
     # 三、领域惯例（v2.19 新增 — 深层领域知识，放在 ROUND2）
-    ("3.8", "领域惯例一致", "动物实验：\"男/女\"→\"雄/雌\"，\"病人\"→\"动物/受试动物\"，\"摄入/口服\"→\"给药\"（注射途径时）。临床试验：受试者/患者/健康志愿者术语区分。体外实验：培养基/培养液/基质/介质区分。检查每个涉及生物体/实验对象的词——是否使用了正确的领域用语？"),
+    ("3.8", "领域惯例一致", "检查每个涉及专业概念的词——该领域是否有约定俗成的规范化用语？对象称呼、操作动词、实验类型术语是否符合该领域惯例？具体对照下方领域特定翻译模式指南中的约定术语"),
     # 四、术语合规
-    ("4.1", "术语库一致", "术语库规定的译法是否遵守？无术语库时按文档类型主动判断：毒理→受试物(非\"测试物质\")、器械→监管用语、MSDS→GB标准。动物实验特别注意：男/女→雄/雌、病人→动物/受试动物、摄入→给药(注射途径时)。解剖术语：视网膜vs眼底、前部段vs眼前节、透明培养基vs屈光介质——逐词核实领域标准译法"),
+    ("4.1", "术语库一致", "术语库规定的译法是否遵守？无术语库时按文档类型主动判断译法规范。逐词核实该领域的标准译法——不同领域对同一英文词有完全不同的规范译法。具体对照下方领域特定翻译模式指南"),
     ("4.2", "段内术语统一", "同一段内同一英文术语出现多次→中文译法必须一致。thermal injury zone≠前句\"热损伤区域\"后句\"热损伤区\""),
     ("4.3", "跨段术语统一", "核心概念在不同段落中译法一致吗？每段校对完记录术语映射，发现不一致→critical"),
     ("4.4", "缩写规范", "首次出现标注\"全称(ABBR)\"了吗？后续出现是否保持缩写形式一致？不可首次用\"全称(ABBR)\"后文又变回全称或不同缩写"),
-    ("4.5", "跨领域区分", "多义术语是否按文档领域选对译法？site=研究中心(临床)还是部位(解剖)？"),
+    ("4.5", "跨领域区分", "多义术语是否按文档领域选对译法？同一英文词在不同领域有完全不同的约定译法——对照下方领域特定指南，逐词确认译法选择"),
     # 五、格式与表格（v2.18 新增）
     ("5.4", "表格完整性", "表格中所有单元格是否已翻译？有无漏译单元格？表头是否翻译？"),
     ("5.5", "表格术语一致", "表格中术语译法是否与正文一致？同一列/行术语是否统一？"),
@@ -242,25 +247,20 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     ("5.7", "格式保真", "加粗/斜体/下划线/字体样式是否与原文一致？重点标记是否保留？"),
 ]
 
-# v2.17: 期望发现量——帮助模型校准期望（148段医学论文的典型值）
-EXPECTED_FINDINGS_HINT = (
-    "EXPECTED FINDINGS CALIBRATION: A 148-paragraph medical translation typically contains:\n"
+# v2.17: 期望发现量——帮助模型校准期望（通用基线，领域模式见下方指南）
+EXPECTED_FINDINGS_HINT_BASE = (  # v2.20: 去医学化，领域特定模式移入 DOMAIN_TRANSLATION_GUIDES
+    "EXPECTED FINDINGS CALIBRATION: A typical technical translation document contains:\n"
     "  - 忠实度问题 (1.x): 3-8 处（漏译/错译/情态/指代）\n"
     "  - 错别字/标点 (2.1-2.3): 2-5 处\n"
     "  - 翻译腔 (2.12-2.18): 8-20 处（\"当…时\"/被动/\"的\"字堆砌最常见）\n"
     "  - 用词准确度 (2.4-2.11, 2.F, 2.G, 2.27): 10-25 处（动宾搭配/词义偏差/语义冗余最常见）\n"
     "  - 术语合规 (4.x): 3-10 处\n"
     "  - 数字/单位 (3.x): 1-5 处\n"
-    "  - 论证逻辑 (2.27): 1-4 处（因果倒置/逻辑方向错误——v2.19新增）\n"
-    "  - 领域惯例 (3.8): 2-6 处（动物雄雌/给药途径/受试物——v2.19新增）\n"
-    "  - 格式异常 (5.8): 0-3 处（断行——v2.19新增，PDF提取场景较多）\n"
+    "  - 论证逻辑 (2.27): 1-4 处（因果倒置/逻辑方向错误）\n"
+    "  - 领域惯例 (3.8): 2-6 处（领域术语/对象称呼/操作动词）\n"
+    "  - 格式异常 (5.8): 0-3 处（断行，PDF提取场景较多）\n"
     "If your review finds fewer than these ranges, you are likely missing issues — re-examine.\n"
-    "v2.19 COMMON FAILURE PATTERNS IN CHINESE MEDICAL TRANSLATION:\n"
-    "  1) test substance→受试物(NOT 测试物质), clinical dose→临床剂量(NOT 临床用量)\n"
-    "  2) 动物: 男/女→雄/雌, 病人→动物/受试动物, oral→经口给予/口服(NOT 摄入, for injection routes)\n"
-    "  3) 因果倒置: \"基于X，认为Y不具有显著性\"→应\"Y系X所致，故不具有显著性\"\n"
-    "  4) 欧化长句: >4逗号的中文句→拆分; \"当…时，…，…\"→典型欧化堆砌\n"
-    "  5) 句式杂糅: \"是…的\"+\"为…\"混用, \"由于…所致\"+\"因为…所以\"混用\n"
+    "For domain-specific failure patterns, see the DOMAIN-SPECIFIC TRANSLATION PATTERNS section below.\n"
 )
 
 # v2.18: 单段多问题强制指令
@@ -278,11 +278,183 @@ MULTI_ISSUE_INSTRUCTION = (
 )
 
 
-def build_checklist_section(for_round: int = 1) -> str:
+# ══════════════════════════════════════════════════════════════
+# v2.20: 领域特定翻译模式指南
+# 根据 inject_context.py 检测到的文档领域自动选择并注入到 Round 2
+# ══════════════════════════════════════════════════════════════
+
+DOMAIN_TRANSLATION_GUIDES = {
+    "medical_clinical": """════════════════════════════════════════════════
+DOMAIN-SPECIFIC TRANSLATION PATTERNS — MEDICAL/CLINICAL
+════════════════════════════════════════════════
+The following are high-frequency pitfalls in Chinese medical/clinical
+translation. Check EVERY paragraph for these domain-specific issues.
+
+── TERMINOLOGY TRAPS ──
+  test substance/article → 受试物 (NOT 测试物质/测试物品)
+  clinical dose → 临床剂量 (NOT 临床用量)
+  expected clinical dose → 预期临床剂量
+
+── ANIMAL STUDIES ──
+  雄/雌 (NOT 男/女) for animal sex
+  动物/受试动物 (NOT 病人) for test subjects
+  给药 (NOT 摄入) — especially for injection/gavage routes
+  经口给予 (NOT 吃/摄入) — formal oral administration
+
+── CLINICAL TRIALS ──
+  受试者 vs 患者 vs 健康志愿者 — distinct roles, do not conflate
+  site → 研究中心 (NOT 部位, in clinical context)
+  protocol → 研究方案/试验方案 (NOT 测试方案/协议)
+  AE → 不良事件 (NOT 副作用, unless specifically side effect)
+
+── IN VITRO / LAB ──
+  medium → 培养基 (cell) or 基质 (analytical matrix) — context-dependent
+  vehicle → 溶媒/赋形剂 (NOT 介质)
+  solution → 溶液 (liquid) vs 解决方案 (problem-solving)
+
+── NEAR-SYNONYM TRAPS ──
+  容量(volume) vs 体积(bulk), 测试(assay) vs 试验(trial)
+  显著性(statistical) vs 意义(importance), 改善(symptom) vs 改进(design)
+
+── ANATOMICAL PRECISION ──
+  视网膜(retina) ≠ 眼底(fundus), 前部段 ≠ 眼前节(anterior chamber)
+
+── MEDICAL DEVICE ──
+  intended use → 预期用途, handpiece → 手持件 (NOT 手机)""",
+
+    "legal_regulatory": """════════════════════════════════════════════════
+DOMAIN-SPECIFIC TRANSLATION PATTERNS — LEGAL/REGULATORY
+════════════════════════════════════════════════
+The following are high-frequency pitfalls in legal/regulatory translations.
+Check EVERY paragraph for these domain-specific issues.
+
+── MODAL VERBS (LEGALLY BINDING) ──
+  shall/must → 应当/必须 (mandatory)
+  should → 宜/应当 (recommendation, non-binding)
+  may/can → 可以/可 (permission or capability)
+  shall not → 不得/禁止 (prohibition)
+  Each modal must be verified against source for legal precision.
+
+── PATENT SCOPE ──
+  comprising → 包括 (open-ended)
+  consisting of → 由…组成 (closed scope)
+  said/the + [noun] → 所述/该 + [名词] (DO NOT OMIT in claims)
+  wherein/thereby/thereof → 其中/由此/其
+
+── SDS/GHS DOCUMENTS ──
+  H-code/P-code → GHS official Chinese translation (DO NOT PARAPHRASE)
+  安全数据表 (NOT 安全技术说明书, GB/T 16483)
+  CAS No./EC No./UN No. → EXACT preservation
+  LD50/LC50 values with units → verify precision
+
+── REGULATORY FORMULAS ──
+  including but not limited to → 包括但不限于
+  without prejudice to → 在不影响…的情况下
+  pursuant to / in accordance with → 根据/依照
+  ISO/IEC/ASTM/EN standard numbers → EXACT preservation
+  Dates, filing numbers, registration numbers → exact match""",
+
+    "technical_cybersecurity": """════════════════════════════════════════════════
+DOMAIN-SPECIFIC TRANSLATION PATTERNS — TECHNICAL/CYBERSECURITY
+════════════════════════════════════════════════
+The following are high-frequency pitfalls in technical/cybersecurity
+translations. Check EVERY paragraph for these domain-specific issues.
+
+── SECURITY TERMINOLOGY (CRITICAL) ──
+  penetration test → 渗透测试 (NOT 穿刺测试)
+  vulnerability → 漏洞 (NOT 脆弱性)
+  exploit → 漏洞利用 (NOT 开发/开拓)
+  brute-force → 暴力破解 (NOT 暴力)
+  attack vector → 攻击向量
+  privilege escalation → 权限提升/特权提升
+  DoS/DDoS → 拒绝服务/分布式拒绝服务
+  authentication(认证) vs authorization(授权) — DO NOT CONFLATE
+
+── DO NOT TRANSLATE (PRESERVE EXACTLY) ──
+  IP addresses, MAC addresses
+  Port numbers, protocol version strings (e.g., "OpenSSH 8.9p1")
+  Hashes (MD5, SHA-1, SHA-256), CVE-YYYY-NNNNN, CVSS scores
+  File paths, registry keys, command-line examples
+
+── ORGANIZATIONS/STANDARDS ──
+  OWASP, NIST, CVE, CVSS — do not translate organization names
+  TLS → 传输层安全协议 (first mention) / TLS (subsequent)
+  SSH → 安全外壳协议 (first mention) / SSH (subsequent)
+
+── COMMON MT TRAPS ──
+  attack → 攻击 (NOT 袭击, which is physical)
+  secure → 安全的/保护 (NOT 保密)
+  compromise → 攻破/入侵 (NOT 妥协)
+  key → 密钥 (cryptographic, NOT 关键)
+  certificate → 证书 (digital, NOT 证明/凭证)
+  scan → 扫描 (NOT 浏览/查看)
+  Black-box/White-box → 黑盒/白盒 (testing methodology)""",
+
+    "generic_technical": """════════════════════════════════════════════════
+DOMAIN-SPECIFIC TRANSLATION PATTERNS — GENERIC TECHNICAL
+════════════════════════════════════════════════
+This is a generic guide for documents that do not match a specific domain.
+Focus on universal technical writing principles.
+
+── UNIVERSAL PRINCIPLES ──
+  Unit symbols → preserve original form (mg/kg NOT 毫克/千克, 5 mm NOT 5 毫米)
+  Product codes / model numbers / part numbers → DO NOT TRANSLATE
+  Formulas, equations, mathematical expressions → EXACT match required
+  Acronyms: spell out on first occurrence as "Full Name (ACRONYM)"
+  Table/figure numbers and cross-references → exact match with source
+
+── TERMINOLOGY CONSISTENCY ──
+  Each technical term → ONE Chinese translation throughout the document
+  Text and table terminology → MUST be identical
+  Section headings → consistent terminology with body text
+
+── MT ARTIFACT DETECTION ──
+  Overly literal "for" → unnecessary 对于 at sentence start
+  English word-order in Chinese: long pre-modifiers before head noun
+  Missing topic-comment structure: sentences as rigid SVO
+  Unnatural "的" stacking: >3 的 in one sentence → restructure
+
+── NUMBERS/UNITS (UNIVERSAL) ──
+  Decimal precision → exact match (0.05 ≠ 0.050)
+  Ranges → 1 to 5 = 1~5 or 1至5 but CONSISTENT throughout
+  Percentages → 5% NOT 百分之五 (in technical documents)""",
+}
+
+# inject_context.py domain.primary → guide key 映射
+DOMAIN_TO_GUIDE_MAP = {
+    "医疗器械注册": "medical_clinical",
+    "药物临床": "medical_clinical",
+    "网络安全评估": "technical_cybersecurity",
+    "安全数据表": "legal_regulatory",
+    "专利文献": "legal_regulatory",
+    "通用技术文档": "generic_technical",
+}
+
+
+def get_domain_guide(domain_info: dict) -> str:
+    """根据检测到的文档领域，选择对应的翻译模式指南。
+
+    Args:
+        domain_info: inject_context 输出的 domain 字典
+                     {primary, secondary, confidence, domain_notes, ...}
+
+    Returns:
+        领域特定的翻译模式指南文本。未匹配到已知领域时返回通用指南。
+    """
+    primary = domain_info.get("primary", "通用技术文档") if domain_info else "通用技术文档"
+    guide_key = DOMAIN_TO_GUIDE_MAP.get(primary, "generic_technical")
+    return DOMAIN_TRANSLATION_GUIDES.get(
+        guide_key,
+        DOMAIN_TRANSLATION_GUIDES["generic_technical"]
+    )
+
+
+def build_checklist_section(for_round: int = 1, domain_guide: str = "") -> str:
     """构建压缩触发清单文本块，嵌入 batch prompt。
 
     Args:
         for_round: 1=表面错误扫描, 2=翻译质量深度审查
+        domain_guide: 领域特定的翻译模式指南（v2.20, 仅 Round 2 使用）
 
     Returns:
         格式化的清单文本
@@ -300,9 +472,12 @@ def build_checklist_section(for_round: int = 1) -> str:
 
     if for_round == 2:
         lines.append("")
-        lines.append(EXPECTED_FINDINGS_HINT)
+        lines.append(EXPECTED_FINDINGS_HINT_BASE)  # v2.20: 替换为领域中性基线
         lines.append("")
-        lines.append(MULTI_ISSUE_INSTRUCTION)  # v2.18
+        lines.append(MULTI_ISSUE_INSTRUCTION)
+        if domain_guide:                           # v2.20: 追加领域特定翻译模式指南
+            lines.append("")
+            lines.append(domain_guide)
 
     return "\n".join(lines)
 

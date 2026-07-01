@@ -739,17 +739,16 @@ REQUIREMENTS (violations = rejection)
    explicitly considered for that paragraph — not just the first one
    that produced a hit.
 
-5. v2.19 PATTERNS — MEDICAL/TOXICOLOGY TRANSLATION PITFALLS:
-   - 受试物 ≠ 测试物质/测试物品 (test substance/article)
-   - 动物: 雄/雌 ≠ 男/女, 给药 ≠ 摄入 (for injection), 动物 ≠ 病人
-   - 因果倒置: "基于X，认为Y不具显著性" → 应 "Y系X所致，故不具显著性"
-   - 欧化长句: >4逗号的中文句 → 拆分; "当…时，…，…，…" → 典型堆砌
-   - 句式杂糅: "是…的"+"为…" 混用, "由于…所致"+"因为…所以" 混用
-   - 临床剂量 ≠ 临床用量, 沟通记录 ≠ 通信, 试验方案 ≠ 测试方案
+5. DOMAIN-SPECIFIC TRANSLATION PATTERNS (v2.20):
+   Automatically selected based on detected document domain and appended
+   after the Round 2 checklist. See the DOMAIN-SPECIFIC TRANSLATION PATTERNS
+   section at the end of Round 2 for the current document's domain-specific
+   pitfalls (medical/clinical, legal/regulatory, technical/cybersecurity,
+   or generic technical).
 
 {cross_format_warning}
 ```
-> **模板变量说明**：`{checklist_round1}` 和 `{checklist_round2}` 由 `prepare_batch_prompt.py` 自动生成（`_prompt_context.checklist_round1/2`）。Agent 派发 batch 时直接将这些变量的内容嵌入 prompt，不需要手动编写或去 SKILL.md 4.2 复制。
+> **模板变量说明**：`{checklist_round1}` 和 `{checklist_round2}` 由 `prepare_batch_prompt.py` 自动生成（`_prompt_context.checklist_round1/2`）。v2.20 起 `checklist_round2` 末尾包含基于检测到的文档领域自动选择的领域特定翻译模式指南。Agent 派发 batch 时直接将这些变量的内容嵌入 prompt。
 
 > **两轮隔离**：Round 1 只做表面扫描（忠实度/错别字/数字），Round 2 只做深度审查（翻译腔/用词/术语）。不可在 Round 1 阶段就做深度分析——先快速扫完表面错误，再集中精力做深度。这样能防止模型在表面扫描时就耗尽注意力。（不以标点结尾的段落）
 
@@ -1740,6 +1739,7 @@ Phase 1 `pair_files.py` 输出已包含 `source.filename` / `source.format` / `t
 
 
 ## 版本
+- v2.20 (2026-07-01): **领域自适应触发清单**：将 CHECKLIST_ROUND2 中 6 个含医学特定示例的 trigger question 替换为领域中性原则（2.4/2.6/2.25/3.8/4.1/4.5）；新增 4 套领域特定翻译模式指南（medical_clinical/legal_regulatory/technical_cybersecurity/generic_technical）作为 DOMAIN_TRANSLATION_GUIDES 常量；基于 inject_context.py 检测到的 domain.primary 自动选择并注入 Round 2 末尾；EXPECTED_FINDINGS_HINT 去除医学特定校准引用，改为领域中性基线 EXPECTED_FINDINGS_HINT_BASE。目的：消除医学文档过拟合，使校对清单对法律、网络安全、SDS、专利等文档同样有效
 - v2.19 (2026-07-01): **16类翻译漏检模式深度修复**：新增 3 个检查维度——2.27 论证逻辑/因果方向（因果倒置检测）、3.8 领域惯例一致性（动物雄雌/给药途径/受试物等）、5.8 句中断行/段落结构；增强 9 个现有 trigger question——2.4/2.6/2.19/2.20/2.25/2.G1/2.G2/3.4/4.1，注入医学毒理领域具体失败案例（容量vs体积、测试vs试验、受试物非测试物质、雄雌非男女等）；EXPECTED_FINDINGS_HINT 新增 v2.19 COMMON FAILURE PATTERNS 5条；validate_phase4_output.py 版本号 2.16→2.19。来源：翻译人员提供的 16 类未识别问题案例表
 - v2.18 (2026-07-01): **十大翻译反馈系统性修复**：Phase 2 split_docx.py 新增页眉页脚提取（`extract_headers_footers()`）；Phase 3 check_mechanical.py 新增句子计数（`count_sentences()` + `check_sentence_alignment()` 漏译标记）+ `_extract_paragraphs()` 扩展读取表格单元格；prepare_batch_prompt.py 新增 3.7 地址检查、5.4-5.6 表格内容检查、5.7 格式保真检查；增强 4.4 缩写规范（后续一致性检查）；修复 validate_phase4_output.py 和 calibrate_severity.py 中 ALL_CHECK_IDS 缺失 8 项（2.8/2.9/2.10/2.14/2.15/2.16/2.17/2.22）；新增单段多问题强制指令 MULTI_ISSUE_INSTRUCTION。目的：覆盖表格盲区、页眉页脚盲区、地址盲区、漏译检测、缩写一致性、格式保真
 - v2.17 (2026-07-01): **弱模型深度引导**：`prepare_batch_prompt.py` 新增压缩触发清单嵌入 batch prompt（~80 行自包含，消除 [引用外部文档] 依赖）；Batch prompt 模板重建为两轮审查（Round 1 表面错误扫描 + Round 2 翻译质量深度审查，Round 2 ≥ 2× Round 1）；每维度增加"期望发现量"校准提示；修复 `calibrate_severity.py` 中 `flag_outliers()` severity 键重复赋值 bug；V7 `re_review_dimensions` 从纯维度编号升级为附带触发问题的结构化指引。目标：DeepSeek Pro 从 4 条提升到 15-25 条。
