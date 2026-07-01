@@ -158,6 +158,7 @@ def split_docx_by_headings(doc_path: str, max_chapter_chars: int = 5000) -> dict
 
     # 检测跨页表格标记
     cross_page_tables = detect_cross_page_tables(doc)
+    hf = extract_headers_footers(doc)  # v2.18
 
     # 修正章节编号（用原标题）
     for i, ch in enumerate(chapters):
@@ -176,7 +177,64 @@ def split_docx_by_headings(doc_path: str, max_chapter_chars: int = 5000) -> dict
         'chapter_count': len(chapters),
         'chapters': chapters,
         'cross_page_tables': cross_page_tables,
+        'headers_footers': hf,  # v2.18
     }
+
+
+def extract_headers_footers(doc) -> dict:
+    """提取所有节（section）的页眉和页脚文本。v2.18
+
+    通过 is_linked_to_previous 跳过继承自前一节的页眉/页脚，
+    避免重复提取相同内容。
+
+    Returns:
+        {
+            'headers': [{'section': N, 'type': 'default'|'first', 'text': str}],
+            'footers': [{'section': N, 'type': 'default'|'first', 'text': str}]
+        }
+    """
+    headers = []
+    footers = []
+    try:
+        for i, section in enumerate(doc.sections):
+            sec_num = i + 1
+            # 默认页眉
+            if section.header and not section.header.is_linked_to_previous:
+                for para in section.header.paragraphs:
+                    text = para.text.strip()
+                    if text:
+                        headers.append({'section': sec_num, 'type': 'default', 'text': text})
+            # 首页页眉（如果存在且不同于默认）
+            try:
+                if (section.first_page_header
+                        and not section.first_page_header.is_linked_to_previous):
+                    for para in section.first_page_header.paragraphs:
+                        text = para.text.strip()
+                        if text:
+                            headers.append({'section': sec_num, 'type': 'first', 'text': text})
+            except Exception:
+                pass  # first_page_header 可能不存在
+            # 默认页脚
+            if section.footer and not section.footer.is_linked_to_previous:
+                for para in section.footer.paragraphs:
+                    text = para.text.strip()
+                    if text:
+                        footers.append({'section': sec_num, 'type': 'default', 'text': text})
+            # 首页页脚
+            try:
+                if (section.first_page_footer
+                        and not section.first_page_footer.is_linked_to_previous):
+                    for para in section.first_page_footer.paragraphs:
+                        text = para.text.strip()
+                        if text:
+                            footers.append({'section': sec_num, 'type': 'first', 'text': text})
+            except Exception:
+                pass
+    except Exception as e:
+        # 某些文档可能没有 sections 属性
+        pass
+
+    return {'headers': headers, 'footers': footers}
 
 
 def detect_cross_page_tables(doc) -> list[dict]:

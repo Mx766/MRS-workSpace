@@ -75,6 +75,93 @@ def _context_around(text: str, value: str, radius: int = 40) -> str:
     return prefix + snippet + suffix
 
 
+# ══════════════════════════════════════════════════════════════
+# v2.18: 句子计数 — 用于漏译检测（标记，非硬阻断）
+# ══════════════════════════════════════════════════════════════
+
+def count_sentences(text: str, lang: str = 'auto') -> int:
+    """计算文本中的句子数。
+
+    中文：基于 。！？… 和中文后的英文句号分割。
+    英文：基于 .!? + 空格/结尾分割，过滤常见缩写。
+
+    Args:
+        text: 输入文本
+        lang: 'zh' | 'en' | 'auto'（自动检测）
+
+    Returns:
+        句子数，空文本返回 0
+    """
+    if not text or not text.strip():
+        return 0
+    text = text.strip()
+
+    # 自动检测语言
+    if lang == 'auto':
+        cn_chars = len(re.findall(r'[一-鿿]', text))
+        lang = 'zh' if cn_chars > len(text) * 0.3 else 'en'
+
+    if lang == 'zh':
+        # 中文分句：。！？… 和中文后的英文句号
+        sentences = re.split(r'[。！？…]|(?<=[一-鿿])\.(?!\s*[a-zA-Z])', text)
+        return len([s for s in sentences if s.strip()])
+    else:
+        # 英文分句：.!? + 空格过滤常见缩写
+        abbr_words = {'Mr', 'Mrs', 'Ms', 'Dr', 'Prof', 'etc', 'vs', 'Fig',
+                      'Eq', 'et', 'al', 'Vol', 'No', 'pp', 'e.g', 'i.e'}
+        # 先将缩写中的句号替换为占位符
+        protected = text
+        for abbr in sorted(abbr_words, key=len, reverse=True):
+            protected = protected.replace(abbr + '.', abbr + '<DOT>')
+        sentences = re.split(r'(?<=[.!?])\s+', protected)
+        count = 0
+        for s in sentences:
+            s = s.strip()
+            if s:
+                count += 1
+        return max(count, 1)  # 有文本则至少 1 句
+
+
+def check_sentence_alignment(
+    source_text: str, target_text: str, para_index: int = 0
+) -> list[dict]:
+    """检测段落级句子数量显著不匹配（可能漏译/断句错误）。
+
+    这是启发式标记——不是硬错误。句子分割不完美（尤其是编号列表、
+    技术缩写等），需要 AI 语义验证。
+
+    阈值：差异 >= 3 句 或 比例 > 2:1
+
+    Returns:
+        标记列表（通常 0-1 条）
+    """
+    flags = []
+    src_count = count_sentences(source_text)
+    tgt_count = count_sentences(target_text)
+
+    if src_count == 0 or tgt_count == 0:
+        return flags
+
+    diff = abs(src_count - tgt_count)
+    ratio = max(src_count, tgt_count) / max(min(src_count, tgt_count), 1)
+
+    if diff >= 3 or (diff >= 2 and ratio > 2.0):
+        flags.append({
+            'paragraph_index': para_index,
+            'type': 'sentence_count_mismatch',
+            'source_sentences': src_count,
+            'target_sentences': tgt_count,
+            'diff': diff,
+            'ratio': round(ratio, 1),
+            'severity': 'low',
+            'check': (
+                f'句子数差异显著: 原文 {src_count} 句 vs 译文 {tgt_count} 句 '
+                f'(差值 {diff}, 比例 {ratio}:1) —— 可能存在漏译或断句错误，请AI逐句核对'
+            ),
+        })
+    return flags
+
+
 def check_numbers(source_text: str, target_text: str, para_index: int = 0) -> list[dict]:
     """对比原文-译文段落中的数字一致性"""
     issues = []
@@ -729,6 +816,7 @@ def check_all(source_path: str, target_path: str,
         'client_glossary_violations': [],
         'format_issues': [],
         'unit_issues': [],
+        'sentence_flags': [],  # v2.18: 句子数不匹配标记（漏译检测）
         'range_stats': {},
         'alignment_mode': 'paragraph',  # default
         'alignment_warning': None,
@@ -765,6 +853,12 @@ def check_all(source_path: str, target_path: str,
                                            client_glossary)
                 result['glossary_violations'].extend(gl_result['violations'])
                 result['client_glossary_violations'].extend(gl_result['client_violations'])
+
+            # v2.18: 句子数对齐检查（同格式才可靠）
+            if sp.get('style', '') != 'TABLE_CELL' and tp.get('style', '') != 'TABLE_CELL':
+                result['sentence_flags'].extend(
+                    check_sentence_alignment(src_text, tgt_text, i + 1)
+                )
 
         result['range_stats'] = dict(all_range_stats)
         result['range_consistency_warning'] = _check_range_consistency(all_range_stats)
@@ -845,7 +939,7 @@ def check_all(source_path: str, target_path: str,
     # 汇总
     all_severity_counts = {'critical': 0, 'medium': 0, 'low': 0}
     for key in ['number_mismatches', 'symbol_issues', 'glossary_violations',
-                'client_glossary_violations', 'unit_issues']:
+                'client_glossary_violations', 'unit_issues', 'sentence_flags']:
         for item in result[key]:
             sev = item.get('severity', 'medium')
             if sev in all_severity_counts:
@@ -938,6 +1032,19 @@ def _extract_paragraphs(filepath: str) -> list[dict]:
             doc = Document(filepath)
             for p in doc.paragraphs:
                 paras.append({'text': p.text, 'style': p.style.name if p.style else ''})
+            # v2.18: 提取表格单元格文本（标记为 TABLE_CELL 供下游区分）
+            for ti, table in enumerate(doc.tables):
+                for ri, row in enumerate(table.rows):
+                    for ci, cell in enumerate(row.cells):
+                        cell_text = cell.text.strip()
+                        if cell_text:
+                            paras.append({
+                                'text': cell_text,
+                                'style': 'TABLE_CELL',
+                                'table_index': ti + 1,
+                                'row': ri + 1,
+                                'col': ci + 1,
+                            })
         except ImportError:
             pass
     elif suffix in ('.xlsx', '.xls'):

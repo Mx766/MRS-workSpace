@@ -182,6 +182,7 @@ CHECKLIST_ROUND1 = [   # 表面错误扫描 — 快速，每段 ~30 秒
     ("3.4", "专有名词", "人名/公司/机构/产品名是否保留不译？"),
     ("3.5", "法规编号", "ISO/ICH/FDA/§ 编号是否完整未变？"),
     ("3.6", "公式变量", "上下标/符号/变量含义是否匹配原文？"),
+    ("3.7", "地址翻译", "地名/地址/机构地址是否按规范翻译或保留原文？外文地址不应逐字翻译；中文地址省市区县是否完整？"),
 ]
 
 CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
@@ -226,8 +227,13 @@ CHECKLIST_ROUND2 = [  # 翻译质量深度审查 — 仔细，每段 ~2-3 分钟
     ("4.1", "术语库一致", "术语库规定的译法是否遵守？无术语库时按文档类型主动判断（器械→监管用语，MSDS→GB标准）"),
     ("4.2", "段内术语统一", "同一段内同一英文术语出现多次→中文译法必须一致。thermal injury zone≠前句\"热损伤区域\"后句\"热损伤区\""),
     ("4.3", "跨段术语统一", "核心概念在不同段落中译法一致吗？每段校对完记录术语映射，发现不一致→critical"),
-    ("4.4", "缩写规范", "缩写首次出现是否标注全称？"),
+    ("4.4", "缩写规范", "首次出现标注\"全称(ABBR)\"了吗？后续出现是否保持缩写形式一致？不可首次用\"全称(ABBR)\"后文又变回全称或不同缩写"),
     ("4.5", "跨领域区分", "多义术语是否按文档领域选对译法？site=研究中心(临床)还是部位(解剖)？"),
+    # 五、格式与表格（v2.18 新增）
+    ("5.4", "表格完整性", "表格中所有单元格是否已翻译？有无漏译单元格？表头是否翻译？"),
+    ("5.5", "表格术语一致", "表格中术语译法是否与正文一致？同一列/行术语是否统一？"),
+    ("5.6", "表格数值一致", "表格中数字/百分比/单位是否与原文完全一致？特别注意小数点位置"),
+    ("5.7", "格式保真", "加粗/斜体/下划线/字体样式是否与原文一致？重点标记是否保留？"),
 ]
 
 # v2.17: 期望发现量——帮助模型校准期望（148段医学论文的典型值）
@@ -240,6 +246,20 @@ EXPECTED_FINDINGS_HINT = (
     "  - 术语合规 (4.x): 3-10 处\n"
     "  - 数字/单位 (3.x): 1-5 处\n"
     "If your review finds fewer than these ranges, you are likely missing issues — re-examine.\n"
+)
+
+# v2.18: 单段多问题强制指令
+MULTI_ISSUE_INSTRUCTION = (
+    "MULTI-ISSUE PER PARAGRAPH REQUIREMENT (v2.18):\n"
+    "  Finding one issue in a paragraph does NOT mean the paragraph is done.\n"
+    "  After finding ANY issue, you MUST continue checking ALL remaining dimensions\n"
+    "  for that SAME paragraph. A single paragraph can have:\n"
+    "    - A terminology violation (4.x) AND a wrong number (3.x)\n"
+    "    - An awkward expression (2.12) AND a missing translation (1.1)\n"
+    "    - A punctuation error (2.2) AND a subject-switching issue (2.21)\n"
+    "  The per-paragraph check is COMPLETE only after you have explicitly considered\n"
+    "  every single dimension against that paragraph — not just the first one that\n"
+    "  produced a hit. This is the #1 reason human translators say reviews are shallow.\n"
 )
 
 
@@ -266,6 +286,8 @@ def build_checklist_section(for_round: int = 1) -> str:
     if for_round == 2:
         lines.append("")
         lines.append(EXPECTED_FINDINGS_HINT)
+        lines.append("")
+        lines.append(MULTI_ISSUE_INSTRUCTION)  # v2.18
 
     return "\n".join(lines)
 
