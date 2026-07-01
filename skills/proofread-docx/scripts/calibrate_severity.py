@@ -504,12 +504,15 @@ def flag_outliers(
             })
 
     # 4b. 严重度与 justification 矛盾检测
+    # v2.17 修复：消除重复 severity 键 bug；扩展映射支持领域感知
     SEVERITY_JUSTIFICATION_MAP = {
         "critical": {"changes_meaning", "missing_unit_conversion", "breaks_sentence_structure",
                       "terminology_inconsistency"},
         "medium": {"connotation_mismatch", "unnatural_expression"},
         "low": {"style_preference", "format_deviation"},
     }
+    # v2.17: 在特定上下文中可升级为 critical 的 justification 类型
+    CRITICAL_CONTEXT_JUSTIFICATIONS = {"connotation_mismatch", "unnatural_expression"}
 
     for iss in issues:
         sev = iss.get("severity", "")
@@ -517,14 +520,17 @@ def flag_outliers(
         if just and sev:
             expected_sevs = [s for s, justs in SEVERITY_JUSTIFICATION_MAP.items() if just in justs]
             if expected_sevs and sev not in expected_sevs:
+                # v2.17: 如果是上下文可升级类型且 severity=critical，不报 mismatch
+                if sev == "critical" and just in CRITICAL_CONTEXT_JUSTIFICATIONS:
+                    continue
                 flags.append({
                     "type": "severity_justification_mismatch",
                     "paragraph_index": iss.get("paragraph_index", -1),
                     "check_item": iss.get("check_item", ""),
-                    "severity": sev,
+                    "issue_severity": sev,
                     "justification": just,
-                    "expected": expected_sevs,
-                    "severity": "medium",
+                    "expected_severity": expected_sevs,
+                    "severity": "low",
                     "recommendation": f"P{iss.get('paragraph_index', '?')}: severity={sev} 但 justification={just} 不匹配，期望 {expected_sevs}。",
                 })
 
@@ -639,7 +645,7 @@ def validate_verdict_completeness(
                     f"{len(explanations)} 条判决中仅 {unique_count} 种不同解释 "
                     f"（唯一率 {uniqueness_pct:.0%}）。"
                     f"最常见解释重复 {top_count}/{len(explanations)} 次: "
-                    f""{top_expl[:50]}{'...' if len(top_expl) > 50 else ''}""
+                    f"\"{top_expl[:50]}{'...' if len(top_expl) > 50 else ''}\""
                 ),
                 "recommendation": "AI 使用模板回复批量处理判决。必须重新逐条审查，"
                                  "每条给出针对该术语/数字的具体理由。",

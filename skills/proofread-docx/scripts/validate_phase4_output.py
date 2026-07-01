@@ -121,7 +121,7 @@ def validate_top_level(issues_data) -> list[dict]:
                 "severity": "warning",
                 "message": (
                     "issues_phase4.json 缺少 version 字段，无法确认是否为本次运行产出。"
-                    "请确保 Phase 4 输出包含 "version": "2.16"。"
+                    "请确保 Phase 4 输出包含 'version': '2.16'。"
                 ),
             })
 
@@ -599,16 +599,19 @@ def validate_issue_quantity(
     issues: list,
     total_paragraphs: int,
     dimension_coverage: dict | None = None,
-) -> tuple[list[dict], list[dict], list[str]]:
-    """V7: 检测异常低的 issue 数量（v2.16，v2.16.1 降级）。
+) -> tuple[list[dict], list[dict], list[dict]]:
+    """V7: 检测异常低的 issue 数量（v2.16，v2.16.1 降级，v2.17 增强）。
 
     v2.16.1 修正：硬最少 issue 数 = Goodhart 陷阱——Agent 会为了通过而编造问题。
     降级为 WARNING + 指定必须重审的维度，而非硬阻断。
 
     只有 0 issue 保留为 ERROR（翻译文档不可能完全无问题，且无可造假的基础）。
 
+    v2.17 增强：re_review_dimensions 附带每维度的触发问题，不只是维度组名。
+
     Returns:
         (errors, warnings, re_review_dimensions)
+        re_review_dimensions: [{"group": str, "trigger": str, "check_ids": [...]}]
     """
     errors = []
     warnings = []
@@ -619,6 +622,30 @@ def validate_issue_quantity(
 
     n_issues = len(issues) if isinstance(issues, list) else 0
     density_pct = round(n_issues / total_paragraphs * 100, 1)
+
+    # v2.17: 维度组 → 触发问题映射
+    DIM_GROUP_TRIGGERS = {
+        "一.双语忠实度": (
+            "逐词对照原文：有无漏译/增译？核心概念是否正确？"
+            "情态动词 must/shall/may 是否准确区分？"
+        ),
+        "二.表达规范": (
+            "这是地道中文吗？每句读一遍——读起来别扭就是翻译腔。"
+            "重点检查：\"当…时\"冗余、被动直译、\"的\"字堆砌、动宾搭配、语义冗余。"
+            "每句问：删掉\"进行/实现/发生/存在/具有\"后更通顺？"
+        ),
+        "三.数字符号单位": (
+            "数字/百分比/小数——译文与原文逐一核对。"
+            "特别注意复合单位如 mg/kg² vs kg/m²（BMI 单位常被写错）。"
+        ),
+        "四.术语合规": (
+            "术语库译法是否遵守？同一英文术语在不同段落译法是否一致？"
+            "candidates→\"候选人\"还是\"适用人群\"？"
+        ),
+        "五.格式排版": (
+            "标题层级对应？表格是否完整？强调标记（加粗/斜体）是否保留？"
+        ),
+    }
 
     # 找出 issues_found=0 的大维度组（用于重审建议）
     zero_dims = []
@@ -640,7 +667,11 @@ def validate_issue_quantity(
                 if cid in dimension_coverage
             )
             if all_zero:
-                zero_dims.append(group_name)
+                zero_dims.append({
+                    "group": group_name,
+                    "trigger": DIM_GROUP_TRIGGERS.get(group_name, "逐项重审该维度组的所有检查项。"),
+                    "check_ids": check_ids,
+                })
 
     if n_issues == 0:
         errors.append({

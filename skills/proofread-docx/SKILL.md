@@ -673,11 +673,12 @@ Step 4.0.5: 每批完成后合并 issues（含 dimension_coverage）
 Step 4.0.6: 全部批次完成后校验覆盖率 → 100% 进入 Phase 4.4
 ```
 
-**Batch Prompt 模板**（每批派发时必须包含以下结构）：
+**Batch Prompt 模板**（每批派发时必须包含以下结构）`v2.17 重建为两轮审查`：
 
 ```
-You are reviewing a [DOMAIN] document.
+You are reviewing batch [BATCH_ID]/[TOTAL_BATCHES] of a [DOMAIN] document.
 Domain notes: [DOMAIN_NOTES]
+This batch covers paragraphs [START]-[END] ([COUNT] paragraphs).
 
 KEY TERMINOLOGY TO VERIFY (non-negotiable — these terms appear 3+ times):
   [source_term] → required: [required_target] (status: present/missing)
@@ -685,33 +686,55 @@ KEY TERMINOLOGY TO VERIFY (non-negotiable — these terms appear 3+ times):
 HIGH-RISK PARAGRAPHS in this batch: [paragraph_indices]
   (these contain numbers, units, or complex structures — scrutinize more carefully)
 
-MANDATORY CHECKLIST ITEMS (every item below MUST be explicitly addressed in your output):
+MANDATORY CHECKLIST ITEMS (every item below MUST be explicitly addressed):
   [check_id] [name]: [reason why this is mandatory for this document type]
 
-[EXISTING 34-ITEM CHECKLIST — see 4.2]
+══════════════════════════════════════════════════
+ROUND 1 — SURFACE ERROR SCAN
+══════════════════════════════════════════════════
+Quick scan (~30s per paragraph). Check ONLY the items below:
 
-OUTPUT FORMAT REQUIREMENTS:
-1. You MUST include "dimension_coverage" attesting you checked every single item
-2. You MUST include "paragraph_coverage" for EVERY paragraph in this batch
-3. Severity MUST follow the 14-rule decision table (see 4.4) — no personal judgment
-4. Each issue MUST include "severity_justification" from the predefined enum
+{checklist_round1}
 
-ANTI-TEMPLATE REQUIREMENTS (v2.16 — your output WILL be rejected if you violate these):
-5. PHASE3_VERDICTS: EVERY verdict MUST have a UNIQUE explanation. Copy-pasting the same
-   explanation for multiple verdicts = automatic rejection. Each explanation must reference
-   the specific term/number and explain why it is or isn't an issue in THIS context.
-6. PARAGRAPH_COVERAGE: "clean" paragraphs must be verifiable. If >90% of paragraphs are
-   marked "clean" without any issues found, your review will be rejected as incomplete.
-7. ISSUE DENSITY: A 150-paragraph technical translation document contains translation
-   quality issues. Finding 0-1 issues is statistically impossible and will be rejected.
-   Scrutinize every paragraph carefully across ALL 34 dimensions.
-8. Your output will go through an AUTOMATED VALIDATION SCRIPT that checks explanation
-   uniqueness, verdict confirmation ratio, and issue density. Template responses will
-   be blocked before they reach the report stage.```
-：若 Phase 3 报告 `alignment_mode: cross_format_per_page`（原文 PDF + 译文 DOCX 不对齐），batch 数据中的 `_prompt_context.is_cross_format` 为 true。此时需注意：
-- 机械检查疑点标记为 `[全文匹配，仅供参考]`
-- PDF 文本提取可能遗漏表格/图片中的文字
-- 检测 `structure_checklist` 中的断段提示（不以标点结尾的段落）
+→ Record any issues found. Then proceed to Round 2.
+
+══════════════════════════════════════════════════
+ROUND 2 — TRANSLATION QUALITY DEEP REVIEW
+══════════════════════════════════════════════════
+Careful review (~2-3 min per paragraph). For EACH paragraph, work through EVERY item below.
+DO NOT mark a dimension as "checked, no issues" without actually reading the paragraph
+against that specific trigger question.
+
+{checklist_round2}
+
+══════════════════════════════════════════════════
+REQUIREMENTS (violations = rejection)
+══════════════════════════════════════════════════
+
+1. ROUND 2 MUST find ≥ 2× the issues found in Round 1.
+   If Round 1 found 2 issues, Round 2 must find at least 4 more.
+   If less → your Round 2 review was incomplete → re-examine the Round 2 dimensions
+   and find the issues you missed.
+
+2. OUTPUT FORMAT:
+   - Include "dimension_coverage" attesting you checked every single dimension
+   - Include "paragraph_coverage" for EVERY paragraph in this batch
+   - Severity MUST follow the 14-rule decision table (see 4.4)
+   - Each issue MUST include "severity_justification" from: changes_meaning,
+     missing_unit_conversion, breaks_sentence_structure, terminology_inconsistency,
+     connotation_mismatch, unnatural_expression, style_preference, format_deviation
+
+3. ANTI-TEMPLATE (v2.16+):
+   - PHASE3_VERDICTS: EVERY verdict MUST have a UNIQUE explanation
+   - PARAGRAPH_COVERAGE: Do not mark >90% of paragraphs as "clean"
+   - ISSUE DENSITY: Finding 0-1 issues in a 15-paragraph batch is not credible
+   - Your output will go through AUTOMATED VALIDATION — template responses blocked
+
+{cross_format_warning}
+```
+> **模板变量说明**：`{checklist_round1}` 和 `{checklist_round2}` 由 `prepare_batch_prompt.py` 自动生成（`_prompt_context.checklist_round1/2`）。Agent 派发 batch 时直接将这些变量的内容嵌入 prompt，不需要手动编写或去 SKILL.md 4.2 复制。
+
+> **两轮隔离**：Round 1 只做表面扫描（忠实度/错别字/数字），Round 2 只做深度审查（翻译腔/用词/术语）。不可在 Round 1 阶段就做深度分析——先快速扫完表面错误，再集中精力做深度。这样能防止模型在表面扫描时就耗尽注意力。（不以标点结尾的段落）
 
 **批次切分规则**：
 | 规则 | 说明 |
@@ -1142,7 +1165,7 @@ python ${SKILL_ROOT}/scripts/validate_phase4_output.py   --issues cache/issues_p
 | V4 | issues | 缺少必填字段、severity/justification/confidence 值非法 | v2.15 |
 | V5 | phase3_verdicts | 缺少此字段、Phase 3 发现未被全部覆盖、explanation < 20 中文字、**confirmed=0（全部 dismiss）** | v2.15 / v2.16 升级 |
 | V6 | 解释唯一性 | **≥50% 判决解释完全相同 → AI 模板化敷衍，阻断** | v2.16 |
-| V7 | issue 密度 | **0 issue → ERROR**；低密度 → WARNING + 指定需重审的维度组（不阻断，防 Goodhart 造假） | v2.16 / v2.16.1 降级 |
+| V7 | issue 密度 | **0 issue → ERROR**；低密度 → WARNING + 含触发问题的定向重审维度（不阻断，防 Goodhart 造假） | v2.16 / v2.16.1 降级 / v2.17 增强 |
 
 **输出 `cache/phase4_validation_report.json`**：
 
@@ -1689,6 +1712,8 @@ Phase 1 `pair_files.py` 输出已包含 `source.filename` / `source.format` / `t
 
 
 ## 版本
+- v2.17 (2026-07-01): **弱模型深度引导**：`prepare_batch_prompt.py` 新增压缩触发清单嵌入 batch prompt（~80 行自包含，消除 [引用外部文档] 依赖）；Batch prompt 模板重建为两轮审查（Round 1 表面错误扫描 + Round 2 翻译质量深度审查，Round 2 ≥ 2× Round 1）；每维度增加"期望发现量"校准提示；修复 `calibrate_severity.py` 中 `flag_outliers()` severity 键重复赋值 bug；V7 `re_review_dimensions` 从纯维度编号升级为附带触发问题的结构化指引。目标：DeepSeek Pro 从 4 条提升到 15-25 条。
+- v2.16.1 (2026-06-30): **Goodhart 修复**：V7 硬门槛降级为 WARNING（仅 0 issue 仍为 ERROR），新增 `re_review_dimensions` 定向重审引导；calibrate `--phase3-issues` 参数从 raw 改为 filtered（修复 `empty_phase3_verdicts` 误报）
 - v2.16 (2026-06-30): **反敷衍三面墙 + 缓存隔离**：校验器新增 V6 解释唯一性检测（≥50% 相同→阻断）+ V7 issue 数量硬门槛（0/1 issue→阻断）；V5 confirmed=0 升级为 ERROR；修复 total_paragraphs 计算 bug。Batch Prompt 新增 ANTI-TEMPLATE REQUIREMENTS（告知 AI 输出将被自动校验）。**新增铁律 7（缓存隔离）**：每次运行全量重建，禁止从旧版本目录拷贝中间产物；新增 Phase 0.6 缓存隔离规范 + Agent 自查清单；Phase 4.35 校验 version 字段防复用旧 AI 产出。
 - v2.15 (2026-06-30): **Phase 3→4 强制联动 + 输出硬校验**：新增 Phase 3.6 判决书生成 `build_phase3_verdicts.py`（42 条 Phase 3 发现转为必答问卷，逐条 confirmed/false_positive + ≥20 字中文解释）；新增 Phase 4.35 输出校验网关 `validate_phase4_output.py`（五道校验：顶层结构/dimension_coverage/paragraph_coverage/issues/phase3_verdicts，不通过则阻断）；校准脚本 `calibrate_severity.py` 新增 verdict 完整性校验 + issue 密度异常检测；铁律 E 脚本化（V3 校验自动阻断零 issue 文档）。修复龙虾模型零发现 + Phase 3 发现被批量 dismiss 问题。
 - v2.14 (2026-06-30): **跨模型一致性三杠杆**：新增 Phase 3.5 上下文注入 `inject_context.py`（领域检测 + 关键术语 + 高风险段落 + 强制检查项）；新增 batch prompt 富化 `prepare_batch_prompt.py`；新增 Phase 4.4 严重度校准 `calibrate_severity.py`（14 条决策规则 + 领域升级 + 维度覆盖检测 + 异常检测）；Phase 4.3 强化输出 schema（dimension_coverage + severity_justification 枚举）。目标：不同模型 Critical 重叠率从 ~25% 提升至 >70%。
