@@ -1,0 +1,600 @@
+total_tables: 103
+cross_page_tables count: 7
+
+=== Chapter 10: 103 tables ===
+  Table 1 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 6 items
+      [0]: [{'text': '最终报告', 'col_span': 1}]
+      [1]: [{'text': 'DWP431的2周重复静脉给药毒性研究及毒代动力学\n在Sprague-Dawley大鼠中', 'col_span': 1}]
+      [2]: [{'text': '研究编号：B09462\n研究完成时间：2010年1月22日\n最终报告修订：2010年12月1日和2015年1月9日', 'col_span': 1}]
+
+  Table 2 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '研究标题：', 'col_span': 1}, {'text': 'DWP431在Sprague-Dawley大鼠中2周重复静脉给药毒性研究及毒代动力学', 'col_span': 1}]
+      [1]: [{'text': '研究数量：', 'col_span': 1}, {'text': 'B09462', 'col_span': 1}]
+
+  Table 3 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': 'Biotoxtech有限公司研究负责人', 'col_span': 1}, {'text': '李惠英', 'col_span': 1}]
+      [1]: [{'text': '', 'col_span': 1}, {'text': '2010年1月22日', 'col_span': 1}]
+
+  Table 4 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': 'Biotoxtech有限公司\n测试机构管理', 'col_span': 1}, {'text': '白成镇', 'col_span': 1}]
+      [1]: [{'text': '', 'col_span': 1}, {'text': '2010年1月22日', 'col_span': 1}]
+
+  Table 5 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '研究标题：', 'col_span': 1}, {'text': 'DWP431在Sprague-Dawley大鼠中2周重复静脉给药毒性研究及毒代动力学', 'col_span': 1}]
+      [1]: [{'text': '研究数量：', 'col_span': 1}, {'text': 'B09462', 'col_span': 1}]
+
+  Table 6 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 11 items
+      [0]: [{'text': '稽查相位', 'col_span': 1}, {'text': '稽查日期', 'col_span': 1}, {'text': '致研究负责人和测试机构管理', 'col_span': 1}]
+      [1]: [{'text': '尸检', 'col_span': 1}, {'text': '2009年11月3日', 'col_span': 1}, {'text': '2009年11月3日', 'col_span': 1}]
+      [2]: [{'text': '*', 'col_span': 1}, {'text': '2009年9月5日', 'col_span': 1}, {'text': '2009年9月7日', 'col_span': 1}]
+
+  Table 7 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': 'Biotoxtech有限公司\n质量保证管理', 'col_span': 1}, {'text': '沈德贤', 'col_span': 1}]
+      [1]: [{'text': '', 'col_span': 1}, {'text': '2010年1月22日', 'col_span': 1}]
+
+  Table 8 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 33 items
+      [0]: [{'text': '页', 'col_span': 2}, {'text': '页', 'col_span': 2}]
+      [1]: [{'text': '翻译证书…………………………………………………', 'col_span': 1}, {'text': '2', 'col_span': 1}]
+      [2]: [{'text': 'GLP合规性声明和签名 ·………………………', 'col_span': 1}, {'text': '3', 'col_span': 1}]
+
+  Table 9 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 26 items
+      [0]: [{'text': '4.3     食物消耗量 ·……………………………………………………………', 'col_span': 1}, {'text': '24', 'col_span': 1}]
+      [1]: [{'text': '4.4       ………………………………………………………………', 'col_span': 1}, {'text': '24', 'col_span': 1}]
+      [2]: [{'text': '4.5       ………………………………………………………………………', 'col_span': 1}, {'text': '24', 'col_span': 1}]
+
+  Table 10 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 18 items
+      [0]: [{'text': '附录 ·………………………………………………………………·………', 'col_span': 1}, {'text': '47', 'col_span': 1}]
+      [1]: [{'text': '··…………', 'col_span': 1}, {'text': '48', 'col_span': 1}]
+      [2]: [{'text': '附录2. 2周重复静脉给药毒性研究的临床症状\nSD大鼠（个体）中的反转时间和毒代动力学 ····························', 'col_span': 1}, {'text': '50', 'col_span': 1}]
+
+  Table 11 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 3 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': '大宇制药有限公司', 'col_span': 3}, {'text': '大宇制药有限公司', 'col_span': 3}, {'text': '大宇制药有限公司', 'col_span': 3}]
+      [1]: [{'text': '地址', 'col_span': 1}, {'text': '韩国京畿道议政府市天仁区坡谷面三溪里501-2号 449-814', 'col_span': 3}, {'text': '韩国京畿道议政府市天仁区坡谷面三溪里501-2号 449-814', 'col_span': 3}, {'text': '韩国京畿道议政府市天仁区坡谷面三溪里501-2号 449-814', '
+      [2]: [{'text': 'TEL', 'col_span': 1}, {'text': '+ 82-31-270-8570', 'col_span': 1}, {'text': 'FAX', 'col_span': 1}, {'text': '+ 82-31-336-2954', 'col_span': 1}]
+
+  Table 12 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 3 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': 'Biotoxtech有限公司', 'col_span': 3}, {'text': 'Biotoxtech有限公司', 'col_span': 3}, {'text': 'Biotoxtech有限公司', 'col_span': 3}]
+      [1]: [{'text': '地址', 'col_span': 1}, {'text': '韩国忠清北道青川郡青川邑杨庆里686-2号，邮编363-883，奥昌科学工业园区', 'col_span': 3}, {'text': '韩国忠清北道青川郡青川邑杨庆里686-2号，邮编363-883，奥昌科学工业园区', 'col_span': 3}, {'text': '韩国忠清北道青川郡青川邑杨庆里686-2
+      [2]: [{'text': 'TEL', 'col_span': 1}, {'text': '+ 82-43-210-7777', 'col_span': 1}, {'text': 'FAX', 'col_span': 1}, {'text': '+ 82-43-210-7778', 'col_span': 1}]
+
+  Table 13 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': 'Biotoxtech有限公司', 'col_span': 1}]
+      [1]: [{'text': '地址', 'col_span': 1}, {'text': '韩国忠清北道青川郡青川邑杨庆里686-2号，邮编363-883，奥昌科学工业园区', 'col_span': 1}]
+
+  Table 14 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': '李惠英', 'col_span': 1}]
+      [1]: [{'text': '位置', 'col_span': 1}, {'text': '一般毒性科', 'col_span': 1}]
+
+  Table 15 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 8 items
+      [0]: [{'text': '研究启动', 'col_span': 1}, {'text': '2009年9月28日', 'col_span': 1}]
+      [1]: [{'text': '动物收到', 'col_span': 1}, {'text': '2009年10月13日', 'col_span': 1}]
+      [2]: [{'text': '组分组', 'col_span': 1}, {'text': '2009年10月19日（男性）\n2009年10月20日（女性）', 'col_span': 1}]
+
+  Table 16 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 6 items
+      [0]: [{'text': '评估动物的健康状态', 'col_span': 1}, {'text': '李俊祖', 'col_span': 1}]
+      [1]: [{'text': '测试物质的存储和处理', 'col_span': 1}, {'text': '金恩爱', 'col_span': 1}]
+      [2]: [{'text': '测试物质的分析', 'col_span': 1}, {'text': 'Song Hyo-Sun', 'col_span': 1}]
+
+  Table 17 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 1 items
+      [0]: [{'text': '给药制剂的准备', 'col_span': 1}, {'text': '朴恩贞，金恩爱', 'col_span': 1}]
+
+  Table 18 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 6 items
+      [0]: [{'text': '给药制剂分析', 'col_span': 1}, {'text': 'Jung Seung-Chan', 'col_span': 1}]
+      [1]: [{'text': '给药、测量与观察', 'col_span': 1}, {'text': '朴熙元、吴允锡、安英恩、金慧贞、李宣虎、朴灿硕、杨永宰、李惠英', 'col_span': 1}]
+      [2]: [{'text': '临床病理学', 'col_span': 1}, {'text': '李正敏，李敏雅，崔镇宇', 'col_span': 1}]
+
+  Table 19 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': 'Biotoxtech有限公司档案', 'col_span': 1}]
+      [1]: [{'text': '地点', 'col_span': 1}, {'text': '韩国忠清北道青川郡青川邑杨庆里686-2号，奥昌科学工业园区，363-883', 'col_span': 1}]
+
+  Table 20 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 4 items
+      [0]: [{'text': '3.1.1', 'col_span': 1}, {'text': '身份', 'col_span': 1}, {'text': 'DWP431', 'col_span': 1}]
+      [1]: [{'text': '3.1.2', 'col_span': 1}, {'text': '批号 数量', 'col_span': 1}, {'text': '431DP09004', 'col_span': 1}]
+      [2]: [{'text': '3.1.3', 'col_span': 1}, {'text': '外观', 'col_span': 1}, {'text': '白色无定形粉末', 'col_span': 1}]
+
+  Table 21 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': '大宇制药有限公司', 'col_span': 1}]
+      [1]: [{'text': '地址', 'col_span': 1}, {'text': '韩国京畿道议政府市天仁区坡谷面三溪里501-2号 449-814', 'col_span': 1}]
+
+  Table 22 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 12 items
+      [0]: [{'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '剂量体积（毫升/千克）', 'col_span': 1}, {'text': '动物（编号）', 'col_span': 2}, {'text': '动物（编号）', 'col_span
+      [1]: [{'text': '', 'col_span': 1}, {'text': '组', 'col_span': 1}, {'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '剂量体积（毫升/千克）', 'col_span': 1}, {'text': '雄性', 'col_span': 1}, {'text': '雌性', 'col_span': 1}]
+      [2]: [{'text': '主要组', 'col_span': 6}, {'text': '主要组', 'col_span': 6}, {'text': '主要组', 'col_span': 6}, {'text': '主要组', 'col_span': 6}, {'text': '主要组', 'col_span': 6}, {'text': '主要组', 'col_span': 6}]
+
+  Table 23 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 11 items
+      [0]: [{'text': '尿液', 'col_span': 1}, {'text': '参数', 'col_span': 1}, {'text': '单位', 'col_span': 1}, {'text': '方法和仪器', 'col_span': 1}]
+      [1]: [{'text': '新鲜尿液', 'col_span': 1}, {'text': 'pH值', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '', 'col_span': 1}]
+      [2]: [{'text': '', 'col_span': 1}, {'text': '蛋白质', 'col_span': 1}, {'text': '毫克/分升', 'col_span': 1}, {'text': 'Combur10Test®M试条（德国罗氏），尿液化学分析（MIDITRON Junior II，\n罗氏（德国）', 'col_span': 1}]
+
+  Table 24 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 11 items
+      [0]: [{'text': '参数', 'col_span': 1}, {'text': '单位', 'col_span': 1}, {'text': '方法', 'col_span': 1}]
+      [1]: [{'text': '红细胞总计数 (RBC)', 'col_span': 1}, {'text': '10⁶ 个细胞/微升', 'col_span': 1}, {'text': '流式细胞仪', 'col_span': 1}]
+      [2]: [{'text': '血红蛋白浓度（HGB）', 'col_span': 1}, {'text': 'g/dL', 'col_span': 1}, {'text': '流式细胞仪，氰化高铁血红蛋白', 'col_span': 1}]
+
+  Table 25 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 1 items
+      [0]: [{'text': '参数', 'col_span': 1}, {'text': '单位', 'col_span': 1}, {'text': '方法', 'col_span': 1}]
+
+  Table 26 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 1 items
+      [0]: [{'text': '活化部分凝血活酶时间（APTT）', 'col_span': 1}, {'text': '秒', 'col_span': 1}, {'text': '浊度法', 'col_span': 1}]
+
+  Table 27 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 19 items
+      [0]: [{'text': '参数', 'col_span': 1}, {'text': '单位', 'col_span': 1}, {'text': '方法', 'col_span': 1}]
+      [1]: [{'text': '丙氨酸氨基转移酶（ALT）', 'col_span': 1}, {'text': 'U/L', 'col_span': 1}, {'text': 'JSCC（UV Kinetic）', 'col_span': 1}]
+      [2]: [{'text': '天冬氨酸氨基转移酶（AST）', 'col_span': 1}, {'text': 'U/L', 'col_span': 1}, {'text': 'JSCC（UV Kinetic）', 'col_span': 1}]
+
+  Table 28 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 6 items
+      [0]: [{'text': '· 脑', 'col_span': 1}, {'text': '· 垂体', 'col_span': 1}]
+      [1]: [{'text': '· 心脏', 'col_span': 1}, {'text': '· 肺', 'col_span': 1}]
+      [2]: [{'text': '· 肝脏', 'col_span': 1}, {'text': '· 脾脏', 'col_span': 1}]
+
+  Table 29 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 21 items
+      [0]: [{'text': '· 脑', 'col_span': 1}, {'text': '· 垂体', 'col_span': 1}]
+      [1]: [{'text': '· 甲状腺和甲状旁腺', 'col_span': 1}, {'text': '· 胸腺', 'col_span': 1}]
+      [2]: [{'text': '· 肺及支气管', 'col_span': 1}, {'text': '· 气管', 'col_span': 1}]
+
+  Table 30 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '给药之后', 'col_span': 9}, {'text': '给药之后', 'col_span': 9}, {'text': '给药之后', 'col_span': 9}, {'text': '给药之后', 'col_span': 9}, {'text': '给药之后', 'col_span': 9}, {'text': '给药之后', 'col_span': 9}, {
+      [1]: [{'text': '0\n分钟', 'col_span': 1}, {'text': '30\n秒', 'col_span': 1}, {'text': '3\n分钟', 'col_span': 1}, {'text': '10\n分钟', 'col_span': 1}, {'text': '20\n分钟', 'col_span': 1}, {'text': '40\n分钟', 'col_spa
+
+  Table 31 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 8 items
+      [0]: [{'text': '参数', 'col_span': 1}, {'text': '单位', 'col_span': 1}]
+      [1]: [{'text': '血清浓度-时间曲线下的面积（AUC）', 'col_span': 1}, {'text': 'ng·min/mL', 'col_span': 1}]
+      [2]: [{'text': '最大观察血清浓度（Cmax）', 'col_span': 1}, {'text': 'ng/mL', 'col_span': 1}]
+
+  Table 32 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 4 items
+      [0]: [{'text': '组\n剂量（毫克/千克）', 'col_span': 1}, {'text': 'G1 0', 'col_span': 1}, {'text': 'G2 0.05', 'col_span': 1}, {'text': 'G3 0.18', 'col_span': 1}, {'text': 'G4 0.5', 'col_span': 1}, {'text': '正常范围', '
+      [1]: [{'text': '卵巢', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}]
+      [2]: [{'text': '绝对的 (g)', 'col_span': 1}, {'text': '0.0790±0.0088', 'col_span': 1}, {'text': '0.0811±0.0151', 'col_span': 1}, {'text': '0.0645±0.0099', 'col_span': 1}, {'text': '0.0556±0.0052', 'col_span':
+
+  Table 33 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 22 items
+      [0]: [{'text': '', 'col_span': 1}, {'text': '性别', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '雄性', 'col_span': 2}, {'text': '雄性', 'col_span': 2}, {'text': '', 'col_span': 1}, {'text': '', 'col_s
+      [1]: [{'text': '组织 / 发现', 'col_span': 1}, {'text': '组\n剂量（毫克/千克）', 'col_span': 1}, {'text': 'G1 0', 'col_span': 1}, {'text': 'G2 0.05', 'col_span': 1}, {'text': 'G3 0.18', 'col_span': 1}, {'text': 'G4 0.5'
+      [2]: [{'text': '', 'col_span': 1}, {'text': '检查数量', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10'
+
+  Table 34 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 30 items
+      [0]: [{'text': '性别：雄性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '（g）', 'col
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '天', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span'
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '3', 'col_span': 1}, {'text': '7', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '1
+
+  Table 35 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 30 items
+      [0]: [{'text': '性别：雄性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '（克/天）', 'col_span': 1}, {'text': '', 'col_span': 1}]
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '周', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}]
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '1', 'col_span': 1}, {'text': '2', 'col_span': 1}, {'text': '', 'col_span': 1}]
+
+  Table 36 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 7 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物数量', 'col_span': 1}, {'text': '结果', 'col_span': 1}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4},
+      [1]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物数量', 'col_span': 1}, {'text': '结果', 'col_span': 1}, {'text': '瞳孔对光反射', 'col_span': 1}, {'text': '前部段', 'col_span': 1}, {'text': '透明培养基', 'col_sp
+      [2]: [{'text': 'G1 0', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '正常', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '5', '
+
+  Table 37 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 6 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物数量', 'col_span': 1}, {'text': '结果', 'col_span': 1}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4},
+      [1]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物数量', 'col_span': 1}, {'text': '结果', 'col_span': 1}, {'text': '瞳孔对光反射', 'col_span': 1}, {'text': '前部段', 'col_span': 1}, {'text': '透明培养基', 'col_sp
+      [2]: [{'text': 'G1 0', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '正常', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '5', 'col_span': 1}, {'text': '5', '
+
+  Table 38 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 29 items
+      [0]: [{'text': '性别', 'col_span': 2}, {'text': '性别', 'col_span': 2}, {'text': '男', 'col_span': 4}, {'text': '男', 'col_span': 4}, {'text': '男', 'col_span': 4}, {'text': '男', 'col_span': 4}, {'text': '雌性', 'c
+      [1]: [{'text': '组', 'col_span': 2}, {'text': '组', 'col_span': 2}, {'text': 'G1', 'col_span': 1}, {'text': 'G2', 'col_span': 1}, {'text': 'G3', 'col_span': 1}, {'text': 'G4', 'col_span': 1}, {'text': 'G1', 
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 2}, {'text': '剂量（毫克/千克）', 'col_span': 2}, {'text': '0', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '0.18', 'col_span': 1}, {'text': '0.5', 'col_span':
+
+  Table 39 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 19 items
+      [0]: [{'text': '性别', 'col_span': 2}, {'text': '性别', 'col_span': 2}, {'text': '雄性', 'col_span': 4}, {'text': '雄性', 'col_span': 4}, {'text': '雄性', 'col_span': 4}, {'text': '雄性', 'col_span': 4}, {'text': '雌性'
+      [1]: [{'text': '组', 'col_span': 2}, {'text': '组', 'col_span': 2}, {'text': 'G1', 'col_span': 1}, {'text': 'G2', 'col_span': 1}, {'text': 'G3', 'col_span': 1}, {'text': 'G4', 'col_span': 1}, {'text': 'G1', 
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 2}, {'text': '剂量（毫克/千克）', 'col_span': 2}, {'text': '0', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '0.18', 'col_span': 1}, {'text': '0.5', 'col_span':
+
+  Table 40 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 29 items
+      [0]: [{'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '细胞/微升', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '（fL）', 'col_span': 1}, {'text': '（页）', 
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '平均', 'col_span': 1}, {'text': '7.23', 'col_span': 1}, {'text': '14.1', 'col_span': 1}, {'text': '41.9', 'col_span': 1}, {'text': '58.0', 'col_span': 1}, {'tex
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '标准差', 'col_span': 1}, {'text': '0.39', 'col_span': 1}, {'text': '0.5', 'col_span': 1}, {'text': '1.5', 'col_span': 1}, {'text': '2.0', 'col_span': 1}, {'text':
+
+  Table 41 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 30 items
+      [0]: [{'text': '性别：雄性', 'col_span': 1}, {'text': '', 'col_span': 10}, {'text': '', 'col_span': 10}, {'text': '', 'col_span': 10}, {'text': '', 'col_span': 10}, {'text': '', 'col_span': 10}, {'text': '', 'c
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': 'ALT', 'col_span': 1}, {'text': 'AST', 'col_span': 1}, {'text': 'ALP', 'col_span': 1}, {'text': 'GGT', 'col_span': 1}, {'text': '葡萄
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（左/上）', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（IU/升）', 'col_span':
+
+  Table 42 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 30 items
+      [0]: [{'text': '表7。（续）\n\n\n性别：雌性', 'col_span': 1}, {'text': '', 'col_span': 9}, {'text': '', 'col_span': 9}, {'text': '', 'col_span': 9}, {'text': '', 'col_span': 9}, {'text': '', 'col_span': 9}, {'text':
+      [1]: [{'text': '组', 'col_span': 1}, {'text': 'ALT', 'col_span': 1}, {'text': 'AST', 'col_span': 1}, {'text': 'ALP', 'col_span': 1}, {'text': 'GGT', 'col_span': 1}, {'text': '葡萄糖', 'col_span': 1}, {'text': 
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（IU/升）', 'col_span': 1}, {'text': '（毫克/分升）', 'col
+
+  Table 43 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 26 items
+      [0]: [{'text': 'G1', 'col_span': 1}, {'text': '平均', 'col_span': 1}, {'text': '276.3', 'col_span': 1}, {'text': '1.94', 'col_span': 1}, {'text': '0.0110', 'col_span': 1}, {'text': '1.05', 'col_span': 1}, {'
+      [1]: [{'text': '0', 'col_span': 1}, {'text': '标准差', 'col_span': 1}, {'text': '13.8', 'col_span': 1}, {'text': '0.03', 'col_span': 1}, {'text': '0.0016', 'col_span': 1}, {'text': '0.09', 'col_span': 1}, {'t
+      [2]: [{'text': '', 'col_span': 1}, {'text': 'N', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', '
+
+  Table 44 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 12 items
+      [0]: [{'text': 'G1', 'col_span': 1}, {'text': '平均', 'col_span': 1}, {'text': '276.3', 'col_span': 1}, {'text': '0.70', 'col_span': 1}, {'text': '0.0040', 'col_span': 1}, {'text': '0.38', 'col_span': 1}, {'
+      [1]: [{'text': '0', 'col_span': 1}, {'text': '标准差', 'col_span': 1}, {'text': '13.8', 'col_span': 1}, {'text': '0.04', 'col_span': 1}, {'text': '0.0006', 'col_span': 1}, {'text': '0.02', 'col_span': 1}, {'t
+      [2]: [{'text': '', 'col_span': 1}, {'text': 'N', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', '
+
+  Table 45 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 12 items
+      [0]: [{'text': 'G1', 'col_span': 1}, {'text': '平均', 'col_span': 1}, {'text': '180.2', 'col_span': 1}, {'text': '1.01', 'col_span': 1}, {'text': '0.0072', 'col_span': 1}, {'text': '0.40', 'col_span': 1}, {'
+      [1]: [{'text': '0', 'col_span': 1}, {'text': '标准差', 'col_span': 1}, {'text': '16.6', 'col_span': 1}, {'text': '0.08', 'col_span': 1}, {'text': '0.0015', 'col_span': 1}, {'text': '0.03', 'col_span': 1}, {'t
+      [2]: [{'text': '', 'col_span': 1}, {'text': 'N', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '10', '
+
+  Table 46 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 7 items
+      [0]: [{'text': '器官 / 结果', 'col_span': 1}, {'text': '性别', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '男', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '雌性', 'col_span': 4}, {'text': '雌性'
+      [1]: [{'text': '器官 / 结果', 'col_span': 1}, {'text': '组', 'col_span': 1}, {'text': 'G1', 'col_span': 1}, {'text': 'G2 G3', 'col_span': 1}, {'text': 'G4', 'col_span': 1}, {'text': 'G1', 'col_span': 1}, {'text
+      [2]: [{'text': '器官 / 结果', 'col_span': 1}, {'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '0.05\t0.18', 'col_span': 1}, {'text': '0.5', 'col_span': 1}, {'text': '0', 'col_span'
+
+  Table 47 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 32 items
+      [0]: [{'text': '器官 / 结果', 'col_span': 1}, {'text': '性别', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '雄性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '雌性', 'col_span': 4}, {'text': '雌性
+      [1]: [{'text': '器官 / 结果', 'col_span': 1}, {'text': '组', 'col_span': 1}, {'text': 'G1', 'col_span': 1}, {'text': 'G2\tG3', 'col_span': 1}, {'text': 'G4', 'col_span': 1}, {'text': 'G1', 'col_span': 1}, {'tex
+      [2]: [{'text': '器官 / 结果', 'col_span': 1}, {'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '0.05\t0.18', 'col_span': 1}, {'text': '0.5', 'col_span': 1}, {'text': '0', 'col_span'
+
+  Table 48 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 34 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '临时动物编号', 'col_span': 1}, {'text': '收到', 'col_span': 1}, {'text': '组分组', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '临时动物编号', 'col_span': 1}, 
+      [1]: [{'text': '1101', 'col_span': 1}, {'text': '1011', 'col_span': 1}, {'text': '127.2', 'col_span': 1}, {'text': '199.8', 'col_span': 1}, {'text': '1401', 'col_span': 1}, {'text': '1015', 'col_span': 1},
+      [2]: [{'text': '1102', 'col_span': 1}, {'text': '1027', 'col_span': 1}, {'text': '126.1', 'col_span': 1}, {'text': '192.7', 'col_span': 1}, {'text': '1402', 'col_span': 1}, {'text': '1032', 'col_span': 1},
+
+  Table 49 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 34 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '临时动物编号', 'col_span': 1}, {'text': '收到', 'col_span': 1}, {'text': '组分组', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '临时动物编号', 'col_span': 1}, 
+      [1]: [{'text': '2101', 'col_span': 1}, {'text': '2035', 'col_span': 1}, {'text': '110.1', 'col_span': 1}, {'text': '168.8', 'col_span': 1}, {'text': '2401', 'col_span': 1}, {'text': '2041', 'col_span': 1},
+      [2]: [{'text': '2102', 'col_span': 1}, {'text': '2036', 'col_span': 1}, {'text': '100.9', 'col_span': 1}, {'text': '156.4', 'col_span': 1}, {'text': '2402', 'col_span': 1}, {'text': '2016', 'col_span': 1},
+
+  Table 50 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 42 items
+      [0]: [{'text': '性别：雄性', 'col_span': 1}, {'text': '', 'col_span': 3}, {'text': '', 'col_span': 3}, {'text': '', 'col_span': 3}]
+      [1]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '临床观察', 'col_span': 1}, {'text': '0 ~ 13天\n- 在天数期间观察到', 'col_span': 1}]
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '正常', 'col_span': 1}, {'text': '0 ~ 13天', 'col_span': 1}]
+
+  Table 51 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 42 items
+      [0]: [{'text': '性别：雌性', 'col_span': 1}, {'text': '', 'col_span': 3}, {'text': '', 'col_span': 3}, {'text': '', 'col_span': 3}]
+      [1]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '临床观察', 'col_span': 1}, {'text': '0 ~ 13天\n- 在天数期间观察到', 'col_span': 1}]
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '正常', 'col_span': 1}, {'text': '0 ~ 13天', 'col_span': 1}]
+
+  Table 52 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 55 items
+      [0]: [{'text': '性别：雄性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '（g）', 'col
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '动物', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '天', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_spa
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '3', 'col_span': 1}, {'text': '7', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': 
+
+  Table 53 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 55 items
+      [0]: [{'text': '性别：雌性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '（g）', 'col
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '动物', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '天', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_spa
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '3', 'col_span': 1}, {'text': '7', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': 
+
+  Table 54 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 55 items
+      [0]: [{'text': '性别', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '雄性', 'col_span': 3}, {'text': '雄性', 'col_span': 3}, {'text': '雄性', 'col_span': 3}, {'text': '雌性', 'col_span': 4}, {'text': '雌性', 
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '动物', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '周', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '动物\nID', 'col_span': 1}, {'text': '0', '
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '1', 'col_span': 1}, {'text': '2', 'col_span': 1}, {'text': '动物\nID', 'col_span': 1}, {'tex
+
+  Table 55 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 22 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '结果', 'col_span': 1}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4},
+      [1]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '结果', 'col_span': 1}, {'text': '瞳孔对光反射', 'col_span': 1}, {'text': '前部段', 'col_span': 1}, {'text': '透明培养基', 'col_sp
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', 'c
+
+  Table 56 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 22 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物\n编号\t结果', 'col_span': 1}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span': 4}, {'text': '右眼', 'col_span
+      [1]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物\n编号\t结果', 'col_span': 1}, {'text': '瞳孔对光反射', 'col_span': 1}, {'text': '前部段', 'col_span': 1}, {'text': '透明培养基', 'col_span': 1}, {'text': '视网膜', 
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', 'col_span': 1}, {'text': '-', '
+
+  Table 57 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 34 items
+      [0]: [{'text': '性别', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '雄性', 'col_span': 1}, {'text': '雌性', 'col_span': 2}, {'text': '雌性', 'col_span': 2}]
+      [1]: [{'text': '组\n剂量（毫克/千克）', 'col_span': 1}, {'text': '动物\nID', 'col_span': 1}, {'text': '体积\n（毫升）', 'col_span': 1}, {'text': '动物\nID', 'col_span': 1}, {'text': '体积\n（毫升）', 'col_span': 1}]
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '5.1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '2.5', 'col_span': 1}]
+
+  Table 58 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 35 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': 'G1 / 0', 'col_span': 5}, {'text': 'G1 / 0', 'col_span': 5}, {'text': 'G1 / 0', 'col_span': 5}, {'text':
+      [1]: [{'text': '动物编号', 'col_span': 2}, {'text': '动物编号', 'col_span': 2}, {'text': '1101', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '1103', 'col_span': 1}, {'text': '1104', 'col_span': 1}, {
+      [2]: [{'text': '颜色', 'col_span': 1}, {'text': '苍黄色\n黄色', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V'
+
+  Table 59 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 35 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': 'G3 / 0.18', 'col_span': 5}, {'text': 'G3 / 0.18', 'col_span': 5}, {'text': 'G3 / 0.18', 'col_span': 5},
+      [1]: [{'text': '动物编号', 'col_span': 2}, {'text': '动物编号', 'col_span': 2}, {'text': '1301', 'col_span': 1}, {'text': '1302', 'col_span': 1}, {'text': '1303', 'col_span': 1}, {'text': '1304', 'col_span': 1}, {
+      [2]: [{'text': '颜色', 'col_span': 1}, {'text': '苍黄色\n黄色', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V'
+
+  Table 60 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 21 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': 'G1 / 0', 'col_span': 5}, {'text': 'G1 / 0', 'col_span': 5}, {'text': 'G1 / 0', 'col_span': 5}, {'text':
+      [1]: [{'text': '动物编号', 'col_span': 2}, {'text': '动物编号', 'col_span': 2}, {'text': '2101', 'col_span': 1}, {'text': '2102', 'col_span': 1}, {'text': '2103', 'col_span': 1}, {'text': '2104', 'col_span': 1}, {
+      [2]: [{'text': '颜色', 'col_span': 1}, {'text': '苍黄色\n黄色', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V'
+
+  Table 61 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 35 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': '组 / 剂量 (mg/kg)', 'col_span': 2}, {'text': 'G3 / 0.18', 'col_span': 5}, {'text': 'G3 / 0.18', 'col_span': 5}, {'text': 'G3 / 0.18', 'col_span': 5},
+      [1]: [{'text': '动物编号', 'col_span': 2}, {'text': '动物编号', 'col_span': 2}, {'text': '2301', 'col_span': 1}, {'text': '2302', 'col_span': 1}, {'text': '2303', 'col_span': 1}, {'text': '2304', 'col_span': 1}, {
+      [2]: [{'text': '颜色', 'col_span': 1}, {'text': '苍黄色\n黄色', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V', 'col_span': 1}, {'text': 'V'
+
+  Table 62 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': 'WBC\n3\n细胞/微升', 'col_span': 1}, {'text': 'NEU', 'col_span': 1}, {'text': '白细胞微分计数(%)\n淋巴细胞 单核细胞 嗜酸性粒细胞', 'col_spa
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '6.91', 'col_span': 1}, {'text': '11.0', 'col_span': 1}, {'text': '85.2', 'col_span': 1}, {'text': '1.3', 'col_span': 1}, {'te
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '7.79', 'col_span': 1}, {'text': '9.9', 'col_span': 1}, {'text': '86.8', 'col_span': 1}, {'text': '1.5', 'col_span': 1}, {'text
+
+  Table 63 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': 'WBC\n3\n细胞/微升', 'col_span': 1}, {'text': 'NEU', 'col_span': 1}, {'text': '白细胞微分计数(%)\n淋巴细胞 单核细胞 嗜酸性粒细胞', 'col_spa
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '4.40', 'col_span': 1}, {'text': '12.8', 'col_span': 1}, {'text': '84.5', 'col_span': 1}, {'text': '1.1', 'col_span': 1}, {'te
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '2102', 'col_span': 1}, {'text': '6.77', 'col_span': 1}, {'text': '5.0', 'col_span': 1}, {'text': '92.3', 'col_span': 1}, {'text': '1.0', 'col_span': 1}, {'text
+
+  Table 64 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': 'ALT\n（左/右）', 'col_span': 1}, {'text': 'AST\n（左/右）', 'col_span': 1}, {'text': 'ALP\n（左/右）', 'col_span': 1}, {'text
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '25.6', 'col_span': 1}, {'text': '67.2', 'col_span': 1}, {'text': '717.3', 'col_span': 1}, {'text': '<0.00', 'col_span': 1}, {
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '29.4', 'col_span': 1}, {'text': '75.9', 'col_span': 1}, {'text': '803.6', 'col_span': 1}, {'text': '0.64', 'col_span': 1}, {'t
+
+  Table 65 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 55 items
+      [0]: [{'text': '性别：雄性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_sp
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '动物', 'col_span': 1}, {'text': 'TG', 'col_span': 1}, {'text': 'TP', 'col_span': 1}, {'text': '白蛋白', 'col_span': 1}, {'text': 'A/G', 'col_span': 1}, {'text': 'P'
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '（毫克/分升）', 'col_span': 1}, {'text': '(g/dL)', 'col_span': 1}, {'text': '(g/dL)', 'col_span': 1}, {'text': '比值', 'col_span
+
+  Table 66 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 55 items
+      [0]: [{'text': '性别：雌性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_sp
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '动物', 'col_span': 1}, {'text': 'ALT', 'col_span': 1}, {'text': 'AST', 'col_span': 1}, {'text': 'ALP', 'col_span': 1}, {'text': 'GGT', 'col_span': 1}, {'text': '
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（左/右）', 'col_span': 1}, {'text': '（左/右）', 'col_span'
+
+  Table 67 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 55 items
+      [0]: [{'text': '性别：雌性', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_sp
+      [1]: [{'text': '组', 'col_span': 1}, {'text': '动物', 'col_span': 1}, {'text': 'TG', 'col_span': 1}, {'text': 'TP', 'col_span': 1}, {'text': '白蛋白', 'col_span': 1}, {'text': 'A/G', 'col_span': 1}, {'text': 'P'
+      [2]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '（毫克/分升）', 'col_span': 1}, {'text': '(g/dL)', 'col_span': 1}, {'text': '(g/dL)', 'col_span': 1}, {'text': '比值', 'col_span
+
+  Table 68 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '体重', 'col_span': 1}, {'text': '脑', 'col_span': 1}, {'text': '垂体', 'col_span': 1}, {'text': '心脏', 'col_span': 1}, 
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '269.9', 'col_span': 1}, {'text': '1.93', 'col_span': 1}, {'text': '0.0097', 'col_span': 1}, {'text': '1.07', 'col_span': 1}, 
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '275.4', 'col_span': 1}, {'text': '1.91', 'col_span': 1}, {'text': '0.0102', 'col_span': 1}, {'text': '1.11', 'col_span': 1}, {
+
+  Table 69 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '体重', 'col_span': 1}, {'text': '脑', 'col_span': 1}, {'text': '垂体', 'col_span': 1}, {'text': '心脏', 'col_span': 1}, 
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '189.7', 'col_span': 1}, {'text': '1.81', 'col_span': 1}, {'text': '0.0116', 'col_span': 1}, {'text': '0.73', 'col_span': 1}, 
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '2102', 'col_span': 1}, {'text': '167.6', 'col_span': 1}, {'text': '1.79', 'col_span': 1}, {'text': '0.0127', 'col_span': 1}, {'text': '0.60', 'col_span': 1}, {
+
+  Table 70 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '体重\n（g）', 'col_span': 1}, {'text': '脑', 'col_span': 1}, {'text': '垂体', 'col_span': 1}, {'text': '心脏', 'col_span':
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '269.9', 'col_span': 1}, {'text': '0.72', 'col_span': 1}, {'text': '0.0036', 'col_span': 1}, {'text': '0.40', 'col_span': 1}, 
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '275.4', 'col_span': 1}, {'text': '0.69', 'col_span': 1}, {'text': '0.0037', 'col_span': 1}, {'text': '0.40', 'col_span': 1}, {
+
+  Table 71 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 53 items
+      [0]: [{'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': '体重\n（g）', 'col_span': 1}, {'text': '脑', 'col_span': 1}, {'text': '垂体', 'col_span': 1}, {'text': '心脏', 'col_span':
+      [1]: [{'text': 'G1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '189.7', 'col_span': 1}, {'text': '0.95', 'col_span': 1}, {'text': '0.0061', 'col_span': 1}, {'text': '0.38', 'col_span': 1}, 
+      [2]: [{'text': '0', 'col_span': 1}, {'text': '2102', 'col_span': 1}, {'text': '167.6', 'col_span': 1}, {'text': '1.07', 'col_span': 1}, {'text': '0.0076', 'col_span': 1}, {'text': '0.36', 'col_span': 1}, {
+
+  Table 72 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 42 items
+      [0]: [{'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5}, {'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5}, {'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5}, {'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5},
+      [1]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '牺牲', 'col_span': 1}, {'text': '牺牲', 'col_span': 1}]
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '1101', 'col_span': 1}, {'text': '所有', 'col_span': 1}, {'text': '无显著结果', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': '14', 'col_span': 1}]
+
+  Table 73 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 42 items
+      [0]: [{'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5}, {'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5}, {'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5}, {'text': '组 / 动物\t器官*\t尸检结果\t类型', 'col_span': 5},
+      [1]: [{'text': '剂量（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '牺牲', 'col_span': 1}, {'text': '牺牲', 'col_span': 1}]
+      [2]: [{'text': 'G1', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '所有', 'col_span': 1}, {'text': '无显著结果', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': '14', 'col_span': 1}]
+
+  Table 74 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 39 items
+      [0]: [{'text': '动物编号\t1101', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '1103', 'col_span': 1}, {'text': '1104', 'col_span': 1}, {'text': '1105', 'col_span': 1}, {'text': '1106', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 75 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 13 items
+      [0]: [{'text': '动物编号\t1101', 'col_span': 1}, {'text': '1102', 'col_span': 1}, {'text': '1103', 'col_span': 1}, {'text': '1104', 'col_span': 1}, {'text': '1105', 'col_span': 1}, {'text': '1106', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 76 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 10 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '1201', 'col_span': 1}, {'text': '1202', 'col_span': 1}, {'text': '1203', 'col_span': 1}, {'text': '1204', 'col_span': 1}, {'text': '1205', 'col_span': 1}, {
+      [1]: [{'text': '牺牲类型', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'c
+      [2]: [{'text': '牺牲日', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14
+
+  Table 77 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 9 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '1301', 'col_span': 1}, {'text': '1302', 'col_span': 1}, {'text': '1303', 'col_span': 1}, {'text': '1304', 'col_span': 1}, {'text': '1305', 'col_span': 1}, {
+      [1]: [{'text': '牺牲类型', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'c
+      [2]: [{'text': '牺牲日', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14
+
+  Table 78 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 39 items
+      [0]: [{'text': '动物编号\t1401', 'col_span': 1}, {'text': '1402', 'col_span': 1}, {'text': '1403', 'col_span': 1}, {'text': '1404', 'col_span': 1}, {'text': '1405', 'col_span': 1}, {'text': '1406', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 79 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 13 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '1401', 'col_span': 1}, {'text': '1402', 'col_span': 1}, {'text': '1403', 'col_span': 1}, {'text': '1404', 'col_span': 1}, {'text': '1405', 'col_span': 1}, {
+      [1]: [{'text': '牺牲类型', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'c
+      [2]: [{'text': '牺牲日', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14
+
+  Table 80 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 39 items
+      [0]: [{'text': '动物编号\t2101', 'col_span': 1}, {'text': '2102', 'col_span': 1}, {'text': '2103', 'col_span': 1}, {'text': '2104', 'col_span': 1}, {'text': '2105', 'col_span': 1}, {'text': '2106', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 81 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 11 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '2101', 'col_span': 1}, {'text': '2102', 'col_span': 1}, {'text': '2103', 'col_span': 1}, {'text': '2104', 'col_span': 1}, {'text': '2105', 'col_span': 1}, {
+      [1]: [{'text': '牺牲类型', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'c
+      [2]: [{'text': '牺牲日', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14
+
+  Table 82 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 9 items
+      [0]: [{'text': '动物编号\t2201', 'col_span': 1}, {'text': '2202', 'col_span': 1}, {'text': '2203', 'col_span': 1}, {'text': '2204', 'col_span': 1}, {'text': '2205', 'col_span': 1}, {'text': '2206', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 83 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 9 items
+      [0]: [{'text': '动物编号\t2301', 'col_span': 1}, {'text': '2302', 'col_span': 1}, {'text': '2303', 'col_span': 1}, {'text': '2304', 'col_span': 1}, {'text': '2305', 'col_span': 1}, {'text': '2306', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 84 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 38 items
+      [0]: [{'text': '动物编号\t2401', 'col_span': 1}, {'text': '2402', 'col_span': 1}, {'text': '2403', 'col_span': 1}, {'text': '2404', 'col_span': 1}, {'text': '2405', 'col_span': 1}, {'text': '2406', 'col_span':
+      [1]: [{'text': '牺牲类型\tS', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S',
+      [2]: [{'text': '牺牲日 14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': 
+
+  Table 85 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 11 items
+      [0]: [{'text': '动物编号', 'col_span': 1}, {'text': '2401', 'col_span': 1}, {'text': '2402', 'col_span': 1}, {'text': '2403', 'col_span': 1}, {'text': '2404', 'col_span': 1}, {'text': '2405', 'col_span': 1}, {
+      [1]: [{'text': '牺牲类型', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'col_span': 1}, {'text': 'S', 'c
+      [2]: [{'text': '牺牲日', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14', 'col_span': 1}, {'text': '14
+
+  Table 86 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 8 items
+      [0]: [{'text': '使用样品数量', 'col_span': 1}, {'text': '标准溶液的体积\n（微升）', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '介质（微升）', 'col_span': 1}, {'text': '最终浓度（µg/mL）', 'col_span': 2}, {'text': '最终浓度（µg/
+      [1]: [{'text': '（a）', 'col_span': 1}, {'text': '100', 'col_span': 1}, {'text': '+', 'col_span': 1}, {'text': '900', 'col_span': 1}, {'text': '→', 'col_span': 1}, {'text': '100', 'col_span': 1}, {'text': '…
+      [2]: [{'text': '（b）', 'col_span': 1}, {'text': '100', 'col_span': 1}, {'text': '+', 'col_span': 1}, {'text': '100', 'col_span': 1}, {'text': '→', 'col_span': 1}, {'text': '50', 'col_span': 1}, {'text': '……
+
+  Table 87 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 1 items
+      [0]: [{'text': '色谱柱', 'col_span': 1}, {'text': 'Vydac 214TP54 C4 RP柱，\n(4.6×250 毫米，微粒尺寸 5 微米)，批号：E070604-8-1，Vydac 214GD54 保护柱，批号：E051121-6-2，\nW. R. 格蕾公司-康恩', 'col_span': 1}]
+
+  Table 88 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 7 items
+      [0]: [{'text': '色谱柱温度', 'col_span': 1}, {'text': '60°C', 'col_span': 1}, {'text': '', 'col_span': 1}]
+      [1]: [{'text': '流动相', 'col_span': 1}, {'text': '时间（分钟）\t美国（%）\t反转时间（%）\n\n0 70 30\n5 65 35\n15 64 36\n17 70 30\n20 70 30', 'col_span': 1}, {'text': '', 'col_span': 1}]
+      [2]: [{'text': '流速', 'col_span': 1}, {'text': '1 毫升/分钟', 'col_span': 1}, {'text': '', 'col_span': 1}]
+
+  Table 89 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 1 items
+      [0]: [{'text': '实际浓度\n给药制剂', 'col_span': 1}, {'text': '=', 'col_span': 1}, {'text': '测定\n浓度', 'col_span': 1}, {'text': '×', 'col_span': 1}, {'text': '稀释\n因素', 'col_span': 1}]
+
+  Table 90 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 8 items
+      [0]: [{'text': '价值', 'col_span': 1}, {'text': '单位', 'col_span': 1}, {'text': '小数位', 'col_span': 1}]
+      [1]: [{'text': '标称浓度 (x)', 'col_span': 1}, {'text': '微克/毫升', 'col_span': 1}, {'text': '四个显著数字', 'col_span': 1}]
+      [2]: [{'text': '相关系数（r）', 'col_span': 1}, {'text': '–', 'col_span': 1}, {'text': '四位小数', 'col_span': 1}]
+
+  Table 91 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 7 items
+      [0]: [{'text': '', 'col_span': 2}, {'text': '', 'col_span': 2}, {'text': '（毫克/2毫升）', 'col_span': 1}, {'text': '1号', 'col_span': 1}, {'text': '2号', 'col_span': 1}, {'text': '', 'col_span': 5}, {'text': '', 
+      [1]: [{'text': '', 'col_span': 1}, {'text': 'G2', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '0.04857', 'col_span': 1}, {'text': '0.05119', 'col_span': 1}, {'text': '0.04988', 'col_span': 1}
+      [2]: [{'text': '0', 'col_span': 1}, {'text': 'G3', 'col_span': 1}, {'text': '0.18', 'col_span': 1}, {'text': '0.1867', 'col_span': 1}, {'text': '0.1822', 'col_span': 1}, {'text': '0.1845', 'col_span': 1}, 
+
+  Table 92 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 10 items
+      [0]: [{'text': '名称', 'col_span': 1}, {'text': '标准溶液名称', 'col_span': 1}, {'text': '标准溶液的体积\n（微升）', 'col_span': 1}, {'text': '稀释缓冲液（微升）', 'col_span': 2}, {'text': '稀释缓冲液（微升）', 'col_span': 2}, {'text': '', 'c
+      [1]: [{'text': 'STD-7', 'col_span': 1}, {'text': '（a）', 'col_span': 1}, {'text': '10', 'col_span': 1}, {'text': '+', 'col_span': 1}, {'text': '990', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': '1
+      [2]: [{'text': 'STD-6', 'col_span': 1}, {'text': '（b）', 'col_span': 1}, {'text': '200', 'col_span': 1}, {'text': '+', 'col_span': 1}, {'text': '300', 'col_span': 1}, {'text': '→', 'col_span': 1}, {'text': 
+
+  Table 93 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 21 items
+      [0]: [{'text': '', 'col_span': 1}, {'text': 'G6', 'col_span': 1}, {'text': 'AUClast（ng·min/mL）', 'col_span': 1}, {'text': '255.24', 'col_span': 1}, {'text': '±', 'col_span': 1}, {'text': '48.47', 'col_span
+      [1]: [{'text': '', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '最大血药浓度（ng/mL）', 'col_span': 1}, {'text': '92.10', 'col_span': 1}, {'text': '±', 'col_span': 1}, {'text': '13.03', 'col_span': 1
+      [2]: [{'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': 'C0（ng/mL）', 'col_span': 1}, {'text': '113.44', 'col_span': 1}, {'text': '±', 'col_span': 1}, {'text': '18.00', 'col_span': 1}, {'te
+
+  Table 94 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 21 items
+      [0]: [{'text': '', 'col_span': 1}, {'text': 'G6', 'col_span': 1}, {'text': 'AUClast（ng·min/mL）', 'col_span': 1}, {'text': '361.27', 'col_span': 1}, {'text': '±', 'col_span': 1}, {'text': '86.72', 'col_span
+      [1]: [{'text': '', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '最大血药浓度（ng/mL）', 'col_span': 1}, {'text': '120.78', 'col_span': 1}, {'text': '±', 'col_span': 1}, {'text': '15.12', 'col_span': 
+      [2]: [{'text': '', 'col_span': 1}, {'text': '', 'col_span': 1}, {'text': 'C0（ng/mL）', 'col_span': 1}, {'text': '157.93', 'col_span': 1}, {'text': '±', 'col_span': 1}, {'text': '19.24', 'col_span': 1}, {'te
+
+  Table 95 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 46 items
+      [0]: [{'text': '相位 / 标称浓度 光密度 分析浓度\n批次\t(ng/mL)\t(ng/mL)', 'col_span': 4}, {'text': '相位 / 标称浓度 光密度 分析浓度\n批次\t(ng/mL)\t(ng/mL)', 'col_span': 4}, {'text': '相位 / 标称浓度 光密度 分析浓度\n批次\t(ng/mL)\t(ng/mL)', 'col_spa
+      [1]: [{'text': '男性：', 'col_span': 1}, {'text': '空白品', 'col_span': 1}, {'text': '-\u2003-\u2003-', 'col_span': 3}, {'text': '-\u2003-\u2003-', 'col_span': 3}, {'text': '-\u2003-\u2003-', 'col_span': 3}]
+      [2]: [{'text': '第0天', 'col_span': 1}, {'text': '零 空白品', 'col_span': 1}, {'text': '-\u2003-\u2003-', 'col_span': 3}, {'text': '-\u2003-\u2003-', 'col_span': 3}, {'text': '-\u2003-\u2003-', 'col_span': 3}]
+
+  Table 96 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 37 items
+      [0]: [{'text': '性别', 'col_span': 1}, {'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': 'AUClast（ng·分钟/毫升）', 'col_span': 1}, {'text': '最大血药浓度（ng/mL）', 'col_span': 1}, {'te
+      [1]: [{'text': '', 'col_span': 1}, {'text': 'G6', 'col_span': 1}, {'text': '1601', 'col_span': 1}, {'text': '337.33', 'col_span': 1}, {'text': '83.34', 'col_span': 1}, {'text': '98.62', 'col_span': 1}, {'t
+      [2]: [{'text': '', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '1602', 'col_span': 1}, {'text': '258.84', 'col_span': 1}, {'text': '117.73', 'col_span': 1}, {'text': '149.26', 'col_span': 1},
+
+  Table 97 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 37 items
+      [0]: [{'text': '性别', 'col_span': 1}, {'text': '组 / 剂量 (mg/kg)', 'col_span': 1}, {'text': '动物编号', 'col_span': 1}, {'text': 'AUClast（ng·分钟/毫升）', 'col_span': 1}, {'text': '最大血药浓度（ng/mL）', 'col_span': 1}, {'te
+      [1]: [{'text': '', 'col_span': 1}, {'text': 'G6', 'col_span': 1}, {'text': '1601', 'col_span': 1}, {'text': '166.97', 'col_span': 1}, {'text': '74.15', 'col_span': 1}, {'text': '91.19', 'col_span': 1}, {'t
+      [2]: [{'text': '', 'col_span': 1}, {'text': '0.05', 'col_span': 1}, {'text': '1602', 'col_span': 1}, {'text': '170.67', 'col_span': 1}, {'text': '75.77', 'col_span': 1}, {'text': '93.15', 'col_span': 1}, {
+
+  Table 98 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 4 items
+      [0]: [{'text': '相位或相角 剂量\n（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '0.5', 'col_span': 1}, {'text': '3', 'col_span': 1}, {'text': '10', 'col_span': 1},
+      [1]: [{'text': 'G6', 'col_span': 1}, {'text': '1601', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '83.34', 'col_span': 1}, {'text': '35.92', 'col_span': 1}, {'text': '4.87', 'col_span': 1}, {'t
+      [2]: [{'text': '0.05', 'col_span': 1}, {'text': '1602', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '117.73', 'col_span': 1}, {'text': '35.94', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'
+
+  Table 99 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 9 items
+      [0]: [{'text': 'G8', 'col_span': 1}, {'text': '1801', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '625.20', 'col_span': 1}, {'text': '268.91', 'col_span': 1}, {'text': '80.64', 'col_span': 1}, 
+      [1]: [{'text': '0.5', 'col_span': 1}, {'text': '1802', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '877.60', 'col_span': 1}, {'text': '286.99', 'col_span': 1}, {'text': '132.03', 'col_span': 1}
+      [2]: [{'text': '', 'col_span': 1}, {'text': '1803', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '824.90', 'col_span': 1}, {'text': '329.18', 'col_span': 1}, {'text': '89.98', 'col_span': 1}, {'
+
+  Table 100 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 6 items
+      [0]: [{'text': 'G8', 'col_span': 1}, {'text': '1801', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '802.00', 'col_span': 1}, {'text': '327.88', 'col_span': 1}, {'text': '88.37', 'col_span': 1}, 
+      [1]: [{'text': '0.5', 'col_span': 1}, {'text': '1802', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '810.90', 'col_span': 1}, {'text': '338.10', 'col_span': 1}, {'text': '89.13', 'col_span': 1},
+      [2]: [{'text': '', 'col_span': 1}, {'text': '1803', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '877.30', 'col_span': 1}, {'text': '292.20', 'col_span': 1}, {'text': '132.52', 'col_span': 1}, {
+
+  Table 101 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 4 items
+      [0]: [{'text': '相位或相角 剂量\n（毫克/千克）', 'col_span': 1}, {'text': 'ID', 'col_span': 1}, {'text': '0', 'col_span': 1}, {'text': '0.5', 'col_span': 1}, {'text': '3', 'col_span': 1}, {'text': '10', 'col_span': 1},
+      [1]: [{'text': 'G6', 'col_span': 1}, {'text': '2601', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '135.02', 'col_span': 1}, {'text': '45.40', 'col_span': 1}, {'text': '6.13', 'col_span': 1}, {'
+      [2]: [{'text': '0.05', 'col_span': 1}, {'text': '2602', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'text': '90.57', 'col_span': 1}, {'text': '21.50', 'col_span': 1}, {'text': 'ND', 'col_span': 1}, {'t
+
+  Table 102 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '稽查相位', 'col_span': 1}, {'text': '稽查日期', 'col_span': 1}, {'text': '致研究负责人及\n测试机构管理', 'col_span': 1}]
+      [1]: [{'text': '最终报告修订', 'col_span': 1}, {'text': '2010年12月1日', 'col_span': 1}, {'text': '2010年12月1日', 'col_span': 1}]
+
+  Table 103 keys: ['table_index', 'rows', 'cols', 'data']
+    data: list of 2 items
+      [0]: [{'text': '稽查相位', 'col_span': 1}, {'text': '稽查日期', 'col_span': 1}, {'text': '致研究负责人及\n测试机构管理', 'col_span': 1}]
+      [1]: [{'text': '最终报告修订（2）', 'col_span': 1}, {'text': '2015年1月9日', 'col_span': 1}, {'text': '2015年1月9日', 'col_span': 1}]
+

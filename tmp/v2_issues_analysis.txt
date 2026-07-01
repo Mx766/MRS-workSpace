@@ -1,0 +1,285 @@
+Total issues: 204
+
+Severity distribution: {'critical': 57, 'medium': 98, 'low': 49}
+
+=== Check item distribution ===
+  1.4 错译: 30
+  4.1 标准术语/4.3 跨段术语统一: 18
+  4.1 标准术语: 16
+  2.13 被动语态: 15
+  2.F1 词义偏差: 13
+  4.1 标准术语/2.6 近义词: 12
+  2.G3 语义冗余: 8
+  2.G1 成分残缺: 6
+  4.1 control=对照组: 6
+  4.3 跨段术语统一: 5
+  2.20 长句拆分: 5
+  2.6 近义词: 5
+  1.1 完整性: 5
+  2.5 用词准确性: 4
+  3.4 专有名词: 3
+  2.23 术语泛化: 3
+  4.1 术语规范: 3
+  2.4 口语化: 2
+  2.2 标点体系: 2
+  3.3 单位: 2
+  2.6 近义词混淆: 2
+  2.F1 词义范围偏差: 2
+  4.1 术语库一致: 2
+  4.2 术语不一致: 2
+  3.4 标点规范: 2
+  3.5 法规编号: 1
+  2.14 的字符堆砌: 1
+  2.6 近义词/2.F1 词义偏差: 1
+  2.F1 词义偏差/冗余: 1
+  2.4 口语化/2.F1 词义偏差: 1
+
+=== Issues with empty target_quote ===
+Count: 0
+
+=== Issues with empty source_quote ===
+Count: 0
+
+=== Duplicate issue texts (first 80 chars) ===
+Duplicate groups: 7
+  x14: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/...
+  x2: 【大体尸检】不符合GLP规范。GLP标准术语：necropsy应译为【大体解剖】（非【尸检】），terminal sacrifice应译为【安乐死】（非【处死】...
+  x2: 【尸检中】不符合GLP规范。GLP标准术语：necropsy应译为【大体解剖】（非【尸检】），terminal sacrifice应译为【安乐死】（非【处死】）...
+  x2: 【焦点性多核细胞】的【焦点性】应为【局灶性】（focal）。GLP组织病理学术语，focal统一译为【局灶性】。【焦点】为光学概念。...
+  x2: 缺少动词，句式不完整。...
+  x2: control误译为'质控品'，应为'对照组'。...
+  x2: 两处control均误译为'质控品'，应为'对照组'。...
+
+=== Paragraph coverage ===
+Unique paragraphs with issues: 174
+Most-hit paragraphs: [(429, 4), (392, 3), (431, 3), (98, 3), (391, 2), (113, 2), (274, 2), (395, 2), (406, 2), (426, 2)]
+
+=== ALL Critical Issues ===
+1. [1.4 错译] para=7
+   issue: 'Study'首字母S损坏显示为'$'，为字符编码问题，原文应为'Study No.: B09462'。
+   suggestion: 修复字符：'Study No.: B09462'
+
+2. [4.3 跨段术语统一] para=20
+   issue: Ch1 para 20译为'研究负责人'，但Ch3 para 52译为'研究主任'，同一概念两种译法不一致。GLP标准术语为'研究负责人'。
+   suggestion: 全文统一为'研究负责人'
+
+3. [4.3 跨段术语统一] para=52
+   issue: 'Study Director'译为'研究主任'，非GLP标准术语。中国GLP规范使用'研究负责人'或'专题负责人'。
+   suggestion: 统一为'研究负责人'
+
+4. [4.1 标准术语] para=283
+   issue: v1签名级错误：【质控品】为control的严重误译。control article应译为【对照品】,control group应译为【对照组】。此处应为【对照品动物】或【对照组动物】。
+   suggestion: 改为：对照组动物 或 对照品动物
+
+5. [4.1 标准术语] para=329
+   issue: v1签名级错误：【质控品】应为【对照组】。【质控品】指quality control material,此处指control group animals。
+   suggestion: 改为：所有来自对照组和0.5 mg/kg剂量组动物的组织
+
+6. [4.1 标准术语] para=382
+   issue: v1签名级错误：【历史质控数据】应为【历史对照数据】。historical control data是GLP标准术语,【质控】为quality control的错误翻译。
+   suggestion: 改为：历史对照数据范围内
+
+7. [4.1 标准术语] para=391
+   issue: v1签名级错误：【历史质控品数据】应为【历史对照数据】。比para 382多一【品】字,更加错误。
+   suggestion: 改为：历史对照数据范围内
+
+8. [4.1 标准术语] para=392
+   issue: v1签名级错误：【质控组】应为【对照组】。一段中出现2处v1错误（本处+历史质控数据）。
+   suggestion: 改为：当前对照组的范围相当
+
+9. [4.1 标准术语] para=429
+   issue: v1签名级错误：【历史质控数据】应为【历史对照数据】。讨论与结论部分出现此错误影响尤为严重。
+   suggestion: 改为：历史对照数据范围内
+
+10. [4.1 标准术语/4.3 跨段术语统一] para=103
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+11. [4.1 标准术语/4.3 跨段术语统一] para=104
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+12. [4.1 标准术语/4.3 跨段术语统一] para=113
+   issue: 【试验物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【试验物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+13. [4.1 标准术语/4.3 跨段术语统一] para=174
+   issue: 【测试物质 (heading)】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质 (heading)】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+14. [4.1 标准术语/4.3 跨段术语统一] para=191
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+15. [4.1 标准术语/4.3 跨段术语统一] para=204
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+16. [4.1 标准术语/4.3 跨段术语统一] para=206
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+17. [4.1 标准术语/4.3 跨段术语统一] para=274
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+18. [4.1 标准术语/4.3 跨段术语统一] para=282
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+19. [4.1 标准术语/4.3 跨段术语统一] para=344
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+20. [4.1 标准术语/4.3 跨段术语统一] para=381
+   issue: 【受试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【受试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+21. [4.1 标准术语/4.3 跨段术语统一] para=392
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+22. [4.1 标准术语/4.3 跨段术语统一] para=395
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+23. [4.1 标准术语/4.3 跨段术语统一] para=406
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+24. [4.1 标准术语/4.3 跨段术语统一] para=426
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+25. [4.1 标准术语/4.3 跨段术语统一] para=429
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+26. [4.1 标准术语/4.3 跨段术语统一] para=431
+   issue: 【测试物质】应为【受试物】。GLP标准术语中test substance/test article统一译为【受试物】。【测试物质】为不规范用法。全文出现受试物/测试物质/试验物质/受试物质4种变体。
+   suggestion: 全文统一改为：受试物
+
+27. [4.1 标准术语] para=98
+   issue: vehicle（溶媒）误译为【介质】。GLP标准术语中vehicle应译为【溶媒】。【介质】在生物化学语境下另有含义。
+   suggestion: 改为：DWP431溶媒
+
+28. [4.1 标准术语] para=193
+   issue: 小标题【介质】应为【溶媒】。GLP标准术语vehicle译为【溶媒】。作为章节标题影响尤为严重。
+   suggestion: 改为：溶媒
+
+29. [4.1 标准术语] para=194
+   issue: 【介质】应为【溶媒】。
+   suggestion: 改为：名称  DWP431 溶媒
+
+30. [4.1 标准术语] para=286
+   issue: 两处术语错误：两处【介质】均应为【溶媒】。
+   suggestion: 改为：接受溶媒（DWP431溶媒），给药体积与给药组相同。
+
+31. [4.1 标准术语] para=164
+   issue: 【发起人】为严重术语错误。GLP标准用语sponsor应译为【委托方】或【申办者】，非【发起人】。
+   suggestion: 改为：委托方 或 申办者
+
+32. [1.4 错译] para=426
+   issue: 严重错译：【鞘内注射】(intrathecal injection)与全文研究设计(静脉给药IV)矛盾。本研究为静脉给药毒性研究，非鞘内注射。此为GLP报告核心信息严重错误，改变整个研究设计。
+   suggestion: 改为：静脉给药14天后
+
+33. [4.1 标准术语] para=235
+   issue: 标题【栖息地】应为【饲养条件】或【动物房环境】。Husbandry是动物饲养管理概念，【栖息地】是生态学habitat概念。
+   suggestion: 改为：饲养条件 或 动物饲养管理
+
+34. [4.1 标准术语] para=380
+   issue: 标题【血液化学】应为【临床化学】。Clinical Chemistry的GLP标准术语。【血液化学】为不规范直译。
+   suggestion: 改为：临床化学（表7，附录8）
+
+35. [1.4 错译] para=384
+   issue: 【器官体重】为明显笔误。【Organ Weight】应为【器官重量】。【体重】专指body weight，器官称重用【重量】。
+   suggestion: 改为：器官重量（表8、表9、附录9、附录10）
+
+36. [1.4 错译] para=391
+   issue: 【器官体重】应为【器官重量】，同para 384错误。
+   suggestion: 改为：卵巢重量变化伴随着形态学变化
+
+37. [4.1 标准术语/2.6 近义词] para=318
+   issue: 【尸检（大体病理学）】不符合GLP规范。GLP标准术语：necropsy应译为【大体解剖】（非【尸检】），terminal sacrifice应译为【安乐死】（非【处死】）。【尸检】为临床/法医用语。
+   suggestion: 改为：大体解剖 / 安乐死
+
+38. [4.1 标准术语/2.6 近义词] para=394
+   issue: 【尸检（表10，附录11）】不符合GLP规范。GLP标准术语：necropsy应译为【大体解剖】（非【尸检】），terminal sacrifice应译为【安乐死】（非【处死】）。【尸检】为临床/法医用语。
+   suggestion: 改为：大体解剖 / 安乐死
+
+39. [4.1 标准术语/4.3 跨段术语统一] para=441
+   issue: BMP标准译名为【骨形态发生蛋白】，非【骨形成蛋白】。全文para 430使用【骨形态发生蛋白-2】，此处不统一。
+   suggestion: 改为：骨形态发生蛋白系统对多重内分泌的调节
+
+40. [1.4 错译] para=113
+   issue: 【磁共振成像的安全性】高度疑似错译。本研究为GLP毒理学报告，研究目的中不应出现MRI安全性评估。原文可能为toxicokinetic safety或toxicological safety。
+   suggestion: 需对照原文确认，大概率应为【毒代动力学安全性】或【毒理学安全性】
+
+41. [4.1 标准术语] para=99
+   issue: 【大体尸检】混用【大体】+【尸检】，GLP标准术语为【大体解剖】。同段还使用【受试物质】应为【受试物】。
+   suggestion: 改为：大体解剖；受试物
+
+42. [1.4 错译] para=274
+   issue: 原文表述为将物质【植入】(insertion)骨损伤部位而非【插入】。整句翻译生硬。
+   suggestion: 改为：将受试物植入骨缺损部位为预期临床给药途径。
+
+43. [4.1 control=对照组] para=647
+   issue: control误译为'质控品'(QC sample)，GLP标准译法为'对照组'。此错误贯穿全文所有表格脚注。
+   suggestion: 经Dunnett t检验，与对照组相比差异有统计学显著性：* p<0.05。
+
+44. [4.1 control=对照组] para=653
+   issue: control误译为'质控品'，应为'对照组'。
+   suggestion: 通过Dunnett t检验，与对照组相比差异有统计学显著性：* p<0.05。
+
+45. [4.1 control=对照组] para=656
+   issue: control误译为'质控品'，应为'对照组'。
+   suggestion: 通过Dunnett t检验，与对照组相比差异有统计学显著性：** p<0.01。
+
+46. [4.1 control=对照组] para=668
+   issue: 两处control均误译为'质控品'，应为'对照组'。
+   suggestion: 通过Dunnett t检验，与对照组相比差异有统计学显著性。通过Steel检验，与对照组相比差异有统计学显著性
+
+47. [4.1 control=对照组] para=691
+   issue: 两处control均误译为'质控品'，应为'对照组'。
+   suggestion: 经Dunnett t检验，与对照组相比差异有统计学显著性。经Steel检验，与对照组相比差异有统计学显著性
+
+48. [4.1 control=对照组] para=703
+   issue: control误译为'质控品'，本句为组织病理学结论正文，应为'对照组'。
+   suggestion: 将'质控品和0.5 mg/kg组'改为'对照组和0.5 mg/kg组'
+
+49. [1.4 数值错译] para=1210
+   issue: 1000 mL误译为2000毫升。此为核心实验参数（流动相A配制），数值错误可能导致实验不可复现。
+   suggestion: 将'2000毫升'改为'1000毫升'
+
+50. [1.4 错译] para=1229
+   issue: 'Treatment'在分析方法语境下应为'处理'，译为'治疗'是严重的领域错配。此节内容为给药制剂分析方法，非临床治疗。
+   suggestion: 改为'给药制剂处理'或'给药制剂的处理方法'
+
+51. [1.4 错译] para=1364
+   issue: 'Mass cylinder'(量筒)误译为'质量柱镜'(柱面透镜的柱镜)，实验室基本器材名称完全错误。
+   suggestion: 改为'量筒'
+
+52. [1.4 错译] para=1472
+   issue: 'terminal phase'在毒代动力学中标准术语为'终末相'(药物消除的最后阶段)，'终端相位'为字面直译。
+   suggestion: 改为'终末相'
+
+53. [1.4 错译] para=1719
+   issue: Youngin-si(龙仁市/용인시)误译为议政府市(Uijeongbu/의정부시)，两个完全不同的韩国城市。致命级地理信息错误。
+   suggestion: 韩国京畿道龙仁市处仁区蒲谷邑三溪里501-2号
+
+54. [1.4 错译] para=1744
+   issue: Study No.为研究编号，误译为研究数量。数量意为quantity/count，完全曲解原意。
+   suggestion: 研究编号：B09462
+
+55. [1.4 错译] para=1814
+   issue: Study No.(研究编号)误译为研究数量。No.是Number的缩写，此处指编号非数量。
+   suggestion: 研究编号：B09462
+
+56. [1.4 错译] para=1787
+   issue: 韩国地名三处错误：Cheongwon-gun应为清原郡非青川郡，Ochang-eup应为梧仓邑非青川邑，Ochang应为梧仓非奥昌。
+   suggestion: 韩国忠清北道清原郡梧仓邑杨庆里686-2号，梧仓科学工业园区
+
+57. [1.4 错译] para=1789
+   issue: Youngin-si(龙仁市)误译为议政府市(Uijeongbu)，两个完全不同的韩国城市，相距数十公里。致命级错误。
+   suggestion: 龙仁市
+

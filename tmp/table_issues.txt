@@ -1,0 +1,30 @@
+Total table paragraphs: 0
+Table paragraphs with issues: 0/0
+
+=== TABLE CONTENT - SPOT CHECK (first 30 table paras) ===
+
+=== TABLE ISSUE SCAN ===
+--- 质控品 in tables not caught ---
+  [328] body: 所有来自质控品和0.5 mg/kg剂量动物的组织
+  [390] body: 卵巢的器官体重变化伴随着形态学变化，但这些变化较小，且在历史质控品数据范围内。
+  [646] body: 经邓内特t检验，与质控品相比存在显著差异：* p<0.05。
+  [652] body: ^: 低于检测水平的数值未纳入统计学分析。通过邓内特t检验与质控品相比具有显著差异：* p<0.05。
+  [655] body: ^: 低于检测水平的数值未纳入统计学分析。通过邓内特t检验与质控品相比具有显著差异：** p<0.01。
+  [667] body: 通过邓内特t检验，与质控品相比存在显著差异：* p<0.05。通过Steel检验，与质控品相比存在显著差异：# p<0.05，## p<0.01。
+  [690] body: 经邓内特t检验，与质控品相比存在显著差异：** p<0.01。经Steel检验，与质控品相比存在显著差异：# p<0.05，## p<0.01。
+  [702] body: 质控品和0.5 mg/kg组的肾上腺、脑、盲肠、结肠、十二指肠、附睾（雄性）、食道、眼睛、股骨、哈德里安腺、心脏、回肠、空肠、乳腺、肠系膜淋巴结、胰腺、甲状旁腺、垂体、前列腺（雄性）、直肠、唾液腺（腮腺、舌下腺、颌下腺）、精囊（雄性）、皮肤、脊髓、胸骨、胃、睾丸（雄性）、胸腺、甲状腺、舌头、气管、尿
+
+--- 英文残留 in tables ---
+  [84] body: CONTENTS
+  [94] body: SUMMARY
+  [355] body: RESULTS
+  [437] body: REFERENCES
+  [459] body: FIGURES
+  [527] body: TABLES
+  [721] body: APPENDICES
+  [1268] body: RESULTS
+  [1313] body: C1147H1779N321O328S19，2.6kDa
+  [1421] body: RESULTS
+  [1490] body: FIGURES
+  [1597] body: APPENDICES
+  [1846] body: ENV/MC/CHEM(98)17

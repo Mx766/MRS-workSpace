@@ -1,0 +1,17 @@
+proofread/test/cache\chapter_Ch10_data.json: 17 paragraphs (17 non-empty), 0 tables
+  Para[1835]: DWP431在Sprague-Dawley大鼠中2周重复静脉给药毒性研究及毒代动力学
+  Para[1839]: 一、变更原因：根据发起人的要求，加入了以下药物非临床研究质量管理规范法规和指南：
+  Para[1840]: 页 9
+  Para[1841]: 2. 研究概要
+  Para[1842]: 药物非临床研究质量管理规范
+proofread/test/cache\chapter_Ch1_data.json: 7 paragraphs (7 non-empty), 0 tables
+  Para[7]: BTT $tudy 编号：B09462
+  Para[8]: 最终报告
+  Para[11]: 翻译证书
+  Para[20]: 本报告是从韩语的原始内容翻译成英语的。因此，它不带有研究主管的原始签名。
+  Para[32]: 翻译
+proofread/test/cache\chapter_Ch2_data.json: 4 paragraphs (4 non-empty), 0 tables
+  Para[40]: GLP合规性声明及签名
+  Para[48]: 该研究按照以下药物非临床研究质量管理规范进行。
+  Para[50]: - 《药物非临床研究质量管理规范法规》通知 No. 2009-102，韩国食品药品监督管理局（2009年8月24日）
+  Para[52]: 本报告中描述的研究是在研究负责人监督下进行的，本报告完整且准确地反映了研究期间生成的原始数据。
