@@ -199,6 +199,20 @@ def write_word_comments(filepath: str, issues: list[dict],
     comment_id = 0
     para_comments = {}
     total_matched = 0
+    total_fuzzy = 0
+    total_neighbor = 0
+    total_bare = 0
+
+    # v2.23: 匹配失败诊断计数器
+    diag = {
+        "empty_target": 0,
+        "para_out_of_range": 0,
+        "para_empty": 0,
+        "target_not_in_para": 0,
+        "matched_exact": 0,
+        "matched_fuzzy": 0,
+        "matched_neighbor": 0,
+    }
 
     # ── 1a: Paragraph-level issues (pi >= 1) ──
     # Process first so they get lower comment_ids
@@ -268,6 +282,7 @@ def write_word_comments(filepath: str, issues: list[dict],
                                 rPr.append(cr)
                             _add_cmt_range(para._p, run._r, comment_id)
                             total_matched += 1
+                            diag["matched_exact"] += 1
                             matched = True
                             break
                     if matched:
@@ -295,12 +310,132 @@ def write_word_comments(filepath: str, issues: list[dict],
                             rPr.append(cr)
                             _add_cmt_range(para._p, run._r, comment_id)
                             total_matched += 1
+                            diag["matched_exact"] += 1
                             matched = True
                             break
                         char_pos += run_len
 
+            if not matched and target:
+                # ── v2.23 Strategy 3: fuzzy matching ──
+                # 3a: 去空白后精确匹配
+                target_nosp = re.sub(r'\s+', '', target)
+                full_nosp = re.sub(r'\s+', '', full_text)
+                if len(target_nosp) >= 4 and target_nosp in full_nosp:
+                    # 在原始 full_text 中定位
+                    pos = full_nosp.index(target_nosp)
+                    # 找到对应的 run
+                    char_count = 0
+                    for run in para.runs:
+                        run_text_nosp = re.sub(r'\s+', '', run.text)
+                        run_start = char_count
+                        run_end = char_count + len(run_text_nosp)
+                        if run_start <= pos < run_end:
+                            rPr = run._r.get_or_add_rPr()
+                            if rPr.find(qn('w:shd')) is None:
+                                shd = OxmlElement('w:shd')
+                                shd.set(qn('w:val'), 'clear')
+                                shd.set(qn('w:color'), 'auto')
+                                shd.set(qn('w:fill'), fill_color)
+                                rPr.append(shd)
+                                hl = OxmlElement('w:highlight')
+                                hl.set(qn('w:val'), hl_name)
+                                rPr.append(hl)
+                            cr = OxmlElement('w:commentReference')
+                            cr.set(qn('w:id'), str(comment_id))
+                            rPr.append(cr)
+                            _add_cmt_range(para._p, run._r, comment_id)
+                            total_fuzzy += 1
+                            matched = True
+                            diag["matched_fuzzy"] += 1
+                            break
+                        char_count = run_end
+
+                # 3b: 最长中文片段匹配
+                if not matched and target:
+                    import unicodedata
+                    # 提取 target 中最长的纯中文字段 (≥4字)
+                    chunks = re.findall(r'[一-鿿]{4,}', target)
+                    for chunk in sorted(chunks, key=len, reverse=True):
+                        if chunk in full_text:
+                            # 同 Strategy 2 的高亮逻辑
+                            target_start = full_text.index(chunk)
+                            char_pos = 0
+                            for run in para.runs:
+                                run_len = len(run.text)
+                                if char_pos <= target_start < char_pos + run_len:
+                                    rPr = run._r.get_or_add_rPr()
+                                    if rPr.find(qn('w:shd')) is None:
+                                        shd = OxmlElement('w:shd')
+                                        shd.set(qn('w:val'), 'clear')
+                                        shd.set(qn('w:color'), 'auto')
+                                        shd.set(qn('w:fill'), fill_color)
+                                        rPr.append(shd)
+                                        hl = OxmlElement('w:highlight')
+                                        hl.set(qn('w:val'), hl_name)
+                                        rPr.append(hl)
+                                    cr = OxmlElement('w:commentReference')
+                                    cr.set(qn('w:id'), str(comment_id))
+                                    rPr.append(cr)
+                                    _add_cmt_range(para._p, run._r, comment_id)
+                                    total_fuzzy += 1
+                                    matched = True
+                                    diag["matched_fuzzy"] += 1
+                                    break
+                                char_pos += run_len
+                        if matched:
+                            break
+
+            # ── v2.23: 邻段搜索 (当本段为空或 target 不在本段) ──
+            if not matched and target:
+                # 尝试上下 ±5 段
+                for offset in list(range(1, 6)) + list(range(-1, -6, -1)):
+                    nb_idx = para_idx + offset
+                    if 1 <= nb_idx <= len(doc.paragraphs):
+                        nb_para = doc.paragraphs[nb_idx - 1]
+                        nb_text = ''.join(r.text for r in nb_para.runs)
+                        if target in nb_text or (len(target) >= 4 and target[:10] in nb_text):
+                            # 标记找到的邻段为匹配位置
+                            for key_len in [15, 10, 8, 5]:
+                                key = target[:key_len].strip()
+                                if not key or len(key) < 3:
+                                    continue
+                                for run in nb_para.runs:
+                                    if not run.text.strip():
+                                        continue
+                                    if key in run.text:
+                                        rPr = run._r.get_or_add_rPr()
+                                        if rPr.find(qn('w:shd')) is None:
+                                            shd = OxmlElement('w:shd')
+                                            shd.set(qn('w:val'), 'clear')
+                                            shd.set(qn('w:color'), 'auto')
+                                            shd.set(qn('w:fill'), fill_color)
+                                            rPr.append(shd)
+                                            hl = OxmlElement('w:highlight')
+                                            hl.set(qn('w:val'), hl_name)
+                                            rPr.append(hl)
+                                        cr = OxmlElement('w:commentReference')
+                                        cr.set(qn('w:id'), str(comment_id))
+                                        rPr.append(cr)
+                                        _add_cmt_range(nb_para._p, run._r, comment_id)
+                                        total_neighbor += 1
+                                        matched = True
+                                        diag["matched_neighbor"] += 1
+                                        break
+                                if matched:
+                                    break
+                            break
+                if matched:
+                    break
+
             if not matched:
                 # Bare ref: insert after pPr (NOT at paragraph end — avoids highlight suppression)
+                if not target:
+                    diag["empty_target"] += 1
+                elif not full_text.strip():
+                    diag["para_empty"] += 1
+                else:
+                    diag["target_not_in_para"] += 1
+                total_bare += 1
                 p_elem = para._p
                 pPr = p_elem.find(qn('w:pPr'))
                 insert_pos = (list(p_elem).index(pPr) + 1) if pPr is not None else 0
@@ -355,6 +490,22 @@ def write_word_comments(filepath: str, issues: list[dict],
             print(f'  Mechanical (pi=0, doc-level): {mech_count} issues')
         if doc_level_count > 0:
             print(f'  Document-level (pi=0): {doc_level_count} comments at last paragraph')
+
+    # ── v2.23: 匹配诊断 ──
+    total_matched_all = total_matched + total_fuzzy + total_neighbor
+    total_with_target = total_issues - diag["empty_target"]
+    if total_with_target > 0:
+        match_rate = total_matched_all / total_with_target * 100
+    else:
+        match_rate = 0
+    print(f'[write_comments] 匹配统计: exact={total_matched}, fuzzy={total_fuzzy}, neighbor={total_neighbor}, bare={total_bare}')
+    print(f'[write_comments] 匹配率: {total_matched_all}/{total_with_target} = {match_rate:.0f}%')
+    if total_bare > total_with_target * 0.5:
+        print(f'[write_comments] ⚠ 匹配率仅{match_rate:.0f}%——建议检查paragraph_index是否与DOCX对齐，'
+              f'target_quote是否从split_target.json逐字复制')
+    if verbose:
+        print(f'[write_comments] 失败原因: empty_target={diag["empty_target"]}, '
+              f'para_empty={diag["para_empty"]}, target_not_found={diag["target_not_in_para"]}')
 
     # ══════════════════════════════════════════════════
     # STEP 2: ZIP layer — build comments.xml,

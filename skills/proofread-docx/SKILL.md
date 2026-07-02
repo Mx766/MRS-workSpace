@@ -44,6 +44,8 @@ python -c "import docx, openpyxl; print('deps ok')"
 | 5 | **术语必查证，不凭空猜** | 编造术语 = 专业事故 |
 | 6 | **脚本报错必须处理，不能跳过** | 脚本挂了后面数据全错 |
 | **7** | **每次运行全量重建，禁止复用旧版本缓存** | 从旧版本目录拷贝 cache/ → 旧数据污染新版本、跳过脚本执行、Phase 4 复用旧 AI 产出 |
+| **8** | **禁止手动构造 batch 数据——必须使用 build_batches.py** (v2.23) | 手动构造 = paragraph_index 不保证对齐 DOCX → 批注匹配率崩盘（实测从86%跌至9%） |
+| **9** | **Phase 4 prompt 必须使用 prepare_batch_prompt.py 输出** (v2.23) | 不走脚本 = 3.9标题翻译/5.9表格内容/5.10表格脚注等关键 trigger 缺失 → 标题/表格漏检 |
 
 ---
 
@@ -655,8 +657,15 @@ Phase 2 拆分出的全部段落按 **15 段一批** 切分，每批独立派发
 #### 4.1.0 分批与派发
 
 ```
-Step 4.0.0: 加载 cache/phase4_context.json（领域上下文 + 必检项 + 高风险段）← 新增
-Step 4.0.1: 从 cache/split_target.json 读取全部段落（N 段）
+Step 4.0.0: 加载 cache/phase4_context.json（领域上下文 + 必检项 + 高风险段）
+Step 4.0.0.5: 运行 build_batches.py 生成标准化 batch 数据（v2.23 新增）：
+  python ${SKILL_ROOT}/scripts/build_batches.py \
+    --target-split cache/split_target.json \
+    --source-split cache/split_source.json \
+    --context cache/phase4_context.json \
+    --batch-size 15 \
+    --output-dir cache/
+Step 4.0.1: 确认 cache/batch_01_data.json ~ batch_NN_data.json 生成成功
 Step 4.0.2: 按 15 段一批切分，生成批次清单
 Step 4.0.3: 逐批运行 prepare_batch_prompt.py 富化 batch 数据：
   python ${SKILL_ROOT}/scripts/prepare_batch_prompt.py \
@@ -833,7 +842,9 @@ Phase 4 首选使用 Agent 工具（model=fable）逐批派发子代理审查。
 正确：摘取恰好包含问题文字的最短连续子串（10-80 字为宜）
 ```
 
-**验证方法**：每写完一条 issue，在译文 DOCX 对应段落中 Ctrl+F 搜索 target_quote，搜不到 = 必定失败。
+**验证方法**：每写完一条 issue，以下两步必须全部通过：
+1. 在译文 DOCX 对应段落中 Ctrl+F 搜索 target_quote，搜不到 = 必定失败
+2. **v2.23**: 以 `split_target.json` 对应段落（index = paragraph_index）的 `text` 字段核对 target_quote —— 必须逐字一致。若不同，修正 target_quote 为 split 中的原文。禁止手打、省略号、改写
 
 **铁律 B 详解——一检查项一 issue**：
 
@@ -1739,6 +1750,7 @@ Phase 1 `pair_files.py` 输出已包含 `source.filename` / `source.format` / `t
 
 
 ## 版本
+- v2.23 (2026-07-02): **Pipeline 对齐修复 — 补桥 + 强化匹配**：新建 `build_batches.py`（连接 split JSON 和 prepare_batch_prompt.py 的桥梁——按 15 段分批，TABLE_CELL 按章均匀分配，paragraph_index 对齐 doc.paragraphs）；`prepare_batch_prompt.py` 的 `_build_table_context()` 新增从 `batch_data["tables"]` 读取的支持（兼容新旧两种 batch 格式）；`write_comments.py` 新增 Strategy 3 fallback 模糊匹配（去空白匹配 + 最长中文片段搜索）+ 邻段搜索（±5 段查找 target_quote）+ 匹配失败诊断输出；SKILL.md 新增硬约束 #8（禁止手动构造 batch——必须用 build_batches.py）和 #9（Phase 4 prompt 必须用 prepare_batch_prompt.py 输出）+ 铁律 A 增强（以 split_target.json 核验 target_quote）；Phase 4.1.0 流程新增 Step 4.0.0.5。目的：消除 Agent 手动构造 batch 导致的 paragraph_index 错位（匹配率 86%→9%）和 3.9/5.9/5.10 trigger 缺失
 - v2.22 (2026-07-01): **表格审查盲区修复 + 标题翻译检查**：`inject_context.py` 的 `_collect_text()`/`_collect_paragraphs()` 扩展遍历 `chapters[i].tables`，将表格单元格作为 TABLE_CELL 条目注入段落流；`prepare_batch_prompt.py` 新增 `_build_table_context()`（按表号分组渲染单元格矩阵）+ 3 个新 trigger（3.9 标题翻译/5.9 表格内容翻译/5.10 表格脚注）+ 增强 2.26 英文残留覆盖全英文标题和表格标签；`write_comments.py` 新增 `_build_table_cell_map()` + `--split-target` 参数支持表格单元格批注写入；`validate_phase4_output.py` 修复 C1（2.16 被 2.19 覆盖的复制粘贴 bug）+ 新增 3.9/5.9/5.10 到 ALL_CHECK_IDS 和 DIM_GROUPS。目的：解决 Phase 4 完全看不见表格内容导致 15/103 张表格错误和 11 个英文标题全部漏检
 - v2.21 (2026-07-01): **低频关键术语不遗漏**：`extract_key_terminology()` 从单一频率过滤改为多层信号加权——新增 `client_glossary`/`source_paras` 参数，三路信号（客户要求无条件保留/结构位置标题表格摘要/领域关键标识符 H-code CVE CAS）使低频但重要的术语不被遗漏；新增 `critical_low_freq_terms` 输出字段；`importance_reason` 字段标注每个术语的保留原因；修复 `main()` 中 `--client-glossary` 死代码；`prepare_batch_prompt.py` 同步读取新字段并注入 batch prompt。目的：解决客户要求的术语/标题中的核心概念/领域关键标识符即使只出现1-2次也能进入 Phase 4 审查
 - v2.20 (2026-07-01): **领域自适应触发清单**：将 CHECKLIST_ROUND2 中 6 个含医学特定示例的 trigger question 替换为领域中性原则（2.4/2.6/2.25/3.8/4.1/4.5）；新增 4 套领域特定翻译模式指南（medical_clinical/legal_regulatory/technical_cybersecurity/generic_technical）作为 DOMAIN_TRANSLATION_GUIDES 常量；基于 inject_context.py 检测到的 domain.primary 自动选择并注入 Round 2 末尾；EXPECTED_FINDINGS_HINT 去除医学特定校准引用，改为领域中性基线 EXPECTED_FINDINGS_HINT_BASE。目的：消除医学文档过拟合，使校对清单对法律、网络安全、SDS、专利等文档同样有效

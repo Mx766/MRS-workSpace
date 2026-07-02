@@ -80,21 +80,36 @@ def find_high_risk_in_batch(
     return [p for p in high_risk_paragraphs if p.get("paragraph_index") in batch_indices]
 
 
-def _build_table_context(batch_paras: list[dict]) -> list[dict]:
-    """从 batch 段落中提取表格单元格，按 table_index 分组渲染。
+def _build_table_context(batch_paras: list[dict], batch_tables: list[dict] = None) -> list[dict]:
+    """从 batch 数据中提取表格信息，按 table_index 分组渲染。
 
-    每组输出: {table_index, rows, cols, cells: [[text, ...], ...], sample_paras: [...]}
+    v2.23: 支持两种格式:
+      1. (旧) TABLE_CELL 条目混在 batch_paras 中 — 提取 is_table_cell 条目
+      2. (新) tables 独立在 batch_tables 中 — 使用预分组的 tables[].cells[]
+
+    每组输出: {table_index, total_rows, total_cols, cell_count, cells: [[text, ...], ...]}
     限制: 每表最多 30 个单元格，超过截断并标注。
     """
-    # 收集 TABLE_CELL 条目
-    table_cells = [p for p in batch_paras if p.get("is_table_cell")]
-    if not table_cells:
+    all_cells = []
+
+    # ── 方式1: 从 batch_paras 中提取 TABLE_CELL (旧格式兼容) ──
+    table_cells_inline = [p for p in batch_paras if p.get("is_table_cell")]
+    if table_cells_inline:
+        all_cells = table_cells_inline
+
+    # ── 方式2: 从 batch_tables 中提取 (新格式) ──
+    if batch_tables and not all_cells:
+        for t in batch_tables:
+            for c in t.get("cells", []):
+                all_cells.append(c)
+
+    if not all_cells:
         return []
 
     # 按 table_index 分组
     from collections import defaultdict
     by_table = defaultdict(list)
-    for p in table_cells:
+    for p in all_cells:
         ti = p.get("table_index", 0)
         by_table[ti].append(p)
 
@@ -109,7 +124,7 @@ def _build_table_context(batch_paras: list[dict]) -> list[dict]:
         # 构建单元格矩阵 (1-based)
         matrix = {}
         for c in cells:
-            matrix[(c.get("row", 0), c.get("col", 0))] = c.get("text", "")
+            matrix[(c.get("row", 0), c.get("col", 0))] = c.get("text", c.get("target_text", ""))
 
         # 渲染为行列表（截断）
         rows_display = []
@@ -205,7 +220,8 @@ def build_batch_prompt_context(
                 )
 
     # v2.22: 构建表格上下文 — 将 TABLE_CELL 条目按表分组
-    table_context = _build_table_context(batch_paras)
+    # v2.23: 同时支持 batch_data["tables"] 分离格式
+    table_context = _build_table_context(batch_paras, batch_data.get("tables"))
 
     # 构建 meta（跨格式标志等）
     meta = context.get("meta", {})
