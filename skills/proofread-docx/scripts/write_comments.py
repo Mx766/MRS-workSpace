@@ -201,7 +201,14 @@ def write_word_comments(filepath: str, issues: list[dict],
     total_matched = 0
     total_fuzzy = 0
     total_neighbor = 0
+    total_global = 0
     total_bare = 0
+
+    # v2.24: Pre-build global full-text index for document-wide fallback search
+    _all_para_texts = []
+    for i, p in enumerate(doc.paragraphs):
+        ft = ''.join(r.text for r in p.runs)
+        _all_para_texts.append((i + 1, ft))
 
     # v2.23: 匹配失败诊断计数器
     diag = {
@@ -212,6 +219,7 @@ def write_word_comments(filepath: str, issues: list[dict],
         "matched_exact": 0,
         "matched_fuzzy": 0,
         "matched_neighbor": 0,
+        "matched_global": 0,
     }
 
     # ── 1a: Paragraph-level issues (pi >= 1) ──
