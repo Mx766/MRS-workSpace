@@ -210,6 +210,33 @@ def write_word_comments(filepath: str, issues: list[dict],
         ft = ''.join(r.text for r in p.runs)
         _all_para_texts.append((i + 1, ft))
 
+    # v2.24: Resolve pi=-1 issues by searching document for target_quote
+    # Many issues have pi=-1 because the Agent couldn't determine paragraph_index,
+    # but the target_quote text IS present somewhere in the document.
+    # This pre-fix resolves them before the matching pipeline runs.
+    resolved_from_doc_level = 0
+    still_doc_level = []
+    for issue in doc_level_issues:
+        tq = issue.get('target_quote', '').strip()
+        is_mech = bool(issue.get('type'))
+        if tq and not is_mech:
+            found = False
+            for gpi, gtext in _all_para_texts:
+                if tq in gtext:
+                    issues_by_para.setdefault(gpi, []).append(issue)
+                    resolved_from_doc_level += 1
+                    found = True
+                    break
+            if not found:
+                still_doc_level.append(issue)
+        else:
+            still_doc_level.append(issue)
+    doc_level_issues = still_doc_level
+    if resolved_from_doc_level > 0:
+        print(f'[write_comments] v2.24: Resolved {resolved_from_doc_level} pi=-1 issues → found in paragraphs')
+        # Re-count mechanical issues in the remaining doc_level_issues
+        mech_count = sum(1 for i in doc_level_issues if i.get('type'))
+
     # v2.23: 匹配失败诊断计数器
     diag = {
         "empty_target": 0,
@@ -435,6 +462,48 @@ def write_word_comments(filepath: str, issues: list[dict],
                 if matched:
                     break
 
+            # ── v2.24: Document-wide search as ultimate fallback ──
+            # When paragraph_index is wrong (Agent used item_id instead of split_index),
+            # the claimed paragraph and its ±5 neighbors won't contain the target text.
+            # Search the ENTIRE document — target_quote text IS correct and somewhere in the DOCX.
+            if not matched and target:
+                for gpi, gtext in _all_para_texts:
+                    # Skip the paragraph and neighbors we already checked (avoid redundant work)
+                    if abs(gpi - para_idx) <= 5:
+                        continue
+                    if target in gtext:
+                        nb_para = doc.paragraphs[gpi - 1]
+                        for key_len in [15, 10, 8, 5]:
+                            key = target[:key_len].strip()
+                            if not key or len(key) < 3:
+                                continue
+                            for run in nb_para.runs:
+                                if not run.text.strip():
+                                    continue
+                                if key in run.text:
+                                    rPr = run._r.get_or_add_rPr()
+                                    if rPr.find(qn('w:shd')) is None:
+                                        shd = OxmlElement('w:shd')
+                                        shd.set(qn('w:val'), 'clear')
+                                        shd.set(qn('w:color'), 'auto')
+                                        shd.set(qn('w:fill'), fill_color)
+                                        rPr.append(shd)
+                                        hl = OxmlElement('w:highlight')
+                                        hl.set(qn('w:val'), hl_name)
+                                        rPr.append(hl)
+                                    cr = OxmlElement('w:commentReference')
+                                    cr.set(qn('w:id'), str(comment_id))
+                                    rPr.append(cr)
+                                    _add_cmt_range(nb_para._p, run._r, comment_id)
+                                    total_global += 1
+                                    diag["matched_global"] += 1
+                                    matched = True
+                                    break
+                            if matched:
+                                break
+                        if matched:
+                            break
+
             if not matched:
                 # Bare ref: insert after pPr (NOT at paragraph end — avoids highlight suppression)
                 if not target:
@@ -500,13 +569,13 @@ def write_word_comments(filepath: str, issues: list[dict],
             print(f'  Document-level (pi=0): {doc_level_count} comments at last paragraph')
 
     # ── v2.23: 匹配诊断 ──
-    total_matched_all = total_matched + total_fuzzy + total_neighbor
+    total_matched_all = total_matched + total_fuzzy + total_neighbor + total_global
     total_with_target = total_issues - diag["empty_target"]
     if total_with_target > 0:
         match_rate = total_matched_all / total_with_target * 100
     else:
         match_rate = 0
-    print(f'[write_comments] 匹配统计: exact={total_matched}, fuzzy={total_fuzzy}, neighbor={total_neighbor}, bare={total_bare}')
+    print(f'[write_comments] 匹配统计: exact={total_matched}, fuzzy={total_fuzzy}, neighbor={total_neighbor}, global={total_global}, bare={total_bare}')
     print(f'[write_comments] 匹配率: {total_matched_all}/{total_with_target} = {match_rate:.0f}%')
     if total_bare > total_with_target * 0.5:
         print(f'[write_comments] ⚠ 匹配率仅{match_rate:.0f}%——建议检查paragraph_index是否与DOCX对齐，'
@@ -514,6 +583,8 @@ def write_word_comments(filepath: str, issues: list[dict],
     if verbose:
         print(f'[write_comments] 失败原因: empty_target={diag["empty_target"]}, '
               f'para_empty={diag["para_empty"]}, target_not_found={diag["target_not_in_para"]}')
+        if total_global > 0:
+            print(f'[write_comments] ⚠ global search rescued {total_global} issues — paragraph_index was significantly wrong')
 
     # ══════════════════════════════════════════════════
     # STEP 2: ZIP layer — build comments.xml,
@@ -683,15 +754,14 @@ def write_word_comments(filepath: str, issues: list[dict],
         ref_count = doc_xml.count(b'commentReference')
         has_lxml_ns = b'ns0:' in doc_xml or b'ns1:' in doc_xml
 
-    matched_highlights = ref_count  # Each commentReference in a highlighted run counts
-    unmatched = total_issues - total_matched
+    unmatched = total_issues - total_matched_all
 
     if verbose:
         print(f'STEP 2: comments.xml + rels + CT injected via ZIP')
         print(f'  Highlights (w:shd): {shd_count}')
         print(f'  Comment refs: {ref_count}')
         print(f'  lxml artifacts: {"NONE — OK" if not has_lxml_ns else "FOUND — BAD!"}')
-        print(f'  Matched: {total_matched}/{total_issues} highlighted')
+        print(f'  Matched: {total_matched_all}/{total_issues} highlighted')
         print(f'  Unmatched: {unmatched} (bare ref)')
         print(f'  Output: {output}')
 
@@ -700,7 +770,7 @@ def write_word_comments(filepath: str, issues: list[dict],
         'output': str(Path(output).resolve()),
         'total_comments': total_issues,
         'highlights': shd_count,
-        'matched': total_matched,
+        'matched': total_matched_all,
         'unmatched': unmatched,
         'has_lxml_artifacts': has_lxml_ns,
     }

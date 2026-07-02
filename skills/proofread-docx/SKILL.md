@@ -46,6 +46,7 @@ python -c "import docx, openpyxl; print('deps ok')"
 | **7** | **每次运行全量重建，禁止复用旧版本缓存** | 从旧版本目录拷贝 cache/ → 旧数据污染新版本、跳过脚本执行、Phase 4 复用旧 AI 产出 |
 | **8** | **禁止手动构造 batch 数据——必须使用 build_batches.py** (v2.23) | 手动构造 = paragraph_index 不保证对齐 DOCX → 批注匹配率崩盘（实测从86%跌至9%） |
 | **9** | **Phase 4 prompt 必须使用 prepare_batch_prompt.py 输出** (v2.23) | 不走脚本 = 3.9标题翻译/5.9表格内容/5.10表格脚注等关键 trigger 缺失 → 标题/表格漏检 |
+| **10** | **Phase 6 必须用 write_comments.py v2.24+ 写入** (v2.24) | 旧版匹配仅 ±5 段邻域搜索，paragraph_index 错位 >5 时全部裸引。v2.24 新增全局搜索回退 + pi=-1 自动解析，匹配率从 36%→85% |
 
 ---
 
@@ -1775,3 +1776,4 @@ Phase 1 `pair_files.py` 输出已包含 `source.filename` / `source.format` / `t
 - v2.1 (2026-06-25): Phase 4 表达规范从 6 项扩展到 22 项（新增翻译腔模式库 7 项、用词准确性 8 项、句法流畅度 4 项）；术语合规增加段内/跨段统一检查；新增逐段两轮检查执行规范
 - v2.0 (2026-06-25): 重构为结构化检查清单，修复 auto-scan bug，加前置条件检查，severity 统一为 critical/medium/low
 - v1.0 (2026-06-25): 初始版本
+- v2.24 (2026-07-02): write_comments.py 新增全局搜索回退 (para_index 错位不限距离) + pi=-1 自动解析 (target_quote→段落匹配)。v4 回归测试：匹配率 36%→85%，高亮数 111→243。新增硬约束 #10。
