@@ -210,6 +210,36 @@ def write_word_comments(filepath: str, issues: list[dict],
         ft = ''.join(r.text for r in p.runs)
         _all_para_texts.append((i + 1, ft))
 
+    # v2.26: Build text box index for annotation via lxml
+    # Text boxes are invisible to python-docx — must use direct XML manipulation.
+    # The index maps paragraph_index → (txbx_index, para_in_textbox) for later lookup.
+    _textbox_index = {}
+    _textbox_comments = {}  # paragraph_index → list of (comment_id, sev, issue)
+    try:
+        import zipfile as _zipfile
+        from lxml import etree as _lxe
+        NS_W_TB = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
+        with _zipfile.ZipFile(filepath, 'r') as _zf:
+            _doc_xml_data = _zf.read('word/document.xml')
+        _doc_root = _lxe.fromstring(_doc_xml_data)
+        _txbx_elements = _doc_root.findall(f'.//{{{NS_W_TB}}}txbxContent')
+        _tb_idx = 0
+        _remainder = len(_all_para_texts) + 1  # start after all doc.paragraphs
+        # table cells start after text boxes — calculate approximate text box count
+        for _txbx in _txbx_elements:
+            _paras = _txbx.findall(f'{{{NS_W_TB}}}p')
+            for _pi, _p in enumerate(_paras):
+                _texts = []
+                for _t in _p.iter(f'{{{NS_W_TB}}}t'):
+                    if _t.text:
+                        _texts.append(_t.text)
+                if ''.join(_texts).strip():
+                    _textbox_index[_remainder] = (_tb_idx, _pi, ''.join(_texts))
+                    _remainder += 1
+            _tb_idx += 1
+    except Exception:
+        pass  # If text box extraction fails, continue without it
+
     # v2.24: Resolve pi=-1 issues by searching document for target_quote
     # Many issues have pi=-1 because the Agent couldn't determine paragraph_index,
     # but the target_quote text IS present somewhere in the document.
@@ -253,6 +283,7 @@ def write_word_comments(filepath: str, issues: list[dict],
     # Process first so they get lower comment_ids
     for para_idx in sorted(issues_by_para.keys()):
         is_table_cell = False
+        is_text_box = False
         if para_idx > len(doc.paragraphs):
             # v2.22: 检查是否为表格单元格索引
             cell_info = (table_cell_map or {}).get(para_idx)
@@ -266,6 +297,18 @@ def write_word_comments(filepath: str, issues: list[dict],
                     is_table_cell = True
                 except (IndexError, AttributeError):
                     continue
+            # v2.26: 检查是否为文本框索引（python-docx 不可见 → 稍后 XML 注入）
+            elif para_idx in _textbox_index:
+                is_text_box = True
+                # Just record comments — actual annotation done later via lxml
+                sorted_issues = sorted(issues_by_para[para_idx],
+                                       key=lambda x: SEV_ORDER.get(x.get('severity', 'medium'), 1))
+                for issue in sorted_issues:
+                    sev = issue.get('severity', 'medium')
+                    para_comments.setdefault(para_idx, []).append((comment_id, sev, issue))
+                    _textbox_comments.setdefault(para_idx, []).append((comment_id, sev, issue))
+                    comment_id += 1
+                continue
             else:
                 continue
         else:
@@ -585,6 +628,85 @@ def write_word_comments(filepath: str, issues: list[dict],
               f'para_empty={diag["para_empty"]}, target_not_found={diag["target_not_in_para"]}')
         if total_global > 0:
             print(f'[write_comments] ⚠ global search rescued {total_global} issues — paragraph_index was significantly wrong')
+
+    # ══════════════════════════════════════════════════
+    # STEP 1.5: v2.26 — Text box annotation via lxml
+    # Text boxes (txbxContent) are invisible to python-docx.
+    # Apply highlights + comment refs directly to document.xml.
+    # ══════════════════════════════════════════════════
+    textbox_annotated = 0
+    if _textbox_comments:
+        try:
+            import zipfile as _zipfile
+            from lxml import etree as _lxe
+            NS_W_XML = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
+            with _zipfile.ZipFile(tmppath, 'r') as _zf:
+                _entries = {info.filename: (info, _zf.read(info.filename))
+                           for info in _zf.infolist()}
+            _doc_root = _lxe.fromstring(_entries['word/document.xml'][1])
+            _txbx_elements = _doc_root.findall(f'.//{{{NS_W_XML}}}txbxContent')
+            _tb_idx = 0
+            for _txbx in _txbx_elements:
+                _paras = _txbx.findall(f'{{{NS_W_XML}}}p')
+                for _pi, _p_elem in enumerate(_paras):
+                    # Calculate the paragraph_index that build_batches.py would assign
+                    _tb_pi = len(_all_para_texts) + 1
+                    for _k, (_tbi, _ppi, _txt) in _textbox_index.items():
+                        if _tbi == _tb_idx and _ppi == _pi:
+                            _tb_pi = _k
+                            break
+                    if _tb_pi in _textbox_comments:
+                        _fill_color = 'FFCCCC'  # default red
+                        for _cid, _sev, _iss in _textbox_comments[_tb_pi]:
+                            # Determine color based on severity
+                            _hl_colors = {'critical': ('FFCCCC', 'red'), 'medium': ('FFF9C4', 'yellow'), 'low': ('C8E6C9', 'green')}
+                            _fill, _hl_name = _hl_colors.get(_sev, ('FFFF00', 'yellow'))
+                            _fill_color = _fill
+                            # Add to all runs in this paragraph
+                            _runs = _p_elem.findall(f'{{{NS_W_XML}}}r')
+                            if len(_runs) == 0:
+                                _r = _lxe.SubElement(_p_elem, f'{{{NS_W_XML}}}r')
+                                _runs = [_r]
+                            for _run in _runs:
+                                _rPr = _run.find(f'{{{NS_W_XML}}}rPr')
+                                if _rPr is None:
+                                    _rPr = _lxe.Element(f'{{{NS_W_XML}}}rPr')
+                                    _run.insert(0, _rPr)
+                                _shd = _rPr.find(f'{{{NS_W_XML}}}shd')
+                                if _shd is None:
+                                    _shd = _lxe.SubElement(_rPr, f'{{{NS_W_XML}}}shd')
+                                    _shd.set(f'{{{NS_W_XML}}}val', 'clear')
+                                    _shd.set(f'{{{NS_W_XML}}}color', 'auto')
+                                    _shd.set(f'{{{NS_W_XML}}}fill', _fill_color)
+                                    _hl = _lxe.SubElement(_rPr, f'{{{NS_W_XML}}}highlight')
+                                    _hl.set(f'{{{NS_W_XML}}}val', _hl_name)
+                                _cr = _lxe.SubElement(_rPr, f'{{{NS_W_XML}}}commentReference')
+                                _cr.set(f'{{{NS_W_XML}}}id', str(_cid))
+                            # Add range markers
+                            _rs = _lxe.Element(f'{{{NS_W_XML}}}commentRangeStart')
+                            _rs.set(f'{{{NS_W_XML}}}id', str(_cid))
+                            _p_elem.insert(0, _rs)
+                            _re = _lxe.Element(f'{{{NS_W_XML}}}commentRangeEnd')
+                            _re.set(f'{{{NS_W_XML}}}id', str(_cid))
+                            _p_elem.append(_re)
+                            textbox_annotated += 1
+                _tb_idx += 1
+            # Write back modified document.xml
+            _doc_xml_out = _lxe.tostring(_doc_root, xml_declaration=True, encoding='UTF-8', standalone=True)
+            _entries['word/document.xml'] = (_entries['word/document.xml'][0], _doc_xml_out)
+            # Rewrite temp file
+            with _zipfile.ZipFile(tmppath, 'w', _zipfile.ZIP_DEFLATED) as _zf:
+                for _fname, (_info, _data) in _entries.items():
+                    if _info is not None:
+                        _zf.writestr(_info, _data)
+                    else:
+                        _zf.writestr(_fname, _data)
+        except Exception as _e:
+            if verbose:
+                print(f'[write_comments] ⚠ Text box annotation failed: {_e}')
+
+    if textbox_annotated > 0:
+        print(f'[write_comments] v2.26: Text box annotations via XML: {textbox_annotated} comments')
 
     # ══════════════════════════════════════════════════
     # STEP 2: ZIP layer — build comments.xml,

@@ -104,11 +104,11 @@ def collect_paragraph_entries(target_data: dict, source_data: dict = None) -> li
     return entries
 
 
-def collect_table_entries(target_data: dict) -> list[dict]:
+def collect_table_entries(target_data: dict, start_index: int = None) -> list[dict]:
     """从 split JSON 收集表格单元格条目。
 
     返回列表，每个条目含:
-      - index: 全局索引 (从 total_paragraphs+1 递增，对齐 write_comments.py)
+      - index: 全局索引 (从 start_index 递增，对齐 write_comments.py)
       - is_table_cell: True
       - table_index, row, col: 表格单元格元数据
       - target_text: 单元格译文文本
@@ -120,7 +120,9 @@ def collect_table_entries(target_data: dict) -> list[dict]:
             total_paras += len(ch.get("paragraphs", []))
 
     entries = []
-    cell_idx = total_paras + 1
+    if start_index is None:
+        start_index = total_paras + 1
+    cell_idx = start_index
 
     if "chapters" in target_data:
         for ch in target_data["chapters"]:
@@ -156,6 +158,72 @@ def collect_table_entries(target_data: dict) -> list[dict]:
                                 "paragraph_range": [para_min, para_max],
                             })
                             cell_idx += 1
+
+    return entries
+
+
+def collect_textbox_entries(docx_path: str, start_index: int) -> list[dict]:
+    """从 DOCX 文档 XML 中提取文本框（txbxContent）内的段落文本。
+
+    python-docx 无法访问文本框内容——必须直接解析 document.xml。
+    这些内容包括封面标题、稽查表、中英对照标签等。
+
+    Args:
+        docx_path: DOCX 文件路径
+        start_index: 起始全局索引（在所有 paragraphs + table cells 之后）
+
+    Returns:
+        文本框段落条目列表，每个含:
+          - index: 全局索引
+          - is_text_box: True
+          - textbox_index: 文本框序号
+          - para_in_textbox: 文本框内段落序号（从 0 开始）
+          - target_text: 文本内容
+    """
+    import zipfile
+    from lxml import etree as ET
+
+    NS_W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'
+
+    entries = []
+    if not os.path.exists(docx_path):
+        return entries
+
+    try:
+        with zipfile.ZipFile(docx_path, 'r') as zf:
+            doc_xml = zf.read('word/document.xml')
+        root = ET.fromstring(doc_xml)
+    except Exception as e:
+        sys.stderr.write(f"[build_batches] 无法解析 DOCX XML: {e}\n")
+        return entries
+
+    # 找到所有 txbxContent 中的 w:p 段落
+    txbx_elements = root.findall(f'.//{{{NS_W}}}txbxContent')
+    txbx_idx = 0
+    idx = start_index
+
+    for txbx in txbx_elements:
+        paras = txbx.findall(f'{{{NS_W}}}p')
+        for pi, p in enumerate(paras):
+            # 提取文本
+            texts = []
+            for t in p.iter(f'{{{NS_W}}}t'):
+                if t.text:
+                    texts.append(t.text)
+            full_text = ''.join(texts).strip()
+            if full_text:
+                entries.append({
+                    "index": idx,
+                    "source_text": "",
+                    "target_text": full_text,
+                    "style": "TEXT_BOX",
+                    "heading_level": None,
+                    "is_text_box": True,
+                    "textbox_index": txbx_idx,
+                    "para_in_textbox": pi,
+                })
+                idx += 1
+        txbx_idx += 1
 
     return entries
 
@@ -279,7 +347,7 @@ def inject_context_data(batches: list[dict], context: dict):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="build_batches v2.23 — 从 split JSON 构建标准化 batch 数据"
+        description="build_batches v2.26 — 从 split JSON + DOCX 构建标准化 batch 数据（含文本框）"
     )
     parser.add_argument(
         "--target-split", required=True,
@@ -288,6 +356,10 @@ def main():
     parser.add_argument(
         "--source-split", default=None,
         help="split_source.json 路径 (Phase 2 产物, optional)"
+    )
+    parser.add_argument(
+        "--docx", default=None,
+        help="译文 DOCX 路径（v2.26: 用于提取文本框内容）"
     )
     parser.add_argument(
         "--context", default=None,
@@ -320,14 +392,25 @@ def main():
 
     # 收集段落条目
     para_entries = collect_paragraph_entries(target_data, source_data)
+    para_count = len(para_entries)
 
-    # 收集表格单元格条目
-    table_entries = collect_table_entries(target_data)
+    # v2.26: 收集文本框条目（索引从 total_paras+1 开始）
+    textbox_entries = []
+    if args.docx:
+        textbox_entries = collect_textbox_entries(args.docx, para_count + 1)
+
+    # 收集表格单元格条目（索引从文本框之后开始）
+    table_start = para_count + len(textbox_entries) + 1
+    table_entries = collect_table_entries(target_data, table_start)
 
     # 切分段落批次
     batches = split_paras_into_batches(para_entries, args.batch_size)
 
-    # 附加表格到对应批次
+    # v2.26: 附加文本框到对应批次（均衡分布）
+    if textbox_entries:
+        _distribute_entries_to_batches(batches, textbox_entries, "text_boxes")
+
+    # 附加表格到对应批次（v2.26: 跨更大范围分布）
     attach_tables_to_batches(batches, table_entries)
 
     # 注入上下文
@@ -341,21 +424,46 @@ def main():
         total = batch["total_batches"]
         fname = f"batch_{batch_id:02d}_data.json"
         fpath = os.path.join(args.output_dir, fname)
-        total_cells = sum(len(t.get("cells", [])) for t in batch.get("tables", []))
+        total_table_cells = sum(len(t.get("cells", [])) for t in batch.get("tables", []))
         n_tables = len(batch.get("tables", []))
+        n_textboxes = len(batch.get("text_boxes", []))
         with open(fpath, 'w', encoding='utf-8') as f:
             json.dump(batch, f, ensure_ascii=False, indent=2)
+        extra = ""
+        if n_tables:
+            extra += f" + {n_tables} tables/{total_table_cells} cells"
+        if n_textboxes:
+            extra += f" + {n_textboxes} textboxes"
         print(f"[build_batches] batch {batch_id}/{total} → {fpath} "
-              f"({batch['paragraph_count']} paras + {n_tables} tables/{total_cells} cells, "
+              f"({batch['paragraph_count']} paras{extra}, "
               f"range: {batch['paragraph_range']})")
 
     # 汇总输出
     total_paras = sum(b["paragraph_count"] for b in batches)
     total_tables = sum(len(b.get("tables", [])) for b in batches)
     total_cells = sum(sum(len(t.get("cells", [])) for t in b.get("tables", [])) for b in batches)
+    total_textboxes = sum(len(b.get("text_boxes", [])) for b in batches)
     print(f"\n[build_batches] 完成: {len(batches)} batches, "
-          f"{total_paras} paragraphs + {total_tables} tables ({total_cells} cells) "
+          f"{total_paras} paragraphs + {total_textboxes} textboxes + "
+          f"{total_tables} tables ({total_cells} cells) "
           f"(batch_size={args.batch_size})")
+
+
+def _distribute_entries_to_batches(batches: list[dict], entries: list[dict], key: str):
+    """将条目标均匀分配到各 batch（轮询方式）。
+
+    Args:
+        batches: batch 列表
+        entries: 要分配的条目列表
+        key: batch 中存储的键名（如 "text_boxes"）
+    """
+    if not entries:
+        return
+    for i, entry in enumerate(entries):
+        bi = i % len(batches)
+        if key not in batches[bi]:
+            batches[bi][key] = []
+        batches[bi][key].append(entry)
 
 
 if __name__ == "__main__":
