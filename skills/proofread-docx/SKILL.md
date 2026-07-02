@@ -1777,3 +1777,4 @@ Phase 1 `pair_files.py` 输出已包含 `source.filename` / `source.format` / `t
 - v2.0 (2026-06-25): 重构为结构化检查清单，修复 auto-scan bug，加前置条件检查，severity 统一为 critical/medium/low
 - v1.0 (2026-06-25): 初始版本
 - v2.24 (2026-07-02): write_comments.py 新增全局搜索回退 (para_index 错位不限距离) + pi=-1 自动解析 (target_quote→段落匹配)。v4 回归测试：匹配率 36%→85%，高亮数 111→243。新增硬约束 #10。
+- v2.25 (2026-07-02): v5 端到端验证——build_batches.py + prepare_batch_prompt.py 标准化流程。Agent 使用 `index` 字段后 paragraph_index 100% 对齐，CONTENTS/SUMMARY 英文标题检出（v4 零检出），write_comments 匹配率 100%。确认：正确流程 + 硬约束 #8/#9 是根治方案，v2.24 全局搜索仅作为安全网。
